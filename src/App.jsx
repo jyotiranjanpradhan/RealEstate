@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import '@mdi/font/css/materialdesignicons.min.css';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Dashboard from "./component/dashboard";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
