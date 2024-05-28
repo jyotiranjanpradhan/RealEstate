@@ -1,8 +1,9 @@
 import React from "react";
+import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import '@mdi/font/css/materialdesignicons.min.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Dashboard from "./component/dashboard";
+import Dashboard from "./components/dashboard";
 
 const App = () => {
   return (

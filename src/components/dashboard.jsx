@@ -43,7 +43,7 @@ const Dashboard = () => {
                     <span>{userProfile.Email}</span>
                   </li>
                 </ul>
-                <Link to="" className="btn btn-sm btn-primary">
+                <Link to="" className="btn btn-sm btn-primary waves-effect waves-light ">
                   View Profile
                 </Link>
               </div>
@@ -61,17 +61,17 @@ const Dashboard = () => {
                 <h5 className="mb-1 card-title">Enquiries</h5>
                 <div className="d-flex align-items-center justify-content-center my-4 gap-2">
                   <Link to="#" className="me-1">
-                    <span className="badge bg-info rounded-pill">
+                    <span className="badge bg-label-info rounded-pill">
                       Prospet
                     </span>
                   </Link>
                   <Link to="#" className="me-1">
-                    <span className="badge bg-danger rounded-pill">
+                    <span className="badge bg-label-danger rounded-pill">
                       Lead
                     </span>
                   </Link>
                   <Link to="#">
-                    <span className="badge bg-primary rounded-pill">
+                    <span className="badge bg-label-primary rounded-pill">
                       Sales
                     </span>
                   </Link>
@@ -128,7 +128,7 @@ const Dashboard = () => {
                       </div>
                       <div className="d-flex align-items-center">
                         <span className="h6 mb-0">12,348</span>
-                        <div className="ms-3 badge bg-success rounded-pill">
+                        <div className="ms-3 badge bg-label-success rounded-pill">
                           +12%
                         </div>
                       </div>
@@ -149,7 +149,7 @@ const Dashboard = () => {
                       </div>
                       <div className="d-flex align-items-center">
                         <span className="h6 mb-0">8,450</span>
-                        <div className="ms-3 badge bg-success rounded-pill">
+                        <div className="ms-3 badge bg-label-success rounded-pill">
                           +32%
                         </div>
                       </div>
@@ -170,7 +170,7 @@ const Dashboard = () => {
                       </div>
                       <div className="d-flex align-items-center">
                         <span className="h6 mb-0">350</span>
-                        <div className="ms-3 badge bg-danger rounded-pill">
+                        <div className="ms-3 badge bg-label-danger rounded-pill">
                           -18%
                         </div>
                       </div>
@@ -191,19 +191,19 @@ const Dashboard = () => {
                 </div>
                 <div className="align-items-center d-flex mb-1">
                   <span className="mb-0">Total Sales</span>
-                  <div className="ms-3 badge bg-secondary rounded-pill">
+                  <div className="ms-3 badge bg-label-secondary rounded-pill">
                     +23%
                   </div>
                 </div>
                 <div className="align-items-center d-flex mb-1">
                   <span className="mb-0">Pipeline Sales</span>
-                  <div className="ms-3 badge bg-primary rounded-pill">
+                  <div className="ms-3 badge bg-label-primary rounded-pill">
                     +35%
                   </div>
                 </div>
                 <div className="align-items-center d-flex mb-1">
                   <span className="mb-0">Quote</span>
-                  <div className="ms-3 badge bg-success rounded-pill">
+                  <div className="ms-3 badge bg-label-success rounded-pill">
                     +30%
                   </div>
                 </div>
@@ -221,7 +221,7 @@ const Dashboard = () => {
               <div className="card-body">
                 <div className="d-flex justify-content-between align-items-start flex-wrap gap-2">
                   <div className="avatar">
-                    <div className="avatar-initial bg-primary rounded">
+                    <div className="avatar-initial bg-label-primary rounded">
                       <i className="mdi mdi-cart-plus mdi-24px"></i>
                     </div>
                   </div>
@@ -235,19 +235,19 @@ const Dashboard = () => {
                   <h5 className="mb-2">Lead Status</h5>
                 </div>
                 <div className="align-items-center d-flex mb-1">
-                  <span className="mb-0 bg-danger badge rounded-pill">
+                  <span className="mb-0 bg-label-danger badge rounded-pill">
                     Hot Lead
                   </span>
                   <div className="fw-bold ms-5 text-danger">20</div>
                 </div>
                 <div className="align-items-center d-flex mb-1">
-                  <span className="mb-0 bg-success badge rounded-pill">
+                  <span className="mb-0 bg-label-success badge rounded-pill">
                     Cold Lead
                   </span>
                   <div className="fw-bold ms-5 text-success">50</div>
                 </div>
                 <div className="align-items-center d-flex mb-1">
-                  <span className="mb-0 bg-warning badge rounded-pill">
+                  <span className="mb-0 bg-label-warning badge rounded-pill">
                     Warm Lead
                   </span>
                   <div className="fw-bold ms-5 text-warning">20</div>
@@ -269,7 +269,7 @@ const Dashboard = () => {
                 <ul className="list-unstyled mb-0">
                   <li className="d-flex pb-1">
                     <div className="avatar flex-shrink-0 me-3">
-                      <span className="avatar-initial rounded bg-primary">
+                      <span className="avatar-initial rounded bg-label-primary">
                         <i className="mdi mdi-currency-usd mdi-20px"></i>
                       </span>
                     </div>
@@ -278,7 +278,7 @@ const Dashboard = () => {
                         <h6 className="mb-0 lh-sm">Salary</h6>
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
-                        <div className="badge bg-secondary rounded-pill fw-normal">
+                        <div className="badge bg-label-secondary rounded-pill fw-normal">
                           1.2k Views
                         </div>
                       </div>
@@ -286,7 +286,7 @@ const Dashboard = () => {
                   </li>
                   <li className="d-flex pb-1">
                     <div className="avatar flex-shrink-0 me-3">
-                      <span className="avatar-initial rounded bg-info">
+                      <span className="avatar-initial rounded bg-label-info">
                         <i className="mdi mdi-code-tags mdi-24px"></i>
                       </span>
                     </div>
@@ -295,7 +295,7 @@ const Dashboard = () => {
                         <h6 className="mb-0 lh-sm">Commission Earned</h6>
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
-                        <div className="badge bg-secondary rounded-pill fw-normal">
+                        <div className="badge bg-label-secondary rounded-pill fw-normal">
                           834 Views
                         </div>
                       </div>
@@ -303,7 +303,7 @@ const Dashboard = () => {
                   </li>
                   <li className="d-flex pb-1">
                     <div className="avatar flex-shrink-0 me-3">
-                      <span className="avatar-initial rounded bg-success">
+                      <span className="avatar-initial rounded bg-label-success">
                         <i className="mdi mdi-camera-image mdi-24px"></i>
                       </span>
                     </div>
@@ -312,7 +312,7 @@ const Dashboard = () => {
                         <h6 className="mb-0 lh-sm">Commission Received</h6>
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
-                        <div className="badge bg-secondary rounded-pill fw-normal">
+                        <div className="badge bg-label-secondary rounded-pill fw-normal">
                           3.7k Views
                         </div>
                       </div>
@@ -320,7 +320,7 @@ const Dashboard = () => {
                   </li>
                   <li className="d-flex pb-1">
                     <div className="avatar flex-shrink-0 me-3">
-                      <span className="avatar-initial rounded bg-warning">
+                      <span className="avatar-initial rounded bg-label-warning">
                         <i className="mdi mdi-palette-outline mdi-24px"></i>
                       </span>
                     </div>
@@ -329,7 +329,7 @@ const Dashboard = () => {
                         <h6 className="mb-0 lh-sm">Commission Due</h6>
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
-                        <div className="badge bg-secondary rounded-pill fw-normal">
+                        <div className="badge bg-label-secondary rounded-pill fw-normal">
                           2.5k Views
                         </div>
                       </div>
@@ -353,7 +353,7 @@ const Dashboard = () => {
                 <ul className="list-unstyled mb-0">
                   <li className="d-flex pb-1">
                     <div className="avatar flex-shrink-0 me-3">
-                      <span className="avatar-initial rounded bg-primary">
+                      <span className="avatar-initial rounded bg-label-primary">
                         <i className="mdi mdi-currency-usd mdi-20px"></i>
                       </span>
                     </div>
@@ -362,7 +362,7 @@ const Dashboard = () => {
                         <h6 className="mb-0 lh-sm">Salary</h6>
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
-                        <div className="badge bg-secondary rounded-pill fw-normal">
+                        <div className="badge bg-label-secondary rounded-pill fw-normal">
                           1.2k Views
                         </div>
                       </div>
@@ -370,7 +370,7 @@ const Dashboard = () => {
                   </li>
                   <li className="d-flex pb-1">
                     <div className="avatar flex-shrink-0 me-3">
-                      <span className="avatar-initial rounded bg-info">
+                      <span className="avatar-initial rounded bg-label-info">
                         <i className="mdi mdi-code-tags mdi-24px"></i>
                       </span>
                     </div>
@@ -379,7 +379,7 @@ const Dashboard = () => {
                         <h6 className="mb-0 lh-sm">Commission Earned</h6>
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
-                        <div className="badge bg-secondary rounded-pill fw-normal">
+                        <div className="badge bg-label-secondary rounded-pill fw-normal">
                           834 Views
                         </div>
                       </div>
@@ -387,7 +387,7 @@ const Dashboard = () => {
                   </li>
                   <li className="d-flex pb-1">
                     <div className="avatar flex-shrink-0 me-3">
-                      <span className="avatar-initial rounded bg-success">
+                      <span className="avatar-initial rounded bg-label-success">
                         <i className="mdi mdi-camera-image mdi-24px"></i>
                       </span>
                     </div>
@@ -396,7 +396,7 @@ const Dashboard = () => {
                         <h6 className="mb-0 lh-sm">Commission Received</h6>
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
-                        <div className="badge bg-secondary rounded-pill fw-normal">
+                        <div className="badge bg-label-secondary rounded-pill fw-normal">
                           3.7k Views
                         </div>
                       </div>
@@ -404,7 +404,7 @@ const Dashboard = () => {
                   </li>
                   <li className="d-flex pb-1">
                     <div className="avatar flex-shrink-0 me-3">
-                      <span className="avatar-initial rounded bg-warning">
+                      <span className="avatar-initial rounded bg-label-warning">
                         <i className="mdi mdi-palette-outline mdi-24px"></i>
                       </span>
                     </div>
@@ -413,7 +413,7 @@ const Dashboard = () => {
                         <h6 className="mb-0 lh-sm">Commission Due</h6>
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
-                        <div className="badge bg-secondary rounded-pill fw-normal">
+                        <div className="badge bg-label-secondary rounded-pill fw-normal">
                           2.5k Views
                         </div>
                       </div>
@@ -457,7 +457,7 @@ const Dashboard = () => {
                   style={{ height: "46px" }}
                 >
                   <div
-                    className="progress-bar fs-big fw-medium text-start bg-light text-heading px-1 px-lg-3"
+                    className="progress-bar fs-big fw-medium text-start bg-label-light text-heading px-1 px-lg-3"
                     role="progressbar"
                     style={{ width: "40%" }}
                     aria-valuenow="39.7"
@@ -467,9 +467,9 @@ const Dashboard = () => {
                     39.7%
                   </div>
                   <div
-                    className="progress-bar fs-big fw-medium text-start bg-primary px-1 px-lg-3"
+                    className="progress-bar fs-big fw-medium text-start  px-1 px-lg-3"
                     role="progressbar"
-                    style={{ width: "20%" }}
+                    style={{ width: "20%",backgroundColor:'#666cff' }}
                     aria-valuenow="28.3"
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -533,7 +533,7 @@ const Dashboard = () => {
                           <span>21 Jul | 08:20-10:30</span>
                         </small>
                       </div>
-                      <div className="badge bg-primary rounded-pill">
+                      <div className="badge bg-label-primary rounded-pill">
                         Business
                       </div>
                     </div>
@@ -555,7 +555,7 @@ const Dashboard = () => {
                           <span>21 Jul | 08:20-10:30</span>
                         </small>
                       </div>
-                      <div className="badge bg-warning rounded-pill">
+                      <div className="badge bg-label-warning rounded-pill">
                         Dinner
                       </div>
                     </div>
@@ -577,7 +577,7 @@ const Dashboard = () => {
                           <span>21 Jul | 08:20-10:30</span>
                         </small>
                       </div>
-                      <div className="badge bg-secondary rounded-pill">
+                      <div className="badge bg-label-secondary rounded-pill">
                         Meetup
                       </div>
                     </div>
@@ -603,7 +603,7 @@ const Dashboard = () => {
                   <div className="col-4">
                     <div className="d-flex gap-2 align-items-center mb-2">
                       <div className="avatar avatar-xs flex-shrink-0">
-                        <div className="avatar-initial rounded bg-warning">
+                        <div className="avatar-initial rounded bg-label-warning">
                           <i className="mdi mdi-cellphone mdi-14px"></i>
                         </div>
                       </div>
@@ -615,7 +615,7 @@ const Dashboard = () => {
                   <div className="col-4">
                     <div className="divider divider-vertical">
                       <div className="divider-text">
-                        <span className="badge-divider-bg bg-secondary">
+                        <span className="badge-divider-bg bg-label-secondary">
                           VS
                         </span>
                       </div>
@@ -625,7 +625,7 @@ const Dashboard = () => {
                     <div className="d-flex gap-2 justify-content-end align-items-center mb-2">
                       <p className="mb-0">Desktop</p>
                       <div className="avatar avatar-xs flex-shrink-0">
-                        <div className="avatar-initial rounded bg-primary">
+                        <div className="avatar-initial rounded bg-label-primary">
                           <i className="mdi mdi-monitor mdi-14px"></i>
                         </div>
                       </div>
@@ -648,9 +648,9 @@ const Dashboard = () => {
                       aria-valuemax="100"
                     ></div>
                     <div
-                      className="progress-bar bg-primary"
+                      className="progress-bar "
                       role="progressbar"
-                      style={{ width: "80%" }}
+                      style={{ width: "80%" ,backgroundColor:'#666cff'}}
                       aria-valuenow="80"
                       aria-valuemin="0"
                       aria-valuemax="100"
@@ -663,7 +663,7 @@ const Dashboard = () => {
           <div className="col-12 col-xl-4 col-md-6">
             <div className="card shadow h-100">
               <div className="card-body">
-                <div className="bg-info text-center mb-3 pt-2 rounded-3">
+                <div className="bg-label-info text-center mb-3 pt-2 rounded-3">
                   <img
                     className="img-fluid"
                     src="/images/illustrations/lead2.png"
@@ -680,7 +680,7 @@ const Dashboard = () => {
                   <div className="col-6">
                     <div className="d-flex">
                       <div className="avatar flex-shrink-0 me-2">
-                        <span className="avatar-initial rounded bg-primary">
+                        <span className="avatar-initial rounded bg-label-primary">
                           <i className="mdi mdi-calendar-blank mdi-24px"></i>
                         </span>
                       </div>
@@ -693,7 +693,7 @@ const Dashboard = () => {
                   <div className="col-6">
                     <div className="d-flex">
                       <div className="avatar flex-shrink-0 me-2">
-                        <span className="avatar-initial rounded bg-primary">
+                        <span className="avatar-initial rounded bg-label-primary">
                           <i className="mdi mdi-timer-outline mdi-24px"></i>
                         </span>
                       </div>
@@ -879,7 +879,7 @@ const Dashboard = () => {
                       </div>
                       <div className="d-flex align-items-center ">
                         <span className="h6 mb-0 ">12,348</span>
-                        <div className="ms-3 badge bg-success rounded-pill">
+                        <div className="ms-3 badge bg-label-success rounded-pill">
                           +12%
                         </div>
                       </div>
@@ -901,7 +901,7 @@ const Dashboard = () => {
                       </div>
                       <div className="d-flex align-items-center">
                         <span className="h6 mb-0">8,450</span>
-                        <div className="ms-3 badge bg-success rounded-pill">
+                        <div className="ms-3 badge bg-label-success rounded-pill">
                           +32%
                         </div>
                       </div>
@@ -923,7 +923,7 @@ const Dashboard = () => {
                       </div>
                       <div className="d-flex align-items-center">
                         <span className="h6 mb-0">350</span>
-                        <div className="ms-3 badge bg-danger rounded-pill">
+                        <div className="ms-3 badge bg-label-danger rounded-pill">
                           -18%
                         </div>
                       </div>
@@ -945,7 +945,7 @@ const Dashboard = () => {
                       </div>
                       <div className="d-flex align-items-center">
                         <span className="h6 mb-0">25,566</span>
-                        <div className="ms-3 badge bg-success rounded-pill">
+                        <div className="ms-3 badge bg-label-success rounded-pill">
                           +42%
                         </div>
                       </div>
@@ -993,7 +993,7 @@ const Dashboard = () => {
                 <div className="row mb-2">
                   <div className="col-6 d-flex align-items-center">
                     <div className="avatar">
-                      <div className="avatar-initial bg-primary rounded">
+                      <div className="avatar-initial bg-label-primary rounded">
                         <i className="mdi mdi-trending-up mdi-24px"></i>
                       </div>
                     </div>
@@ -1004,7 +1004,7 @@ const Dashboard = () => {
                   </div>
                   <div className="col-6 d-flex align-items-center">
                     <div className="avatar">
-                      <div className="avatar-initial bg-warning rounded">
+                      <div className="avatar-initial bg-label-warning rounded">
                         <i className="mdi mdi-currency-usd mdi-24px"></i>
                       </div>
                     </div>
@@ -1160,7 +1160,7 @@ const Dashboard = () => {
                             </td>
                             <td className="h6 ps-0">Oneplus 9 Pro</td>
                             <td className="text-heading text-end pe-0">
-                              <span className="badge rounded-pill bg-primary">
+                              <span className="badge rounded-pill bg-label-primary">
                                 Out of Stock
                               </span>
                             </td>
@@ -1180,7 +1180,7 @@ const Dashboard = () => {
                             </td>
                             <td className="h6 ps-0">Apple iPhone 13 Pro</td>
                             <td className="text-heading text-end pe-0">
-                              <span className="badge rounded-pill bg-success">
+                              <span className="badge rounded-pill bg-label-success">
                                 In Stock
                               </span>
                             </td>
@@ -1200,7 +1200,7 @@ const Dashboard = () => {
                             </td>
                             <td className="h6 ps-0">Oneplus 9 Pro</td>
                             <td className="text-heading text-end pe-0">
-                              <span className="badge rounded-pill bg-warning">
+                              <span className="badge rounded-pill bg-label-warning">
                                 Coming Soon
                               </span>
                             </td>
@@ -1253,7 +1253,7 @@ const Dashboard = () => {
                             </td>
                             <td className="h6 ps-0">Apple Mac Mini</td>
                             <td className="text-heading text-end pe-0">
-                              <span className="badge rounded-pill bg-success">
+                              <span className="badge rounded-pill bg-label-success">
                                 In Stock
                               </span>
                             </td>
@@ -1273,7 +1273,7 @@ const Dashboard = () => {
                             </td>
                             <td className="h6 ps-0">Newest HP Envy x360</td>
                             <td className="text-heading text-end pe-0">
-                              <span className="badge rounded-pill bg-warning">
+                              <span className="badge rounded-pill bg-label-warning">
                                 Coming Soon
                               </span>
                             </td>
@@ -1293,7 +1293,7 @@ const Dashboard = () => {
                             </td>
                             <td className="h6 ps-0">Dell Inspiron 3000</td>
                             <td className="text-heading text-end pe-0">
-                              <span className="badge rounded-pill bg-primary">
+                              <span className="badge rounded-pill bg-label-primary">
                                 Out of Stock
                               </span>
                             </td>
@@ -1344,7 +1344,7 @@ const Dashboard = () => {
                             </td>
                             <td className="h6 ps-0">Sony Play Station 5</td>
                             <td className="text-heading text-end pe-0">
-                              <span className="badge rounded-pill bg-warning">
+                              <span className="badge rounded-pill bg-label-warning">
                                 Coming Soon
                               </span>
                             </td>
@@ -1364,7 +1364,7 @@ const Dashboard = () => {
                             </td>
                             <td className="h6 ps-0">XBOX Series X</td>
                             <td className="text-heading text-end pe-0">
-                              <span className="badge rounded-pill bg-primary">
+                              <span className="badge rounded-pill bg-label-primary">
                                 Out of Stock
                               </span>
                             </td>
@@ -1384,7 +1384,7 @@ const Dashboard = () => {
                             </td>
                             <td className="h6 ps-0">Nintendo Switch</td>
                             <td className="text-heading text-end pe-0">
-                              <span className="badge rounded-pill bg-success">
+                              <span className="badge rounded-pill bg-label-success">
                                 In Stock
                               </span>
                             </td>
