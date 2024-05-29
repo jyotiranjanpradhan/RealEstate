@@ -79,7 +79,18 @@ const[AppleiPhone13ProRevenue,setAppleiPhone13ProRevenue]=useState("45")
 const[AppleiPhone13ProConversion,setAppleiPhone13ProConversion]=useState("-18")
 const[Oneplus9Pro2Revenue,setOneplus9Pro2Revenue]=useState("98.2")
 const[Oneplus9Pro2Conversion,setOneplus9Pro2Conversion]=useState("+55")
-
+const[AppleMacMiniRevenue,setAppleMacMiniRevenue]=useState("94.6")
+const[AppleMacMiniConversion,setAppleMacMiniConversion]=useState("+16")
+const[NewestHPEnvyx360Revenue,setNewestHPEnvyx360Revenue]=useState("76.5")
+const[NewestHPEnvyx360Conversion,setNewestHPEnvyx360Conversion]=useState("+27")
+const[DellInspiron3000Revenue,setDellInspiron3000Revenue]=useState("69.3")
+const[DellInspiron3000Conversion,setDellInspiron3000Conversion]=useState("-9")
+const[SonyPlayStation5Revenue,setSonyPlayStation5Revenue]=useState("18.6")
+const[SonyPlayStation5Conversion,setSonyPlayStation5Conversion]=useState("+34")
+const[XBOXSeriesXRevenue,setXBOXSeriesXRevenue]=useState("29.7")
+const[XBOXSeriesXConversion,setXBOXSeriesXConversion]=useState("-21")
+const[NintendoSwitchRevenue,setNintendoSwitchRevenue]=useState("10.4")
+const[NintendoSwitchConversion,setNintendoSwitchConversion]=useState("+38")
 // const[]=useState()
   return (
     <>
@@ -1326,9 +1337,9 @@ const[Oneplus9Pro2Conversion,setOneplus9Pro2Conversion]=useState("+55")
                                 In Stock
                               </span>
                             </td>
-                            <td className="h6 mb-0 text-end pe-0">$94.6k</td>
+                            <td className="h6 mb-0 text-end pe-0">${AppleMacMiniRevenue}k</td>
                             <td className="pe-0 text-end fw-medium h6 text-success">
-                              +16%
+                             {AppleMacMiniConversion}%
                             </td>
                           </tr>
                           <tr>
@@ -1346,9 +1357,9 @@ const[Oneplus9Pro2Conversion,setOneplus9Pro2Conversion]=useState("+55")
                                 Coming Soon
                               </span>
                             </td>
-                            <td className="h6 mb-0 text-end pe-0">$76.5k</td>
+                            <td className="h6 mb-0 text-end pe-0">${NewestHPEnvyx360Revenue}k</td>
                             <td className="pe-0 text-end fw-medium h6 text-success">
-                              +27%
+                              {NewestHPEnvyx360Conversion}%
                             </td>
                           </tr>
                           <tr>
@@ -1366,9 +1377,9 @@ const[Oneplus9Pro2Conversion,setOneplus9Pro2Conversion]=useState("+55")
                                 Out of Stock
                               </span>
                             </td>
-                            <td className="h6 mb-0 text-end pe-0">$69.3k</td>
+                            <td className="h6 mb-0 text-end pe-0">${DellInspiron3000Revenue}k</td>
                             <td className="pe-0 text-end fw-medium h6 text-danger">
-                              -9%
+                              {DellInspiron3000Conversion}%
                             </td>
                           </tr>
                         </tbody>
@@ -1417,9 +1428,9 @@ const[Oneplus9Pro2Conversion,setOneplus9Pro2Conversion]=useState("+55")
                                 Coming Soon
                               </span>
                             </td>
-                            <td className="h6 mb-0 text-end pe-0">$18.6k</td>
+                            <td className="h6 mb-0 text-end pe-0">${SonyPlayStation5Revenue}k</td>
                             <td className="pe-0 text-end fw-medium h6 text-success">
-                              +34%
+                              {SonyPlayStation5Conversion}%
                             </td>
                           </tr>
                           <tr>
@@ -1437,9 +1448,9 @@ const[Oneplus9Pro2Conversion,setOneplus9Pro2Conversion]=useState("+55")
                                 Out of Stock
                               </span>
                             </td>
-                            <td className="h6 mb-0 text-end pe-0">$29.7k</td>
+                            <td className="h6 mb-0 text-end pe-0">${XBOXSeriesXRevenue}k</td>
                             <td className="pe-0 text-end fw-medium h6 text-danger">
-                              -21%
+                              {XBOXSeriesXConversion}%
                             </td>
                           </tr>
                           <tr>
@@ -1457,9 +1468,9 @@ const[Oneplus9Pro2Conversion,setOneplus9Pro2Conversion]=useState("+55")
                                 In Stock
                               </span>
                             </td>
-                            <td className="h6 mb-0 text-end pe-0">$10.4k</td>
+                            <td className="h6 mb-0 text-end pe-0">${NintendoSwitchRevenue}k</td>
                             <td className="pe-0 text-end fw-medium h6 text-success">
-                              +38%
+                              {NintendoSwitchConversion}%
                             </td>
                           </tr>
                         </tbody>
