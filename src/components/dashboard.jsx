@@ -3,15 +3,84 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
-  const [userProfile, setUserProfile] = useState({
-    Department: "IT",
-    Contact: "7978969958",
-    Email: "xyz@gmail.com",
-    Name: "Abcd",
-    Designation: "Development Engineer",
-    Image:"/images/avatars/1.png"
-  });
+const[userProfileName,setUserProfileName]=useState("Abcd")
+const[userProfileDepartment,setUserProfileDepartment]=useState("IT")
+const[userProfileContact,setUserProfileContact]=useState("7978969958")
+const[userProfileEmail,setUserProfileEmail]=useState("xyz@gmail.com")
+const[userProfileDesignation,setUserProfileDesignation]=useState("Development Engineer")
+const[userProfileImage,setUserProfileImage]=useState("/images/avatars/1.png")
 
+const[EnquiriesProspet,setEnquiriesProspet]=useState(244)
+const[EnquiriesLead,setEnquiriesLead]=useState(23.8)
+const[EnquiriesSales,setEnquiriesSales]=useState(2.14)
+
+const[FollowUpToday,setFollowUpToday]=useState("12,348")
+const[FollowUpTodayPercentage,setFollowUpTodayPercentage]=useState("+12")
+const[FollowUpUpcoming,setFollowUpUpcoming]=useState("8,450")
+const[FollowUpUpcomingPercentage,setFollowUpUpcomingPercentage]=useState("+32")
+const[FollowUpPending,setFollowUpPending]=useState("350")
+const[FollowUpPendingPercentage,setFollowUpPendingPercentage]=useState("-18")
+
+const[SalesTotalSales,setSalesTotalSales]=useState(23)
+const[SalesPipelineSales,setSalesPipelineSales]=useState(35)
+const[SalesQuote,setSalesQuote]=useState(30)
+
+const[LeadStatusHotLead,setLeadStatusHotLead]=useState(20)
+const[LeadStatusColdLead,setLeadStatusColdLead]=useState(50)
+const[LeadStatusWarmLead,setLeadStatusWarmLead]=useState(20)
+
+const[FinanceSalary,setFinanceSalary]=useState(1.2)
+const[FinanceCommissionEarned,setFinanceCommissionEarned]=useState(834)
+const[FinanceCommissionReceived,setFinanceCommissionReceived]=useState(3.7)
+const[FinanceCommissionDue,setFinanceCommissionDue]=useState(2.5)
+
+const[TargetPercentage,setTargetPercentage]=useState("39.7")
+const[TargetmonthPercentage,setTargetmonthPercentage]=useState("28.3")
+const[TargetAnnualPercentage,setTargetAnnualPercentage]=useState("17.4")
+
+const[PerformanceChartCallwithWood,setPerformanceChartCallwithWood]=useState({date:"21 Jul",time:"08:20-10:30"})
+const[PerformanceChartConferencecall,setPerformanceChartConferencecall]=useState({date:"21 Jul",time:"08:20-10:30"})
+const[PerformanceChartMeetingwithMark,setPerformanceChartMeetingwithMark]=useState({date:"21 Jul",time:"08:20-10:30"})
+
+const[Visits,setVisits]=useState("42.5")
+const[VisitsPercentage,setVisitsPercentage]=useState("+18.4")
+const[VisitsMobile,setVisitsMobile]=useState("2,890")
+const[VisitsMobilePercentage,setVisitsMobilePercentage]=useState("23.5")
+const[VisitsDesktop,setVisitsDesktop]=useState("76.5")
+const[VisitsDesktopPercentage,setVisitsDesktopPercentage]=useState("22,465")
+
+const[LeadFunnelDate,setLeadFunnelDate]=useState("17 Nov 23")
+const[LeadFunnelDuration,setLeadFunnelDuration]=useState("32")
+
+const[CustomerListPhone1,setCustomerListPhone1]=useState("+91 1236547892")
+const[CustomerListPhone2,setCustomerListPhone2]=useState("+91 1236547892")
+const[CustomerListPhone3,setCustomerListPhone3]=useState("+91 1236547892")
+const[CustomerListPhone4,setCustomerListPhone4]=useState("+91 1236547892")
+
+const[SocialNetworkVisits,setSocialNetworkVisits]=useState("28,468")
+const[SocialNetworkVisitsPercentage,setSocialNetworkVisitsPercentage]=useState("62")
+const[SocialNetworkVisitsFacebook,setSocialNetworkVisitsFacebook]=useState("12,348")
+const[SocialNetworkVisitsFacebookPercentage,setSocialNetworkVisitsFacebookPercentage]=useState("+12")
+const[SocialNetworkVisitsDribbble,setSocialNetworkVisitsDribbble]=useState("8,450")
+const[SocialNetworkVisitsDribbblePercentage,setSocialNetworkVisitsDribbblePercentage]=useState("+32")
+const[SocialNetworkVisitsTwitter,setSocialNetworkVisitsTwitter]=useState("350")
+const[SocialNetworkVisitsTwitterPercentage,setSocialNetworkVisitsTwitterPercentage]=useState("-18")
+const[SocialNetworkVisitsInstagram,setSocialNetworkVisitsInstagram]=useState("25,566")
+const[SocialNetworkVisitsInstagramPercentage,setSocialNetworkVisitsInstagramPercentage]=useState("+42")
+
+const[WeeklyOverviewSales,setWeeklyOverviewSales]=useState("85.4")
+const[WeeklyOverviewNetIncome,setWeeklyOverviewNetIncome]=useState("438.5")
+const[WeeklyOverviewExpense,setWeeklyOverviewExpense]=useState("22.4")
+
+const[ProductListPercentage,setProductListPercentage]=useState("82")
+const[Oneplus9ProRevenue,setOneplus9ProRevenue]=useState("12.5")
+const[Oneplus9ProConversion,setOneplus9ProConversion]=useState("+24")
+const[AppleiPhone13ProRevenue,setAppleiPhone13ProRevenue]=useState("45")
+const[AppleiPhone13ProConversion,setAppleiPhone13ProConversion]=useState("-18")
+const[Oneplus9Pro2Revenue,setOneplus9Pro2Revenue]=useState("98.2")
+const[Oneplus9Pro2Conversion,setOneplus9Pro2Conversion]=useState("+55")
+
+// const[]=useState()
   return (
     <>
       <div className="container-xxl flex-grow-1 container-p-y">
@@ -20,27 +89,27 @@ const Dashboard = () => {
             <div className="card shadow h-100">
               <div className="card-body text-nowrap">
                 <h4 className="card-title mb-1 d-flex gap-2 flex-wrap">
-                  Welcome {userProfile.Name}
+                  Welcome {userProfileName}
                 </h4>
                 <p className="pb-0">Wishing You A Great Day Ahead</p>
                 <ul className="list-unstyled mb-4">
                   <li className="mb-2">
                     <span className="h6 me-1">Designation:</span>
-                    <span>{userProfile.Designation}</span>
+                    <span>{userProfileDesignation}</span>
                   </li>
                   <li className="mb-2">
                     <span className="h6 me-1">Department:</span>
-                    <span>{userProfile.Department}</span>
+                    <span>{userProfileDepartment}</span>
                   </li>
 
                   <li className="mb-2">
                     <span className="h6 me-1">Contact:</span>
-                    <span>+91 {userProfile.Contact}</span>
+                    <span>+91 {userProfileContact}</span>
                   </li>
 
                   <li>
                     <span className="h6 me-1">Email:</span>
-                    <span>{userProfile.Email}</span>
+                    <span>{userProfileEmail}</span>
                   </li>
                 </ul>
                 <Link to="" className="btn btn-sm btn-primary waves-effect waves-light ">
@@ -48,7 +117,7 @@ const Dashboard = () => {
                 </Link>
               </div>
               <img
-                src={userProfile.Image}
+                src={userProfileImage}
                 className="bottom-0 end-0 mb-1 me-1 position-absolute"
                 height="140"
                 alt="view sales"
@@ -79,15 +148,15 @@ const Dashboard = () => {
 
                 <div className="d-flex align-items-center justify-content-around mb-4">
                   <div>
-                    <h4 className="mb-1">244</h4>
+                    <h4 className="mb-1">{EnquiriesProspet}</h4>
                     <span>Prospet</span>
                   </div>
                   <div>
-                    <h4 className="mb-1">23.8k</h4>
+                    <h4 className="mb-1">{EnquiriesLead}k</h4>
                     <span>Lead</span>
                   </div>
                   <div>
-                    <h4 className="mb-1">2.14k</h4>
+                    <h4 className="mb-1">{EnquiriesSales}k</h4>
                     <span>Sales</span>
                   </div>
                 </div>
@@ -127,9 +196,9 @@ const Dashboard = () => {
                         <h6 className="mb-0">Today</h6>
                       </div>
                       <div className="d-flex align-items-center">
-                        <span className="h6 mb-0">12,348</span>
+                        <span className="h6 mb-0">{FollowUpToday}</span>
                         <div className="ms-3 badge bg-label-success rounded-pill">
-                          +12%
+                          {FollowUpTodayPercentage}%
                         </div>
                       </div>
                     </div>
@@ -148,9 +217,9 @@ const Dashboard = () => {
                         <h6 className="mb-0">Upcoming</h6>
                       </div>
                       <div className="d-flex align-items-center">
-                        <span className="h6 mb-0">8,450</span>
+                        <span className="h6 mb-0">{FollowUpUpcoming}</span>
                         <div className="ms-3 badge bg-label-success rounded-pill">
-                          +32%
+                          {FollowUpUpcomingPercentage}%
                         </div>
                       </div>
                     </div>
@@ -169,9 +238,9 @@ const Dashboard = () => {
                         <h6 className="mb-0">Pending</h6>
                       </div>
                       <div className="d-flex align-items-center">
-                        <span className="h6 mb-0">350</span>
+                        <span className="h6 mb-0">{FollowUpPending}</span>
                         <div className="ms-3 badge bg-label-danger rounded-pill">
-                          -18%
+                          {FollowUpPendingPercentage}%
                         </div>
                       </div>
                     </div>
@@ -192,19 +261,19 @@ const Dashboard = () => {
                 <div className="align-items-center d-flex mb-1">
                   <span className="mb-0">Total Sales</span>
                   <div className="ms-3 badge bg-label-secondary rounded-pill">
-                    +23%
+                    +{SalesTotalSales}%
                   </div>
                 </div>
                 <div className="align-items-center d-flex mb-1">
                   <span className="mb-0">Pipeline Sales</span>
                   <div className="ms-3 badge bg-label-primary rounded-pill">
-                    +35%
+                    +{SalesPipelineSales}%
                   </div>
                 </div>
                 <div className="align-items-center d-flex mb-1">
                   <span className="mb-0">Quote</span>
                   <div className="ms-3 badge bg-label-success rounded-pill">
-                    +30%
+                    +{SalesQuote}%
                   </div>
                 </div>
               </div>
@@ -238,19 +307,19 @@ const Dashboard = () => {
                   <span className="mb-0 bg-label-danger badge rounded-pill">
                     Hot Lead
                   </span>
-                  <div className="fw-bold ms-5 text-danger">20</div>
+                  <div className="fw-bold ms-5 text-danger">{LeadStatusHotLead}</div>
                 </div>
                 <div className="align-items-center d-flex mb-1">
                   <span className="mb-0 bg-label-success badge rounded-pill">
                     Cold Lead
                   </span>
-                  <div className="fw-bold ms-5 text-success">50</div>
+                  <div className="fw-bold ms-5 text-success">{LeadStatusColdLead}</div>
                 </div>
                 <div className="align-items-center d-flex mb-1">
                   <span className="mb-0 bg-label-warning badge rounded-pill">
                     Warm Lead
                   </span>
-                  <div className="fw-bold ms-5 text-warning">20</div>
+                  <div className="fw-bold ms-5 text-warning">{LeadStatusWarmLead}</div>
                 </div>
               </div>
               <Link to="" className="btn btn-sm btn-primary">
@@ -279,7 +348,7 @@ const Dashboard = () => {
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
                         <div className="badge bg-label-secondary rounded-pill fw-normal">
-                          1.2k Views
+                          {FinanceSalary}k Views
                         </div>
                       </div>
                     </div>
@@ -296,7 +365,7 @@ const Dashboard = () => {
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
                         <div className="badge bg-label-secondary rounded-pill fw-normal">
-                          834 Views
+                          {FinanceCommissionEarned} Views
                         </div>
                       </div>
                     </div>
@@ -313,7 +382,7 @@ const Dashboard = () => {
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
                         <div className="badge bg-label-secondary rounded-pill fw-normal">
-                          3.7k Views
+                          {FinanceCommissionReceived}k Views
                         </div>
                       </div>
                     </div>
@@ -330,7 +399,7 @@ const Dashboard = () => {
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
                         <div className="badge bg-label-secondary rounded-pill fw-normal">
-                          2.5k Views
+                          {FinanceCommissionDue}k Views
                         </div>
                       </div>
                     </div>
@@ -363,7 +432,7 @@ const Dashboard = () => {
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
                         <div className="badge bg-label-secondary rounded-pill fw-normal">
-                          1.2k Views
+                          {FinanceSalary}k Views
                         </div>
                       </div>
                     </div>
@@ -380,7 +449,7 @@ const Dashboard = () => {
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
                         <div className="badge bg-label-secondary rounded-pill fw-normal">
-                          834 Views
+                          {FinanceCommissionEarned} Views
                         </div>
                       </div>
                     </div>
@@ -397,7 +466,7 @@ const Dashboard = () => {
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
                         <div className="badge bg-label-secondary rounded-pill fw-normal">
-                          3.7k Views
+                          {FinanceCommissionReceived}k Views
                         </div>
                       </div>
                     </div>
@@ -414,7 +483,7 @@ const Dashboard = () => {
                       </div>
                       <div className="col-sm-4 col-lg-12 col-xxl-4 text-sm-end text-lg-start text-xxl-end">
                         <div className="badge bg-label-secondary rounded-pill fw-normal">
-                          2.5k Views
+                          {FinanceCommissionDue}k Views
                         </div>
                       </div>
                     </div>
@@ -435,19 +504,19 @@ const Dashboard = () => {
                 <div className="d-none d-lg-flex vehicles-progress-labels mb-3">
                   <div
                     className="vehicles-progress-label on-the-way-text"
-                    style={{ width: "39.7%" }}
+                    style={{ width: `${TargetPercentage}%` }}
                   >
                     Target
                   </div>
                   <div
                     className="vehicles-progress-label unloading-text"
-                    style={{ width: "28.3%" }}
+                    style={{ width:  `${TargetmonthPercentage}%`}}
                   >
                     Target month
                   </div>
                   <div
                     className="vehicles-progress-label loading-text"
-                    style={{ width: "17.4%" }}
+                    style={{ width: `${TargetAnnualPercentage}%` }}
                   >
                     Target Annual
                   </div>
@@ -459,12 +528,12 @@ const Dashboard = () => {
                   <div
                     className="progress-bar fs-big fw-medium text-start bg-label-light text-heading px-1 px-lg-3"
                     role="progressbar"
-                    style={{ width: "40%" }}
+                    style={{ width: `${TargetPercentage}%` }}
                     aria-valuenow="39.7"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   >
-                    39.7%
+                    {`${TargetPercentage}%`}
                   </div>
                   <div
                     className="progress-bar fs-big fw-medium text-start  px-1 px-lg-3"
@@ -474,7 +543,7 @@ const Dashboard = () => {
                     aria-valuemin="0"
                     aria-valuemax="100"
                   >
-                    28.3%
+                    {`${TargetmonthPercentage}%`}
                   </div>
                   <div
                     className="progress-bar fs-big fw-medium text-start text-bg-info px-1 px-lg-3"
@@ -484,7 +553,7 @@ const Dashboard = () => {
                     aria-valuemin="0"
                     aria-valuemax="100"
                   >
-                    17.4%
+                   {`${TargetAnnualPercentage}%`}
                   </div>
                 </div>
                 <div className="table-responsive">
@@ -530,7 +599,7 @@ const Dashboard = () => {
                         <h6 className="mb-0">Call with Woods</h6>
                         <small>
                           <i className="mdi mdi-calendar-blank-outline mdi-14px"></i>
-                          <span>21 Jul | 08:20-10:30</span>
+                          <span>{PerformanceChartCallwithWood.date} | {PerformanceChartCallwithWood.time}</span>
                         </small>
                       </div>
                       <div className="badge bg-label-primary rounded-pill">
@@ -552,7 +621,7 @@ const Dashboard = () => {
                         <h6 className="mb-0">Conference call</h6>
                         <small>
                           <i className="mdi mdi-calendar-blank-outline mdi-14px"></i>
-                          <span>21 Jul | 08:20-10:30</span>
+                          <span>{PerformanceChartConferencecall.date} | {PerformanceChartConferencecall.time}</span>
                         </small>
                       </div>
                       <div className="badge bg-label-warning rounded-pill">
@@ -574,7 +643,7 @@ const Dashboard = () => {
                         <h6 className="mb-0">Meeting with Mark</h6>
                         <small>
                           <i className="mdi mdi-calendar-blank-outline mdi-14px"></i>
-                          <span>21 Jul | 08:20-10:30</span>
+                          <span>{PerformanceChartMeetingwithMark.date} | {PerformanceChartMeetingwithMark.time}</span>
                         </small>
                       </div>
                       <div className="badge bg-label-secondary rounded-pill">
@@ -592,11 +661,11 @@ const Dashboard = () => {
                 <div className="d-flex justify-content-between flex-wrap gap-2">
                   <h5 className="card-title m-0 me-2">Visits</h5>
                   <div className="d-flex text-success">
-                    <p className="me-1">+18.4%</p>
+                    <p className="me-1">{VisitsPercentage}%</p>
                     <i className="mdi mdi-chevron-up"></i>
                   </div>
                 </div>
-                <h4 className="mb-1">$42.5k</h4>
+                <h4 className="mb-1">${Visits}k</h4>
               </div>
               <div className="card-body pt-2">
                 <div className="row mt-3">
@@ -609,8 +678,8 @@ const Dashboard = () => {
                       </div>
                       <p className="mb-0">Mobile</p>
                     </div>
-                    <h4 className="mb-0 pt-1 text-nowrap">23.5%</h4>
-                    <small className="text-muted">2,890</small>
+                    <h4 className="mb-0 pt-1 text-nowrap">{`${VisitsMobilePercentage}%`}</h4>
+                    <small className="text-muted">{VisitsMobile}</small>
                   </div>
                   <div className="col-4">
                     <div className="divider divider-vertical">
@@ -630,8 +699,8 @@ const Dashboard = () => {
                         </div>
                       </div>
                     </div>
-                    <h4 className="mb-0 pt-1 text-nowrap">76.5%</h4>
-                    <small className="text-muted">22,465</small>
+                    <h4 className="mb-0 pt-1 text-nowrap">{`${VisitsDesktop}%`}</h4>
+                    <small className="text-muted">{VisitsDesktopPercentage}</small>
                   </div>
                 </div>
                 <div className="d-flex align-items-center mt-2 pt-1">
@@ -685,7 +754,7 @@ const Dashboard = () => {
                         </span>
                       </div>
                       <div>
-                        <h6 className="mb-0 text-nowrap">17 Nov 23</h6>
+                        <h6 className="mb-0 text-nowrap">{LeadFunnelDate}</h6>
                         <small>Date</small>
                       </div>
                     </div>
@@ -698,7 +767,7 @@ const Dashboard = () => {
                         </span>
                       </div>
                       <div>
-                        <h6 className="mb-0 text-nowrap">32 minutes</h6>
+                        <h6 className="mb-0 text-nowrap">{`${LeadFunnelDuration} minutes`}</h6>
                         <small>Duration</small>
                       </div>
                     </div>
@@ -745,7 +814,7 @@ const Dashboard = () => {
                           <h6 className="mb-0">Deenabandhu</h6>
                         </div>
                       </td>
-                      <td className="px-1 small">+91 1236547892</td>
+                      <td className="px-1 small">{CustomerListPhone1}</td>
                       <td className="px-1">
                         <div className="ms-2">
                           <h6 className="mb-0">RealEstate</h6>
@@ -766,7 +835,7 @@ const Dashboard = () => {
                           <h6 className="mb-0">Deenabandhu</h6>
                         </div>
                       </td>
-                      <td className="px-1 small">+91 1236547892</td>
+                      <td className="px-1 small">{CustomerListPhone2}</td>
                       <td className="px-1">
                         <div className="ms-2">
                           <h6 className="mb-0">RealEstate</h6>
@@ -787,7 +856,7 @@ const Dashboard = () => {
                           <h6 className="mb-0">Deenabandhu</h6>
                         </div>
                       </td>
-                      <td className="px-1 small">+91 1236547892</td>
+                      <td className="px-1 small">{CustomerListPhone3}</td>
                       <td className="px-1">
                         <div className="ms-2">
                           <h6 className="mb-0">RealEstate</h6>
@@ -808,7 +877,7 @@ const Dashboard = () => {
                           <h6 className="mb-0">Deenabandhu</h6>
                         </div>
                       </td>
-                      <td className="px-1 small">+91 1236547892</td>
+                      <td className="px-1 small">{CustomerListPhone4}</td>
                       <td className="px-1">
                         <div className="ms-2">
                           <h6 className="mb-0">RealEstate</h6>
@@ -854,10 +923,10 @@ const Dashboard = () => {
               <div className="card-body">
                 <div className="mb-3">
                   <div className="d-flex align-items-center mb-1">
-                    <h4 className="mb-0">28,468</h4>
+                    <h4 className="mb-0">{SocialNetworkVisits}</h4>
                     <span className="text-success ms-2 fw-medium">
                       <i className="mdi mdi-menu-up"></i>
-                      <small>62%</small>
+                      <small>{`${SocialNetworkVisitsPercentage}%`}</small>
                     </span>
                   </div>
                   <small>Last 1 Year Visits</small>
@@ -878,9 +947,9 @@ const Dashboard = () => {
                         <small>Social Media</small>
                       </div>
                       <div className="d-flex align-items-center ">
-                        <span className="h6 mb-0 ">12,348</span>
+                        <span className="h6 mb-0 ">{SocialNetworkVisitsFacebook}</span>
                         <div className="ms-3 badge bg-label-success rounded-pill">
-                          +12%
+                          {SocialNetworkVisitsFacebookPercentage}%
                         </div>
                       </div>
                     </div>
@@ -900,9 +969,9 @@ const Dashboard = () => {
                         <small>Community</small>
                       </div>
                       <div className="d-flex align-items-center">
-                        <span className="h6 mb-0">8,450</span>
+                        <span className="h6 mb-0">{SocialNetworkVisitsDribbble}</span>
                         <div className="ms-3 badge bg-label-success rounded-pill">
-                          +32%
+                         {SocialNetworkVisitsDribbblePercentage}%
                         </div>
                       </div>
                     </div>
@@ -922,9 +991,9 @@ const Dashboard = () => {
                         <small>Social Media</small>
                       </div>
                       <div className="d-flex align-items-center">
-                        <span className="h6 mb-0">350</span>
+                        <span className="h6 mb-0">{SocialNetworkVisitsTwitter}</span>
                         <div className="ms-3 badge bg-label-danger rounded-pill">
-                          -18%
+                          {SocialNetworkVisitsTwitterPercentage}%
                         </div>
                       </div>
                     </div>
@@ -944,9 +1013,9 @@ const Dashboard = () => {
                         <small>Social Media</small>
                       </div>
                       <div className="d-flex align-items-center">
-                        <span className="h6 mb-0">25,566</span>
+                        <span className="h6 mb-0">{SocialNetworkVisitsInstagram}</span>
                         <div className="ms-3 badge bg-label-success rounded-pill">
-                          +42%
+                          {SocialNetworkVisitsInstagramPercentage}%
                         </div>
                       </div>
                     </div>
@@ -987,7 +1056,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-                <p className="text-body mb-0">Total 85.4k Sales</p>
+                <p className="text-body mb-0">{`Total ${WeeklyOverviewSales}k Sales`}</p>
               </div>
               <div className="card-body">
                 <div className="row mb-2">
@@ -999,7 +1068,7 @@ const Dashboard = () => {
                     </div>
                     <div className="ms-3 d-flex flex-column">
                       <small className="text-body mb-1">Net Income</small>
-                      <h6 className="mb-0">$438.5K</h6>
+                      <h6 className="mb-0">{`$${WeeklyOverviewNetIncome}K`}</h6>
                     </div>
                   </div>
                   <div className="col-6 d-flex align-items-center">
@@ -1010,7 +1079,7 @@ const Dashboard = () => {
                     </div>
                     <div className="ms-3 d-flex flex-column">
                       <small className="text-body mb-1">Expense</small>
-                      <h6 className="mb-0">$22.4K</h6>
+                      <h6 className="mb-0">{`$${WeeklyOverviewExpense}K`}</h6>
                     </div>
                   </div>
                 </div>
@@ -1023,7 +1092,7 @@ const Dashboard = () => {
               <div className="card-header d-flex justify-content-between">
                 <div className="card-title m-0">
                   <h5 className="mb-1">Product List</h5>
-                  <p className="text-body mb-0">82% Activity Growth</p>
+                  <p className="text-body mb-0">{ProductListPercentage}% Activity Growth</p>
                 </div>
                 <div className="dropdown">
                   <button
@@ -1164,9 +1233,9 @@ const Dashboard = () => {
                                 Out of Stock
                               </span>
                             </td>
-                            <td className="h6 mb-0 text-end pe-0">$12.5k</td>
+                            <td className="h6 mb-0 text-end pe-0">${Oneplus9ProRevenue}k</td>
                             <td className="pe-0 text-end fw-medium h6 text-success">
-                              +24%
+                              {Oneplus9ProConversion}%
                             </td>
                           </tr>
                           <tr>
@@ -1184,9 +1253,9 @@ const Dashboard = () => {
                                 In Stock
                               </span>
                             </td>
-                            <td className="h6 mb-0 text-end pe-0">$45k</td>
+                            <td className="h6 mb-0 text-end pe-0">${AppleiPhone13ProRevenue}k</td>
                             <td className="pe-0 text-end fw-medium h6 text-danger">
-                              -18%
+                              {AppleiPhone13ProConversion}%
                             </td>
                           </tr>
                           <tr>
@@ -1205,10 +1274,10 @@ const Dashboard = () => {
                               </span>
                             </td>
                             <td className="h6 mb-0 text-end pe-0 text-heading">
-                              $98.2k
+                              ${Oneplus9Pro2Revenue}k
                             </td>
                             <td className="pe-0 text-end fw-medium h6 text-success">
-                              +55%
+                              {Oneplus9Pro2Conversion}%
                             </td>
                           </tr>
                         </tbody>
@@ -1245,7 +1314,7 @@ const Dashboard = () => {
                           <tr>
                             <td className="ps-0">
                               <img
-                                src="../../assets//img/products/apple-mac-mini.png"
+                                src="/images/cards/apple-mac-mini.png"
                                 alt="mac-mini"
                                 className="rounded"
                                 height="34"
@@ -1265,7 +1334,7 @@ const Dashboard = () => {
                           <tr>
                             <td className="ps-0">
                               <img
-                                src="../../assets//img/products/hp-envy-x360.png"
+                                src="/images/cards/hp-envy-x360.png"
                                 alt="hp-envy"
                                 className="rounded"
                                 height="34"
@@ -1285,7 +1354,7 @@ const Dashboard = () => {
                           <tr>
                             <td className="ps-0">
                               <img
-                                src="../../assets//img/products/dell-inspiron-3000.png"
+                                src="/images/cards/dell-inspiron-3000.png"
                                 alt="dell"
                                 className="rounded"
                                 height="34"
@@ -1336,7 +1405,7 @@ const Dashboard = () => {
                           <tr>
                             <td className="ps-0">
                               <img
-                                src="/images/products/sony-play-station-5.png"
+                                src="/images/cards/sony-play-station-5.png"
                                 alt="sony-play-station"
                                 className="rounded"
                                 height="34"
@@ -1356,7 +1425,7 @@ const Dashboard = () => {
                           <tr>
                             <td className="ps-0">
                               <img
-                                src="/images/products/xbox-series-x.png"
+                                src="/images/cards/xbox-series-x.png"
                                 alt="xbox"
                                 className="rounded"
                                 height="34"
@@ -1376,7 +1445,7 @@ const Dashboard = () => {
                           <tr>
                             <td className="ps-0">
                               <img
-                                src="assets/  img/products/nintendo-switch.png"
+                                src="/images/cards/nintendo-switch.png"
                                 alt="nintendo-switch"
                                 className="rounded"
                                 height="34"
@@ -1403,7 +1472,6 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-
       <div className="content-backdrop fade"></div>
     </>
   );
