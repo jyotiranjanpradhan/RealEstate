@@ -1,62 +1,62 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
+  //user Profile 
 const[userProfileName,setUserProfileName]=useState("Abcd")
 const[userProfileDepartment,setUserProfileDepartment]=useState("IT")
 const[userProfileContact,setUserProfileContact]=useState("7978969958")
 const[userProfileEmail,setUserProfileEmail]=useState("xyz@gmail.com")
 const[userProfileDesignation,setUserProfileDesignation]=useState("Development Engineer")
 const[userProfileImage,setUserProfileImage]=useState("/images/avatars/1.png")
-
+//Enquirie 
 const[EnquiriesProspet,setEnquiriesProspet]=useState(244)
 const[EnquiriesLead,setEnquiriesLead]=useState(23.8)
 const[EnquiriesSales,setEnquiriesSales]=useState(2.14)
-
+//FollowUp 
 const[FollowUpToday,setFollowUpToday]=useState("12,348")
 const[FollowUpTodayPercentage,setFollowUpTodayPercentage]=useState("+12")
 const[FollowUpUpcoming,setFollowUpUpcoming]=useState("8,450")
 const[FollowUpUpcomingPercentage,setFollowUpUpcomingPercentage]=useState("+32")
 const[FollowUpPending,setFollowUpPending]=useState("350")
 const[FollowUpPendingPercentage,setFollowUpPendingPercentage]=useState("-18")
-
+//Sales 
 const[SalesTotalSales,setSalesTotalSales]=useState(23)
 const[SalesPipelineSales,setSalesPipelineSales]=useState(35)
 const[SalesQuote,setSalesQuote]=useState(30)
-
+//LeadStatus 
 const[LeadStatusHotLead,setLeadStatusHotLead]=useState(20)
 const[LeadStatusColdLead,setLeadStatusColdLead]=useState(50)
 const[LeadStatusWarmLead,setLeadStatusWarmLead]=useState(20)
-
+//Finance
 const[FinanceSalary,setFinanceSalary]=useState(1.2)
 const[FinanceCommissionEarned,setFinanceCommissionEarned]=useState(834)
 const[FinanceCommissionReceived,setFinanceCommissionReceived]=useState(3.7)
 const[FinanceCommissionDue,setFinanceCommissionDue]=useState(2.5)
-
+//Target
 const[TargetPercentage,setTargetPercentage]=useState("39.7")
 const[TargetmonthPercentage,setTargetmonthPercentage]=useState("28.3")
 const[TargetAnnualPercentage,setTargetAnnualPercentage]=useState("17.4")
-
+//Performance
 const[PerformanceChartCallwithWood,setPerformanceChartCallwithWood]=useState({date:"21 Jul",time:"08:20-10:30"})
 const[PerformanceChartConferencecall,setPerformanceChartConferencecall]=useState({date:"21 Jul",time:"08:20-10:30"})
 const[PerformanceChartMeetingwithMark,setPerformanceChartMeetingwithMark]=useState({date:"21 Jul",time:"08:20-10:30"})
-
+//Visits
 const[Visits,setVisits]=useState("42.5")
 const[VisitsPercentage,setVisitsPercentage]=useState("+18.4")
 const[VisitsMobile,setVisitsMobile]=useState("2,890")
 const[VisitsMobilePercentage,setVisitsMobilePercentage]=useState("23.5")
 const[VisitsDesktop,setVisitsDesktop]=useState("76.5")
 const[VisitsDesktopPercentage,setVisitsDesktopPercentage]=useState("22,465")
-
+//LeadFunnel
 const[LeadFunnelDate,setLeadFunnelDate]=useState("17 Nov 23")
 const[LeadFunnelDuration,setLeadFunnelDuration]=useState("32")
-
+//CustomerList
 const[CustomerListPhone1,setCustomerListPhone1]=useState("+91 1236547892")
 const[CustomerListPhone2,setCustomerListPhone2]=useState("+91 1236547892")
 const[CustomerListPhone3,setCustomerListPhone3]=useState("+91 1236547892")
 const[CustomerListPhone4,setCustomerListPhone4]=useState("+91 1236547892")
-
+//SocialNetwork 
 const[SocialNetworkVisits,setSocialNetworkVisits]=useState("28,468")
 const[SocialNetworkVisitsPercentage,setSocialNetworkVisitsPercentage]=useState("62")
 const[SocialNetworkVisitsFacebook,setSocialNetworkVisitsFacebook]=useState("12,348")
@@ -67,11 +67,11 @@ const[SocialNetworkVisitsTwitter,setSocialNetworkVisitsTwitter]=useState("350")
 const[SocialNetworkVisitsTwitterPercentage,setSocialNetworkVisitsTwitterPercentage]=useState("-18")
 const[SocialNetworkVisitsInstagram,setSocialNetworkVisitsInstagram]=useState("25,566")
 const[SocialNetworkVisitsInstagramPercentage,setSocialNetworkVisitsInstagramPercentage]=useState("+42")
-
+//WeeklyOverview
 const[WeeklyOverviewSales,setWeeklyOverviewSales]=useState("85.4")
 const[WeeklyOverviewNetIncome,setWeeklyOverviewNetIncome]=useState("438.5")
 const[WeeklyOverviewExpense,setWeeklyOverviewExpense]=useState("22.4")
-
+//ProductList
 const[ProductListPercentage,setProductListPercentage]=useState("82")
 const[Oneplus9ProRevenue,setOneplus9ProRevenue]=useState("12.5")
 const[Oneplus9ProConversion,setOneplus9ProConversion]=useState("+24")
