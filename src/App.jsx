@@ -9,14 +9,19 @@ import RolesAndRights from "./components/Rolesandright/RolesAndRights";
 import Companyprofile from "./components/EmployeeManagement/Companyprofile";
 import Bankothers from "./components/EmployeeManagement/Bankothers";
 import Salary from "./components/EmployeeManagement/Salary";
+import Kyc from "./components/EmployeeManagement/Kyc";
+import Document from "./components/EmployeeManagement/Document";
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/roles_right" element={<RolesAndRights />} />
         <Route path="/companyprofile" element={<Companyprofile />} />
+        <Route path="/bankothers" element={<Bankothers />} />
         <Route path="/salary" element={<Salary />} />
+        <Route path="/kyc" element={<Kyc />} />
+        <Route path="/document" element={<Document />} />
       </Routes>
     </BrowserRouter>
   );

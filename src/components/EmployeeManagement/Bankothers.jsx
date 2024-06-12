@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Bankothers'
 const Bankothers = () => {
   return (
     <div className="content-wrapper">
