@@ -46,6 +46,10 @@ import AddSalesAgreement from "./components/Sales/AddSalesAgreement";
 import AddPaymentRecipt from "./components/Sales/AddPaymentRecipt";
 import AddPaymentSchedule from "./components/Sales/AddPaymentSchedule";
 import Customer from "./components/Customer/Customer";
+import TeamManagement from "./components/TeamManagement/TeamManagement";
+import Quotation from "./components/FollowUp/Quotation";
+import PreSalesEnquiry from "./components/FollowUp/PreSalesEnquiry";
+import FollowUp from "./components/FollowUp/FollowUp";
 
 const App = () => {
   return (
@@ -125,6 +129,14 @@ const App = () => {
 
           <Route path="/customer" element={<Customer />} />
           <Route path="/customer/addCustomer" element={<AddCustomerForm />} />
+          <Route path="/teamManagement" element={<TeamManagement />} />
+
+          {/* <Route path="/followUp" element={<FollowUp />} /> */}
+          <Route
+            path="/followUp/preSalesEnquiry"
+            element={<PreSalesEnquiry />}
+          />
+          <Route path="/followUp/Quotation" element={<Quotation />} />
         </Route>
       </Routes>
     </BrowserRouter>

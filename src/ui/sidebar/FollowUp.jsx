@@ -1,8 +1,9 @@
 import { useState } from "react";
 import SubItems from "../sideBarItems/SubItems";
 const array = [
-  { value: "Pre Sales Enquiry", to: "" },
-  { value: "Quotation", to: "" },
+  { value: "Follow Up", to: "/followUp" },
+  { value: "Pre Sales Enquiry", to: "/followUp/preSalesEnquiry" },
+  { value: "Quotation", to: "/followUp/Quotation" },
   { value: "Visit", to: "" },
 ];
 function FollowUp() {
@@ -20,7 +21,7 @@ function FollowUp() {
       </div>
       <ul class="menu-sub">
         {array.map((el) => (
-          <SubItems value={el.value} />
+          <SubItems value={el.value} to={el.to} />
         ))}
       </ul>
     </li>
