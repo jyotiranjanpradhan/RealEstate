@@ -50,6 +50,7 @@ import TeamManagement from "./components/TeamManagement/TeamManagement";
 import Quotation from "./components/FollowUp/Quotation";
 import PreSalesEnquiry from "./components/FollowUp/PreSalesEnquiry";
 import FollowUp from "./components/FollowUp/FollowUp";
+import GoalAndTarget from "./components/Incentives/GoalAndTarget";
 
 const App = () => {
   return (
@@ -137,6 +138,8 @@ const App = () => {
             element={<PreSalesEnquiry />}
           />
           <Route path="/followUp/Quotation" element={<Quotation />} />
+
+          <Route path="/incentive/goalAndTarget" element={<GoalAndTarget />} />
         </Route>
       </Routes>
     </BrowserRouter>
