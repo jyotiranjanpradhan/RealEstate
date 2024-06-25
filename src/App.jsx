@@ -38,7 +38,7 @@ import SourceType from "./components/enquiryBucket/SourceType";
 import CommunicationType from "./components/enquiryBucket/CommunicationType";
 import VisitType from "./components/enquiryBucket/VisitType";
 import QuotationType from "./components/enquiryBucket/QuotationType";
-import AddCustomerForm from "./components/enquiryBucket/AddCustomerForm";
+// import AddCustomerForm from "./components/enquiryBucket/AddCustomerForm";
 import PaymentReciept from "./components/Sales/PaymentReciept";
 import PaymentSchedule from "./components/Sales/PaymentSchedule";
 import SalesAgreement from "./components/Sales/SalesAgreement";
@@ -51,98 +51,127 @@ import Quotation from "./components/FollowUp/Quotation";
 import PreSalesEnquiry from "./components/FollowUp/PreSalesEnquiry";
 import FollowUp from "./components/FollowUp/FollowUp";
 import GoalAndTarget from "./components/Incentives/GoalAndTarget";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import AddCustomerForm from "./components/Customer/AddCustomerForm";
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // staleTime: 60 * 1000,
+      staleTime: 0,
+    },
+  },
+});
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="roles_right" element={<RolesAndRights />} />
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="roles_right" element={<RolesAndRights />} />
 
-          <Route element={<SystemAdmin />}>
-            <Route path="systemAdmin/companyType" element={<CompanyType />} />
-            <Route path="systemAdmin/companyInfo" element={<CompanyInfo />} />
+            <Route element={<SystemAdmin />}>
+              <Route path="systemAdmin/companyType" element={<CompanyType />} />
+              <Route path="systemAdmin/companyInfo" element={<CompanyInfo />} />
+              <Route
+                path="systemAdmin/companyInfoForm"
+                element={<CreateCompanyForm />}
+              />
+              <Route path="systemAdmin/branchType" element={<BranchType />} />
+              <Route path="systemAdmin/boardDirectors" element={<Director />} />
+              <Route path="systemAdmin/bankInfo" element={<BankInfo />} />
+              <Route path="systemAdmin/branchInfo" element={<BranchInfo />} />
+            </Route>
+
+            <Route path="department_name" element={<DepartmentName />} />
+            <Route path="designation" element={<Designation />} />
+            <Route path="label" element={<Level />} />
+            <Route path="grade" element={<Grade />} />
+            <Route path="organisation_str" element={<Organisation_str />} />
+
+            <Route path="preProject/preProjectTable" element={<PreProject />} />
+            <Route path="preProject/newProject" element={<NewProject />} />
+
+            <Route path="enquiryBucket/deadTable" element={<DeadTable />} />
             <Route
-              path="systemAdmin/companyInfoForm"
-              element={<CreateCompanyForm />}
+              path="enquiryBucket/enquiryTable"
+              element={<EnquiryTable />}
             />
-            <Route path="systemAdmin/branchType" element={<BranchType />} />
-            <Route path="systemAdmin/boardDirectors" element={<Director />} />
-            <Route path="systemAdmin/bankInfo" element={<BankInfo />} />
-            <Route path="systemAdmin/branchInfo" element={<BranchInfo />} />
+            <Route
+              path="enquiryBucket/buyerPersona"
+              element={<BuyerPersona />}
+            />
+            <Route
+              path="enquiryBucket/customerForm"
+              element={<CustomerForm />}
+            />
+
+            <Route
+              path="enquiryBucket/activityStatus"
+              element={<ActivityStatus />}
+            />
+            <Route
+              path="enquiryBucket/enquiryStatus"
+              element={<EnquiryStatus />}
+            />
+            <Route
+              path="enquiryBucket/enquiryStage"
+              element={<EnquiryStage />}
+            />
+            <Route path="enquiryBucket/enquiryType" element={<EnquiryType />} />
+            <Route path="enquiryBucket/sourceType" element={<SourceType />} />
+            <Route
+              path="enquiryBucket/communicationType"
+              element={<CommunicationType />}
+            />
+            <Route path="enquiryBucket/visitType" element={<VisitType />} />
+            <Route
+              path="enquiryBucket/quotationType"
+              element={<QuotationType />}
+            />
+            {/* <Route
+              path="enquiryBucket/AddCustomer"
+              element={<AddCustomerForm />}
+            /> */}
+
+            <Route path="sales/paymentRecipt" element={<PaymentReciept />} />
+            <Route path="sales/paymentSchedule" element={<PaymentSchedule />} />
+            <Route path="sales/salesAgreement" element={<SalesAgreement />} />
+            <Route
+              path="sales/addSalesAgreement"
+              element={<AddSalesAgreement />}
+            />
+            <Route
+              path="/sales/addPaymentReciept"
+              element={<AddPaymentRecipt />}
+            />
+            <Route
+              path="/sales/addPaymentSchedule"
+              element={<AddPaymentSchedule />}
+            />
+
+            <Route path="/customer" element={<Customer />} />
+            <Route path="/customer/addCustomer" element={<AddCustomerForm />} />
+            <Route path="/teamManagement" element={<TeamManagement />} />
+
+            {/* <Route path="/followUp" element={<FollowUp />} /> */}
+            <Route
+              path="/followUp/preSalesEnquiry"
+              element={<PreSalesEnquiry />}
+            />
+            <Route path="/followUp/Quotation" element={<Quotation />} />
+
+            <Route
+              path="/incentive/goalAndTarget"
+              element={<GoalAndTarget />}
+            />
           </Route>
-
-          <Route path="department_name" element={<DepartmentName />} />
-          <Route path="designation" element={<Designation />} />
-          <Route path="label" element={<Level />} />
-          <Route path="grade" element={<Grade />} />
-          <Route path="organisation_str" element={<Organisation_str />} />
-
-          <Route path="preProject/preProjectTable" element={<PreProject />} />
-          <Route path="preProject/newProject" element={<NewProject />} />
-
-          <Route path="enquiryBucket/deadTable" element={<DeadTable />} />
-          <Route path="enquiryBucket/enquiryTable" element={<EnquiryTable />} />
-          <Route path="enquiryBucket/buyerPersona" element={<BuyerPersona />} />
-          <Route path="enquiryBucket/customerForm" element={<CustomerForm />} />
-
-          <Route
-            path="enquiryBucket/activityStatus"
-            element={<ActivityStatus />}
-          />
-          <Route
-            path="enquiryBucket/enquiryStatus"
-            element={<EnquiryStatus />}
-          />
-          <Route path="enquiryBucket/enquiryStage" element={<EnquiryStage />} />
-          <Route path="enquiryBucket/enquiryType" element={<EnquiryType />} />
-          <Route path="enquiryBucket/sourceType" element={<SourceType />} />
-          <Route
-            path="enquiryBucket/communicationType"
-            element={<CommunicationType />}
-          />
-          <Route path="enquiryBucket/visitType" element={<VisitType />} />
-          <Route
-            path="enquiryBucket/quotationType"
-            element={<QuotationType />}
-          />
-          <Route
-            path="enquiryBucket/AddCustomer"
-            element={<AddCustomerForm />}
-          />
-
-          <Route path="sales/paymentRecipt" element={<PaymentReciept />} />
-          <Route path="sales/paymentSchedule" element={<PaymentSchedule />} />
-          <Route path="sales/salesAgreement" element={<SalesAgreement />} />
-          <Route
-            path="sales/addSalesAgreement"
-            element={<AddSalesAgreement />}
-          />
-          <Route
-            path="/sales/addPaymentReciept"
-            element={<AddPaymentRecipt />}
-          />
-          <Route
-            path="/sales/addPaymentSchedule"
-            element={<AddPaymentSchedule />}
-          />
-
-          <Route path="/customer" element={<Customer />} />
-          <Route path="/customer/addCustomer" element={<AddCustomerForm />} />
-          <Route path="/teamManagement" element={<TeamManagement />} />
-
-          {/* <Route path="/followUp" element={<FollowUp />} /> */}
-          <Route
-            path="/followUp/preSalesEnquiry"
-            element={<PreSalesEnquiry />}
-          />
-          <Route path="/followUp/Quotation" element={<Quotation />} />
-
-          <Route path="/incentive/goalAndTarget" element={<GoalAndTarget />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 };
 
