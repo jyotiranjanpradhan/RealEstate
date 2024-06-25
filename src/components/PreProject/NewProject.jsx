@@ -5,7 +5,6 @@ import Cost from "./Forms/Cost";
 import DocumentHistory from "./Forms/DocumentHistory";
 import { useForm } from "react-hook-form";
 import { useNewProject } from "../../hooks/preProject/useNewProject";
-import { useState } from "react";
 
 function NewProject() {
   const navigate = useNavigate();

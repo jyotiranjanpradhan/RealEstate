@@ -108,7 +108,6 @@ function CreateCompanyForm() {
                         type="text"
                         id=""
                         name="Company Name"
-                        value=""
                         placeholder="Company Name"
                         autofocus
                       />
@@ -122,7 +121,6 @@ function CreateCompanyForm() {
                         type="text"
                         id=""
                         name="Company ID"
-                        value="Alias"
                         placeholder="Alias"
                         autofocus
                       />
@@ -136,7 +134,6 @@ function CreateCompanyForm() {
                         type="text"
                         id=""
                         name="Company ID"
-                        value=""
                         placeholder="Company ID"
                         autofocus
                       />
@@ -150,7 +147,6 @@ function CreateCompanyForm() {
                         type="text"
                         name="Company Type"
                         id=""
-                        value=""
                         placeholder="Company Type"
                       />
                       <label for="Company Type">Company Type</label>
@@ -163,7 +159,6 @@ function CreateCompanyForm() {
                         type="text"
                         id=""
                         name="Compay Size"
-                        value=""
                         placeholder="Compay Size"
                         autofocus
                       />
@@ -177,7 +172,6 @@ function CreateCompanyForm() {
                         type="text"
                         id=""
                         name="Incorporation No"
-                        value=""
                         placeholder="Incorporation No"
                         autofocus
                       />
@@ -191,7 +185,6 @@ function CreateCompanyForm() {
                         type="text"
                         name="Incorporation Agency"
                         id=""
-                        value=""
                         placeholder="Incorporation Agency"
                       />
                       <label for="Incorporation Agency">
@@ -231,7 +224,6 @@ function CreateCompanyForm() {
                         type="text"
                         name="TAX Certificate Details"
                         id=""
-                        value=""
                         placeholder="TAX Certificate Details"
                       />
                       <label for="TAX Certificate Details">
@@ -246,7 +238,6 @@ function CreateCompanyForm() {
                         type="text"
                         name="PAN Details"
                         id=""
-                        value=""
                         placeholder="PAN Details"
                       />
                       <label for="PAN Details">PAN Details</label>
@@ -368,7 +359,6 @@ function CreateCompanyForm() {
                         type="text"
                         id=""
                         name="WhatsApp No"
-                        value=""
                         placeholder="WhatsApp No"
                         autofocus
                       />
@@ -626,7 +616,6 @@ function CreateCompanyForm() {
                         type="text"
                         id=""
                         name="Name"
-                        value="Alias"
                         placeholder="Name"
                         autofocus
                       />
@@ -640,7 +629,6 @@ function CreateCompanyForm() {
                         type="text"
                         id=""
                         name="Designation"
-                        value=""
                         placeholder="Designation"
                         autofocus
                       />
@@ -654,7 +642,6 @@ function CreateCompanyForm() {
                         type="text"
                         name="Role"
                         id=""
-                        value=""
                         placeholder="Role"
                       />
                       <label for="Role">Role</label>
@@ -691,7 +678,6 @@ function CreateCompanyForm() {
                         type="text"
                         id=""
                         name="WhatsApp No"
-                        value=""
                         placeholder="WhatsApp No"
                         autofocus
                       />
@@ -737,7 +723,6 @@ function CreateCompanyForm() {
                               type="text"
                               id=""
                               name="Name"
-                              value="Alias"
                               placeholder="Name"
                               autofocus
                             />
@@ -751,7 +736,6 @@ function CreateCompanyForm() {
                               type="text"
                               id=""
                               name="URL"
-                              value=""
                               placeholder="URL"
                               autofocus
                             />
@@ -851,7 +835,6 @@ function CreateCompanyForm() {
                               type="text"
                               id=""
                               name="Name"
-                              value="Alias"
                               placeholder="Name"
                               autofocus
                             />
