@@ -222,7 +222,7 @@ function Customer() {
                   </tr>
                 </thead>
                 <tbody>
-                  {customers.map((customer) => (
+                  {customers?.map((customer) => (
                     <CustomerRow customer={customer} />
                   ))}
                 </tbody>
