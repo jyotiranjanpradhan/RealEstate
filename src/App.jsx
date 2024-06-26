@@ -22,7 +22,7 @@ import Director from "./components/system admin/Director";
 import BankInfo from "./components/system admin/BankInfo";
 import BranchInfo from "./components/system admin/BranchInfo";
 import CompanyInfo from "./components/system admin/CompanyInfo";
-import CompanyForm from "./components/system admin/subItem/CompanyForm";
+
 import CreateCompanyForm from "./components/system admin/Forms/CreateCompanyForm";
 import PreProject from "./components/PreProject/PreProject";
 import NewProject from "./components/PreProject/NewProject";
@@ -48,6 +48,9 @@ import AddPaymentSchedule from "./components/Sales/AddPaymentSchedule";
 import Customer from "./components/Customer/Customer";
 import TeamManagement from "./components/TeamManagement/TeamManagement";
 import Quotation from "./components/FollowUp/Quotation";
+import BankInfoForm from "./components/system admin/Forms/BankInfoForm";
+import Board from "./components/system admin/Forms/Board";
+import BranchInfoForm from "./components/system admin/Forms/BranchInfoForm";
 import PreSalesEnquiry from "./components/FollowUp/PreSalesEnquiry";
 import FollowUp from "./components/FollowUp/FollowUp";
 import GoalAndTarget from "./components/Incentives/GoalAndTarget";
@@ -85,6 +88,13 @@ const App = () => {
               <Route path="systemAdmin/bankInfo" element={<BankInfo />} />
               <Route path="systemAdmin/branchInfo" element={<BranchInfo />} />
             </Route>
+
+            <Route path="systemAdmin/bankInfoForm" element={<BankInfoForm />} />
+            <Route
+              path="systemAdmin/branchInfoForm"
+              element={<BranchInfoForm />}
+            />
+            <Route path="systemAdmin/boardForm" element={<Board />} />
 
             <Route path="department_name" element={<DepartmentName />} />
             <Route path="designation" element={<Designation />} />

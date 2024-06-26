@@ -7,9 +7,6 @@ function CompanyInfo() {
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
           <h5 class="mb-0">Company Info :</h5>
-          {/* <!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
-                          <span><i class="mdi mdi-plus me-0 me-sm-1"></i></span> Department
-                        </button> --> */}
         </div>
 
         <div class="card-body pt-0">
@@ -22,7 +19,7 @@ function CompanyInfo() {
                 <div class="col-sm-12 col-md-6">
                   <div class="dataTables_length" id="companyinfo_table_length">
                     <label>
-                      Show{" "}
+                      Show
                       <select
                         name="companyinfo_table_length"
                         aria-controls="companyinfo_table"

@@ -3,7 +3,7 @@ import Title from "./subItem/Title";
 function BranchInfo() {
   return (
     <>
-      <Title value="Branch Info" />
+      <Title value="Branch Info" to="/systemAdmin/branchInfoForm" />
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
           <h5 class="mb-0">Branch Info :</h5>

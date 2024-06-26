@@ -3,21 +3,10 @@ import Title from "./subItem/Title";
 function BankInfo() {
   return (
     <>
-      <Title value="Bank Info" />
+      <Title value="Bank Info" to="/systemAdmin/bankInfoForm" />
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
           <h5 class="mb-0">Bank Info :</h5>
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#modalTop"
-          >
-            <span>
-              <i class="mdi mdi-plus me-0 me-sm-1"></i>
-            </span>{" "}
-            Department
-          </button>
         </div>
         <div class="text-nowrap p-3">
           <div class="table-responsive">
