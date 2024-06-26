@@ -1,11 +1,11 @@
 import { useState } from "react";
 import SubItems from "../sideBarItems/SubItems";
 const array = [
-  { value: "Department Name", to: "" },
-  { value: "Designation", to: "" },
-  { value: "Level", to: "" },
-  { value: "Grade", to: "" },
-  { value: "Organisation Structure", to: "" },
+  { value: "Department Name", to: "/department/departmentName" },
+  { value: "Designation", to: "/department/designation" },
+  { value: "Level", to: "/department/level" },
+  { value: "Grade", to: "/department/grade" },
+  { value: "Organisation Structure", to: "department/organisationStr" },
 ];
 function Depart() {
   const [show, setShow] = useState(false);
@@ -22,7 +22,7 @@ function Depart() {
       </div>
       <ul class="menu-sub">
         {array.map((el) => (
-          <SubItems value={el.value} />
+          <SubItems value={el.value} to={el.to} />
         ))}
       </ul>
     </li>

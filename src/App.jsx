@@ -57,6 +57,7 @@ import GoalAndTarget from "./components/Incentives/GoalAndTarget";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AddCustomerForm from "./components/Customer/AddCustomerForm";
+import Module from "./components/Rolesandright/Module";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -74,7 +75,8 @@ const App = () => {
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<Dashboard />} />
-            <Route path="roles_right" element={<RolesAndRights />} />
+            <Route path="/rolesRight" element={<RolesAndRights />} />
+            <Route path="/rolesRight/moduleForm" element={<Module />} />
 
             <Route element={<SystemAdmin />}>
               <Route path="systemAdmin/companyType" element={<CompanyType />} />
@@ -96,11 +98,17 @@ const App = () => {
             />
             <Route path="systemAdmin/boardForm" element={<Board />} />
 
-            <Route path="department_name" element={<DepartmentName />} />
-            <Route path="designation" element={<Designation />} />
-            <Route path="label" element={<Level />} />
-            <Route path="grade" element={<Grade />} />
-            <Route path="organisation_str" element={<Organisation_str />} />
+            <Route
+              path="department/departmentName"
+              element={<DepartmentName />}
+            />
+            <Route path="department/designation" element={<Designation />} />
+            <Route path="department/level" element={<Level />} />
+            <Route path="department/grade" element={<Grade />} />
+            <Route
+              path="department/organisationStr"
+              element={<Organisation_str />}
+            />
 
             <Route path="preProject/preProjectTable" element={<PreProject />} />
             <Route path="preProject/newProject" element={<NewProject />} />

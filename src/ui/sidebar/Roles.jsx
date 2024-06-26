@@ -15,8 +15,8 @@ function Roles() {
         <div>Roles &amp; Right</div>
       </div>
       <ul class="menu-sub">
-        <SubItems value="Roles Right" />
-        <SubItems value="module" />
+        <SubItems value="Roles Right" to="/rolesRight" />
+        <SubItems value="module" to="/rolesRight/moduleForm" />
       </ul>
     </li>
   );
