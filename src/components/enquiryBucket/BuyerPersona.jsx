@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function BuyerPersona() {
   const { register, handleSubmit } = useForm();
-
+  const navigate = useNavigate();
   function onSubmit(data) {
     console.log(data);
   }
@@ -16,7 +16,7 @@ function BuyerPersona() {
         </h5>
         <div class="mb-2 text-end">
           <Link
-            href="javascript: history.go(-1)"
+            to={navigate(-1)}
             class="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"

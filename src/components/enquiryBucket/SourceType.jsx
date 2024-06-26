@@ -100,54 +100,105 @@ function SourceType() {
           </div>
         </div>
       </div>
-      {/* <!-- Modal -->
-                <div class="modal fade" id="modalvisit" tabindex="-1" style="display: none;" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <form class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title" id="">Add Source Type</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="row">
-                          <div class="col-md-12 mt-2 mb-2">
-                            <label for="defaultInput" class="form-label">Source Name</label>
-                            <input id="" class="form-control" type="text" placeholder="Source Name" autocomplete="off">
-                          </div>
-                          <div class="col-md-12 mb-2">
-                              <label for="defaultSelect" class="form-label">Type Of Communication</label>
-                              <select id="" class="form-select">
-                                <option>Default</option>
-                                <option value="Source Mode">Source Mode</option>
-                                <option value="Medium Type">Medium Type</option>
-                              </select>
-                          </div>
-                        </div>
-                        <div class="row g-2">
-                          <div class="col">
-                              <label for="defaultInput" class="form-label">Status</label>
-                              <div class="col">
-                                  <div class="form-check form-check-inline">
-                                    <input name="yes" class="form-check-input" type="radio" value="" id="" checked="">
-                                    <label class="form-check-label" for="collapsible-payment-cc">Active</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input name="no" class="form-check-input" type="radio" value="" id="">
-                                    <label class="form-check-label" for="collapsible-payment-cash">InActive</label>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal">
-                          Close
-                        </button>
-                        <button type="button" class="btn btn-primary waves-effect waves-light">Save</button>
-                      </div>
-                    </form>
+
+      <div class="modal fade" id="modalvisit" tabIndex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <form class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="">
+                Add Source Type
+              </h4>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12 mt-2 mb-2">
+                  <label for="defaultInput" class="form-label">
+                    Source Name
+                  </label>
+                  <input
+                    id=""
+                    class="form-control"
+                    type="text"
+                    placeholder="Source Name"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="col-md-12 mb-2">
+                  <label for="defaultSelect" class="form-label">
+                    Type Of Communication
+                  </label>
+                  <select id="" class="form-select">
+                    <option>Default</option>
+                    <option value="Source Mode">Source Mode</option>
+                    <option value="Medium Type">Medium Type</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row g-2">
+                <div class="col">
+                  <label for="defaultInput" class="form-label">
+                    Status
+                  </label>
+                  <div class="col">
+                    <div class="form-check form-check-inline">
+                      <input
+                        name="yes"
+                        class="form-check-input"
+                        type="radio"
+                        value=""
+                        id=""
+                        checked=""
+                      />
+                      <label
+                        class="form-check-label"
+                        for="collapsible-payment-cc"
+                      >
+                        Active
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        name="no"
+                        class="form-check-input"
+                        type="radio"
+                        value=""
+                        id=""
+                      />
+                      <label
+                        class="form-check-label"
+                        for="collapsible-payment-cash"
+                      >
+                        InActive
+                      </label>
+                    </div>
                   </div>
-                </div> */}
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary waves-effect"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary waves-effect waves-light"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

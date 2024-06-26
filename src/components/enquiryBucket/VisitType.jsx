@@ -62,53 +62,101 @@ function VisitType() {
           </div>
         </div>
       </div>
-      {/* <!-- Modal -->
-                <div class="modal fade animate__animated animate__bounceInDown" id="modalvisit" tabindex="-1" aria-hidden="true" style="display: none;">
-                  <div class="modal-dialog">
-                    <form class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title" id="">Add Visit Type</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="row">
-                          <div class="col mt-2">
-                            <div class="mb-3">
-                              <label for="defaultSelect" class="form-label">Name</label>
-                              <select id="" class="form-select">
-                                <option>Name</option>
-                                <option value="1">Demo</option>
-                                <option value="2">Demo</option>
-                                <option value="3">Demo</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row g-2">
-                          <div class="col">
-                              <label for="defaultInput" class="form-label">Status</label>
-                              <div class="col">
-                                  <div class="form-check form-check-inline">
-                                    <input name="yes" class="form-check-input" type="radio" value="" id="" checked="">
-                                    <label class="form-check-label" for="collapsible-payment-cc">Active</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input name="no" class="form-check-input" type="radio" value="" id="">
-                                    <label class="form-check-label" for="collapsible-payment-cash">InActive</label>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal">
-                          Close
-                        </button>
-                        <button type="button" class="btn btn-primary waves-effect waves-light">Save</button>
-                      </div>
-                    </form>
+
+      <div
+        class="modal fade animate__animated animate__bounceInDown"
+        id="modalvisit"
+        tabIndex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <form class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="">
+                Add Visit Type
+              </h4>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col mt-2">
+                  <div class="mb-3">
+                    <label for="defaultSelect" class="form-label">
+                      Name
+                    </label>
+                    <select id="" class="form-select">
+                      <option>Name</option>
+                      <option value="1">Demo</option>
+                      <option value="2">Demo</option>
+                      <option value="3">Demo</option>
+                    </select>
                   </div>
-                </div> */}
+                </div>
+              </div>
+              <div class="row g-2">
+                <div class="col">
+                  <label for="defaultInput" class="form-label">
+                    Status
+                  </label>
+                  <div class="col">
+                    <div class="form-check form-check-inline">
+                      <input
+                        name="yes"
+                        class="form-check-input"
+                        type="radio"
+                        value=""
+                        id=""
+                        checked=""
+                      />
+                      <label
+                        class="form-check-label"
+                        for="collapsible-payment-cc"
+                      >
+                        Active
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        name="no"
+                        class="form-check-input"
+                        type="radio"
+                        value=""
+                        id=""
+                      />
+                      <label
+                        class="form-check-label"
+                        for="collapsible-payment-cash"
+                      >
+                        InActive
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary waves-effect"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary waves-effect waves-light"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

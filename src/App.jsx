@@ -75,6 +75,7 @@ const App = () => {
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<Dashboard />} />
+
             <Route path="/rolesRight" element={<RolesAndRights />} />
             <Route path="/rolesRight/moduleForm" element={<Module />} />
 

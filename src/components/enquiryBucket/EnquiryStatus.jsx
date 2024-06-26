@@ -72,54 +72,103 @@ function EnquiryStatus() {
           </div>
         </div>
       </div>
-      {/* <!-- Modal -->
-        <div class="modal fade" id="enquirysta" tabindex="-1">
-          <div class="modal-dialog">
-            <form class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title" id="">Add Lead Enquiry Status</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-12 mt-2 mb-2">
-                    <label for="defaultInput" class="form-label">Lead Status</label>
-                    <input id="" class="form-control" type="text" placeholder="Lead Status" autocomplete="off">
-                  </div>
-               <!--    <div class="col-md-12 mb-2">
+
+      <div class="modal fade" id="enquirysta" tabIndex="-1">
+        <div class="modal-dialog">
+          <form class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="">
+                Add Lead Enquiry Status
+              </h4>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12 mt-2 mb-2">
+                  <label for="defaultInput" class="form-label">
+                    Lead Status
+                  </label>
+                  <input
+                    id=""
+                    class="form-control"
+                    type="text"
+                    placeholder="Lead Status"
+                    autocomplete="off"
+                  />
+                </div>
+                {/* <!--    <div class="col-md-12 mb-2">
                       <label for="defaultSelect" class="form-label">Type Of Communication</label>
                       <select id="" class="form-select">
                         <option>Default</option>
                         <option value="Source Mode">Source Mode</option>
                         <option value="Communication Mode">Communication Mode</option>
                       </select>
-                  </div> -->
-                </div>
-                <div class="row g-2">
+                  </div> --> */}
+              </div>
+              <div class="row g-2">
+                <div class="col">
+                  <label for="defaultInput" class="form-label">
+                    Status
+                  </label>
                   <div class="col">
-                      <label for="defaultInput" class="form-label">Status</label>
-                      <div class="col">
-                          <div class="form-check form-check-inline">
-                            <input name="yes" class="form-check-input" type="radio" value="" id="" checked="">
-                            <label class="form-check-label" for="collapsible-payment-cc">Active</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input name="no" class="form-check-input" type="radio" value="" id="">
-                            <label class="form-check-label" for="collapsible-payment-cash">InActive</label>
-                          </div>
-                      </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        name="yes"
+                        class="form-check-input"
+                        type="radio"
+                        value=""
+                        id=""
+                        checked=""
+                      />
+                      <label
+                        class="form-check-label"
+                        for="collapsible-payment-cc"
+                      >
+                        Active
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        name="no"
+                        class="form-check-input"
+                        type="radio"
+                        value=""
+                        id=""
+                      />
+                      <label
+                        class="form-check-label"
+                        for="collapsible-payment-cash"
+                      >
+                        InActive
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal">
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary waves-effect waves-light">Save</button>
-              </div>
-            </form>
-          </div>
-        </div> */}
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary waves-effect"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary waves-effect waves-light"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
