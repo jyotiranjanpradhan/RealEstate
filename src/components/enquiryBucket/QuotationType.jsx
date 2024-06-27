@@ -112,9 +112,8 @@ function QuotationType() {
                         name="yes"
                         class="form-check-input"
                         type="radio"
-                        value=""
-                        id=""
                         checked=""
+                        id=""
                       />
                       <label
                         class="form-check-label"
