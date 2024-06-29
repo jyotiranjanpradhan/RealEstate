@@ -1,0 +1,38 @@
+.btn-primary{
+    color: white;
+    background-color: #666cff !important;
+    border-color: #666cff !important;
+}
+
+.bg-label-primary{
+    background-color: #e8e9ff !important ;
+    color: #666cff !important;
+}
+.bg-label-success{
+    background-color: #eafbdf ;
+    color: #72e128 !important;
+}
+.bg-label-danger{
+    background-color: #ffe4e4 ;
+    color: #ff4d49 !important;
+}
+.bg-label-info{
+    background-color: #def6fe !important;
+    color: #26c6f9 !important;
+}
+.bg-label-secondary{
+    background-color: #e9ebee  !important;
+    color: #6d788d  !important;
+}
+.bg-label-warning{
+    background-color: #fff4df   !important;
+    color: #fdb528   !important;
+}
+.bg-label-light{
+    background-color:#fafafb !important;
+    color: #636578 !important;  
+}
+
+.text-truncate,.role-edit-modal{
+    text-decoration: none;
+}
