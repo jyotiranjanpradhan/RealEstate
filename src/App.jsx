@@ -7,7 +7,7 @@ import "@mdi/font/css/materialdesignicons.min.css";
 import './css/rtl/core.css'
 import './css/rtl/theme-default.css'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Dashboard from "./nents/Dashboard/dashboard";
+import Dashboard from "./components/Dashboard/dashboard";
 import RolesAndRights from "./components/Rolesandright/RolesAndRights";
 import Companyprofile from "./components/EmployeeManagement/Companyprofile";
 import Bankothers from "./components/EmployeeManagement/Bankothers";
@@ -82,7 +82,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Companyprofile />} />
 
             <Route path="/rolesRight" element={<RolesAndRights />} />
             <Route path="/rolesRight/moduleForm" element={<Module />} />
@@ -196,7 +196,7 @@ const App = () => {
               element={<GoalAndTarget />}
             />
           </Route>
-<Route path="/Dashboard" element={<Dashboard />} />
+
         <Route path="/roles_right" element={<RolesAndRights />} />
         <Route path="/companyprofile" element={<Companyprofile />} />
         <Route path="/bankothers" element={<Bankothers />} />

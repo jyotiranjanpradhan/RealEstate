@@ -1,0 +1,16 @@
+app .jsx
+
+import ProjectType from "./components/Projects/ProjectType";
+import PaymentScheduleProject from "./components/Projects/PaymentScheduleProject";
+import ProductType from "./components/Projects/ProductType";
+import RaiseCostType from "./components/Projects/RaiseCostType";
+import AmenityMaster from "./components/Projects/AmenityMaster";
+import NearbyMaster from "./components/Projects/NearbyMaster";
+import FacingMaster from "./components/Projects/FacingMaster";
+import CommissionSetup from "./components/Projects/CommissionSetup"
+import ApprovalBody from "./components/Projects/ApprovalBody";
+import Tax from "./components/Projects/Tax";
+import ProjectList from "./components/Projects/ProjectList";
+
+
+install react-bootstrap

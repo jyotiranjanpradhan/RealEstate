@@ -262,45 +262,7 @@ const CompanyProfile = () => {
         <div className="row">
           <div className="col-xl-12">
             <div className="card mb-4">
-              <div className=" card-header p-0">
-                <div className="nav-align-top">
-                  <ul className="nav nav-tabs nav-fill" role="tablist">
-                    {[
-                      "companyprofile",
-                      "address",
-                      "personal",
-                      "family",
-                      "education",
-                      "training",
-                      "experience",
-                      "skilllevel",
-                    ].map((tab) => (
-                      <li className="nav-item" key={tab}>
-                        <button
-                          type="button"
-                          className={`nav-link ${
-                            activeTab === tab ? "active" : ""
-                          }`}
-                          role="tab"
-                          onClick={() => setActiveTab(tab)}
-                          aria-controls={`navs-justified-${tab}`}
-                          aria-selected={activeTab === tab}
-                        >
-                          <i
-                            className={`tf-icons mdi mdi-${
-                              tab === "companyprofile"
-                                ? "home-outline"
-                                : "account-outline"
-                            } me-1`}
-                          ></i>
-                          {tab.charAt(0).toUpperCase() +
-                            tab.slice(1).replace(/[A-Z]/g, " $&")}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <div className=" card-header p-0"></div>
               <div className="card-body">
                 <div className="tab-content p-0">
                   <div
@@ -411,7 +373,7 @@ const CompanyProfile = () => {
                         </div>
                       </div>
                       <div className="mt-4">
-                        <button type="submit" className="btn btn-primary me-2">
+                        {/* <button type="submit" className="btn btn-primary me-2">
                           Save changes
                         </button>
                         <button
@@ -419,181 +381,187 @@ const CompanyProfile = () => {
                           className="btn btn-outline-secondary"
                         >
                           Cancel
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                        </button> */}
 
-                  <div
-                    className={`tab-pane fade show ${
-                      activeTab === "address" ? "active" : ""
-                    }`}
-                    id="navs-justified-address"
-                    role="tabpanel"
-                  >
-                    {/* Permanent Address */}
-                    <h5 className="card-header">Permanent Address</h5>
-                    <div className="card-body pt-1">
-                      <div className="row gy-3">
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="permanentAddress"
-                              name="permanentAddress"
-                              placeholder="Address"
-                              value={formData.permanentAddress}
-                              onChange={handleChange}
-                            />
-                            <label htmlFor="permanentAddress">Address</label>
+                        <div>
+                          {/* Permanent Address */}
+                          <h5 className="card-header">Permanent Address</h5>
+                          <div className="card-body pt-1">
+                            <div className="row gy-3">
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id="permanentAddress"
+                                    name="permanentAddress"
+                                    placeholder="Address"
+                                    value={formData.permanentAddress}
+                                    onChange={handleChange}
+                                  />
+                                  <label htmlFor="permanentAddress">
+                                    Address
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <select
+                                    id="permanentCountry"
+                                    className="select2 form-select"
+                                    name="permanentCountry"
+                                    value={formData.permanentCountry}
+                                    onChange={handleChange}
+                                  >
+                                    <option value="">Country</option>
+                                    {countries.map((country) => (
+                                      <option key={country} value={country}>
+                                        {country}
+                                      </option>
+                                    ))}
+                                  </select>
+                                  <label htmlFor="permanentCountry">
+                                    Country
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    className="form-control"
+                                    type="text"
+                                    id="permanentState"
+                                    name="permanentState"
+                                    placeholder="State"
+                                    value={formData.permanentState}
+                                    onChange={handleChange}
+                                  />
+                                  <label htmlFor="permanentState">
+                                    {" "}
+                                    State{" "}
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    className="form-control"
+                                    type="text"
+                                    id="permanentCity"
+                                    name="permanentCity"
+                                    placeholder="City"
+                                    value={formData.permanentCity}
+                                    onChange={handleChange}
+                                  />
+                                  <label htmlFor="permanentCity">City</label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id="permanentZipCode"
+                                    name="permanentZipCode"
+                                    placeholder="PIN Code"
+                                    maxLength="6"
+                                    value={formData.permanentZipCode}
+                                    onChange={handleChange}
+                                  />
+                                  <label htmlFor="permanentZipCode">
+                                    PIN Code
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <select
-                              id="permanentCountry"
-                              className="select2 form-select"
-                              name="permanentCountry"
-                              value={formData.permanentCountry}
-                              onChange={handleChange}
-                            >
-                              <option value="">Country</option>
-                              {countries.map((country) => (
-                                <option key={country} value={country}>
-                                  {country}
-                                </option>
-                              ))}
-                            </select>
-                            <label htmlFor="permanentCountry">Country</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              className="form-control"
-                              type="text"
-                              id="permanentState"
-                              name="permanentState"
-                              placeholder="State"
-                              value={formData.permanentState}
-                              onChange={handleChange}
-                            />
-                            <label htmlFor="permanentState"> State </label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              className="form-control"
-                              type="text"
-                              id="permanentCity"
-                              name="permanentCity"
-                              placeholder="City"
-                              value={formData.permanentCity}
-                              onChange={handleChange}
-                            />
-                            <label htmlFor="permanentCity">City</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="permanentZipCode"
-                              name="permanentZipCode"
-                              placeholder="PIN Code"
-                              maxLength="6"
-                              value={formData.permanentZipCode}
-                              onChange={handleChange}
-                            />
-                            <label htmlFor="permanentZipCode">PIN Code</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Present Address */}
-                    <h5 className="card-header">Present Address</h5>
-                    <div className="card-body pt-1">
-                      <div className="row gy-3">
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="presentAddress"
-                              name="presentAddress"
-                              placeholder="Address"
-                              value={formData.presentAddress}
-                              onChange={handleChange}
-                            />
-                            <label htmlFor="presentAddress">Address</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <select
-                              id="presentCountry"
-                              className="select2 form-select"
-                              name="presentCountry"
-                              value={formData.presentCountry}
-                              onChange={handleChange}
-                            >
-                              <option value="">Country</option>
-                              {countries.map((country) => (
-                                <option key={country} value={country}>
-                                  {country}
-                                </option>
-                              ))}
-                            </select>
-                            <label htmlFor="presentCountry">Country</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              className="form-control"
-                              type="text"
-                              id="presentState"
-                              name="presentState"
-                              placeholder="State"
-                              value={formData.presentState}
-                              onChange={handleChange}
-                            />
-                            <label htmlFor="presentState">State</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              className="form-control"
-                              type="text"
-                              id="presentCity"
-                              name="presentCity"
-                              placeholder="City"
-                              value={formData.presentCity}
-                              onChange={handleChange}
-                            />
-                            <label htmlFor="presentCity">City</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="presentZipCode"
-                              name="presentZipCode"
-                              placeholder="PIN Code"
-                              maxLength="6"
-                              value={formData.presentZipCode}
-                              onChange={handleChange}
-                            />
-                            <label htmlFor="presentZipCode">PIN Code</label>
-                          </div>
-                        </div>
-                        <div className="mt-4">
+                          {/* Present Address */}
+                          <h5 className="card-header">Present Address</h5>
+                          <div className="card-body pt-1">
+                            <div className="row gy-3">
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id="presentAddress"
+                                    name="presentAddress"
+                                    placeholder="Address"
+                                    value={formData.presentAddress}
+                                    onChange={handleChange}
+                                  />
+                                  <label htmlFor="presentAddress">
+                                    Address
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <select
+                                    id="presentCountry"
+                                    className="select2 form-select"
+                                    name="presentCountry"
+                                    value={formData.presentCountry}
+                                    onChange={handleChange}
+                                  >
+                                    <option value="">Country</option>
+                                    {countries.map((country) => (
+                                      <option key={country} value={country}>
+                                        {country}
+                                      </option>
+                                    ))}
+                                  </select>
+                                  <label htmlFor="presentCountry">
+                                    Country
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    className="form-control"
+                                    type="text"
+                                    id="presentState"
+                                    name="presentState"
+                                    placeholder="State"
+                                    value={formData.presentState}
+                                    onChange={handleChange}
+                                  />
+                                  <label htmlFor="presentState">State</label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    className="form-control"
+                                    type="text"
+                                    id="presentCity"
+                                    name="presentCity"
+                                    placeholder="City"
+                                    value={formData.presentCity}
+                                    onChange={handleChange}
+                                  />
+                                  <label htmlFor="presentCity">City</label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id="presentZipCode"
+                                    name="presentZipCode"
+                                    placeholder="PIN Code"
+                                    maxLength="6"
+                                    value={formData.presentZipCode}
+                                    onChange={handleChange}
+                                  />
+                                  <label htmlFor="presentZipCode">
+                                    PIN Code
+                                  </label>
+                                </div>
+                              </div>
+                              {/* <div className="mt-4">
                           <button
                             type="submit"
                             className="btn btn-primary me-2"
@@ -606,127 +574,130 @@ const CompanyProfile = () => {
                           >
                             Cancel
                           </button>
+                        </div> */}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div
-                    className={`tab-pane fade show ${
-                      activeTab === "personal" ? "active" : ""
-                    }`}
-                    id="navs-justified-personal"
-                    role="tabpanel"
-                  >
-                    <h5 className="card-header">Personal Profile</h5>
-                    <div className="card-body pt-1">
-                      <form id="formValidationExamples" className="row g-3">
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <select
-                              id="form-repeater-1-3"
-                              className="form-select"
+                        <div>
+                          <h5 className="card-header">Personal Profile</h5>
+                          <div className="card-body pt-1">
+                            <form
+                              id="formValidationExamples"
+                              className="row g-3"
                             >
-                              <option value="Male">Male</option>
-                              <option value="Female">Female</option>
-                            </select>
-                            <label htmlFor="form-repeater-1-3">Gender</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id=""
-                              name="Nationality"
-                              placeholder="Nationality"
-                            />
-                            <label htmlFor="Nationality">Nationality</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control flatpickr-validation"
-                              name="formValidationDob"
-                              id="formValidationDob"
-                              placeholder="YYYY-MM-DD"
-                              required
-                            />
-                            <label htmlFor="formValidationDob">DOB</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id=""
-                              name="MaritalStatus"
-                              placeholder="Marital Status"
-                            />
-                            <label htmlFor="MaritalStatus">
-                              Marital Status
-                            </label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control flatpickr-validation"
-                              name="AnniversaryDate"
-                              id="AnniversaryDate"
-                              placeholder="YYYY-MM-DD"
-                              required
-                            />
-                            <label htmlFor="AnniversaryDate">
-                              Anniversary Date
-                            </label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id=""
-                              name="Religion"
-                              placeholder="Religion"
-                            />
-                            <label htmlFor="Religion">Religion</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id=""
-                              name="BloodGroup"
-                              placeholder="Blood Group"
-                            />
-                            <label htmlFor="BloodGroup">Blood Group</label>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id=""
-                              name="AnyMedicalIssues"
-                              placeholder="Any Medical Issues"
-                            />
-                            <label htmlFor="AnyMedicalIssues">
-                              Any Medical Issues
-                            </label>
-                          </div>
-                        </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <select
+                                    id="form-repeater-1-3"
+                                    className="form-select"
+                                  >
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                  </select>
+                                  <label htmlFor="form-repeater-1-3">
+                                    Gender
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id=""
+                                    name="Nationality"
+                                    placeholder="Nationality"
+                                  />
+                                  <label htmlFor="Nationality">
+                                    Nationality
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control flatpickr-validation"
+                                    name="formValidationDob"
+                                    id="formValidationDob"
+                                    placeholder="YYYY-MM-DD"
+                                    required
+                                  />
+                                  <label htmlFor="formValidationDob">DOB</label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id=""
+                                    name="MaritalStatus"
+                                    placeholder="Marital Status"
+                                  />
+                                  <label htmlFor="MaritalStatus">
+                                    Marital Status
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control flatpickr-validation"
+                                    name="AnniversaryDate"
+                                    id="AnniversaryDate"
+                                    placeholder="YYYY-MM-DD"
+                                    required
+                                  />
+                                  <label htmlFor="AnniversaryDate">
+                                    Anniversary Date
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id=""
+                                    name="Religion"
+                                    placeholder="Religion"
+                                  />
+                                  <label htmlFor="Religion">Religion</label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id=""
+                                    name="BloodGroup"
+                                    placeholder="Blood Group"
+                                  />
+                                  <label htmlFor="BloodGroup">
+                                    Blood Group
+                                  </label>
+                                </div>
+                              </div>
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id=""
+                                    name="AnyMedicalIssues"
+                                    placeholder="Any Medical Issues"
+                                  />
+                                  <label htmlFor="AnyMedicalIssues">
+                                    Any Medical Issues
+                                  </label>
+                                </div>
+                              </div>
 
-                        <div className="mt-4">
+                              {/* <div className="mt-4">
                           <button
                             type="submit"
                             className="btn btn-primary me-2"
@@ -739,779 +710,778 @@ const CompanyProfile = () => {
                           >
                             Cancel
                           </button>
+                        </div> */}
+                            </form>
+                          </div>
                         </div>
-                      </form>
-                    </div>
-                  </div>
 
-                  <div
-                    className={`tab-pane fade show ${
-                      activeTab === "family" ? "active" : ""
-                    }`}
-                    id="navs-justified-family"
-                    role="tabpanel"
-                  >
-                    <h5 className="card-header">Family Profile</h5>
-                    <div className="card-body">
-                      <form className="form-repeater">
-                        <div data-repeater-list="group-a">
-                          {familyMembers.map((member, index) => (
-                            <div data-repeater-item key={index}>
-                              <div className="row">
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-name-${index}`}
-                                      className="form-control"
-                                      placeholder="Name"
-                                      name="name"
-                                      value={member.name}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-name-${index}`}
-                                    >
-                                      Name
-                                    </label>
+                        <div>
+                          <h5 className="card-header">Family Profile</h5>
+                          <div className="card-body">
+                            <form className="form-repeater">
+                              <div data-repeater-list="group-a">
+                                {familyMembers.map((member, index) => (
+                                  <div data-repeater-item key={index}>
+                                    <div className="row">
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-name-${index}`}
+                                            className="form-control"
+                                            placeholder="Name"
+                                            name="name"
+                                            value={member.name}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-name-${index}`}
+                                          >
+                                            Name
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-relation-${index}`}
+                                            className="form-control"
+                                            placeholder="Relation"
+                                            name="relation"
+                                            value={member.relation}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-relation-${index}`}
+                                          >
+                                            Relation
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-dependency-${index}`}
+                                            className="form-control"
+                                            placeholder="Dependency"
+                                            name="dependency"
+                                            value={member.dependency}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-dependency-${index}`}
+                                          >
+                                            Dependency
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <select
+                                            id={`form-repeater-gender-${index}`}
+                                            className="form-select"
+                                            name="gender"
+                                            value={member.gender}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          >
+                                            <option value="Male">Male</option>
+                                            <option value="Female">
+                                              Female
+                                            </option>
+                                          </select>
+                                          <label
+                                            htmlFor={`form-repeater-gender-${index}`}
+                                          >
+                                            Gender
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            className="form-control"
+                                            type="text"
+                                            id={`form-repeater-age-${index}`}
+                                            name="age"
+                                            placeholder="Age"
+                                            value={member.age}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-age-${index}`}
+                                          >
+                                            Age
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            className="form-control"
+                                            type="text"
+                                            id={`form-repeater-phone-${index}`}
+                                            name="phone"
+                                            placeholder="Phone No"
+                                            value={member.phone}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-phone-${index}`}
+                                          >
+                                            Phone No
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            className="form-control"
+                                            type="text"
+                                            id={`form-repeater-email-${index}`}
+                                            name="email"
+                                            placeholder="Email ID"
+                                            value={member.email}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-email-${index}`}
+                                          >
+                                            Email ID
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            className="form-control"
+                                            type="date"
+                                            id={`form-repeater-dob-${index}`}
+                                            name="dob"
+                                            value={member.dob}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-dob-${index}`}
+                                          >
+                                            DOB
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            className="form-control"
+                                            type="text"
+                                            id={`form-repeater-occupations-${index}`}
+                                            name="occupations"
+                                            placeholder="Occupations"
+                                            value={member.occupations}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-occupations-${index}`}
+                                          >
+                                            Occupations
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            className="form-control"
+                                            type="text"
+                                            id={`form-repeater-education-${index}`}
+                                            name="education"
+                                            placeholder="Education"
+                                            value={member.education}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-education-${index}`}
+                                          >
+                                            Education
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            className="form-control"
+                                            type="text"
+                                            id={`form-repeater-adhar-${index}`}
+                                            name="adhar"
+                                            placeholder="Adhar No"
+                                            value={member.adhar}
+                                            onChange={(e) =>
+                                              handleChangeMember(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-adhar-${index}`}
+                                          >
+                                            Adhar No
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
+                                        <button
+                                          type="button"
+                                          className="btn btn-outline-danger"
+                                          onClick={() =>
+                                            handleRemoveMember(index)
+                                          }
+                                        >
+                                          <i className="mdi mdi-close me-1"></i>
+                                          <span className="align-middle">
+                                            Delete
+                                          </span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <hr />
                                   </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-relation-${index}`}
-                                      className="form-control"
-                                      placeholder="Relation"
-                                      name="relation"
-                                      value={member.relation}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-relation-${index}`}
-                                    >
-                                      Relation
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-dependency-${index}`}
-                                      className="form-control"
-                                      placeholder="Dependency"
-                                      name="dependency"
-                                      value={member.dependency}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-dependency-${index}`}
-                                    >
-                                      Dependency
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <select
-                                      id={`form-repeater-gender-${index}`}
-                                      className="form-select"
-                                      name="gender"
-                                      value={member.gender}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    >
-                                      <option value="Male">Male</option>
-                                      <option value="Female">Female</option>
-                                    </select>
-                                    <label
-                                      htmlFor={`form-repeater-gender-${index}`}
-                                    >
-                                      Gender
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      className="form-control"
-                                      type="text"
-                                      id={`form-repeater-age-${index}`}
-                                      name="age"
-                                      placeholder="Age"
-                                      value={member.age}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-age-${index}`}
-                                    >
-                                      Age
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      className="form-control"
-                                      type="text"
-                                      id={`form-repeater-phone-${index}`}
-                                      name="phone"
-                                      placeholder="Phone No"
-                                      value={member.phone}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-phone-${index}`}
-                                    >
-                                      Phone No
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      className="form-control"
-                                      type="text"
-                                      id={`form-repeater-email-${index}`}
-                                      name="email"
-                                      placeholder="Email ID"
-                                      value={member.email}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-email-${index}`}
-                                    >
-                                      Email ID
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      className="form-control"
-                                      type="date"
-                                      id={`form-repeater-dob-${index}`}
-                                      name="dob"
-                                      value={member.dob}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-dob-${index}`}
-                                    >
-                                      DOB
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      className="form-control"
-                                      type="text"
-                                      id={`form-repeater-occupations-${index}`}
-                                      name="occupations"
-                                      placeholder="Occupations"
-                                      value={member.occupations}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-occupations-${index}`}
-                                    >
-                                      Occupations
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      className="form-control"
-                                      type="text"
-                                      id={`form-repeater-education-${index}`}
-                                      name="education"
-                                      placeholder="Education"
-                                      value={member.education}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-education-${index}`}
-                                    >
-                                      Education
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      className="form-control"
-                                      type="text"
-                                      id={`form-repeater-adhar-${index}`}
-                                      name="adhar"
-                                      placeholder="Adhar No"
-                                      value={member.adhar}
-                                      onChange={(e) =>
-                                        handleChangeMember(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-adhar-${index}`}
-                                    >
-                                      Adhar No
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
-                                  <button
-                                    type="button"
-                                    className="btn btn-outline-danger"
-                                    onClick={() => handleRemoveMember(index)}
-                                  >
-                                    <i className="mdi mdi-close me-1"></i>
-                                    <span className="align-middle">Delete</span>
-                                  </button>
-                                </div>
+                                ))}
                               </div>
-                              <hr />
-                            </div>
-                          ))}
-                        </div>
-                        <div className="mb-0">
-                          <button
-                            type="button"
-                            className="btn btn-primary"
-                            onClick={handleAddMember}
-                          >
-                            <i className="mdi mdi-plus me-1"></i>
-                            <span className="align-middle">Add</span>
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-
-                  <div
-                    className={`tab-pane fade show ${
-                      activeTab === "education" ? "active" : ""
-                    }`}
-                    id="navs-justified-education"
-                    role="tabpanel"
-                  >
-                    <h5 className="card-header">Education Profile</h5>
-                    <div className="card-body">
-                      <form className="form-repeater">
-                        <div data-repeater-list="group-a">
-                          {educationFields.map((field, index) => (
-                            <div data-repeater-item key={index}>
-                              <div className="row">
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-courseName-${index}`}
-                                      className="form-control"
-                                      placeholder="Course Name"
-                                      name="courseName"
-                                      value={field.courseName}
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-courseName-${index}`}
-                                    >
-                                      Course Name
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-boardName-${index}`}
-                                      className="form-control"
-                                      placeholder="Board Name"
-                                      name="boardName"
-                                      value={field.boardName}
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-boardName-${index}`}
-                                    >
-                                      Board Name
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-yearsToComplete-${index}`}
-                                      className="form-control"
-                                      placeholder="Years to complete"
-                                      name="yearsToComplete"
-                                      value={field.yearsToComplete}
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-yearsToComplete-${index}`}
-                                    >
-                                      Years to complete
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-academicYear-${index}`}
-                                      className="form-control"
-                                      placeholder="Academic Year"
-                                      name="academicYear"
-                                      value={field.academicYear}
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-academicYear-${index}`}
-                                    >
-                                      Academic Year
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-markType-${index}`}
-                                      className="form-control"
-                                      placeholder="%"
-                                      name="markType"
-                                      value={field.markType}
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-markType-${index}`}
-                                    >
-                                      Mark Type
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-secureMark-${index}`}
-                                      className="form-control"
-                                      placeholder="Secure Mark"
-                                      name="secureMark"
-                                      value={field.secureMark}
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-secureMark-${index}`}
-                                    >
-                                      Secure Mark
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-totalMark-${index}`}
-                                      className="form-control"
-                                      placeholder="Total Mark"
-                                      name="totalMark"
-                                      value={field.totalMark}
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-totalMark-${index}`}
-                                    >
-                                      Total Mark
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="text"
-                                      id={`form-repeater-division-${index}`}
-                                      className="form-control"
-                                      placeholder="Division"
-                                      name="division"
-                                      value={field.division}
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-division-${index}`}
-                                    >
-                                      Division
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="file"
-                                      className="form-control"
-                                      id={`form-repeater-certificate-${index}`}
-                                      name="certificate"
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-certificate-${index}`}
-                                    >
-                                      Certificate
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                  <div className="form-floating form-floating-outline">
-                                    <input
-                                      type="file"
-                                      className="form-control"
-                                      id={`form-repeater-marklist-${index}`}
-                                      name="marklist"
-                                      onChange={(e) =>
-                                        handleChangeEducation(index, e)
-                                      }
-                                    />
-                                    <label
-                                      htmlFor={`form-repeater-marklist-${index}`}
-                                    >
-                                      Marklist
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
-                                  <button
-                                    type="button"
-                                    className="btn btn-outline-danger"
-                                    onClick={() =>
-                                      handleRemoveFieldEducation(index)
-                                    }
-                                  >
-                                    <i className="mdi mdi-close me-1"></i>
-                                    <span className="align-middle">Delete</span>
-                                  </button>
-                                </div>
-                              </div>
-                              <hr />
-                            </div>
-                          ))}
-                        </div>
-                        <div className="mb-0">
-                          <button
-                            type="button"
-                            className="btn btn-primary"
-                            onClick={handleAddField}
-                          >
-                            <i className="mdi mdi-plus me-1"></i>
-                            <span className="align-middle">Add</span>
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-
-                  <div
-                    className={`tab-pane fade show ${
-                      activeTab === "training" ? "active" : ""
-                    }`}
-                    id="navs-justified-training"
-                    role="tabpanel"
-                  >
-                    <h5 className="card-header">
-                      Training & Education Certification
-                    </h5>
-                    <div className="card-body">
-                      <form className="form-repeater">
-                        {TrainingFormData.map((item, index) => (
-                          <div key={index} data-repeater-item>
-                            <div className="row">
-                              <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                <div className="form-floating form-floating-outline">
-                                  <input
-                                    type="text"
-                                    id={`form-repeater-${index}-course`}
-                                    name="course"
-                                    className="form-control"
-                                    placeholder="Course Name"
-                                    value={item.course}
-                                    onChange={(e) =>
-                                      handleInputChangeTraining(index, e)
-                                    }
-                                  />
-                                  <label
-                                    htmlFor={`form-repeater-${index}-course`}
-                                  >
-                                    Course Name
-                                  </label>
-                                </div>
-                              </div>
-                              <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                <div className="form-floating form-floating-outline">
-                                  <input
-                                    type="text"
-                                    id={`form-repeater-${index}-board`}
-                                    name="board"
-                                    className="form-control"
-                                    placeholder="Board Name"
-                                    value={item.board}
-                                    onChange={(e) =>
-                                      handleInputChangeTraining(index, e)
-                                    }
-                                  />
-                                  <label
-                                    htmlFor={`form-repeater-${index}-board`}
-                                  >
-                                    Board Name
-                                  </label>
-                                </div>
-                              </div>
-                              <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                <div className="form-floating form-floating-outline">
-                                  <input
-                                    type="text"
-                                    id={`form-repeater-${index}-duration`}
-                                    name="duration"
-                                    className="form-control"
-                                    placeholder="Years to complete"
-                                    value={item.duration}
-                                    onChange={(e) =>
-                                      handleInputChangeTraining(index, e)
-                                    }
-                                  />
-                                  <label
-                                    htmlFor={`form-repeater-${index}-duration`}
-                                  >
-                                    Years
-                                  </label>
-                                </div>
-                              </div>
-                              <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                <div className="form-floating form-floating-outline">
-                                  <input
-                                    type="text"
-                                    id={`form-repeater-${index}-certificateNumber`}
-                                    name="certificateNumber"
-                                    className="form-control"
-                                    placeholder="Certificate No"
-                                    value={item.certificateNumber}
-                                    onChange={(e) =>
-                                      handleInputChangeTraining(index, e)
-                                    }
-                                  />
-                                  <label
-                                    htmlFor={`form-repeater-${index}-certificateNumber`}
-                                  >
-                                    Certificate No
-                                  </label>
-                                </div>
-                              </div>
-                              <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
-                                <div className="form-floating form-floating-outline">
-                                  <input
-                                    type="text"
-                                    id={`form-repeater-${index}-skills`}
-                                    name="skills"
-                                    className="form-control"
-                                    placeholder="Skill Set"
-                                    value={item.skills}
-                                    onChange={(e) =>
-                                      handleInputChangeTraining(index, e)
-                                    }
-                                  />
-                                  <label
-                                    htmlFor={`form-repeater-${index}-skills`}
-                                  >
-                                    Skill Set
-                                  </label>
-                                </div>
-                              </div>
-                              <div className="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
+                              <div className="mb-0">
                                 <button
                                   type="button"
-                                  className="btn btn-outline-danger"
-                                  data-repeater-delete
-                                  onClick={() => deleteFormItemTraining(index)}
+                                  className="btn btn-primary"
+                                  onClick={handleAddMember}
                                 >
-                                  <i className="mdi mdi-close me-1"></i>
-                                  <span className="align-middle">Delete</span>
+                                  <i className="mdi mdi-plus me-1"></i>
+                                  <span className="align-middle">Add</span>
                                 </button>
                               </div>
-                            </div>
-                            <hr />
+                            </form>
                           </div>
-                        ))}
-                        <div className="mb-0">
-                          <button
-                            type="button"
-                            className="btn btn-primary"
-                            data-repeater-create
-                            onClick={addFormItemTraining}
-                          >
-                            <i className="mdi mdi-plus me-1"></i>
-                            <span className="align-middle">Add</span>
-                          </button>
                         </div>
-                      </form>
-                    </div>
-                  </div>
 
-                  <div
-                    className={`tab-pane fade show ${
-                      activeTab === "experience" ? "active" : ""
-                    }`}
-                    id="navs-justified-experience"
-                    role="tabpanel"
-                  >
-                    <h5 className="card-header">Experience</h5>
-                    <div className="card-body">
-                      <form className="form-repeater">
-                        {experiences.map((experience, index) => (
-                          <div key={index} className="mb-3" data-repeater-item>
-                            <div className="row">
-                              {Object.entries(experience).map(
-                                ([key, value]) => (
-                                  <div
-                                    key={key}
-                                    className="mb-3 col-lg-6 col-xl-4 col-12 mb-0"
-                                  >
-                                    <div className="form-floating form-floating-outline">
-                                      <input
-                                        type={
-                                          key === "joiningLetter" ||
-                                          key === "experienceLetter"
-                                            ? "file"
-                                            : "text"
+                        <div>
+                          <h5 className="card-header">Education Profile</h5>
+                          <div className="card-body">
+                            <form className="form-repeater">
+                              <div data-repeater-list="group-a">
+                                {educationFields.map((field, index) => (
+                                  <div data-repeater-item key={index}>
+                                    <div className="row">
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-courseName-${index}`}
+                                            className="form-control"
+                                            placeholder="Course Name"
+                                            name="courseName"
+                                            value={field.courseName}
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-courseName-${index}`}
+                                          >
+                                            Course Name
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-boardName-${index}`}
+                                            className="form-control"
+                                            placeholder="Board Name"
+                                            name="boardName"
+                                            value={field.boardName}
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-boardName-${index}`}
+                                          >
+                                            Board Name
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-yearsToComplete-${index}`}
+                                            className="form-control"
+                                            placeholder="Years to complete"
+                                            name="yearsToComplete"
+                                            value={field.yearsToComplete}
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-yearsToComplete-${index}`}
+                                          >
+                                            Years to complete
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-academicYear-${index}`}
+                                            className="form-control"
+                                            placeholder="Academic Year"
+                                            name="academicYear"
+                                            value={field.academicYear}
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-academicYear-${index}`}
+                                          >
+                                            Academic Year
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-markType-${index}`}
+                                            className="form-control"
+                                            placeholder="%"
+                                            name="markType"
+                                            value={field.markType}
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-markType-${index}`}
+                                          >
+                                            Mark Type
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-secureMark-${index}`}
+                                            className="form-control"
+                                            placeholder="Secure Mark"
+                                            name="secureMark"
+                                            value={field.secureMark}
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-secureMark-${index}`}
+                                          >
+                                            Secure Mark
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-totalMark-${index}`}
+                                            className="form-control"
+                                            placeholder="Total Mark"
+                                            name="totalMark"
+                                            value={field.totalMark}
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-totalMark-${index}`}
+                                          >
+                                            Total Mark
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="text"
+                                            id={`form-repeater-division-${index}`}
+                                            className="form-control"
+                                            placeholder="Division"
+                                            name="division"
+                                            value={field.division}
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-division-${index}`}
+                                          >
+                                            Division
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="file"
+                                            className="form-control"
+                                            id={`form-repeater-certificate-${index}`}
+                                            name="certificate"
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-certificate-${index}`}
+                                          >
+                                            Certificate
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                        <div className="form-floating form-floating-outline">
+                                          <input
+                                            type="file"
+                                            className="form-control"
+                                            id={`form-repeater-marklist-${index}`}
+                                            name="marklist"
+                                            onChange={(e) =>
+                                              handleChangeEducation(index, e)
+                                            }
+                                          />
+                                          <label
+                                            htmlFor={`form-repeater-marklist-${index}`}
+                                          >
+                                            Marklist
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div className="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
+                                        <button
+                                          type="button"
+                                          className="btn btn-outline-danger"
+                                          onClick={() =>
+                                            handleRemoveFieldEducation(index)
+                                          }
+                                        >
+                                          <i className="mdi mdi-close me-1"></i>
+                                          <span className="align-middle">
+                                            Delete
+                                          </span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <hr />
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="mb-0">
+                                <button
+                                  type="button"
+                                  className="btn btn-primary"
+                                  onClick={handleAddField}
+                                >
+                                  <i className="mdi mdi-plus me-1"></i>
+                                  <span className="align-middle">Add</span>
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h5 className="card-header">
+                            Training & Education Certification
+                          </h5>
+                          <div className="card-body">
+                            <form className="form-repeater">
+                              {TrainingFormData.map((item, index) => (
+                                <div key={index} data-repeater-item>
+                                  <div className="row">
+                                    <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                      <div className="form-floating form-floating-outline">
+                                        <input
+                                          type="text"
+                                          id={`form-repeater-${index}-course`}
+                                          name="course"
+                                          className="form-control"
+                                          placeholder="Course Name"
+                                          value={item.course}
+                                          onChange={(e) =>
+                                            handleInputChangeTraining(index, e)
+                                          }
+                                        />
+                                        <label
+                                          htmlFor={`form-repeater-${index}-course`}
+                                        >
+                                          Course Name
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                      <div className="form-floating form-floating-outline">
+                                        <input
+                                          type="text"
+                                          id={`form-repeater-${index}-board`}
+                                          name="board"
+                                          className="form-control"
+                                          placeholder="Board Name"
+                                          value={item.board}
+                                          onChange={(e) =>
+                                            handleInputChangeTraining(index, e)
+                                          }
+                                        />
+                                        <label
+                                          htmlFor={`form-repeater-${index}-board`}
+                                        >
+                                          Board Name
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                      <div className="form-floating form-floating-outline">
+                                        <input
+                                          type="text"
+                                          id={`form-repeater-${index}-duration`}
+                                          name="duration"
+                                          className="form-control"
+                                          placeholder="Years to complete"
+                                          value={item.duration}
+                                          onChange={(e) =>
+                                            handleInputChangeTraining(index, e)
+                                          }
+                                        />
+                                        <label
+                                          htmlFor={`form-repeater-${index}-duration`}
+                                        >
+                                          Years
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                      <div className="form-floating form-floating-outline">
+                                        <input
+                                          type="text"
+                                          id={`form-repeater-${index}-certificateNumber`}
+                                          name="certificateNumber"
+                                          className="form-control"
+                                          placeholder="Certificate No"
+                                          value={item.certificateNumber}
+                                          onChange={(e) =>
+                                            handleInputChangeTraining(index, e)
+                                          }
+                                        />
+                                        <label
+                                          htmlFor={`form-repeater-${index}-certificateNumber`}
+                                        >
+                                          Certificate No
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div className="mb-3 col-lg-6 col-xl-4 col-12 mb-0">
+                                      <div className="form-floating form-floating-outline">
+                                        <input
+                                          type="text"
+                                          id={`form-repeater-${index}-skills`}
+                                          name="skills"
+                                          className="form-control"
+                                          placeholder="Skill Set"
+                                          value={item.skills}
+                                          onChange={(e) =>
+                                            handleInputChangeTraining(index, e)
+                                          }
+                                        />
+                                        <label
+                                          htmlFor={`form-repeater-${index}-skills`}
+                                        >
+                                          Skill Set
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div className="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
+                                      <button
+                                        type="button"
+                                        className="btn btn-outline-danger"
+                                        data-repeater-delete
+                                        onClick={() =>
+                                          deleteFormItemTraining(index)
                                         }
-                                        className="form-control"
-                                        id={`${key}-${index}`}
-                                        placeholder={key}
-                                        name={key}
-                                        value={
-                                          typeof value === "string"
-                                            ? value
-                                            : undefined
-                                        }
-                                        onChange={(e) =>
-                                          handleChangeExperiences(index, e)
-                                        }
-                                      />
-                                      <label htmlFor={`${key}-${index}`}>
-                                        {key
-                                          .replace(/([A-Z])/g, " $1")
-                                          .replace(/^./, (str) =>
-                                            str.toUpperCase()
-                                          )}
-                                      </label>
+                                      >
+                                        <i className="mdi mdi-close me-1"></i>
+                                        <span className="align-middle">
+                                          Delete
+                                        </span>
+                                      </button>
                                     </div>
                                   </div>
-                                )
-                              )}
-                              <div className="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
+                                  <hr />
+                                </div>
+                              ))}
+                              <div className="mb-0">
                                 <button
                                   type="button"
-                                  className="btn btn-outline-danger"
-                                  onClick={() => handleDeleteExperiences(index)}
+                                  className="btn btn-primary"
+                                  data-repeater-create
+                                  onClick={addFormItemTraining}
                                 >
-                                  <i className="mdi mdi-close me-1"></i>
-                                  <span className="align-middle">Delete</span>
+                                  <i className="mdi mdi-plus me-1"></i>
+                                  <span className="align-middle">Add</span>
                                 </button>
                               </div>
-                            </div>
-                            <hr />
+                            </form>
                           </div>
-                        ))}
-                        <div className="mb-0">
-                          <button
-                            type="button"
-                            className="btn btn-primary"
-                            onClick={handleAddExperiences}
-                          >
-                            <i className="mdi mdi-plus me-1"></i>
-                            <span className="align-middle">Add</span>
-                          </button>
                         </div>
-                      </form>
-                    </div>
-                  </div>
 
-                  <div
-                    className={`tab-pane fade show ${
-                      activeTab === "skilllevel" ? "active" : ""
-                    }`}
-                    id="navs-justified-skilllevel"
-                    role="tabpanel"
-                  >
-                    <h5 className="card-header">Skill Level</h5>
-                    <div className="card-body pt-1">
-                      <form className="row g-3" onSubmit={handleSubmitSkills}>
-                        <div className="col-md-4">
-                          <div className="form-floating form-floating-outline">
-                            <Select
-                              id="skill-level"
-                              isMulti
-                              options={skillsOptions}
-                              value={selectedSkills}
-                              onChange={handleChangeSkills}
-                              className="basic-multi-select"
-                              classNamePrefix="select"
-                            />
-                            <label htmlFor="skill-level"></label>
+                        <div>
+                          <h5 className="card-header">Experience</h5>
+                          <div className="card-body">
+                            <form className="form-repeater">
+                              {experiences.map((experience, index) => (
+                                <div
+                                  key={index}
+                                  className="mb-3"
+                                  data-repeater-item
+                                >
+                                  <div className="row">
+                                    {Object.entries(experience).map(
+                                      ([key, value]) => (
+                                        <div
+                                          key={key}
+                                          className="mb-3 col-lg-6 col-xl-4 col-12 mb-0"
+                                        >
+                                          <div className="form-floating form-floating-outline">
+                                            <input
+                                              type={
+                                                key === "joiningLetter" ||
+                                                key === "experienceLetter"
+                                                  ? "file"
+                                                  : "text"
+                                              }
+                                              className="form-control"
+                                              id={`${key}-${index}`}
+                                              placeholder={key}
+                                              name={key}
+                                              value={
+                                                typeof value === "string"
+                                                  ? value
+                                                  : undefined
+                                              }
+                                              onChange={(e) =>
+                                                handleChangeExperiences(
+                                                  index,
+                                                  e
+                                                )
+                                              }
+                                            />
+                                            <label htmlFor={`${key}-${index}`}>
+                                              {key
+                                                .replace(/([A-Z])/g, " $1")
+                                                .replace(/^./, (str) =>
+                                                  str.toUpperCase()
+                                                )}
+                                            </label>
+                                          </div>
+                                        </div>
+                                      )
+                                    )}
+                                    <div className="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
+                                      <button
+                                        type="button"
+                                        className="btn btn-outline-danger"
+                                        onClick={() =>
+                                          handleDeleteExperiences(index)
+                                        }
+                                      >
+                                        <i className="mdi mdi-close me-1"></i>
+                                        <span className="align-middle">
+                                          Delete
+                                        </span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <hr />
+                                </div>
+                              ))}
+                              <div className="mb-0">
+                                <button
+                                  type="button"
+                                  className="btn btn-primary"
+                                  onClick={handleAddExperiences}
+                                >
+                                  <i className="mdi mdi-plus me-1"></i>
+                                  <span className="align-middle">Add</span>
+                                </button>
+                              </div>
+                            </form>
                           </div>
                         </div>
-                        <div className="mt-4">
-                          <button
-                            type="submit"
-                            className="btn btn-primary me-2"
-                          >
-                            Save
-                          </button>
-                          <button
-                            type="button"
-                            className="btn btn-outline-secondary"
-                            onClick={handleResetSkills}
-                          >
-                            Cancel
-                          </button>
+
+                        <div>
+                          <h5 className="card-header">Skill Level</h5>
+                          <div className="card-body pt-1">
+                            <form
+                              className="row g-3"
+                              onSubmit={handleSubmitSkills}
+                            >
+                              <div className="col-md-4">
+                                <div className="form-floating form-floating-outline">
+                                  <Select
+                                    id="skill-level"
+                                    isMulti
+                                    options={skillsOptions}
+                                    value={selectedSkills}
+                                    onChange={handleChangeSkills}
+                                    className="basic-multi-select"
+                                    classNamePrefix="select"
+                                  />
+                                  <label htmlFor="skill-level"></label>
+                                </div>
+                              </div>
+                              <div className="mt-4">
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary me-2"
+                                >
+                                  Save
+                                </button>
+                                <button
+                                  type="button"
+                                  className="btn btn-outline-secondary"
+                                  onClick={handleResetSkills}
+                                >
+                                  Cancel
+                                </button>
+                              </div>
+                            </form>
+                          </div>
                         </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>
