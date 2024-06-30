@@ -58,6 +58,15 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AddCustomerForm from "./components/Customer/AddCustomerForm";
 import Module from "./components/Rolesandright/Module";
+import Territory from "./components/BusinessManagement/Territory";
+import Area from "./components/BusinessManagement/Area";
+import Zone from "./components/BusinessManagement/Zone";
+import Country from "./components/BusinessManagement/Location/Country";
+import State from "./components/BusinessManagement/Location/State";
+import City from "./components/BusinessManagement/Location/City";
+import Village from "./components/BusinessManagement/Location/Village";
+import AreaGram from "./components/BusinessManagement/Location/AreaGram";
+import Pin from "./components/BusinessManagement/Location/Pin";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -74,6 +83,23 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
+            <Route
+              path="/businessManagement/territory"
+              element={<Territory />}
+            />
+            <Route path="/businessManagement/area" element={<Area />} />
+            <Route
+              path="/businessManagement/zoneAndSegment"
+              element={<Zone />}
+            />
+            <Route path="/businessManagement/country" element={<Country />} />
+            <Route path="/businessManagement/state" element={<State />} />
+            <Route path="/businessManagement/city" element={<City />} />
+
+            <Route path="/businessManagement/village" element={<Village />} />
+            <Route path="/businessManagement/areaGram" element={<AreaGram />} />
+            <Route path="/businessManagement/pin" element={<Pin />} />
+
             <Route path="/" element={<Dashboard />} />
 
             <Route path="/rolesRight" element={<RolesAndRights />} />

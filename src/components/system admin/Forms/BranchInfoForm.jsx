@@ -1,4 +1,7 @@
+import { useForm } from "react-hook-form";
+
 function BranchInfoForm() {
+  const { register, handleSSubmit } = useForm();
   return (
     <div class="container-xxl flex-grow-1 container-p-y">
       <div class="card-header d-flex justify-content-between align-items-center py-2">
@@ -79,7 +82,6 @@ function BranchInfoForm() {
                         type="text"
                         id=""
                         name="Company Name"
-                        
                         placeholder="Company Name"
                         autofocus=""
                       />
@@ -93,7 +95,6 @@ function BranchInfoForm() {
                         type="text"
                         id=""
                         name="Company Name"
-                        
                         placeholder="Company Name"
                         autofocus=""
                       />
@@ -107,7 +108,6 @@ function BranchInfoForm() {
                         type="text"
                         id=""
                         name="Company ID"
-                        
                         placeholder="Company ID"
                         autofocus=""
                       />
@@ -184,7 +184,6 @@ function BranchInfoForm() {
                         type="text"
                         id=""
                         name="Compay Size"
-                        
                         placeholder="Compay Size"
                         autofocus=""
                       />
@@ -198,7 +197,6 @@ function BranchInfoForm() {
                         type="text"
                         id=""
                         name="Incorporation No"
-                        
                         placeholder="Incorporation No"
                         autofocus=""
                       />
@@ -212,7 +210,6 @@ function BranchInfoForm() {
                         type="text"
                         name="Incorporation Agency"
                         id=""
-                        
                         placeholder="Incorporation Agency"
                       />
                       <label for="Incorporation Agency">
@@ -247,7 +244,6 @@ function BranchInfoForm() {
                         type="text"
                         name="TAX Certificate Details"
                         id=""
-                        
                         placeholder="TAX Certificate Details"
                       />
                       <label for="TAX Certificate Details">
@@ -262,7 +258,6 @@ function BranchInfoForm() {
                         type="text"
                         name="PAN Details"
                         id=""
-                        
                         placeholder="PAN Details"
                       />
                       <label for="PAN Details">PAN Details</label>
@@ -434,7 +429,6 @@ function BranchInfoForm() {
                         type="text"
                         id=""
                         name="WhatsApp No"
-                        
                         placeholder="WhatsApp No"
                         autofocus=""
                       />
@@ -580,7 +574,6 @@ function BranchInfoForm() {
                               type="text"
                               id=""
                               name="group-a[0][Name]"
-                              
                               placeholder="Name"
                               autofocus=""
                             />
@@ -594,7 +587,6 @@ function BranchInfoForm() {
                               type="text"
                               id=""
                               name="group-a[0][Designation]"
-                              
                               placeholder="Designation"
                               autofocus=""
                             />
@@ -608,7 +600,6 @@ function BranchInfoForm() {
                               type="text"
                               name="group-a[0][Role]"
                               id=""
-                              
                               placeholder="Role"
                             />
                             <label for="Role">Role</label>
@@ -645,7 +636,6 @@ function BranchInfoForm() {
                               type="text"
                               id=""
                               name="group-a[0][WhatsApp No]"
-                              
                               placeholder="WhatsApp No"
                               autofocus=""
                             />

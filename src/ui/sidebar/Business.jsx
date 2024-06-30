@@ -2,15 +2,15 @@ import { useState } from "react";
 import SubItems from "../sideBarItems/SubItems";
 const array = [
   { value: "Location Master", to: "" },
-  { value: "Country", to: "" },
-  { value: "State", to: "" },
-  { value: "City / District", to: "" },
-  { value: "Area / G.P", to: "" },
-  { value: "Village", to: "" },
-  { value: "PIN", to: "" },
-  { value: "Zone / Segment", to: "" },
-  { value: "Area", to: "" },
-  { value: "Territory", to: "" },
+  { value: "Country", to: "/businessManagement/country" },
+  { value: "State", to: "/businessManagement/state" },
+  { value: "City / District", to: "/businessManagement/city" },
+  { value: "Area / G.P", to: "/businessManagement/areaGram" },
+  { value: "Village", to: "/businessManagement/village" },
+  { value: "PIN", to: "/businessManagement/pin" },
+  { value: "Zone / Segment", to: "/businessManagement/zoneAndSegment" },
+  { value: "Area", to: "/businessManagement/area" },
+  { value: "Territory", to: "/businessManagement/territory" },
   { value: "Point", to: "" },
 ];
 function Business() {
@@ -28,7 +28,7 @@ function Business() {
       </div>
       <ul class="menu-sub">
         {array.map((el) => (
-          <SubItems value={el.value} />
+          <SubItems value={el.value} to={el.to} />
         ))}
       </ul>
     </li>
