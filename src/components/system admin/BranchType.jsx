@@ -1,4 +1,18 @@
+import axios from "axios";
+import { useForm } from "react-hook-form";
+
 function BranchType() {
+  const { register, handleSubmit } = useForm();
+
+  async function onSubmit(data) {
+    console.log(data);
+    const res = await axios({
+      method: "POST",
+      url: "http://20.244.48.88:8000/api/system_branch_type_handler/",
+      data: data,
+    });
+    console.log(res);
+  }
   return (
     <>
       <h5>
@@ -10,14 +24,14 @@ function BranchType() {
           <div class="card">
             <h5 class="card-header"></h5>
             <div class="card-body pt-1">
-              <form id="formValidationExamples" class="row g-3">
+              <form class="row g-3" onSubmit={handleSubmit(onSubmit)}>
                 <div class="col-md-4">
                   <div class="form-floating form-floating-outline">
                     <input
                       type="text"
                       class="form-control"
-                      id=""
-                      name="Branch Type Name"
+                      id="type_name"
+                      {...register("type_name")}
                       placeholder="Branch Type Name"
                     />
                     <label for="Branch Type Name">Branch Type Name</label>

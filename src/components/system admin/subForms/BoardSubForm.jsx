@@ -1,4 +1,4 @@
-function BoardSubForm({ register }) {
+function BoardSubForm({ register, deleteComponent }) {
   return (
     <div data-repeater-list="group-a">
       <div data-repeater-item="">
@@ -35,7 +35,7 @@ function BoardSubForm({ register }) {
                 class="form-control"
                 type="date"
                 id="date_of_joining"
-                {...register("date_of_joining")}
+                {...register("date_of_join")}
               />
               <label for="Incorporation Date">Date of Joining</label>
             </div>
@@ -46,7 +46,7 @@ function BoardSubForm({ register }) {
                 class="form-control"
                 type="date"
                 id="date_of_leaving"
-                {...register("date_of_leaving")}
+                {...register("date_of_leave")}
               />
               <label for="Incorporation Date">Date of Leaving</label>
             </div>
@@ -66,20 +66,24 @@ function BoardSubForm({ register }) {
           </div>
           <div class="col-md-6">
             <div class="form-floating form-floating-outline">
-              <input
+              <select
                 class="form-control"
                 type="text"
                 id="stakeholder"
                 {...register("stakeholder")}
                 placeholder="Stakeholder"
-              />
+              >
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
               <label for="Incorporation Agency">Stakeholder</label>
             </div>
           </div>
           <div class="col-md-4 col-12 d-flex align-items-center mb-0">
             <button
+              type="button"
+              onClick={deleteComponent}
               class="btn btn-outline-danger waves-effect"
-              data-repeater-delete=""
             >
               <i class="mdi mdi-close me-1"></i>
               <span class="align-middle">Delete</span>

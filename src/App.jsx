@@ -176,7 +176,7 @@ const App = () => {
             <Route path="/customer/addCustomer" element={<AddCustomerForm />} />
             <Route path="/teamManagement" element={<TeamManagement />} />
 
-            {/* <Route path="/followUp" element={<FollowUp />} /> */}
+            <Route path="/followUp" element={<FollowUp />} />
             <Route
               path="/followUp/preSalesEnquiry"
               element={<PreSalesEnquiry />}

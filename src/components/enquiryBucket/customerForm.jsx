@@ -2,33 +2,33 @@ import { Link } from "react-router-dom";
 
 function CustomerForm() {
   return (
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <div class="card-header d-flex justify-content-between align-items-center py-2">
+    <div className="container-xxl flex-grow-1 container-p-y">
+      <div className="card-header d-flex justify-content-between align-items-center py-2">
         <h5>
-          <span class="text-muted fw-light">Enquiry Bucket /</span> Customer
+          <span className="text-muted fw-light">Enquiry Bucket /</span> Customer
           Form
         </h5>
-        <div class="mb-2 text-end">
+        <div className="mb-2 text-end">
           <Link
             to="/enquiryBucket/addCustomer"
-            class="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
+            className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
           >
-            <span class="mdi mdi-plus"></span>Enquiry
+            <span className="mdi mdi-plus"></span>Enquiry
           </Link>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-          <h5 class="mb-0">Customer Form :</h5>
-          {/* <!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
-            <span><i class="mdi mdi-plus me-0 me-sm-1"></i></span> Department
+      <div className="card">
+        <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+          <h5 className="mb-0">Customer Form :</h5>
+          {/* <!--  <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
+            <span><i className="mdi mdi-plus me-0 me-sm-1"></i></span> Department
           </button> --> */}
         </div>
-        <div class="text-nowrap p-3">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="all_request_table">
-              <thead class="table-secondary">
+        <div className="text-nowrap p-3">
+          <div className="table-responsive">
+            <table className="table table-bordered" id="all_request_table">
+              <thead className="table-secondary">
                 <tr>
                   <td>SL No</td>
                   <td>Customer Id</td>
@@ -58,30 +58,30 @@ function CustomerForm() {
                   <td>
                     <a
                       href="buyer_persona.php"
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="View"
                     >
-                      <i class="mdi mdi-eye"></i>
+                      <i className="mdi mdi-eye"></i>
                     </a>
                     <a
                       href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                     <a
                       href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Delete"
                     >
-                      <i class="mdi mdi-trash-can"></i>
+                      <i className="mdi mdi-trash-can"></i>
                     </a>
                   </td>
                 </tr>
@@ -99,30 +99,30 @@ function CustomerForm() {
                   <td>
                     <a
                       href="buyer_persona.php"
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="View"
                     >
-                      <i class="mdi mdi-eye"></i>
+                      <i className="mdi mdi-eye"></i>
                     </a>
                     <a
                       href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                     <a
                       href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Delete"
                     >
-                      <i class="mdi mdi-trash-can"></i>
+                      <i className="mdi mdi-trash-can"></i>
                     </a>
                   </td>
                 </tr>

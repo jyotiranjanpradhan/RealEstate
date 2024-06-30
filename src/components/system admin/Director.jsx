@@ -1,7 +1,10 @@
-import { useEffect } from "react";
 import Title from "./subItem/Title";
+import { useGetBoard } from "./../../hooks/systemAdmin/useGetBoard";
+import DirectorRow from "./subItem/DirectorRow";
 
 function Director() {
+  const { isPending, board } = useGetBoard();
+  console.log(board);
   return (
     <>
       <Title value="Board Directors" to="/systemAdmin/boardForm" />
@@ -23,114 +26,9 @@ function Director() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Deenabandhu</td>
-                  <td>Demo</td>
-                  <td>19/05/2023</td>
-                  <td>20/03/2024</td>
-                  <td>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="View"
-                    >
-                      <i class="mdi mdi-eye"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Edit"
-                    >
-                      <i class="mdi mdi-pencil-outline"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Delete"
-                    >
-                      <i class="mdi mdi-trash-can"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Deenabandhu</td>
-                  <td>Demo</td>
-                  <td>19/05/2023</td>
-                  <td>20/03/2024</td>
-                  <td>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="View"
-                    >
-                      <i class="mdi mdi-eye"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Edit"
-                    >
-                      <i class="mdi mdi-pencil-outline"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Delete"
-                    >
-                      <i class="mdi mdi-trash-can"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Deenabandhu</td>
-                  <td>Demo</td>
-                  <td>19/05/2023</td>
-                  <td>20/03/2024</td>
-                  <td>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="View"
-                    >
-                      <i class="mdi mdi-eye"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Edit"
-                    >
-                      <i class="mdi mdi-pencil-outline"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Delete"
-                    >
-                      <i class="mdi mdi-trash-can"></i>
-                    </a>
-                  </td>
-                </tr>
+                {board?.map((director, index) => (
+                  <DirectorRow director={director} key={index} />
+                ))}
               </tbody>
             </table>
           </div>

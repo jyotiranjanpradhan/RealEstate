@@ -1,32 +1,32 @@
 function ActivityStatus() {
   return (
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <h5 class="mb-1">
-        <span class="text-muted fw-light">Enquiry Bucket /</span> Lead Activity
-        Status
+    <div className="container-xxl flex-grow-1 container-p-y">
+      <h5 className="mb-1">
+        <span className="text-muted fw-light">Enquiry Bucket /</span> Lead
+        Activity Status
       </h5>
-      <div class="mb-2 text-end">
+      <div className="mb-2 text-end">
         <button
           type="button"
-          class="btn btn-primary waves-effect waves-light"
+          className="btn btn-primary waves-effect waves-light"
           data-bs-toggle="modal"
           data-bs-target="#enquirysta"
         >
           <span>
-            <i class="mdi mdi-plus me-0 me-sm-1"></i>
+            <i className="mdi mdi-plus me-0 me-sm-1"></i>
           </span>{" "}
           Status
         </button>
       </div>
 
-      <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-          <h5 class="mb-0">Lead Activity Status:</h5>
+      <div className="card">
+        <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+          <h5 className="mb-0">Lead Activity Status:</h5>
         </div>
-        <div class="text-nowrap p-3">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="all_request_table">
-              <thead class="table-secondary">
+        <div className="text-nowrap p-3">
+          <div className="table-responsive">
+            <table className="table table-bordered" id="all_request_table">
+              <thead className="table-secondary">
                 <tr>
                   <td>SL No</td>
                   <td>Name</td>
@@ -42,12 +42,12 @@ function ActivityStatus() {
                   <td>
                     <a
                       href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                   </td>
                 </tr>
@@ -58,12 +58,12 @@ function ActivityStatus() {
                   <td>
                     <a
                       href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                   </td>
                 </tr>
@@ -73,75 +73,80 @@ function ActivityStatus() {
         </div>
       </div>
 
-      <div class="modal fade" id="enquirysta" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-          <form class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="">
+      <div
+        className="modal fade"
+        id="enquirysta"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <form className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title" id="">
                 Add Lead Activity Status
               </h4>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-12 mt-2 mb-2">
-                  <label for="defaultInput" class="form-label">
+            <div className="modal-body">
+              <div className="row">
+                <div className="col-md-12 mt-2 mb-2">
+                  <label for="defaultInput" className="form-label">
                     Lead Status
                   </label>
                   <input
                     id=""
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     placeholder="Lead Status"
                     autocomplete="off"
                   />
                 </div>
-                {/* <!--    <div class="col-md-12 mb-2">
-                              <label for="defaultSelect" class="form-label">Type Of Communication</label>
-                              <select id="" class="form-select">
+                {/* <!--    <div className="col-md-12 mb-2">
+                              <label for="defaultSelect" className="form-label">Type Of Communication</label>
+                              <select id="" className="form-select">
                                 <option>Default</option>
                                 <option value="Source Mode">Source Mode</option>
                                 <option value="Communication Mode">Communication Mode</option>
                               </select>
                           </div> --> */}
               </div>
-              <div class="row g-2">
-                <div class="col">
-                  <label for="defaultInput" class="form-label">
+              <div className="row g-2">
+                <div className="col">
+                  <label for="defaultInput" className="form-label">
                     Status
                   </label>
-                  <div class="col">
-                    <div class="form-check form-check-inline">
+                  <div className="col">
+                    <div className="form-check form-check-inline">
                       <input
                         name="yes"
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         value=""
                         id=""
                         checked=""
                       />
                       <label
-                        class="form-check-label"
+                        className="form-check-label"
                         for="collapsible-payment-cc"
                       >
                         Active
                       </label>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                       <input
                         name="no"
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         value=""
                         id=""
                       />
                       <label
-                        class="form-check-label"
+                        className="form-check-label"
                         for="collapsible-payment-cash"
                       >
                         InActive
@@ -151,17 +156,17 @@ function ActivityStatus() {
                 </div>
               </div>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-outline-secondary waves-effect"
+                className="btn btn-outline-secondary waves-effect"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
               <button
                 type="button"
-                class="btn btn-primary waves-effect waves-light"
+                className="btn btn-primary waves-effect waves-light"
               >
                 Save
               </button>

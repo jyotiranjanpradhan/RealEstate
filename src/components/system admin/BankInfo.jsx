@@ -1,6 +1,10 @@
+import { useGetBankInfo } from "../../hooks/systemAdmin/useGetBankInfo";
+import BankInfoRow from "./subItem/BankInfoRow";
 import Title from "./subItem/Title";
 
 function BankInfo() {
+  const { isPending, bank } = useGetBankInfo();
+  console.log(bank);
   return (
     <>
       <Title value="Bank Info" to="/systemAdmin/bankInfoForm" />
@@ -24,86 +28,9 @@ function BankInfo() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>STATE BANK OF INDIA</td>
-                  <td>Damana Chhak</td>
-                  <td>SBIN0014468</td>
-                  <td>Deenabandhu</td>
-                  <td>125849635784</td>
-                  <td>
-                    <img src="assets/img/icons/brands/sbi.png" alt="Avatar" />
-                  </td>
-                  <td>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="View"
-                    >
-                      <i class="mdi mdi-eye"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Edit"
-                    >
-                      <i class="mdi mdi-pencil-outline"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Delete"
-                    >
-                      <i class="mdi mdi-trash-can"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>AXIS BANK</td>
-                  <td>Chandrasekharpur</td>
-                  <td>UTIB0000381</td>
-                  <td>Deenabandhu</td>
-                  <td>125849635784</td>
-                  <td>
-                    <img src="assets/img/icons/brands/axis.png" alt="Avatar" />
-                  </td>
-                  <td>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="View"
-                    >
-                      <i class="mdi mdi-eye"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Edit"
-                    >
-                      <i class="mdi mdi-pencil-outline"></i>
-                    </a>
-                    <a
-                      href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      data-bs-original-title="Delete"
-                    >
-                      <i class="mdi mdi-trash-can"></i>
-                    </a>
-                  </td>
-                </tr>
+                {bank?.map((bank, index) => (
+                  <BankInfoRow bank={bank} key={index} />
+                ))}
               </tbody>
             </table>
           </div>

@@ -10,9 +10,7 @@ function BankSubForm({ register }) {
                 type="text"
                 id="bank_name"
                 {...register("bank_name")}
-                name="group-a[0][Bank Name]"
                 placeholder="Bank Name"
-                autofocus=""
               />
               <label for="Bank Name">Bank Name</label>
             </div>
@@ -24,9 +22,7 @@ function BankSubForm({ register }) {
                 type="text"
                 id="branch_name"
                 {...register("branch_name")}
-                name="group-a[0][Branch Name]"
                 placeholder="Branch Name"
-                autofocus=""
               />
               <label for="Branch Name">Branch Name</label>
             </div>
@@ -36,9 +32,8 @@ function BankSubForm({ register }) {
               <input
                 class="form-control"
                 type="text"
-                name="group-a[0][IFSC Code]"
-                id="IFSC_code"
-                {...register("IFSC_code")}
+                id="IFSC"
+                {...register("IFSC")}
                 placeholder="IFSC Code"
               />
               <label for="Company Type">IFSC Code</label>
@@ -51,9 +46,7 @@ function BankSubForm({ register }) {
                 type="text"
                 id="account_name"
                 {...register("account_name")}
-                name="group-a[0][ Account Name]"
                 placeholder=" Account Name"
-                autofocus=""
               />
               <label for="Compay Size"> Account Name</label>
             </div>
@@ -65,9 +58,7 @@ function BankSubForm({ register }) {
                 type="text"
                 id="account_no"
                 {...register("account_no")}
-                name="group-a[0][Account No]"
                 placeholder="Account No"
-                autofocus=""
               />
               <label for="Account No">Account No</label>
             </div>
@@ -91,9 +82,7 @@ function BankSubForm({ register }) {
                 type="text"
                 id="account_type"
                 {...register("account_type")}
-                name="group-a[0][Account Type]"
                 placeholder="Account Type"
-                autofocus=""
               />
               <label for="Account No">Account Type</label>
             </div>

@@ -222,8 +222,8 @@ function Customer() {
                   </tr>
                 </thead>
                 <tbody>
-                  {customers?.map((customer) => (
-                    <CustomerRow customer={customer} />
+                  {customers?.map((customer, index) => (
+                    <CustomerRow customer={customer} key={index} />
                   ))}
                 </tbody>
               </table>

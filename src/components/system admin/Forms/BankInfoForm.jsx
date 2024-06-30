@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import BankSubForm from "../subForms/BankSubForm";
+import { useAddBankInfo } from "../../../hooks/systemAdmin/useAddBankInfo";
+import { Link } from "react-router-dom";
 
 function BankInfoForm() {
+  const { isPending, mutate } = useAddBankInfo();
   const [componentCount, setComponentCount] = useState(1);
 
   function addComponent() {
@@ -11,6 +14,7 @@ function BankInfoForm() {
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
+    mutate(data);
     console.log(data);
   }
   return (
@@ -20,15 +24,15 @@ function BankInfoForm() {
           <span class="text-muted fw-light">System Admin /</span> Bank Info
         </h5>
         <div class="mb-2 text-end">
-          <a
-            href="javascript: history.go(-1)"
+          <Link
+            to="/systemAdmin/bankInfo"
             class="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             data-bs-original-title="Back to list"
           >
             <span class="mdi mdi-keyboard-backspace"></span>
-          </a>
+          </Link>
         </div>
       </div>
 
