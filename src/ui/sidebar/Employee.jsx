@@ -1,8 +1,8 @@
 import { useState } from "react";
 import SubItems from "../sideBarItems/SubItems";
 const array = [
-  { value: "Company Type", to: "/employee/companyType" },
-  { value: "Bank &amp; Others", to: "/employee/bank" },
+  { value: "Company Profile", to: "/employee/companyProfile" },
+  { value: "Bank & Others", to: "/employee/bank" },
   { value: "Salary", to: "/employee/salary" },
   { value: "Document", to: "/employee/document" },
   { value: "KYC", to: "/employee/KYC" },

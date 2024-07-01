@@ -42,6 +42,12 @@ import Tax from "./components/Project/Tax";
 import FacingMaster from "./components/Project/FacingMaster";
 import ProjectList from "./components/Project/ProjectList";
 
+import Document from "./components/EmployeeManagement/Document";
+import Kyc from "./components/EmployeeManagement/Kyc";
+import Salary from "./components/EmployeeManagement/Salary";
+import Companyprofile from "./components/EmployeeManagement/Companyprofile";
+import Bankothers from "./components/EmployeeManagement/Bankothers";
+
 import PreProject from "./components/PreProject/PreProject";
 import NewProject from "./components/PreProject/NewProject";
 
@@ -252,6 +258,15 @@ const App = () => {
             />
             <Route path="/project/tax" element={<Tax />} />
             <Route path="/project/" element={<ProjectList />} />
+
+            <Route path="/employee/document" element={<Document />} />
+            <Route path="/employee/bank" element={<Bankothers />} />
+            <Route
+              path="/employee/companyProfile"
+              element={<Companyprofile />}
+            />
+            <Route path="/employee/salary" element={<Salary />} />
+            <Route path="/employee/KYC" element={<Kyc />} />
           </Route>
         </Routes>
       </BrowserRouter>
