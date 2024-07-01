@@ -1,5 +1,5 @@
 function BankInfoRow({ bank }) {
-  console.log(bank);
+  
   return (
     <tr>
       <td>{bank.id}</td>

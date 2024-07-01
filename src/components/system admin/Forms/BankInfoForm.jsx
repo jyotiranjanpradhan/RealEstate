@@ -14,8 +14,13 @@ function BankInfoForm() {
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
-    mutate(data);
-    console.log(data);
+    const formData = new FormData();
+
+    for (const [key, value] of Object.entries(data)) {
+      if (key === "bank_logo") formData.append(`${key}`, value[0]);
+      else formData.append(`${key}`, value);
+    }
+    mutate(formData);
   }
   return (
     <div class="container-xxl flex-grow-1 container-p-y">

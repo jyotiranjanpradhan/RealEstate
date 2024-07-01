@@ -5,7 +5,6 @@ function BranchInfoForm() {
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
-    console.log(data);
     const {
       letter_header,
       letter_footer,
@@ -16,8 +15,7 @@ function BranchInfoForm() {
       contact_phone,
       ...details
     } = data;
-    console.log(details);
-    mutate({
+    const mainData = {
       branch_brand: {
         letter_header,
         letter_footer,
@@ -30,7 +28,19 @@ function BranchInfoForm() {
         phone: contact_phone,
       },
       branch_details: details,
-    });
+    };
+    console.log(mainData);
+    const formData = new FormData();
+    // Object.entries(mainData).forEach(([key, value]) => {
+    //   Object.keys(value).forEach((subKey) => {
+    //     formData.append(`${key}[${subKey}]`, JSON.stringify(value[subKey]));
+    //   });
+    // });
+    // console.log(Object.entries(mainData));
+    // for (let pair of formData.entries()) {
+    //   console.log(pair[0] + ": " + pair[1]);
+    // }
+    mutate(formData);
   }
   return (
     <div class="container-xxl flex-grow-1 container-p-y">
@@ -532,7 +542,7 @@ function BranchInfoForm() {
                                 id="letter_header"
                                 {...register("letter_header")}
                                 class="account-file-input"
-                                accept="image/png, image/jpeg"
+                                // accept="image/png, image/jpeg"
                               />
                             </label>
                             <button
@@ -573,7 +583,7 @@ function BranchInfoForm() {
                                 id="letter_footer"
                                 {...register("letter_footer")}
                                 class="account-file-input"
-                                accept="image/png, image/jpeg"
+                                // accept="image/png, image/jpeg"
                               />
                             </label>
                             <button

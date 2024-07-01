@@ -1,5 +1,5 @@
 function DirectorRow({ director }) {
-  console.log(director);
+  
   return (
     <tr>
       <td>{director.id}</td>
