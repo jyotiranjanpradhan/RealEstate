@@ -1,6 +1,21 @@
 import { useState } from "react";
 import SubItems from "../sideBarItems/SubItems";
 
+const array = [
+  { value: "Project Type", to: "/project/projectType" },
+  { value: "Payment Schedule", to: "/project/paymentSchedule" },
+  { value: "Product Type", to: "/project/productType" },
+  { value: "Raise Cost Type", to: "/project/raiseCostType" },
+  { value: "Amenity Master", to: "/project/amenityMaster" },
+  { value: "Nearby Master", to: "/project/nearbyMaster" },
+  { value: "Facing Master", to: "/project/facingMaster" },
+  { value: "Commision Setup", to: "/project/commisionSetup" },
+  { value: "Ownership Type", to: "" },
+  { value: "Approval Body", to: "/project/approvalBody" },
+  { value: "Tax", to: "/project/tax" },
+  { value: "Project", to: "/project/" },
+];
+
 function Project() {
   const [show, setShow] = useState(false);
   return (
@@ -15,21 +30,9 @@ function Project() {
         <div data-i18n="Projects">Projects</div>
       </div>
       <ul class="menu-sub">
-        <SubItems value="Project Type" />
-
-        <SubItems value="Payment Schedule" />
-        <SubItems value="Product Type" />
-        <SubItems value="Raise Cost Type" />
-        <SubItems value="Amenity Master" />
-        <SubItems value="Nearby Master" />
-
-        <SubItems value="Facing Master" />
-        <SubItems value="Commision Setup" />
-        <SubItems value="Ownership Type" />
-
-        <SubItems value="Approval Body" />
-        <SubItems value="Tax" />
-        <SubItems value="Project" />
+        {array.map((el) => (
+          <SubItems value={el.value} to={el.to} />
+        ))}
       </ul>
     </li>
   );

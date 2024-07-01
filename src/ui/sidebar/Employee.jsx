@@ -1,6 +1,12 @@
 import { useState } from "react";
 import SubItems from "../sideBarItems/SubItems";
-
+const array = [
+  { value: "Company Type", to: "/employee/companyType" },
+  { value: "Bank &amp; Others", to: "/employee/bank" },
+  { value: "Salary", to: "/employee/salary" },
+  { value: "Document", to: "/employee/document" },
+  { value: "KYC", to: "/employee/KYC" },
+];
 function Employee() {
   const [show, setShow] = useState(false);
   return (
@@ -15,17 +21,9 @@ function Employee() {
         <div>Employee Management</div>
       </div>
       <ul class="menu-sub">
-        <SubItems value="Company Profile" />
-        <SubItems value="Address" />
-        <SubItems value="Company Profile" />
-        <SubItems value="Personal Profile" />
-        <SubItems value="Family Profile" />
-        <SubItems value="Education Profile" />
-        <SubItems value=" Training & Education Certification" />
-        <SubItems value="Bank &amp; Others" />
-        <SubItems value="Salary" />
-        <SubItems value="Document" />
-        <SubItems value="KYC" />
+        {array.map((el) => (
+          <SubItems value={el.value} to={el.to} />
+        ))}
       </ul>
     </li>
   );
