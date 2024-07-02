@@ -8,38 +8,38 @@ function AddSalesAgreement() {
     console.log(data);
   }
   return (
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <div class="card-header d-flex justify-content-between align-items-center py-2">
+    <div className="container-xxl flex-grow-1 container-p-y">
+      <div className="card-header d-flex justify-content-between align-items-center py-2">
         <h5>
-          <span class="text-muted fw-light">Sales /</span> Add Payment Schedule
+          <span className="text-muted fw-light">Sales /</span> Add Payment Schedule
         </h5>
-        <div class="mb-2 text-end">
+        <div className="mb-2 text-end">
           <Link
-            class="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
+            className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             data-bs-original-title="Back to list"
           >
-            <span class="mdi mdi-keyboard-backspace"></span>
+            <span className="mdi mdi-keyboard-backspace"></span>
           </Link>
         </div>
       </div>
-      <div class="card">
+      <div className="card">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-            <h5 class="mb-0">Payment Schedule:</h5>
-            {/* <!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
-                      <span><i class="mdi mdi-plus me-0 me-sm-1"></i></span> Department
+          <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+            <h5 className="mb-0">Payment Schedule:</h5>
+            {/* <!--  <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
+                      <span><i className="mdi mdi-plus me-0 me-sm-1"></i></span> Department
                     </button> --> */}
           </div>
-          <div class="card-body">
-            <div class="row g-4">
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline form-floating-select2">
-                  <div class="position-relative">
+          <div className="card-body">
+            <div className="row g-4">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline form-floating-select2">
+                  <div className="position-relative">
                     <select
                       id=""
-                      class="select2 form-select select2-hidden-accessible"
+                      className="select2 form-select select2-hidden-accessible"
                       data-select2-id="1"
                       tabindex="-1"
                       aria-hidden="true"
@@ -52,14 +52,14 @@ function AddSalesAgreement() {
                       <option value="Sales ID"> Sales ID3</option>
                     </select>
                     <span
-                      class="select2 select2-container select2-container--default"
+                      className="select2 select2-container select2-container--default"
                       dir="ltr"
                       data-select2-id="2"
                       style={{ width: "434.388px" }}
                     >
-                      <span class="selection">
+                      <span className="selection">
                         <span
-                          class="select2-selection select2-selection--single"
+                          className="select2-selection select2-selection--single"
                           role="combobox"
                           aria-haspopup="true"
                           aria-expanded="false"
@@ -68,7 +68,7 @@ function AddSalesAgreement() {
                           aria-labelledby="select2--container"
                         >
                           <span
-                            class="select2-selection__rendered"
+                            className="select2-selection__rendered"
                             id="select2--container"
                             role="textbox"
                             aria-readonly="true"
@@ -77,24 +77,24 @@ function AddSalesAgreement() {
                             Sales ID
                           </span>
                           <span
-                            class="select2-selection__arrow"
+                            className="select2-selection__arrow"
                             role="presentation"
                           >
                             <b role="presentation"></b>
                           </span>
                         </span>
                       </span>
-                      <span class="dropdown-wrapper" aria-hidden="true"></span>
+                      <span className="dropdown-wrapper" aria-hidden="true"></span>
                     </span>
                   </div>
                   <label for="Sales ID"> Sales ID</label>
                 </div>
               </div>
 
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="agreementId"
                     {...register("agreementId")}
@@ -104,10 +104,10 @@ function AddSalesAgreement() {
                   <label for="agreement_id">Agreement ID</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="date"
                     id="date"
                     {...register("date")}
@@ -116,10 +116,10 @@ function AddSalesAgreement() {
                   <label for="date">Date</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="createBy"
                     {...register("createBy")}
@@ -128,10 +128,10 @@ function AddSalesAgreement() {
                   <label for="Instalment">Create By</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="statement"
                     {...register("statement")}
@@ -140,11 +140,11 @@ function AddSalesAgreement() {
                   <label for="product">Upload by</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
                     type="file"
-                    class="form-control"
+                    className="form-control"
                     id="file"
                     {...register("file")}
                     required=""
@@ -155,7 +155,7 @@ function AddSalesAgreement() {
             </div>
             <button
               type="submit"
-              class="btn btn-primary ms-auto waves-effect waves-light mt-2"
+              className="btn btn-primary ms-auto waves-effect waves-light mt-2"
             >
               Submit
             </button>

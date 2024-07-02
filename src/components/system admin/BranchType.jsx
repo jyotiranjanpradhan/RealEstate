@@ -16,20 +16,20 @@ function BranchType() {
   return (
     <>
       <h5>
-        <span class="text-muted fw-light">System Admin /</span> Branch Type
+        <span className="text-muted fw-light">System Admin /</span> Branch Type
       </h5>
 
-      <div class="row">
-        <div class="col-xl-12 col-md-12">
-          <div class="card">
-            <h5 class="card-header"></h5>
-            <div class="card-body pt-1">
-              <form class="row g-3" onSubmit={handleSubmit(onSubmit)}>
-                <div class="col-md-4">
-                  <div class="form-floating form-floating-outline">
+      <div className="row">
+        <div className="col-xl-12 col-md-12">
+          <div className="card">
+            <h5 className="card-header"></h5>
+            <div className="card-body pt-1">
+              <form className="row g-3" onSubmit={handleSubmit(onSubmit)}>
+                <div className="col-md-4">
+                  <div className="form-floating form-floating-outline">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="type_name"
                       {...register("type_name")}
                       placeholder="Branch Type Name"
@@ -37,16 +37,16 @@ function BranchType() {
                     <label for="Branch Type Name">Branch Type Name</label>
                   </div>
                 </div>
-                <div class="mt-4">
+                <div className="mt-4">
                   <button
                     type="submit"
-                    class="btn btn-primary me-2 waves-effect waves-light"
+                    className="btn btn-primary me-2 waves-effect waves-light"
                   >
                     Save
                   </button>
                   <button
                     type="reset"
-                    class="btn btn-outline-secondary waves-effect"
+                    className="btn btn-outline-secondary waves-effect"
                   >
                     Cancel
                   </button>

@@ -1,31 +1,31 @@
 function Zone() {
   return (
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <h5 class="mb-1">
-        <span class="text-muted fw-light">Location Master /</span> Zone and
+    <div className="container-xxl flex-grow-1 container-p-y">
+      <h5 className="mb-1">
+        <span className="text-muted fw-light">Location Master /</span> Zone and
         Segment
       </h5>
-      <div class="mb-2 text-end">
+      <div className="mb-2 text-end">
         <button
           type="button"
-          class="btn btn-primary waves-effect waves-light"
+          className="btn btn-primary waves-effect waves-light"
           data-bs-toggle="modal"
           data-bs-target="#modalTop"
         >
           <span>
-            <i class="mdi mdi-plus me-0 me-sm-1"></i>
+            <i className="mdi mdi-plus me-0 me-sm-1"></i>
           </span>{" "}
           Add Zone
         </button>
       </div>
-      <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-          <h5 class="mb-0">Zone and Segment :</h5>
+      <div className="card">
+        <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+          <h5 className="mb-0">Zone and Segment :</h5>
         </div>
-        <div class="text-nowrap p-3">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="all_request_table">
-              <thead class="table-secondary">
+        <div className="text-nowrap p-3">
+          <div className="table-responsive">
+            <table className="table table-bordered" id="all_request_table">
+              <thead className="table-secondary">
                 <tr>
                   <td>SL No</td>
                   <td>Country</td>
@@ -45,21 +45,21 @@ function Zone() {
                   <td>
                     <a
                       href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                     <a
                       href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Delete"
                     >
-                      <i class="mdi mdi-trash-can"></i>
+                      <i className="mdi mdi-trash-can"></i>
                     </a>
                   </td>
                 </tr>
@@ -72,21 +72,21 @@ function Zone() {
                   <td>
                     <a
                       href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                     <a
                       href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Delete"
                     >
-                      <i class="mdi mdi-trash-can"></i>
+                      <i className="mdi mdi-trash-can"></i>
                     </a>
                   </td>
                 </tr>
@@ -96,81 +96,86 @@ function Zone() {
         </div>
       </div>
 
-      <div class="modal fade" id="modalTop" tabIndex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-          <form class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="modalTopTitle">
+      <div
+        className="modal fade"
+        id="modalTop"
+        tabIndex="-1"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <form className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title" id="modalTopTitle">
                 Add Zone and Segment
               </h4>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
-              <div class="row g-2">
-                <div class="col-12 mb-2">
-                  <label for="defaultInput" class="form-label">
+            <div className="modal-body">
+              <div className="row g-2">
+                <div className="col-12 mb-2">
+                  <label for="defaultInput" className="form-label">
                     Zone Name
                   </label>
                   <input
                     id=""
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     placeholder="Zone Name"
                     autocomplete="off"
                   />
                 </div>
-                <div class="col-12 mb-2">
-                  <label class="form-check-label">Zone Parameters</label>
+                <div className="col-12 mb-2">
+                  <label className="form-check-label">Zone Parameters</label>
                 </div>
-                <div class="col-12 mt-2">
-                  <div class="form-check form-check-inline">
+                <div className="col-12 mt-2">
+                  <div className="form-check form-check-inline">
                     <input
                       name="collapsible-payment"
-                      class="form-check-input form-check-input-payment"
+                      className="form-check-input form-check-input-payment"
                       type="radio"
                       value="credit-card"
                       id="collapsible-payment-cc"
                       onchange="showFields(1)"
                     />
                     <label
-                      class="form-check-label"
+                      className="form-check-label"
                       for="collapsible-payment-cc"
                     >
                       Country
                     </label>
                   </div>
-                  <div class="form-check form-check-inline">
+                  <div className="form-check form-check-inline">
                     <input
                       name="collapsible-payment"
-                      class="form-check-input form-check-input-payment"
+                      className="form-check-input form-check-input-payment"
                       type="radio"
                       value="cash"
                       id="collapsible-payment-cash"
                       onchange="showFields(2)"
                     />
                     <label
-                      class="form-check-label"
+                      className="form-check-label"
                       for="collapsible-payment-cash"
                     >
                       State
                     </label>
                   </div>
-                  <div class="form-check form-check-inline">
+                  <div className="form-check form-check-inline">
                     <input
                       name="collapsible-payment"
-                      class="form-check-input form-check-input-payment"
+                      className="form-check-input form-check-input-payment"
                       type="radio"
                       value="cash"
                       id="collapsible-payment-cash"
                       onchange="showFields(3)"
                     />
                     <label
-                      class="form-check-label"
+                      className="form-check-label"
                       for="collapsible-payment-cash"
                     >
                       District
@@ -178,15 +183,15 @@ function Zone() {
                   </div>
                 </div>
 
-                <div class="col-12 d-none country-list">
-                  <div class="mb-3">
-                    <label for="largeSelect" class="form-label">
+                <div className="col-12 d-none country-list">
+                  <div className="mb-3">
+                    <label for="largeSelect" className="form-label">
                       Country
                     </label>
-                    <div class="position-relative">
+                    <div className="position-relative">
                       <select
                         id=""
-                        class="select2 form-select select2-hidden-accessible"
+                        className="select2 form-select select2-hidden-accessible"
                         multiple=""
                         data-select2-id="1"
                         tabindex="-1"
@@ -198,24 +203,24 @@ function Zone() {
                         <option value="India">India</option>
                       </select>
                       <span
-                        class="select2 select2-container select2-container--default"
+                        className="select2 select2-container select2-container--default"
                         dir="ltr"
                         data-select2-id="2"
                         style={{ width: "auto" }}
                       >
-                        <span class="selection">
+                        <span className="selection">
                           <span
-                            class="select2-selection select2-selection--multiple"
+                            className="select2-selection select2-selection--multiple"
                             role="combobox"
                             aria-haspopup="true"
                             aria-expanded="false"
                             tabindex="-1"
                             aria-disabled="false"
                           >
-                            <ul class="select2-selection__rendered">
-                              <li class="select2-search select2-search--inline">
+                            <ul className="select2-selection__rendered">
+                              <li className="select2-search select2-search--inline">
                                 <input
-                                  class="select2-search__field"
+                                  className="select2-search__field"
                                   type="search"
                                   tabindex="0"
                                   autocomplete="off"
@@ -232,22 +237,22 @@ function Zone() {
                           </span>
                         </span>
                         <span
-                          class="dropdown-wrapper"
+                          className="dropdown-wrapper"
                           aria-hidden="true"
                         ></span>
                       </span>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 d-none state-list">
-                  <div class="mb-3">
-                    <label for="largeSelect" class="form-label">
+                <div className="col-12 d-none state-list">
+                  <div className="mb-3">
+                    <label for="largeSelect" className="form-label">
                       State
                     </label>
-                    <div class="position-relative">
+                    <div className="position-relative">
                       <select
                         id=""
-                        class="select2 form-select select2-hidden-accessible"
+                        className="select2 form-select select2-hidden-accessible"
                         multiple=""
                         data-select2-id="3"
                         tabindex="-1"
@@ -259,24 +264,24 @@ function Zone() {
                         <option value="State">State 3</option>
                       </select>
                       <span
-                        class="select2 select2-container select2-container--default"
+                        className="select2 select2-container select2-container--default"
                         dir="ltr"
                         data-select2-id="4"
                         style={{ width: "auto" }}
                       >
-                        <span class="selection">
+                        <span className="selection">
                           <span
-                            class="select2-selection select2-selection--multiple"
+                            className="select2-selection select2-selection--multiple"
                             role="combobox"
                             aria-haspopup="true"
                             aria-expanded="false"
                             tabindex="-1"
                             aria-disabled="false"
                           >
-                            <ul class="select2-selection__rendered">
-                              <li class="select2-search select2-search--inline">
+                            <ul className="select2-selection__rendered">
+                              <li className="select2-search select2-search--inline">
                                 <input
-                                  class="select2-search__field"
+                                  className="select2-search__field"
                                   type="search"
                                   tabindex="0"
                                   autocomplete="off"
@@ -293,22 +298,22 @@ function Zone() {
                           </span>
                         </span>
                         <span
-                          class="dropdown-wrapper"
+                          className="dropdown-wrapper"
                           aria-hidden="true"
                         ></span>
                       </span>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 d-none district-list">
-                  <div class="mb-3">
-                    <label for="largeSelect" class="form-label">
+                <div className="col-12 d-none district-list">
+                  <div className="mb-3">
+                    <label for="largeSelect" className="form-label">
                       District
                     </label>
-                    <div class="position-relative">
+                    <div className="position-relative">
                       <select
                         id=""
-                        class="select2 form-select select2-hidden-accessible"
+                        className="select2 form-select select2-hidden-accessible"
                         multiple=""
                         data-select2-id="5"
                         tabindex="-1"
@@ -320,24 +325,24 @@ function Zone() {
                         <option value="District">District 3</option>
                       </select>
                       <span
-                        class="select2 select2-container select2-container--default"
+                        className="select2 select2-container select2-container--default"
                         dir="ltr"
                         data-select2-id="6"
                         style={{ width: "auto" }}
                       >
-                        <span class="selection">
+                        <span className="selection">
                           <span
-                            class="select2-selection select2-selection--multiple"
+                            className="select2-selection select2-selection--multiple"
                             role="combobox"
                             aria-haspopup="true"
                             aria-expanded="false"
                             tabindex="-1"
                             aria-disabled="false"
                           >
-                            <ul class="select2-selection__rendered">
-                              <li class="select2-search select2-search--inline">
+                            <ul className="select2-selection__rendered">
+                              <li className="select2-search select2-search--inline">
                                 <input
-                                  class="select2-search__field"
+                                  className="select2-search__field"
                                   type="search"
                                   tabindex="0"
                                   autocomplete="off"
@@ -354,7 +359,7 @@ function Zone() {
                           </span>
                         </span>
                         <span
-                          class="dropdown-wrapper"
+                          className="dropdown-wrapper"
                           aria-hidden="true"
                         ></span>
                       </span>
@@ -363,17 +368,17 @@ function Zone() {
                 </div>
               </div>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-outline-secondary waves-effect"
+                className="btn btn-outline-secondary waves-effect"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
               <button
                 type="button"
-                class="btn btn-primary waves-effect waves-light"
+                className="btn btn-primary waves-effect waves-light"
               >
                 Save
               </button>

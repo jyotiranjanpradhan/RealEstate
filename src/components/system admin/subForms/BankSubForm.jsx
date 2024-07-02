@@ -2,11 +2,11 @@ function BankSubForm({ register }) {
   return (
     <div data-repeater-list="group-a">
       <div data-repeater-item="">
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="form-floating form-floating-outline">
+        <div className="row g-4">
+          <div className="col-md-4">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="bank_name"
                 {...register("bank_name")}
@@ -15,10 +15,10 @@ function BankSubForm({ register }) {
               <label for="Bank Name">Bank Name</label>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-4">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="branch_name"
                 {...register("branch_name")}
@@ -27,10 +27,10 @@ function BankSubForm({ register }) {
               <label for="Branch Name">Branch Name</label>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-4">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="IFSC"
                 {...register("IFSC")}
@@ -39,10 +39,10 @@ function BankSubForm({ register }) {
               <label for="Company Type">IFSC Code</label>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-4">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="account_name"
                 {...register("account_name")}
@@ -51,10 +51,10 @@ function BankSubForm({ register }) {
               <label for="Compay Size"> Account Name</label>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-4">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="account_no"
                 {...register("account_no")}
@@ -63,11 +63,11 @@ function BankSubForm({ register }) {
               <label for="Account No">Account No</label>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-4">
+            <div className="form-floating form-floating-outline">
               <input
                 type="file"
-                class="form-control"
+                className="form-control"
                 id="bank_logo"
                 {...register("bank_logo")}
                 required=""
@@ -75,10 +75,10 @@ function BankSubForm({ register }) {
               <label for="basic-default-upload-file">Bank Logo</label>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-4">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="account_type"
                 {...register("account_type")}
@@ -87,13 +87,13 @@ function BankSubForm({ register }) {
               <label for="Account No">Account Type</label>
             </div>
           </div>
-          <div class="col-md-4 col-12 d-flex align-items-center mb-0">
+          <div className="col-md-4 col-12 d-flex align-items-center mb-0">
             <button
-              class="btn btn-outline-danger waves-effect"
+              className="btn btn-outline-danger waves-effect"
               data-repeater-delete=""
             >
-              <i class="mdi mdi-close me-1"></i>
-              <span class="align-middle">Delete</span>
+              <i className="mdi mdi-close me-1"></i>
+              <span className="align-middle">Delete</span>
             </button>
           </div>
         </div>

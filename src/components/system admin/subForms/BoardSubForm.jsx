@@ -2,11 +2,11 @@ function BoardSubForm({ register, deleteComponent }) {
   return (
     <div data-repeater-list="group-a">
       <div data-repeater-item="">
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="form-floating form-floating-outline">
+        <div className="row g-4">
+          <div className="col-md-6">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="name"
                 {...register("name")}
@@ -16,10 +16,10 @@ function BoardSubForm({ register, deleteComponent }) {
               <label for="Name">Name</label>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-6">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="designation"
                 {...register("designation")}
@@ -29,10 +29,10 @@ function BoardSubForm({ register, deleteComponent }) {
               <label for="Designation">Designation</label>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-6">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="date"
                 id="date_of_joining"
                 {...register("date_of_join")}
@@ -40,10 +40,10 @@ function BoardSubForm({ register, deleteComponent }) {
               <label for="Incorporation Date">Date of Joining</label>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-6">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="date"
                 id="date_of_leaving"
                 {...register("date_of_leave")}
@@ -51,10 +51,10 @@ function BoardSubForm({ register, deleteComponent }) {
               <label for="Incorporation Date">Date of Leaving</label>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-6">
+            <div className="form-floating form-floating-outline">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="share"
                 {...register("share")}
@@ -64,10 +64,10 @@ function BoardSubForm({ register, deleteComponent }) {
               <label for="Incorporation No">Share</label>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="form-floating form-floating-outline">
+          <div className="col-md-6">
+            <div className="form-floating form-floating-outline">
               <select
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="stakeholder"
                 {...register("stakeholder")}
@@ -79,14 +79,14 @@ function BoardSubForm({ register, deleteComponent }) {
               <label for="Incorporation Agency">Stakeholder</label>
             </div>
           </div>
-          <div class="col-md-4 col-12 d-flex align-items-center mb-0">
+          <div className="col-md-4 col-12 d-flex align-items-center mb-0">
             <button
               type="button"
               onClick={deleteComponent}
-              class="btn btn-outline-danger waves-effect"
+              className="btn btn-outline-danger waves-effect"
             >
-              <i class="mdi mdi-close me-1"></i>
-              <span class="align-middle">Delete</span>
+              <i className="mdi mdi-close me-1"></i>
+              <span className="align-middle">Delete</span>
             </button>
           </div>
         </div>

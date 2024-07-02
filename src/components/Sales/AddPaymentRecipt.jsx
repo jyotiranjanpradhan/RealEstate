@@ -7,37 +7,37 @@ function AddPaymentRecipt() {
     console.log(data);
   }
   return (
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <div class="card-header d-flex justify-content-between align-items-center py-2">
+    <div className="container-xxl flex-grow-1 container-p-y">
+      <div className="card-header d-flex justify-content-between align-items-center py-2">
         <h5>
-          <span class="text-muted fw-light">Sales /</span> Payment Recipt
+          <span className="text-muted fw-light">Sales /</span> Payment Recipt
         </h5>
-        <div class="mb-2 text-end">
+        <div className="mb-2 text-end">
           <a
             href="javascript: history.go(-1)"
-            class="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
+            className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             data-bs-original-title="Back to list"
           >
-            <span class="mdi mdi-keyboard-backspace"></span>
+            <span className="mdi mdi-keyboard-backspace"></span>
           </a>
         </div>
       </div>
-      <div class="card">
+      <div className="card">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-            <h5 class="mb-0">Payment recipt:</h5>
-            {/* <!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
-                      <span><i class="mdi mdi-plus me-0 me-sm-1"></i></span> Department
+          <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+            <h5 className="mb-0">Payment recipt:</h5>
+            {/* <!--  <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
+                      <span><i className="mdi mdi-plus me-0 me-sm-1"></i></span> Department
                     </button> --> */}
           </div>
-          <div class="card-body">
-            <div class="row g-4">
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+          <div className="card-body">
+            <div className="row g-4">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="customerId"
                     {...register("customerId")}
@@ -47,10 +47,10 @@ function AddPaymentRecipt() {
                   <label for="customer_id">Customer ID</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="enquiryId"
                     {...register("enquiryId")}
@@ -59,10 +59,10 @@ function AddPaymentRecipt() {
                   <label for="enquiry_id">Enquiry ID</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="quoteId"
                     {...register("quoteId")}
@@ -71,10 +71,10 @@ function AddPaymentRecipt() {
                   <label for="quote_id">Quote ID</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="salesId"
                     {...register("salesId")}
@@ -83,10 +83,10 @@ function AddPaymentRecipt() {
                   <label for="sales_id">Sales ID</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="date"
                     id="date"
                     {...register("date")}
@@ -95,10 +95,10 @@ function AddPaymentRecipt() {
                   <label for="date">Date</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="project"
                     {...register("project")}
@@ -107,10 +107,10 @@ function AddPaymentRecipt() {
                   <label for="project">Project</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="product"
                     {...register("product")}
@@ -119,10 +119,10 @@ function AddPaymentRecipt() {
                   <label for="product">Product</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="paymentReceiptNumber"
                     {...register("paymentReceiptNumber")}
@@ -133,10 +133,10 @@ function AddPaymentRecipt() {
                   </label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="totalAmount"
                     {...register("totalAmount")}
@@ -145,10 +145,10 @@ function AddPaymentRecipt() {
                   <label for="total_amount">Total Amount</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="recievedAmount"
                     {...register("recievedAmount")}
@@ -157,10 +157,10 @@ function AddPaymentRecipt() {
                   <label for="received_amount">Received Amount</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="modeOfPayment"
                     {...register("modeOfPayment")}
@@ -169,10 +169,10 @@ function AddPaymentRecipt() {
                   <label for="mode_of_payment">Mode of Payment</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="transactionId"
                     {...register("transactionId")}
@@ -181,10 +181,10 @@ function AddPaymentRecipt() {
                   <label for="transaction_id">Transaction ID</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="platform"
                     {...register("platform")}
@@ -193,10 +193,10 @@ function AddPaymentRecipt() {
                   <label for="platform">Platform</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="accountName"
                     {...register("accountName")}
@@ -205,10 +205,10 @@ function AddPaymentRecipt() {
                   <label for="account_name">Account Name</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="accountNumber"
                     {...register("accountNumber")}
@@ -217,10 +217,10 @@ function AddPaymentRecipt() {
                   <label for="account_number">Account Number</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="balanceAmount"
                     {...register("balanceAmount")}
@@ -229,10 +229,10 @@ function AddPaymentRecipt() {
                   <label for="balance_amount">Balance Amount</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="date"
                     id="nextPayDate"
                     {...register("nextPayDate")}
@@ -241,10 +241,10 @@ function AddPaymentRecipt() {
                   <label for="next_pay_date">Next Pay Date</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="mediumOfPayment"
                     {...register("mediumOfPayment")}
@@ -254,7 +254,7 @@ function AddPaymentRecipt() {
                 </div>
               </div>
             </div>
-            <button class="btn btn-primary ms-auto waves-effect waves-light mt-2">
+            <button className="btn btn-primary ms-auto waves-effect waves-light mt-2">
               Submit
             </button>
           </div>

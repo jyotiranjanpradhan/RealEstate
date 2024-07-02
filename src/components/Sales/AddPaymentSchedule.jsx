@@ -8,37 +8,37 @@ function AddPaymentSchedule() {
     console.log(data);
   }
   return (
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <div class="card-header d-flex justify-content-between align-items-center py-2">
+    <div className="container-xxl flex-grow-1 container-p-y">
+      <div className="card-header d-flex justify-content-between align-items-center py-2">
         <h5>
-          <span class="text-muted fw-light">Sales /</span> Payment Schedule
+          <span className="text-muted fw-light">Sales /</span> Payment Schedule
         </h5>
-        <div class="mb-2 text-end">
+        <div className="mb-2 text-end">
           <Link
             href="javascript: history.go(-1)"
-            class="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
+            className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             data-bs-original-title="Back to list"
           >
-            <span class="mdi mdi-keyboard-backspace"></span>
+            <span className="mdi mdi-keyboard-backspace"></span>
           </Link>
         </div>
       </div>
-      <div class="card">
+      <div className="card">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-            <h5 class="mb-0">Payment Schedule:</h5>
-            {/* <!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
-                      <span><i class="mdi mdi-plus me-0 me-sm-1"></i></span> Department
+          <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+            <h5 className="mb-0">Payment Schedule:</h5>
+            {/* <!--  <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
+                      <span><i className="mdi mdi-plus me-0 me-sm-1"></i></span> Department
                     </button> --> */}
           </div>
-          <div class="card-body">
-            <div class="row g-4">
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+          <div className="card-body">
+            <div className="row g-4">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="salesId"
                     {...register("salesId")}
@@ -47,10 +47,10 @@ function AddPaymentSchedule() {
                   <label for="sales_id">Sales ID</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="project"
                     {...register("project")}
@@ -60,10 +60,10 @@ function AddPaymentSchedule() {
                 </div>
               </div>
 
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="date"
                     id="date"
                     {...register("date")}
@@ -72,10 +72,10 @@ function AddPaymentSchedule() {
                   <label for="date">Date</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="Instalment"
                     {...register("instalment")}
@@ -84,10 +84,10 @@ function AddPaymentSchedule() {
                   <label for="Instalment"> Instalment Stage</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="Statement"
                     {...register("statement")}
@@ -96,10 +96,10 @@ function AddPaymentSchedule() {
                   <label for="product">Statement</label>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-floating form-floating-outline">
+              <div className="col-md-4">
+                <div className="form-floating form-floating-outline">
                   <input
-                    class="form-control"
+                    className="form-control"
                     type="text"
                     id="paymentReceiptNumber"
                     {...register("paymentReceiptNumberId")}
@@ -109,7 +109,7 @@ function AddPaymentSchedule() {
                 </div>
               </div>
             </div>
-            <button class="btn btn-primary ms-auto waves-effect waves-light mt-2">
+            <button className="btn btn-primary ms-auto waves-effect waves-light mt-2">
               Submit
             </button>
           </div>

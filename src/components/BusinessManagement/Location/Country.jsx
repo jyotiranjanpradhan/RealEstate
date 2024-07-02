@@ -1,31 +1,31 @@
 function Country() {
   return (
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <h5 class="mb-1">
-        <span class="text-muted fw-light">Location Master /</span> Country
+    <div className="container-xxl flex-grow-1 container-p-y">
+      <h5 className="mb-1">
+        <span className="text-muted fw-light">Location Master /</span> Country
       </h5>
-      <div class="mb-2 text-end">
+      <div className="mb-2 text-end">
         <button
           type="button"
-          class="btn btn-primary waves-effect waves-light"
+          className="btn btn-primary waves-effect waves-light"
           data-bs-toggle="modal"
           data-bs-target="#modalTop"
         >
           <span>
-            <i class="mdi mdi-plus me-0 me-sm-1"></i>
+            <i className="mdi mdi-plus me-0 me-sm-1"></i>
           </span>{" "}
           Country
         </button>
       </div>
 
-      <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-          <h5 class="mb-0">Country :</h5>
+      <div className="card">
+        <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+          <h5 className="mb-0">Country :</h5>
         </div>
-        <div class="text-nowrap p-3">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="all_request_table">
-              <thead class="table-secondary">
+        <div className="text-nowrap p-3">
+          <div className="table-responsive">
+            <table className="table table-bordered" id="all_request_table">
+              <thead className="table-secondary">
                 <tr>
                   <td>SL No</td>
                   <td>Name</td>
@@ -49,21 +49,21 @@ function Country() {
                   <td>
                     <a
                       href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                     <a
                       href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Delete"
                     >
-                      <i class="mdi mdi-trash-can"></i>
+                      <i className="mdi mdi-trash-can"></i>
                     </a>
                   </td>
                 </tr>
@@ -79,21 +79,21 @@ function Country() {
                   <td>
                     <a
                       href=""
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                     <a
                       href=""
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Delete"
                     >
-                      <i class="mdi mdi-trash-can"></i>
+                      <i className="mdi mdi-trash-can"></i>
                     </a>
                   </td>
                 </tr>
@@ -103,105 +103,110 @@ function Country() {
         </div>
       </div>
 
-      <div class="modal fade" id="modalTop" tabIndex="-1">
-        <div class="modal-dialog">
-          <form class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="modalTopTitle">
+      <div className="modal fade" id="modalTop" tabIndex="-1">
+        <div className="modal-dialog">
+          <form className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title" id="modalTopTitle">
                 Add Country
               </h4>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-12 mb-4 mt-2">
-                  <div class="form-floating form-floating-outline">
+            <div className="modal-body">
+              <div className="row">
+                <div className="col-md-12 mb-4 mt-2">
+                  <div className="form-floating form-floating-outline">
                     <input
                       type="text"
                       id=""
-                      class="form-control"
+                      className="form-control"
                       placeholder="Country"
                     />
                     <label for="nameSlideTop">Country</label>
                   </div>
                 </div>
-                <div class="col-md-6 mb-4 mt-2">
-                  <div class="form-floating form-floating-outline">
+                <div className="col-md-6 mb-4 mt-2">
+                  <div className="form-floating form-floating-outline">
                     <input
                       type="text"
                       id=""
-                      class="form-control"
+                      className="form-control"
                       placeholder="ISD Code"
                     />
                     <label for="nameSlideTop">ISD Code</label>
                   </div>
                 </div>
-                <div class="col-md-6 mb-4 mt-2">
-                  <div class="form-floating form-floating-outline">
+                <div className="col-md-6 mb-4 mt-2">
+                  <div className="form-floating form-floating-outline">
                     <input
                       type="text"
                       id=""
-                      class="form-control"
+                      className="form-control"
                       placeholder="Currency"
                     />
                     <label for="nameSlideTop">Currency</label>
                   </div>
                 </div>
-                <div class="col-md-6 mb-4 mt-2">
-                  <div class="form-floating form-floating-outline">
-                    <input type="file" class="form-control" id="" required="" />
+                <div className="col-md-6 mb-4 mt-2">
+                  <div className="form-floating form-floating-outline">
+                    <input
+                      type="file"
+                      className="form-control"
+                      id=""
+                      required=""
+                    />
                     <label for="basic-default-upload-file">Flag</label>
                   </div>
                 </div>
-                <div class="col-md-6 mb-4 mt-2">
-                  <div class="form-floating form-floating-outline">
+                <div className="col-md-6 mb-4 mt-2">
+                  <div className="form-floating form-floating-outline">
                     <input
                       type="text"
                       id=""
-                      class="form-control"
+                      className="form-control"
                       placeholder="Short Name"
                     />
                     <label for="nameSlideTop">Short Name</label>
                   </div>
                 </div>
               </div>
-              <div class="row g-2">
-                <div class="col">
-                  <label for="defaultInput" class="form-label">
+              <div className="row g-2">
+                <div className="col">
+                  <label for="defaultInput" className="form-label">
                     Status
                   </label>
-                  <div class="col">
-                    <div class="form-check form-check-inline">
+                  <div className="col">
+                    <div className="form-check form-check-inline">
                       <input
                         name="yes"
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         value=""
                         id=""
                         checked=""
                       />
                       <label
-                        class="form-check-label"
+                        className="form-check-label"
                         for="collapsible-payment-cc"
                       >
                         Active
                       </label>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                       <input
                         name="no"
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         value=""
                         id=""
                       />
                       <label
-                        class="form-check-label"
+                        className="form-check-label"
                         for="collapsible-payment-cash"
                       >
                         InActive
@@ -211,17 +216,17 @@ function Country() {
                 </div>
               </div>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-outline-secondary waves-effect"
+                className="btn btn-outline-secondary waves-effect"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
               <button
                 type="button"
-                class="btn btn-primary waves-effect waves-light"
+                className="btn btn-primary waves-effect waves-light"
               >
                 Save
               </button>
