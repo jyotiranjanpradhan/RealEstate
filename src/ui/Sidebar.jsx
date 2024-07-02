@@ -22,23 +22,23 @@ function Sidebar() {
     <>
       <aside
         id="layout-menu"
-        class="layout-menu menu-vertical menu bg-menu-theme sidebar"
+        className="layout-menu menu-vertical menu bg-menu-theme sidebar"
         data-bg-class="bg-menu-theme"
       >
-        <div class="app-brand demo">
-          <a href="index.php" class="app-brand-link">
-            <span class="app-brand-logo demo">
+        <div className="app-brand demo">
+          <a href="index.php" className="app-brand-link">
+            <span className="app-brand-logo demo">
               <img src="navlogo.png" width="60px" alt="" />
             </span>
 
-            <span class="app-brand-text demo menu-text fw-bold ms-2">
+            <span className="app-brand-text demo menu-text fw-bold ms-2">
               Real Estate
             </span>
           </a>
 
           <a
             href="javascript:void(0);"
-            class="layout-menu-toggle menu-link text-large ms-auto"
+            className="layout-menu-toggle menu-link text-large ms-auto"
           >
             <svg
               width="22"
@@ -60,9 +60,9 @@ function Sidebar() {
             </svg>
           </a>
         </div>
-        <div class="menu-inner-shadow"></div>
+        <div className="menu-inner-shadow"></div>
 
-        <ul class="menu-inner py-1 overflow-auto">
+        <ul className="menu-inner py-1 overflow-auto">
           <Board />
           <Roles />
           <SystemAdmin />

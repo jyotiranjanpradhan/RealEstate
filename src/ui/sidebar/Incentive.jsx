@@ -8,30 +8,30 @@ function Incentive() {
   const [show, setShow] = useState(false);
   const [subMenu, setSubMenu] = useState(false);
   return (
-    <li class={show ? "menu-item open" : "menu-item"}>
+    <li className={show ? "menu-item open" : "menu-item"}>
       <div
         onClick={() => {
           setShow(!show);
         }}
-        class="menu-link menu-toggle waves-effect"
+        className="menu-link menu-toggle waves-effect"
       >
-        <i class="menu-icon tf-icons mdi mdi-flip-to-front"></i>
+        <i className="menu-icon tf-icons mdi mdi-flip-to-front"></i>
         <div>incentive</div>
       </div>
-      <ul class="menu-sub">
-        {array.map((el) =>
+      <ul className="menu-sub">
+        {array.map((el, i) =>
           el.value === "Performance" ? (
-            <li class={subMenu ? "menu-item open" : "menu-item"}>
+            <li className={subMenu ? "menu-item open" : "menu-item"}>
               <div
                 onClick={() => {
                   console.log(subMenu);
                   setSubMenu(!subMenu);
                 }}
-                class="menu-link menu-toggle waves-effect"
+                className="menu-link menu-toggle waves-effect"
               >
                 <div>Performance</div>
               </div>
-              <ul class="menu-sub">
+              <ul className="menu-sub">
                 <SubItems
                   value="Goal and Target"
                   to="/incentive/goalAndTarget"
@@ -39,7 +39,7 @@ function Incentive() {
               </ul>
             </li>
           ) : (
-            <SubItems value={el.value} />
+            <SubItems value={el.value} key={i} />
           )
         )}
       </ul>

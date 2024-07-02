@@ -20,36 +20,36 @@ function Business() {
   const [show, setShow] = useState(false);
   const [subMenu, setSubMenu] = useState(false);
   return (
-    <li class={show ? "menu-item open" : "menu-item"}>
+    <li className={show ? "menu-item open" : "menu-item"}>
       <div
         onClick={() => {
           setShow(!show);
         }}
-        class="menu-link menu-toggle waves-effect"
+        className="menu-link menu-toggle waves-effect"
       >
-        <i class="menu-icon tf-icons mdi mdi-form-select"></i>
+        <i className="menu-icon tf-icons mdi mdi-form-select"></i>
         <div>Business Management</div>
       </div>
-      <ul class="menu-sub">
-        {array.map((el) =>
+      <ul className="menu-sub">
+        {array.map((el, index) =>
           el.value === "Location Master" ? (
-            <li class={subMenu ? "menu-item open" : "menu-item"}>
+            <li className={subMenu ? "menu-item open" : "menu-item"}>
               <div
                 onClick={() => {
                   setSubMenu(!subMenu);
                 }}
-                class="menu-link menu-toggle waves-effect"
+                className="menu-link menu-toggle waves-effect"
               >
                 <div>Location</div>
               </div>
-              <ul class="menu-sub">
+              <ul className="menu-sub">
                 {subArray.map((el, index) => (
                   <SubItems value={el.value} to={el.to} key={index} />
                 ))}
               </ul>
             </li>
           ) : (
-            <SubItems value={el.value} to={el.to} />
+            <SubItems value={el.value} to={el.to} key={index} />
           )
         )}
       </ul>

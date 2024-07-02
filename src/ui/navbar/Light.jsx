@@ -6,20 +6,20 @@ function Light() {
   return (
     <li
       onClick={() => setShow(!show)}
-      class="nav-item dropdown-style-switcher dropdown me-1 me-xl-0"
+      className="nav-item dropdown-style-switcher dropdown me-1 me-xl-0"
     >
       <div
-        class={
+        className={
           show
             ? `nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow waves-effect waves-light show`
             : `nav-link btn btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow waves-effect waves-light`
         }
         data-bs-toggle="dropdown"
       >
-        <i class="mdi mdi-24px mdi-weather-sunny"></i>
+        <i className="mdi mdi-24px mdi-weather-sunny"></i>
       </div>
       {
-        <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
+        <ul className="dropdown-menu dropdown-menu-end dropdown-styles">
           <LightItem icon="weather-sunny" light="light" />
           <LightItem icon="weather-night" light="Dark" />
           <LightItem icon="monitor" light="System" />

@@ -23,20 +23,6 @@ function TeamManagement() {
             <h5 className="card-header"></h5>
             <div className="card-body pt-1">
               <form onSubmit={handleSubmit(onSubmit)} className="row g-3">
-                {/* <div className="col-md-4">
-                  <div className="form-floating form-floating-outline">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="department"
-                      {...register("department")}
-                      name="Department"
-                      placeholder="Department"
-                    />
-                    <label for="Department">Department</label>
-                  </div>
-                </div> */}
-
                 <div className="col-md-4 mb-4">
                   <div className="form-floating form-floating-outline">
                     <select
@@ -51,7 +37,7 @@ function TeamManagement() {
                       <option value="Department4">Department4</option>
                       <option value="Department5">Department5</option>
                     </select>
-                    <label for="Department">Department</label>
+                    <label htmlFor="Department">Department</label>
                   </div>
                 </div>
                 <div className="col-md-4">
@@ -63,7 +49,7 @@ function TeamManagement() {
                       {...register("team_name")}
                       placeholder="Team Name"
                     />
-                    <label for="Team Name">Team Name</label>
+                    <label htmlFor="Team Name">Team Name</label>
                   </div>
                 </div>
                 <div className="col-md-4">
@@ -75,26 +61,10 @@ function TeamManagement() {
                       {...register("team_leader")}
                       placeholder="Team Leader"
                     />
-                    <label for="Team Leader">Team Leader</label>
+                    <label htmlFor="Team Leader">Team Leader</label>
                   </div>
                 </div>
 
-                {/* <!--  <div className="col-md-4 mb-4">
-                            <div className="form-floating form-floating-outline">
-                              <select
-                                id=""
-                                className="select2 form-select form-select-lg"
-                                data-allow-clear="true">
-                                <option value="Team Leader1">Team Leader1</option>
-                                <option value="Team Leader2">Team Leader2</option>
-                                <option value="Team Leader3">Team Leader3</option>
-                                <option value="Team Leader4">Team Leader4</option>
-                                <option value="Team Leader5">Team Leader5</option>
-                              </select>
-                              <label for="Team Leader">Team Leader</label>
-                            </div>
-                          </div> --> */}
-                {/* <!-- Multiple --> */}
                 <div className="col-md-4 mb-4">
                   <div className="form-floating form-floating-outline form-floating-select2">
                     <div className="position-relative">
@@ -104,7 +74,7 @@ function TeamManagement() {
                         className="select2 form-select select2-hidden-accessible"
                         multiple=""
                         data-select2-id="1"
-                        tabindex="-1"
+                        tabIndex="-1"
                         aria-hidden="true"
                       >
                         <optgroup label="Team Members">
@@ -128,7 +98,7 @@ function TeamManagement() {
                             role="combobox"
                             aria-haspopup="true"
                             aria-expanded="false"
-                            tabindex="-1"
+                            tabIndex="-1"
                             aria-disabled="false"
                           >
                             {/* <ul className="select2-selection__rendered">
@@ -156,7 +126,7 @@ function TeamManagement() {
                         ></span>
                       </span>
                     </div>
-                    <label for="Team Members">Team Members</label>
+                    <label htmlFor="Team Members">Team Members</label>
                   </div>
                 </div>
                 <div className="mt-4">

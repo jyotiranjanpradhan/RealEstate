@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function Customer() {
   return (
-    <li class="menu-item">
-      <Link to="/customer" class="menu-link">
-        <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
+    <li className="menu-item">
+      <Link to="/customer" className="menu-link">
+        <i className="menu-icon tf-icons mdi mdi-account-outline"></i>
         <div>Customer</div>
       </Link>
     </li>
