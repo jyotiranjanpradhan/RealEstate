@@ -34,100 +34,6 @@ function CompanyForm() {
       <div class="row">
         <div class="col-12 mb-4">
           <div class="bs-stepper wizard-vertical vertical wizard-vertical-icons-example wizard-vertical-icons mt-2">
-            {/*
-            <div class="bs-stepper-header gap-lg-2">
-              <div class="step crossed" data-target="#account-details-1">
-                <button type="button" class="step-trigger">
-                  <span class="avatar">
-                    <span class="avatar-initial rounded-2">
-                      <i class="mdi mdi-card-account-details-outline mdi-24px"></i>
-                    </span>
-                  </span>
-                  <span class="bs-stepper-label flex-column align-items-start gap-1 ms-2">
-                    <span class="bs-stepper-title">Details</span>
-                  </span>
-                </button>
-              </div>
-              <div class="step crossed" data-target="#personal-info-1">
-                <button
-                  type="button"
-                  class="step-trigger"
-                  aria-selected="false"
-                >
-                  <span class="avatar">
-                    <span class="avatar-initial rounded-2">
-                      <i class="mdi mdi-account-outline mdi-24px"></i>
-                    </span>
-                  </span>
-                  <span class="bs-stepper-label flex-column align-items-start gap-1 ms-2">
-                    <span class="bs-stepper-title">Brand Info</span>
-                  </span>
-                </button>
-              </div>
-              <div class="step crossed" data-target="#social-links-1">
-                <button
-                  type="button"
-                  class="step-trigger"
-                  aria-selected="false"
-                >
-                  <span class="avatar">
-                    <span class="avatar-initial rounded-2">
-                      <i class="mdi mdi-handshake mdi-24px"></i>
-                    </span>
-                  </span>
-                  <span class="bs-stepper-label flex-column align-items-start gap-1 ms-2">
-                    <span class="bs-stepper-title">Business Details</span>
-                  </span>
-                </button>
-              </div>
-              <div class="step crossed" data-target="#social-contactinfo">
-                <button
-                  type="button"
-                  class="step-trigger"
-                  aria-selected="false"
-                >
-                  <span class="avatar">
-                    <span class="avatar-initial rounded-2">
-                      <i class="mdi mdi-card-account-phone-outline mdi-24px"></i>
-                    </span>
-                  </span>
-                  <span class="bs-stepper-label flex-column align-items-start gap-1 ms-2">
-                    <span class="bs-stepper-title">Contact Info</span>
-                  </span>
-                </button>
-              </div>
-              <div
-                class="step crossed active"
-                data-target="#social-socialdetails"
-              >
-                <button type="button" class="step-trigger" aria-selected="true">
-                  <span class="avatar">
-                    <span class="avatar-initial rounded-2">
-                      <i class="mdi mdi-instagram mdi-24px"></i>
-                    </span>
-                  </span>
-                  <span class="bs-stepper-label flex-column align-items-start gap-1 ms-2">
-                    <span class="bs-stepper-title">Social Details</span>
-                  </span>
-                </button>
-              </div>
-              <div class="step" data-target="#social-otherdetails">
-                <button
-                  type="button"
-                  class="step-trigger"
-                  aria-selected="false"
-                >
-                  <span class="avatar">
-                    <span class="avatar-initial rounded-2">
-                      <i class="mdi mdi-plus-box-multiple mdi-24px"></i>
-                    </span>
-                  </span>
-                  <span class="bs-stepper-label flex-column align-items-start gap-1 ms-2">
-                    <span class="bs-stepper-title">Other Details</span>
-                  </span>
-                </button>
-              </div>
-            </div>*/}
             <div class="bs-stepper-content">
               <form onSubmit={handleSubmit(onSubmit, onError)}>
                 {/* <!-- Account Details --> */}
@@ -243,13 +149,7 @@ function CompanyForm() {
                         <label for="Company Type<">Company Type</label>
                       </div>
                     </div>
-                    {/* <!--   <div class="col-md-4">
-                                                <div class="form-floating form-floating-outline">
-                                                    <input class="form-control" type="text" name="Company Type"
-                                                        id="" value=""placeholder="Company Type" />
-                                                    <label for="Company Type">Company Type</label>
-                                                </div>
-                                            </div> --> */}
+
                     <div class="col-md-4">
                       <div class="form-floating form-floating-outline">
                         <input
@@ -257,11 +157,9 @@ function CompanyForm() {
                           type="text"
                           id="companySize"
                           {...register("companySize")}
-                          name="Compay Size"
-                          placeholder="Compay Size"
-                          autofocus=""
+                          placeholder="Company Size"
                         />
-                        <label for="Compay Size">Compay Size</label>
+                        <label for="Company Size">Company Size</label>
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -477,11 +375,11 @@ function CompanyForm() {
                           id="officeAddress"
                           {...register("officeAddress")}
                           rows="2"
-                          placeholder="Registred Office Address"
+                          placeholder="Registered Office Address"
                           style={{ height: "49px" }}
                         ></textarea>
-                        <label for="Registred Office Address">
-                          Registred Office Address
+                        <label for="Registered Office Address">
+                          Registered Office Address
                         </label>
                       </div>
                     </div>
@@ -523,23 +421,6 @@ function CompanyForm() {
                         />
                         <label for="WhatsApp No">WhatsApp No</label>
                       </div>
-                    </div>
-                    <div class="col-12 d-flex justify-content-between">
-                      <button
-                        class="btn btn-outline-secondary btn-prev waves-effect"
-                        disabled=""
-                      >
-                        <i class="mdi mdi-arrow-left me-sm-1 me-0"></i>
-                        <span class="align-middle d-sm-inline-block d-none">
-                          Previous
-                        </span>
-                      </button>
-                      <button class="btn btn-primary btn-next waves-effect waves-light">
-                        <span class="align-middle d-sm-inline-block d-none me-sm-1">
-                          Next
-                        </span>
-                        <i class="mdi mdi-arrow-right"></i>
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -717,21 +598,6 @@ function CompanyForm() {
                         </div>
                       </div>
                     </div>
-
-                    <div class="col-12 d-flex justify-content-between">
-                      <button class="btn btn-outline-secondary btn-prev waves-effect">
-                        <i class="mdi mdi-arrow-left me-sm-1 me-0"></i>
-                        <span class="align-middle d-sm-inline-block d-none">
-                          Previous
-                        </span>
-                      </button>
-                      <button class="btn btn-primary btn-next waves-effect waves-light">
-                        <span class="align-middle d-sm-inline-block d-none me-sm-1">
-                          Next
-                        </span>
-                        <i class="mdi mdi-arrow-right"></i>
-                      </button>
-                    </div>
                   </div>
                 </div>
                 {/* <!-- Business Details --> */}
@@ -753,20 +619,6 @@ function CompanyForm() {
                         ></textarea>
                         <label for="address">Address</label>
                       </div>
-                    </div>
-                    <div class="col-12 d-flex justify-content-between">
-                      <button class="btn btn-outline-secondary btn-prev waves-effect">
-                        <i class="mdi mdi-arrow-left me-sm-1 me-0"></i>
-                        <span class="align-middle d-sm-inline-block d-none">
-                          Previous
-                        </span>
-                      </button>
-                      <button class="btn btn-primary btn-next waves-effect waves-light">
-                        <span class="align-middle d-sm-inline-block d-none me-sm-1">
-                          Next
-                        </span>
-                        <i class="mdi mdi-arrow-right"></i>
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -854,27 +706,6 @@ function CompanyForm() {
                         />
                         <label for="WhatsApp No">WhatsApp No</label>
                       </div>
-                    </div>
-                    {/* <!--   <div class="col-12 d-flex justify-content-between">
-                                          <button class="btn btn-outline-secondary btn-prev">
-                                            <i class="mdi mdi-arrow-left me-sm-1 me-0"></i>
-                                            <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                          </button>
-                                          <button class="btn btn-primary btn-submit">Submit</button>
-                                        </div> --> */}
-                    <div class="col-12 d-flex justify-content-between">
-                      <button class="btn btn-outline-secondary btn-prev waves-effect">
-                        <i class="mdi mdi-arrow-left me-sm-1 me-0"></i>
-                        <span class="align-middle d-sm-inline-block d-none">
-                          Previous
-                        </span>
-                      </button>
-                      <button class="btn btn-primary btn-next waves-effect waves-light">
-                        <span class="align-middle d-sm-inline-block d-none me-sm-1">
-                          Next
-                        </span>
-                        <i class="mdi mdi-arrow-right"></i>
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -973,32 +804,8 @@ function CompanyForm() {
                       <hr />
                     </div>
                   </div>
-                  <div class="col-12 d-flex justify-content-between mb-3">
-                    <button
-                      class="btn btn-primary waves-effect waves-light"
-                      data-repeater-create=""
-                    >
-                      <i class="mdi mdi-plus me-1"></i>
-                      <span class="align-middle">Add</span>
-                    </button>
-                  </div>
-                  <div class="col-12 d-flex justify-content-between">
-                    <button class="btn btn-outline-secondary btn-prev waves-effect">
-                      <i class="mdi mdi-arrow-left me-sm-1 me-0"></i>
-                      <span class="align-middle d-sm-inline-block d-none">
-                        Previous
-                      </span>
-                    </button>
-                    <button class="btn btn-primary btn-next waves-effect waves-light">
-                      <span class="align-middle d-sm-inline-block d-none me-sm-1">
-                        Next
-                      </span>
-                      <i class="mdi mdi-arrow-right"></i>
-                    </button>
-                  </div>
-                  {/* </form> */}
                 </div>
-                {/* <!-- Add new--> */}
+
                 <div id="social-otherdetails" class="content dstepper-block">
                   <div class="content-header mb-3">
                     <h6 class="mb-0">Other Details</h6>
@@ -1047,22 +854,8 @@ function CompanyForm() {
                       <hr />
                     </div>
                   </div>
-                  <div class="col-12 d-flex justify-content-between mb-3">
-                    <button
-                      class="btn btn-primary waves-effect waves-light"
-                      data-repeater-create=""
-                    >
-                      <i class="mdi mdi-plus me-1"></i>
-                      <span class="align-middle">Add</span>
-                    </button>
-                  </div>
+
                   <div class="col-12 d-flex justify-content-between">
-                    <button class="btn btn-outline-secondary btn-prev waves-effect">
-                      <i class="mdi mdi-arrow-left me-sm-1 me-0"></i>
-                      <span class="align-middle d-sm-inline-block d-none">
-                        Previous
-                      </span>
-                    </button>
                     <button
                       type="submit"
                       class="btn btn-primary btn-submit waves-effect waves-light"
@@ -1070,7 +863,6 @@ function CompanyForm() {
                       Submit
                     </button>
                   </div>
-                  {/* </form> */}
                 </div>
               </form>
             </div>

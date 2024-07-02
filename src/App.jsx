@@ -94,6 +94,7 @@ import City from "./components/BusinessManagement/Location/City";
 import Village from "./components/BusinessManagement/Location/Village";
 import AreaGram from "./components/BusinessManagement/Location/AreaGram";
 import Pin from "./components/BusinessManagement/Location/Pin";
+import CompanyForm from "./components/system admin/Forms/CompanyForm";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -137,7 +138,7 @@ const App = () => {
               <Route path="systemAdmin/companyInfo" element={<CompanyInfo />} />
               <Route
                 path="systemAdmin/companyInfoForm"
-                element={<CreateCompanyForm />}
+                element={<CompanyForm />}
               />
               <Route path="systemAdmin/branchType" element={<BranchType />} />
               <Route path="systemAdmin/boardDirectors" element={<Director />} />
