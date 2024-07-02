@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getBank } from "../../services/apiSystemAdmin";
+import { getPreProject } from "../../services/apiPreProject";
 
 export function useGetProject() {
   const { isPending, data: project } = useQuery({
     queryKey: ["project"],
-    queryFn: getBank,
+    queryFn: getPreProject,
   });
   console.log(project);
   return { isPending, project };

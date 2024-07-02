@@ -67,8 +67,9 @@ export async function getPreProject() {
   try {
     const res = await axios({
       method: "GET",
-      url: "http://20.244.48.88:8000/api/pre_handler/",
+      url: "http://20.244.48.88:8000/api/pre_project_new_handler/",
     });
+    console.log(res);
     console.log(res.data);
     return res.data.data;
   } catch (error) {
