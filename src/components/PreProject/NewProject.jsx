@@ -13,11 +13,7 @@ function NewProject() {
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
-    newProject({
-      ...data,
-      upload_document: data.upload_document[0].name,
-      generate_agreement: data.generate_agreement[0].name,
-    });
+    newProject(data);
     console.log(data);
   }
   return (
