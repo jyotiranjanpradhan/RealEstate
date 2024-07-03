@@ -1,51 +1,51 @@
 function ProductGoal() {
   return (
-    <div class="col-md-12 col-sm-12 col-12 mb-4">
-      <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-          <h5 class="mb-0">Product Goal</h5>
+    <div className="col-md-12 col-sm-12 col-12 mb-4">
+      <div className="card">
+        <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+          <h5 className="mb-0">Product Goal</h5>
           <button
-            class="btn btn-primary btn-xs btn-primary waves-effect waves-light"
+            className="btn btn-primary btn-xs btn-primary waves-effect waves-light"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvaproductgoal"
             aria-controls="offcanvaproductgoal"
           >
-            <span class="mdi mdi-plus"></span> Add
+            <span className="mdi mdi-plus"></span> Add
           </button>
 
           <div
-            class="offcanvas offcanvas-start w-75"
+            className="offcanvas offcanvas-start w-75"
             tabindex="-1"
             id="offcanvaproductgoal"
             aria-labelledby="offcanvasStartLabel"
           >
-            <div class="justify-content-end offcanvas-header">
+            <div className="justify-content-end offcanvas-header">
               <button
                 type="button"
-                class="btn-close text-bg-light text-reset"
+                className="btn-close text-bg-light text-reset"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="offcanvas-body mx-0 flex-grow-0">
-              <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-                  <h5 class="mb-0">Product Goal:</h5>
+            <div className="offcanvas-body mx-0 flex-grow-0">
+              <div className="card">
+                <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+                  <h5 className="mb-0">Product Goal:</h5>
                 </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-lg-10 mx-auto">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-lg-10 mx-auto">
                       <form action="">
-                        <div class="row">
-                          <div class="col-md-6 col-sm-6 col-12">
-                            <div class="mb-3">
-                              <label for="defaultInput" class="form-label">
+                        <div className="row">
+                          <div className="col-md-6 col-sm-6 col-12">
+                            <div className="mb-3">
+                              <label for="defaultInput" className="form-label">
                                 Target Number
                               </label>
                               <input
                                 id=""
-                                class="form-control"
+                                className="form-control"
                                 type="text"
                                 placeholder="Target Number"
                                 autocomplete="off"
@@ -53,14 +53,14 @@ function ProductGoal() {
                             </div>
                           </div>
 
-                          <div class="col-md-6 col-sm-6 col-12">
-                            <div class="mb-3">
-                              <label for="defaultInput" class="form-label">
+                          <div className="col-md-6 col-sm-6 col-12">
+                            <div className="mb-3">
+                              <label for="defaultInput" className="form-label">
                                 Achievement Percentage
                               </label>
                               <input
                                 id=""
-                                class="form-control"
+                                className="form-control"
                                 type="text"
                                 placeholder="Achievement Percentage"
                                 autocomplete="off"
@@ -68,14 +68,14 @@ function ProductGoal() {
                             </div>
                           </div>
 
-                          <div class="col-md-6 col-sm-6 col-12">
-                            <div class="mb-3">
-                              <label for="defaultInput" class="form-label">
+                          <div className="col-md-6 col-sm-6 col-12">
+                            <div className="mb-3">
+                              <label for="defaultInput" className="form-label">
                                 Goal
                               </label>
                               <input
                                 id=""
-                                class="form-control"
+                                className="form-control"
                                 type="text"
                                 placeholder="Goal"
                                 autocomplete="off"
@@ -83,42 +83,42 @@ function ProductGoal() {
                             </div>
                           </div>
 
-                          <div class="col-md-6 col-sm-6 col-12">
-                            <div class="mb-3">
-                              <label for="defaultInput" class="form-label">
+                          <div className="col-md-6 col-sm-6 col-12">
+                            <div className="mb-3">
+                              <label for="defaultInput" className="form-label">
                                 Targets
                               </label>
                               <input
                                 id=""
-                                class="form-control"
+                                className="form-control"
                                 type="text"
                                 placeholder="Targets"
                                 autocomplete="off"
                               />
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-6 col-12">
-                            <div class="mb-3">
-                              <label for="defaultInput" class="form-label">
+                          <div className="col-md-6 col-sm-6 col-12">
+                            <div className="mb-3">
+                              <label for="defaultInput" className="form-label">
                                 UOM
                               </label>
                               <input
                                 id=""
-                                class="form-control"
+                                className="form-control"
                                 type="text"
                                 placeholder="UOM"
                                 autocomplete="off"
                               />
                             </div>
                           </div>
-                          <div class="col-md-6 col-sm-6 col-12">
-                            <div class="mb-3">
-                              <label for="defaultInput" class="form-label">
+                          <div className="col-md-6 col-sm-6 col-12">
+                            <div className="mb-3">
+                              <label for="defaultInput" className="form-label">
                                 Monthly
                               </label>
                               <input
                                 id=""
-                                class="form-control"
+                                className="form-control"
                                 type="text"
                                 placeholder="Monthly"
                                 autocomplete="off"
@@ -126,14 +126,14 @@ function ProductGoal() {
                             </div>
                           </div>
 
-                          <div class="col-md-12 col-sm-12 col-12">
-                            <label for="defaultInput" class="form-label">
+                          <div className="col-md-12 col-sm-12 col-12">
+                            <label for="defaultInput" className="form-label">
                               Description
                             </label>
-                            <div class="form-floating form-floating-outline">
+                            <div className="form-floating form-floating-outline">
                               <textarea
                                 name="Description"
-                                class="form-control"
+                                className="form-control"
                                 id=""
                                 rows="2"
                                 placeholder="Description"
@@ -143,7 +143,7 @@ function ProductGoal() {
                             </div>
                           </div>
                         </div>
-                        <button class="btn btn-primary d-block ms-auto mt-2 waves-effect waves-light">
+                        <button className="btn btn-primary d-block ms-auto mt-2 waves-effect waves-light">
                           Submit
                         </button>
                       </form>
@@ -154,10 +154,10 @@ function ProductGoal() {
             </div>
           </div>
         </div>
-        <div class="text-nowrap p-3">
-          <div class="table-responsive text-nowrap">
-            <table class="table table-bordered">
-              <thead class="table-secondary">
+        <div className="text-nowrap p-3">
+          <div className="table-responsive text-nowrap">
+            <table className="table table-bordered">
+              <thead className="table-secondary">
                 <tr>
                   <th>#</th>
                   <th>Description</th>
@@ -181,30 +181,30 @@ function ProductGoal() {
                   <td>
                     <a
                       href="goals_targets_view.php"
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="View"
                     >
-                      <i class="mdi mdi-eye"></i>
+                      <i className="mdi mdi-eye"></i>
                     </a>
                     <a
                       href="#"
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                     <a
                       href="#"
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Delete"
                     >
-                      <span class="mdi mdi-trash-can-outline"></span>
+                      <span className="mdi mdi-trash-can-outline"></span>
                     </a>
                   </td>
                 </tr>
@@ -219,30 +219,30 @@ function ProductGoal() {
                   <td>
                     <a
                       href="goals_targets_view.php"
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="View"
                     >
-                      <i class="mdi mdi-eye"></i>
+                      <i className="mdi mdi-eye"></i>
                     </a>
                     <a
                       href="#"
-                      class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Edit"
                     >
-                      <i class="mdi mdi-pencil-outline"></i>
+                      <i className="mdi mdi-pencil-outline"></i>
                     </a>
                     <a
                       href="#"
-                      class="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
+                      className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-original-title="Delete"
                     >
-                      <span class="mdi mdi-trash-can-outline"></span>
+                      <span className="mdi mdi-trash-can-outline"></span>
                     </a>
                   </td>
                 </tr>

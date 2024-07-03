@@ -1,14 +1,14 @@
 function ByTime({ stroke, fill, text }) {
   return (
-    <div class="col-sm-6 col-lg-3 mb-4">
-      <div class="card card-border-shadow-primary h-100">
-        <div class="card-body">
+    <div className="col-sm-6 col-lg-3 mb-4">
+      <div className="card card-border-shadow-primary h-100">
+        <div className="card-body">
           <div
-            class="d-flex align-items-center mb-2 pb-1"
+            className="d-flex align-items-center mb-2 pb-1"
             style={{ position: "relative" }}
           >
             <div
-              class="chart-progress me-3"
+              className="chart-progress me-3"
               data-color="primary"
               data-series="80"
               data-progress_variant="true"
@@ -16,7 +16,7 @@ function ByTime({ stroke, fill, text }) {
             >
               <div
                 id="apexchartsh6ns3hfll"
-                class="apexcharts-canvas apexchartsh6ns3hfll apexcharts-theme-light"
+                className="apexcharts-canvas apexchartsh6ns3hfll apexcharts-theme-light"
                 style={{ width: "58px", height: "62.7px" }}
               >
                 <svg
@@ -27,14 +27,14 @@ function ByTime({ stroke, fill, text }) {
                   version="1.1"
                   //   xmlns:xlink="http://www.w3.org/1999/xlink"
                   //   xmlns:svgjs="http://svgjs.dev"
-                  class="apexcharts-svg"
+                  className="apexcharts-svg"
                   //   xmlns:data="ApexChartsNS"
                   transform="translate(0, 0)"
                   style={{ background: "transparent" }}
                 >
                   <g
                     id="SvgjsG1068"
-                    class="apexcharts-inner apexcharts-graphical"
+                    className="apexcharts-inner apexcharts-graphical"
                     transform="translate(-18, -12)"
                   >
                     <defs id="SvgjsDefs1067">
@@ -73,12 +73,12 @@ function ByTime({ stroke, fill, text }) {
                         ></rect>
                       </clipPath>
                     </defs>
-                    <g id="SvgjsG1072" class="apexcharts-radialbar">
+                    <g id="SvgjsG1072" className="apexcharts-radialbar">
                       <g id="SvgjsG1073">
-                        <g id="SvgjsG1074" class="apexcharts-tracks">
+                        <g id="SvgjsG1074" className="apexcharts-tracks">
                           <g
                             id="SvgjsG1075"
-                            class="apexcharts-radialbar-track apexcharts-track"
+                            className="apexcharts-radialbar-track apexcharts-track"
                             rel="1"
                           >
                             <path
@@ -91,7 +91,7 @@ function ByTime({ stroke, fill, text }) {
                               stroke-linecap="round"
                               stroke-width="5.130353658536585"
                               stroke-dasharray="0"
-                              class="apexcharts-radialbar-area"
+                              className="apexcharts-radialbar-area"
                               //   data:pathOrig="M 46 20.01890243902438 A 24.48109756097562 24.48109756097562 0 1 1 45.995727242452276 20.018902811892815"
                             ></path>
                           </g>
@@ -99,7 +99,7 @@ function ByTime({ stroke, fill, text }) {
                         <g id="SvgjsG1077">
                           <g
                             id="SvgjsG1082"
-                            class="apexcharts-series apexcharts-radial-series"
+                            className="apexcharts-series apexcharts-radial-series"
                             seriesName=""
                             rel="1"
                             // data:realIndex="0"
@@ -114,7 +114,7 @@ function ByTime({ stroke, fill, text }) {
                               stroke-linecap="round"
                               stroke-width="5.2890243902439025"
                               stroke-dasharray="0"
-                              class="apexcharts-radialbar-area apexcharts-radialbar-slice-0"
+                              className="apexcharts-radialbar-area apexcharts-radialbar-slice-0"
                               //   data:angle="288"
                               //   data:value="80"
                               index="0"
@@ -127,12 +127,12 @@ function ByTime({ stroke, fill, text }) {
                             r="16.915920731707327"
                             cx="46"
                             cy="44.5"
-                            class="apexcharts-radialbar-hollow"
+                            className="apexcharts-radialbar-hollow"
                             fill="transparent"
                           ></circle>
                           <g
                             id="SvgjsG1079"
-                            class="apexcharts-datalabels-group"
+                            className="apexcharts-datalabels-group"
                             transform="translate(0, 0) scale(1)"
                             style={{ opacity: "1" }}
                           >
@@ -146,7 +146,7 @@ function ByTime({ stroke, fill, text }) {
                               font-size="16px"
                               font-weight="500"
                               fill={fill}
-                              class="apexcharts-text apexcharts-datalabel-label"
+                              className="apexcharts-text apexcharts-datalabel-label"
                               style={{
                                 fontFamily: "Helvetica, Arial, sans-serif",
                               }}
@@ -161,7 +161,7 @@ function ByTime({ stroke, fill, text }) {
                               font-size="15px"
                               font-weight="500"
                               fill="#636578"
-                              class="apexcharts-text apexcharts-datalabel-value"
+                              className="apexcharts-text apexcharts-datalabel-value"
                               style={{ fontFamily: "Inter" }}
                             >
                               80%
@@ -180,7 +180,7 @@ function ByTime({ stroke, fill, text }) {
                       stroke-dasharray="0"
                       stroke-width="1"
                       stroke-linecap="butt"
-                      class="apexcharts-ycrosshairs"
+                      className="apexcharts-ycrosshairs"
                     ></line>
                     <line
                       id="SvgjsLine1085"
@@ -191,26 +191,26 @@ function ByTime({ stroke, fill, text }) {
                       stroke-dasharray="0"
                       stroke-width="0"
                       stroke-linecap="butt"
-                      class="apexcharts-ycrosshairs-hidden"
+                      className="apexcharts-ycrosshairs-hidden"
                     ></line>
                   </g>
-                  <g id="SvgjsG1069" class="apexcharts-annotations"></g>
+                  <g id="SvgjsG1069" className="apexcharts-annotations"></g>
                 </svg>
-                <div class="apexcharts-legend"></div>
+                <div className="apexcharts-legend"></div>
               </div>
             </div>
-            <div class="row w-100 align-items-center">
-              <h6 class="ms-1 mb-0">
+            <div className="row w-100 align-items-center">
+              <h6 className="ms-1 mb-0">
                 <a href="#">{text}</a>
               </h6>
-              <p class="mb-0">182 Tasks</p>
-              <p class="mb-0 text-heading">Lorem Ipsum is simply dummy</p>
+              <p className="mb-0">182 Tasks</p>
+              <p className="mb-0 text-heading">Lorem Ipsum is simply dummy</p>
             </div>
-            <div class="resize-triggers">
-              <div class="expand-trigger">
+            <div className="resize-triggers">
+              <div className="expand-trigger">
                 <div style={{ width: "291px", height: "68px" }}></div>
               </div>
-              <div class="contract-trigger"></div>
+              <div className="contract-trigger"></div>
             </div>
           </div>
         </div>

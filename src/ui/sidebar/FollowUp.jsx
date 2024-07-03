@@ -9,19 +9,19 @@ const array = [
 function FollowUp() {
   const [show, setShow] = useState(false);
   return (
-    <li class={show ? "menu-item open" : "menu-item"}>
+    <li className={show ? "menu-item open" : "menu-item"}>
       <div
         onClick={() => {
           setShow(!show);
         }}
-        class="menu-link menu-toggle waves-effect"
+        className="menu-link menu-toggle waves-effect"
       >
-        <i class="menu-icon tf-icons mdi mdi-flip-to-front"></i>
+        <i className="menu-icon tf-icons mdi mdi-flip-to-front"></i>
         <div data-i18n="FollowUp">FollowUp</div>
       </div>
-      <ul class="menu-sub">
-        {array.map((el) => (
-          <SubItems value={el.value} to={el.to} />
+      <ul className="menu-sub">
+        {array.map((el, index) => (
+          <SubItems value={el.value} to={el.to} key={index} />
         ))}
       </ul>
     </li>

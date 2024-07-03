@@ -31,30 +31,30 @@ function Board() {
     console.log(data);
   }
   return (
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <div class="card-header d-flex justify-content-between align-items-center py-2">
+    <div className="container-xxl flex-grow-1 container-p-y">
+      <div className="card-header d-flex justify-content-between align-items-center py-2">
         <h5>
-          <span class="text-muted fw-light">System Admin /</span> Board
+          <span className="text-muted fw-light">System Admin /</span> Board
           Directors
         </h5>
-        <div class="mb-2 text-end">
+        <div className="mb-2 text-end">
           <Link
             to="/systemAdmin/boardDirectors"
-            class="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
+            className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             data-bs-original-title="Back to list"
           >
-            <span class="mdi mdi-keyboard-backspace"></span>
+            <span className="mdi mdi-keyboard-backspace"></span>
           </Link>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 mb-4">
-          <div class="card">
-            <h5 class="card-header">Board Directors</h5>
-            <div class="card-body">
-              <form class="form-repeater" onSubmit={handleSubmit(onSubmit)}>
+      <div className="row">
+        <div className="col-12 mb-4">
+          <div className="card">
+            <h5 className="card-header">Board Directors</h5>
+            <div className="card-body">
+              <form className="form-repeater" onSubmit={handleSubmit(onSubmit)}>
                 {componentCount &&
                   Array.from({ length: componentCount }, (_, index) => (
                     <BoardSubForm key={index} register={register} />
@@ -66,18 +66,18 @@ function Board() {
                     deleteComponent={() => deleteComponent(index)}
                   />
                 ))} */}
-                <div class="col-12 d-flex justify-content-between">
+                <div className="col-12 d-flex justify-content-between">
                   <button
                     type="button"
                     onClick={addComponent}
-                    class="btn btn-primary waves-effect waves-light"
+                    className="btn btn-primary waves-effect waves-light"
                   >
-                    <i class="mdi mdi-plus me-1"></i>
-                    <span class="align-middle">Add</span>
+                    <i className="mdi mdi-plus me-1"></i>
+                    <span className="align-middle">Add</span>
                   </button>
                   <button
                     type="submit"
-                    class="btn btn-primary btn-submit waves-effect waves-light"
+                    className="btn btn-primary btn-submit waves-effect waves-light"
                   >
                     Submit
                   </button>

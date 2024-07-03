@@ -4,17 +4,17 @@ import SubItems from "../sideBarItems/SubItems";
 function SystemAdmin() {
   const [show, setShow] = useState(false);
   return (
-    <li class={show ? "menu-item open" : "menu-item"}>
+    <li className={show ? "menu-item open" : "menu-item"}>
       <div
         onClick={() => {
           setShow(!show);
         }}
-        class="menu-link menu-toggle waves-effect"
+        className="menu-link menu-toggle waves-effect"
       >
-        <i class="menu-icon tf-icons mdi mdi-notebook-outline"></i>
+        <i className="menu-icon tf-icons mdi mdi-notebook-outline"></i>
         <div>System Admin</div>
       </div>
-      <ul class="menu-sub">
+      <ul className="menu-sub">
         <SubItems value="Company Type" to={"systemAdmin/companyType"} />
         <SubItems value="Company Info" to={"systemAdmin/companyInfo"} />
         <SubItems value="Branch Type" to={"systemAdmin/branchType"} />

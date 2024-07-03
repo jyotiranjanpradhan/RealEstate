@@ -7,19 +7,19 @@ const array = [
 function PreProject() {
   const [show, setShow] = useState(false);
   return (
-    <li class={show ? "menu-item open" : "menu-item"}>
+    <li className={show ? "menu-item open" : "menu-item"}>
       <div
         onClick={() => {
           setShow(!show);
         }}
-        class="menu-link menu-toggle waves-effect"
+        className="menu-link menu-toggle waves-effect"
       >
-        <i class="menu-icon tf-icons mdi mdi-form-select"></i>
+        <i className="menu-icon tf-icons mdi mdi-form-select"></i>
         <div data-i18n="Pre Project">Pre Project</div>
       </div>
-      <ul class="menu-sub">
-        {array.map((el) => (
-          <SubItems value={el.value} to={el.to} />
+      <ul className="menu-sub">
+        {array.map((el, i) => (
+          <SubItems value={el.value} to={el.to} key={i} />
         ))}
       </ul>
     </li>

@@ -15,11 +15,7 @@ function NewProject() {
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
-    newProject({
-      ...data,
-      upload_document: data.upload_document[0].name,
-      generate_agreement: data.generate_agreement[0].name,
-    });
+    newProject(data);
     console.log(data);
   }
   return (
@@ -31,7 +27,7 @@ function NewProject() {
         </h5>
         <div className="mb-2 text-end">
           <Link
-            // to={navigate("/preProject/preProjectTable")}
+            to={navigate("/preProject/preProjectTable")}
             className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
@@ -193,6 +189,13 @@ function NewProject() {
                         id="upload_document"
                         {...register("upload_document")}
                       />
+
+                      <button className="btn btn-outline-primary waves-effect">
+                        Accept
+                      </button>
+                      <button className="btn btn-outline-primary waves-effect">
+                        Reject
+                      </button>
                     </div>
                   </div>
                   <div className="col-md-2 col-sm-6 col-12">

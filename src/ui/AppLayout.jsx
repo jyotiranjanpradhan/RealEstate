@@ -8,9 +8,9 @@ function AppLayout() {
     <>
       <Main>
         <Sidebar />
-        <div class="layout-page">
+        <div className="layout-page">
           <Navbar />
-          <div class="content-wrapper">
+          <div className="content-wrapper">
             <Outlet />
             <Footer />
           </div>

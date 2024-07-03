@@ -2,21 +2,21 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 // import './vendor/css/rtl/core.css'
-const  RolesAndRights=()=> {
+const RolesAndRights = () => {
   const [show, setShow] = useState(false);
   const handleclick = () => {
     setShow((prevState) => !prevState);
   };
   return (
     <>
-      <div class="content-wrapper">
+      <div className="content-wrapper">
         {/* <!-- Content --> */}
-        <div class="container-xxl flex-grow-1 container-p-y">
+        <div className="container-xxl flex-grow-1 container-p-y">
           <h5>
-            <span class="text-muted fw-light">System Admin /</span> Roles &amp;
-            Right
+            <span className="text-muted fw-light">System Admin /</span> Roles
+            &amp; Right
           </h5>
-          <div class="row g-4">
+          <div className="row g-4">
             <div className="col-xl-4 col-lg-6 col-md-6">
               <div className="card">
                 <div className="card-body">
@@ -1295,6 +1295,6 @@ const  RolesAndRights=()=> {
       </div>
     </>
   );
-}
+};
 
 export default RolesAndRights;

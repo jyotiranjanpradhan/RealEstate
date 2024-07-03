@@ -2,12 +2,12 @@ function LightItem({ icon, light }) {
   return (
     <li>
       <a
-        class="dropdown-item waves-effect"
+        className="dropdown-item waves-effect"
         href="javascript:void(0);"
         data-theme="light"
       >
-        <span class="align-middle">
-          <i class={`mdi mdi-${icon} me-2`}></i>
+        <span className="align-middle">
+          <i className={`mdi mdi-${icon} me-2`}></i>
           {light}
         </span>
       </a>

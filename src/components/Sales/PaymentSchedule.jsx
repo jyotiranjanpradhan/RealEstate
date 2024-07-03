@@ -2,42 +2,45 @@ import { Link } from "react-router-dom";
 
 function PaymentSchedule() {
   return (
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <div class="card-header d-flex justify-content-between align-items-center py-2">
+    <div className="container-xxl flex-grow-1 container-p-y">
+      <div className="card-header d-flex justify-content-between align-items-center py-2">
         <h5>
-          <span class="text-muted fw-light">Sales /</span> Payment Schedule
+          <span className="text-muted fw-light">Sales /</span> Payment Schedule
         </h5>
-        <div class="mb-2 text-end">
+        <div className="mb-2 text-end">
           <Link
             to="/sales/addPaymentSchedule"
-            class="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
+            className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
           >
-            <span class="mdi mdi-plus"></span> Payment Schedule
+            <span className="mdi mdi-plus"></span> Payment Schedule
           </Link>
         </div>
       </div>
-      <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
-          <h5 class="mb-0">Schedule List :</h5>
-          {/* <!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
-          <span><i class="mdi mdi-plus me-0 me-sm-1"></i></span> Department
+      <div className="card">
+        <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
+          <h5 className="mb-0">Schedule List :</h5>
+          {/* <!--  <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
+          <span><i className="mdi mdi-plus me-0 me-sm-1"></i></span> Department
         </button> --> */}
         </div>
-        <div class="card-body pt-0">
-          <div class="table-responsive text-nowrap">
+        <div className="card-body pt-0">
+          <div className="table-responsive text-nowrap">
             <div
               id="companyinfo_table_wrapper"
-              class="dataTables_wrapper dt-bootstrap5 no-footer"
+              className="dataTables_wrapper dt-bootstrap5 no-footer"
             >
-              <div class="row">
-                <div class="col-sm-12 col-md-6">
-                  <div class="dataTables_length" id="companyinfo_table_length">
+              <div className="row">
+                <div className="col-sm-12 col-md-6">
+                  <div
+                    className="dataTables_length"
+                    id="companyinfo_table_length"
+                  >
                     <label>
                       Show{" "}
                       <select
                         name="companyinfo_table_length"
                         aria-controls="companyinfo_table"
-                        class="form-select form-select-sm"
+                        className="form-select form-select-sm"
                       >
                         <option value="10">10</option>
                         <option value="25">25</option>
@@ -48,13 +51,16 @@ function PaymentSchedule() {
                     </label>
                   </div>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                  <div id="companyinfo_table_filter" class="dataTables_filter">
+                <div className="col-sm-12 col-md-6">
+                  <div
+                    id="companyinfo_table_filter"
+                    className="dataTables_filter"
+                  >
                     <label>
                       Search:
                       <input
                         type="search"
-                        class="form-control form-control-sm"
+                        className="form-control form-control-sm"
                         placeholder=""
                         aria-controls="companyinfo_table"
                       />
@@ -62,18 +68,18 @@ function PaymentSchedule() {
                   </div>
                 </div>
               </div>
-              <div class="row dt-row">
-                <div class="col-sm-12">
+              <div className="row dt-row">
+                <div className="col-sm-12">
                   <table
-                    class="table table-bordered dataTable no-footer"
+                    className="table table-bordered dataTable no-footer"
                     id="companyinfo_table"
                     aria-describedby="companyinfo_table_info"
                     style={{ width: "1357px" }}
                   >
-                    <thead class="table-secondary">
+                    <thead className="table-secondary">
                       <tr>
                         <td
-                          class="sorting sorting_asc"
+                          className="sorting sorting_asc"
                           tabindex="0"
                           aria-controls="companyinfo_table"
                           rowspan="1"
@@ -85,7 +91,7 @@ function PaymentSchedule() {
                           SL No
                         </td>
                         <td
-                          class="sorting"
+                          className="sorting"
                           tabindex="0"
                           aria-controls="companyinfo_table"
                           rowspan="1"
@@ -96,7 +102,7 @@ function PaymentSchedule() {
                           Sales ID
                         </td>
                         <td
-                          class="sorting"
+                          className="sorting"
                           tabindex="0"
                           aria-controls="companyinfo_table"
                           rowspan="1"
@@ -107,7 +113,7 @@ function PaymentSchedule() {
                           Project
                         </td>
                         <td
-                          class="sorting"
+                          className="sorting"
                           tabindex="0"
                           aria-controls="companyinfo_table"
                           rowspan="1"
@@ -118,7 +124,7 @@ function PaymentSchedule() {
                           Product
                         </td>
                         <td
-                          class="sorting"
+                          className="sorting"
                           tabindex="0"
                           aria-controls="companyinfo_table"
                           rowspan="1"
@@ -129,7 +135,7 @@ function PaymentSchedule() {
                           Date
                         </td>
                         <td
-                          class="sorting"
+                          className="sorting"
                           tabindex="0"
                           aria-controls="companyinfo_table"
                           rowspan="1"
@@ -140,7 +146,7 @@ function PaymentSchedule() {
                           Instalment Stage
                         </td>
                         <td
-                          class="sorting"
+                          className="sorting"
                           tabindex="0"
                           aria-controls="companyinfo_table"
                           rowspan="1"
@@ -151,7 +157,7 @@ function PaymentSchedule() {
                           Statement
                         </td>
                         <td
-                          class="sorting"
+                          className="sorting"
                           tabindex="0"
                           aria-controls="companyinfo_table"
                           rowspan="1"
@@ -162,7 +168,7 @@ function PaymentSchedule() {
                           Amount
                         </td>
                         <td
-                          class="sorting"
+                          className="sorting"
                           tabindex="0"
                           aria-controls="companyinfo_table"
                           rowspan="1"
@@ -175,8 +181,8 @@ function PaymentSchedule() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="odd">
-                        <td class="sorting_1">1</td>
+                      <tr className="odd">
+                        <td className="sorting_1">1</td>
                         <td>Angan bashera</td>
                         <td>1256</td>
                         <td>Company</td>
@@ -187,26 +193,26 @@ function PaymentSchedule() {
                         <td>
                           <a
                             href="payment_schedule_view.php"
-                            class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="View"
                           >
-                            <i class="mdi mdi-eye"></i>
+                            <i className="mdi mdi-eye"></i>
                           </a>
                           <a
                             href=""
-                            class="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="Edit"
                           >
-                            <i class="mdi mdi-pencil-outline"></i>
+                            <i className="mdi mdi-pencil-outline"></i>
                           </a>
                         </td>
                       </tr>
-                      <tr class="even">
-                        <td class="sorting_1">2</td>
+                      <tr className="even">
+                        <td className="sorting_1">2</td>
                         <td>Angan bashera</td>
                         <td>659</td>
                         <td>Company</td>
@@ -217,26 +223,26 @@ function PaymentSchedule() {
                         <td>
                           <a
                             href="payment_schedule_view.php"
-                            class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="View"
                           >
-                            <i class="mdi mdi-eye"></i>
+                            <i className="mdi mdi-eye"></i>
                           </a>
                           <a
                             href=""
-                            class="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="Edit"
                           >
-                            <i class="mdi mdi-pencil-outline"></i>
+                            <i className="mdi mdi-pencil-outline"></i>
                           </a>
                         </td>
                       </tr>
-                      <tr class="odd">
-                        <td class="sorting_1">3</td>
+                      <tr className="odd">
+                        <td className="sorting_1">3</td>
                         <td>Angan bashera</td>
                         <td>659</td>
                         <td>Company</td>
@@ -247,26 +253,26 @@ function PaymentSchedule() {
                         <td>
                           <a
                             href="payment_recipt_view.php"
-                            class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="View"
                           >
-                            <i class="mdi mdi-eye"></i>
+                            <i className="mdi mdi-eye"></i>
                           </a>
                           <a
                             href=""
-                            class="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="Edit"
                           >
-                            <i class="mdi mdi-pencil-outline"></i>
+                            <i className="mdi mdi-pencil-outline"></i>
                           </a>
                         </td>
                       </tr>
-                      <tr class="even">
-                        <td class="sorting_1">4</td>
+                      <tr className="even">
+                        <td className="sorting_1">4</td>
                         <td>Angan bashera</td>
                         <td>659</td>
                         <td>Company</td>
@@ -277,26 +283,26 @@ function PaymentSchedule() {
                         <td>
                           <a
                             href="payment_recipt_view.php"
-                            class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="View"
                           >
-                            <i class="mdi mdi-eye"></i>
+                            <i className="mdi mdi-eye"></i>
                           </a>
                           <a
                             href=""
-                            class="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="Edit"
                           >
-                            <i class="mdi mdi-pencil-outline"></i>
+                            <i className="mdi mdi-pencil-outline"></i>
                           </a>
                         </td>
                       </tr>
-                      <tr class="odd">
-                        <td class="sorting_1">5</td>
+                      <tr className="odd">
+                        <td className="sorting_1">5</td>
                         <td>Angan bashera</td>
                         <td>659</td>
                         <td>Company</td>
@@ -307,21 +313,21 @@ function PaymentSchedule() {
                         <td>
                           <a
                             href="payment_recipt_view.php"
-                            class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="View"
                           >
-                            <i class="mdi mdi-eye"></i>
+                            <i className="mdi mdi-eye"></i>
                           </a>
                           <a
                             href=""
-                            class="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
+                            className="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
                             data-bs-placement="top"
                             data-bs-original-title="Edit"
                           >
-                            <i class="mdi mdi-pencil-outline"></i>
+                            <i className="mdi mdi-pencil-outline"></i>
                           </a>
                         </td>
                       </tr>
@@ -329,10 +335,10 @@ function PaymentSchedule() {
                   </table>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-12 col-md-5">
+              <div className="row">
+                <div className="col-sm-12 col-md-5">
                   <div
-                    class="dataTables_info"
+                    className="dataTables_info"
                     id="companyinfo_table_info"
                     role="status"
                     aria-live="polite"
@@ -340,14 +346,14 @@ function PaymentSchedule() {
                     Showing 1 to 5 of 5 entries
                   </div>
                 </div>
-                <div class="col-sm-12 col-md-7">
+                <div className="col-sm-12 col-md-7">
                   <div
-                    class="dataTables_paginate paging_simple_numbers"
+                    className="dataTables_paginate paging_simple_numbers"
                     id="companyinfo_table_paginate"
                   >
-                    <ul class="pagination">
+                    <ul className="pagination">
                       <li
-                        class="paginate_button page-item previous disabled"
+                        className="paginate_button page-item previous disabled"
                         id="companyinfo_table_previous"
                       >
                         <a
@@ -356,12 +362,12 @@ function PaymentSchedule() {
                           role="link"
                           data-dt-idx="previous"
                           tabindex="0"
-                          class="page-link"
+                          className="page-link"
                         >
                           Previous
                         </a>
                       </li>
-                      <li class="paginate_button page-item active">
+                      <li className="paginate_button page-item active">
                         <a
                           href="#"
                           aria-controls="companyinfo_table"
@@ -369,13 +375,13 @@ function PaymentSchedule() {
                           aria-current="page"
                           data-dt-idx="0"
                           tabindex="0"
-                          class="page-link"
+                          className="page-link"
                         >
                           1
                         </a>
                       </li>
                       <li
-                        class="paginate_button page-item next disabled"
+                        className="paginate_button page-item next disabled"
                         id="companyinfo_table_next"
                       >
                         <a
@@ -384,7 +390,7 @@ function PaymentSchedule() {
                           role="link"
                           data-dt-idx="next"
                           tabindex="0"
-                          class="page-link"
+                          className="page-link"
                         >
                           Next
                         </a>

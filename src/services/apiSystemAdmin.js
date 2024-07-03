@@ -64,3 +64,16 @@ export async function createBranchInfo(data) {
     console.log(error);
   }
 }
+
+export async function createCompanyType(data) {
+  try {
+    const res = await axios({
+      method: "POST",
+      url: "http://20.244.48.88:8000/api/system_company_type_handler/",
+      data: data,
+    });
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}

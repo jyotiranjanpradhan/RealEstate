@@ -4,17 +4,17 @@ import SubItems from "../sideBarItems/SubItems";
 function Sales() {
   const [show, setShow] = useState(false);
   return (
-    <li class={show ? "menu-item open" : "menu-item"}>
+    <li className={show ? "menu-item open" : "menu-item"}>
       <div
         onClick={() => {
           setShow(!show);
         }}
-        class="menu-link menu-toggle waves-effect"
+        className="menu-link menu-toggle waves-effect"
       >
-        <i class="menu-icon tf-icons mdi mdi-file-document-outline"></i>
+        <i className="menu-icon tf-icons mdi mdi-file-document-outline"></i>
         <div>Sales</div>
       </div>
-      <ul class="menu-sub">
+      <ul className="menu-sub">
         <SubItems value="Payment Recipt" to="/sales/paymentRecipt" />
         <SubItems value="Payment schedule" to="/sales/paymentSchedule" />
         <SubItems value="Sales Agreement" to="/sales/salesAgreement" />
