@@ -190,12 +190,6 @@ function NewProject() {
                         {...register("upload_document")}
                       />
 
-                      <button className="btn btn-outline-primary waves-effect">
-                        Accept
-                      </button>
-                      <button className="btn btn-outline-primary waves-effect">
-                        Reject
-                      </button>
                     </div>
                   </div>
                   <div className="col-md-2 col-sm-6 col-12">
