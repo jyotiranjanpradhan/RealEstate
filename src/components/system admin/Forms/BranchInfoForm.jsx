@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useAddBranchInfo } from "./../../../hooks/systemAdmin/useAddBranchInfo";
+import { Link } from "react-router-dom";
 function BranchInfoForm() {
   const { isPending, mutate } = useAddBranchInfo();
   const { register, handleSubmit } = useForm();
@@ -15,31 +16,26 @@ function BranchInfoForm() {
       contact_phone,
       ...details
     } = data;
-    const mainData = {
-      branch_brand: {
-        letter_header,
-        letter_footer,
-      },
-      branch_contact: {
-        name: contact_name,
-        designation: contact_designation,
-        role: contact_role,
-        email: contact_email,
-        phone: contact_phone,
-      },
-      branch_details: details,
+    const branch_brand = {
+      letter_header,
+      letter_footer,
     };
-    console.log(mainData);
+    const branch_contact = {
+      name: contact_name,
+      designation: contact_designation,
+      role: contact_role,
+      email: contact_email,
+      phone: contact_phone,
+    };
+    const branch_details = details;
+
     const formData = new FormData();
-    // Object.entries(mainData).forEach(([key, value]) => {
-    //   Object.keys(value).forEach((subKey) => {
-    //     formData.append(`${key}[${subKey}]`, JSON.stringify(value[subKey]));
-    //   });
-    // });
-    // console.log(Object.entries(mainData));
-    // for (let pair of formData.entries()) {
-    //   console.log(pair[0] + ": " + pair[1]);
-    // }
+    formData.append("branch_details", JSON.stringify(branch_details));
+    formData.append("branch_brand", JSON.stringify(branch_brand));
+    formData.append("branch_contact", JSON.stringify(branch_contact));
+    formData.get("branch_details");
+    formData.get("branch_brand");
+    formData.get("branch_contact");
     mutate(formData);
   }
   return (
@@ -50,71 +46,21 @@ function BranchInfoForm() {
           Info
         </h5>
         <div className="mb-2 text-end">
-          <a
-            href="javascript: history.go(-1)"
+          <Link
+            to=""
             className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             data-bs-original-title="Back to list"
           >
             <span className="mdi mdi-keyboard-backspace"></span>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="row">
         <div className="col-12 mb-4">
           <div className="bs-stepper wizard-vertical vertical wizard-vertical-icons-example wizard-vertical-icons mt-2">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="bs-stepper-header gap-lg-2">
-                <div className="step active" data-target="#branch-details">
-                  <button
-                    type="button"
-                    className="step-trigger"
-                    aria-selected="true"
-                  >
-                    <span className="avatar">
-                      <span className="avatar-initial rounded-2">
-                        <i className="mdi mdi-card-account-details-outline mdi-24px"></i>
-                      </span>
-                    </span>
-                    <span className="bs-stepper-label flex-column align-items-start gap-1 ms-2">
-                      <span className="bs-stepper-title">Basic Details</span>
-                    </span>
-                  </button>
-                </div>
-                <div className="step" data-target="#brand-info">
-                  <button
-                    type="button"
-                    className="step-trigger"
-                    aria-selected="false"
-                  >
-                    <span className="avatar">
-                      <span className="avatar-initial rounded-2">
-                        <i className="mdi mdi-account-outline mdi-24px"></i>
-                      </span>
-                    </span>
-                    <span className="bs-stepper-label flex-column align-items-start gap-1 ms-2">
-                      <span className="bs-stepper-title">Brand Info</span>
-                    </span>
-                  </button>
-                </div>
-                <div className="step" data-target="#branch-contactinfo">
-                  <button
-                    type="button"
-                    className="step-trigger"
-                    aria-selected="false"
-                  >
-                    <span className="avatar">
-                      <span className="avatar-initial rounded-2">
-                        <i className="mdi mdi-card-account-phone-outline mdi-24px"></i>
-                      </span>
-                    </span>
-                    <span className="bs-stepper-label flex-column align-items-start gap-1 ms-2">
-                      <span className="bs-stepper-title">Contact Info</span>
-                    </span>
-                  </button>
-                </div>
-              </div>
               <div className="bs-stepper-content">
                 <div
                   id="branch-details"
