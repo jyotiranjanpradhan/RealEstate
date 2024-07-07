@@ -16,13 +16,14 @@ import Sales from "./sidebar/Sales";
 import Business from "./sidebar/Business";
 import Team from "./sidebar/Team";
 import Assigment from "./sidebar/Assigment";
+import './Sidebar.css';
 
 function Sidebar() {
   return (
     <>
       <aside
         id="layout-menu"
-        className="layout-menu menu-vertical menu bg-menu-theme sidebar"
+        className="layout-menu menu-vertical menu bg-menu-theme sidebar sidebar-container"
         data-bg-class="bg-menu-theme"
       >
         <div className="app-brand demo">

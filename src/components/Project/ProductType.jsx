@@ -1,10 +1,11 @@
 import React from 'react'
-
+import { apiFetchProductType } from '../../services/Project/apiProductType';
+import { useForm } from 'react-hook-form';
 const ProductType = () => {
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission logic here
+const {register,handleSubmit}=useForm();
+  const onSubmit = (data) => {
+console.log(data);
+apiFetchProductType(data);
   };
 
   return (
@@ -17,7 +18,7 @@ const ProductType = () => {
           <div className="card">
             <h5 className="card-header"></h5>
             <div className="card-body pt-1">
-              <form id="formValidationExamples" className="row g-3" onSubmit={handleSubmit}>
+              <form id="formValidationExamples" className="row g-3" onSubmit={handleSubmit(onSubmit)}>
                 <div className="col-md-4">
                   <div className="form-floating form-floating-outline">
                     <input
@@ -25,7 +26,10 @@ const ProductType = () => {
                       className="form-control"
                       id="product"
                       name="product"
-                      placeholder="Product Type Name" />
+                      placeholder="Product Type Name" 
+                        required
+                        {...register("name")}
+                      />
                     <label htmlFor="product">Product Type Name</label>
                   </div>
                 </div>

@@ -1,0 +1,81 @@
+ company_profile: {
+        empid: 1,
+        name: "John Doe",
+        mobileno: 1234567890,
+        whatsapp: 1234567890,
+        email: "john.doe@example.com",
+        emergency_no: 9876543210,
+        date_of_joining: "2020-01-01",
+        date_of_leaving: null,
+        branch: "New York",
+        department: 1,
+        designation: "Software Engineer",
+        level: "Mid",
+        grade: "A",
+        role: "Developer"
+    },
+    address: {
+        present_add: "123 Main St",
+        present_country: "USA",
+        present_state: "NY",
+        present_city: "New York",
+        present_pincode: "10001",
+        permanent_add: "456 Elm St",
+        permanent_pincode: "20002",
+        permanent_city: "Washington",
+        permanent_state: "DC",
+        permanent_country: "USA",
+        emp_id: 1
+    },
+    personal_profile: {
+        gender: "M",
+        nationality: "American",
+        DOB: "1990-01-01",
+        marital_status: "M",
+        anniversary_date: "2015-06-15",
+        religion: "Christian",
+        blood_group: "O+",
+        any_medical_issues: "None",
+        employee_id: 1
+    },
+  family_profile : {
+        details: {
+            spouse: "Jane Doe",
+            children: [
+                {name: "Emily", age: 5},
+                {name: "Michael", age: 3}
+            ]
+        },
+        employee_id: 1
+    },
+    education_profil: {
+        details : {
+            degrees: [
+                {level: "Bachelor",field: "Computer Science", year: 2012, institution: "ABC University"},
+                {level: "Master", field: "Software Engineering", year: 2014, institution: "XYZ University"}
+            ]
+        },
+        employee_id: 1
+    },
+    training: {
+        details: {
+            courses: [
+                {name: "Advanced Python", year: 2016, institution: "Tech Academy"},
+                {name: "Machine Learning", year: 2018, institution: "Data Science Institute"}
+            ]
+        },
+        employee_id: 1
+    },
+    experience: {
+        details: {
+            jobs: [
+                {title: "Junior Developer", company: "First Tech", years: 2},
+                {title: "Senior Developer", company: "Second Tech", years: 3}
+            ]
+        },
+        employee_id: 1
+    },
+    skill_level: {
+        details: "Advanced",
+        employee_id: 1
+    }

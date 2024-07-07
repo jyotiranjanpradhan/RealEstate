@@ -1,10 +1,11 @@
 import React from 'react'
-
+import { useForm } from 'react-hook-form';
+import { apiFetchPaymentSchudule } from '../../services/Project/apiPaymentSchedule';
 const PaymentScheduleProject = () => {
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Handle form submission logic here
+const {register,handleSubmit}=useForm();
+    const onSubmit = (data) => {
+      console.log(data);
+      apiFetchPaymentSchudule({data})
       };
     
 
@@ -18,7 +19,7 @@ const PaymentScheduleProject = () => {
           <div className="card">
             <h5 className="card-header"></h5>
             <div className="card-body pt-1">
-              <form id="formValidationExamples" className="row g-3" onSubmit={handleSubmit}>
+              <form id="formValidationExamples" className="row g-3" onSubmit={handleSubmit(onSubmit)}>
                 <div className="col-md-4">
                   <div className="form-floating form-floating-outline">
                     <input
@@ -26,18 +27,24 @@ const PaymentScheduleProject = () => {
                       className="form-control"
                       id="stages"
                       name="stages"
-                      placeholder="Stages" />
+                      placeholder="Stages" 
+                        required
+                        {...register("stages")}
+                      />
                     <label htmlFor="stages">Stages</label>
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="form-floating form-floating-outline">
                     <input
-                      type="text"
+                      type="number"
                       className="form-control"
                       id="percentage"
                       name="percentage"
-                      placeholder="Percentage" />
+                      placeholder="Percentage" 
+                        required
+                        {...register("percentage")}
+                      />
                     <label htmlFor="percentage">Percentage</label>
                   </div>
                 </div>
@@ -47,7 +54,9 @@ const PaymentScheduleProject = () => {
                       type="date"
                       className="form-control"
                       id="date"
-                      name="date" />
+                      name="date"
+                      required
+                      {...register("date")} />
                     <label htmlFor="date">Date</label>
                   </div>
                 </div>

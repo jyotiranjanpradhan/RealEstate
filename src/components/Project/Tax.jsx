@@ -1,12 +1,19 @@
 import React , {useState} from 'react'
 import { Modal, Button, Table, Form, Col,Row } from 'react-bootstrap';
-
+import { useForm } from 'react-hook-form';
+import { apiFetchTax } from '../../services/Project/apiTax';
 const Tax = () => {
+const {register,handleSubmit}=useForm();
+
     const [showModal, setShowModal] = useState(false);
 
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
-
+const onSubmit=(data)=>{
+  console.log(data);
+  apiFetchTax(data);
+  handleCloseModal()
+}
   return (
    <>
 <div className="container-xxl flex-grow-1 container-p-y">
@@ -127,11 +134,13 @@ const Tax = () => {
       </div>
 
       <Modal show={showModal} onHide={handleCloseModal}>
+      
         <Modal.Header closeButton>
           <Modal.Title id="modalTopTitle">Add Tax</Modal.Title>
         </Modal.Header>
+        <Form onSubmit={handleSubmit(onSubmit)}>
         <Modal.Body>
-          <Form>
+          
             <Row className="g-2">
               <Col xs={12} className="mb-2">
                 <Form.Label>Tax Name</Form.Label>
@@ -139,14 +148,17 @@ const Tax = () => {
                   type="text"
                   placeholder="Tax Name"
                   autoComplete="off"
+                  required
+                  {...register("name")}
                 />
               </Col>
               <Col xs={12} className="mb-2">
                 <Form.Label>Tax Amount</Form.Label>
                 <Form.Control
-                  type="text"
+                  type="number"
                   placeholder="Tax Amount"
                   autoComplete="off"
+                  {...register("amount")}
                 />
               </Col>
               <Col xs={12} className="mb-2">
@@ -155,6 +167,7 @@ const Tax = () => {
                   as="textarea"
                   placeholder=""
                   style={{ height: '60px' }}
+                  {...register("description")}
                 />
               </Col>
               <Col xs={12}>
@@ -162,30 +175,36 @@ const Tax = () => {
                 <div className="col">
                   <Form.Check
                     inline
-                    label="Active"
+                    value="true"
+                    label="True"
                     type="radio"
                     name="status"
                     id="statusActive"
                     checked
+                    required
+                    {...register("status")}
                   />
                   <Form.Check
                     inline
-                    label="Inactive"
+                    value="false"
+                    label="False"
                     type="radio"
                     name="status"
                     id="statusInactive"
+                    {...register("status")}
                   />
                 </div>
               </Col>
             </Row>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
+           <Modal.Footer>
           <Button variant="outline-secondary" onClick={handleCloseModal}>
             Close
           </Button>
-          <Button variant="primary">Save</Button>
+          <Button variant="primary" type="submit">Save</Button>
         </Modal.Footer>
+        </Modal.Body>
+        </Form>
+       
       </Modal>
     </div>
    </>

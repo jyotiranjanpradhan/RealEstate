@@ -40,6 +40,13 @@ import PaymentScheduleProject from "./components/Project/PaymentScheduleProject"
 import Tax from "./components/Project/Tax";
 import FacingMaster from "./components/Project/FacingMaster";
 import ProjectList from "./components/Project/ProjectList";
+import ProjectDetails from "./components/Project/ProjectDetails";
+import ProjectHouseList from "./components/Project/ProjectHouseList";
+import AddProduct from "./components/Project/AddProduct";
+import AddPayment from "./components/Project/AddPayment";
+import AddAmenity from "./components/Project/AddAmenity";
+
+
 
 import Document from "./components/EmployeeManagement/Document";
 import Kyc from "./components/EmployeeManagement/Kyc";
@@ -95,6 +102,7 @@ import AreaGram from "./components/BusinessManagement/Location/AreaGram";
 import Pin from "./components/BusinessManagement/Location/Pin";
 import CompanyForm from "./components/system admin/Forms/CompanyForm";
 
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -110,6 +118,8 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
+          <Route path="/" element={<AddAmenity />} />
+          
             <Route
               path="/businessManagement/territory"
               element={<Territory />}
@@ -127,7 +137,7 @@ const App = () => {
             <Route path="/businessManagement/areaGram" element={<AreaGram />} />
             <Route path="/businessManagement/pin" element={<Pin />} />
 
-            <Route path="/" element={<Dashboard />} />
+            
 
             <Route path="/rolesRight" element={<RolesAndRights />} />
             <Route path="/rolesRight/moduleForm" element={<Module />} />
@@ -254,9 +264,14 @@ const App = () => {
             <Route
               path="/project/commisionSetup"
               element={<CommissionSetup />}
-            />
+            />€
             <Route path="/project/tax" element={<Tax />} />
             <Route path="/project/" element={<ProjectList />} />
+            <Route path="/project/projectdetails" element={<ProjectDetails />} />
+            <Route path="/project/addproduct" element={<AddProduct />} />
+            <Route path="/project/addpayment" element={<AddPayment />} />
+            <Route path="/project/addAmenity" element={<AddAmenity />} />
+            <Route path="/project/projecthouselist" element={<ProjectHouseList />} />
 
             <Route path="/employee/document" element={<Document />} />
             <Route path="/employee/bank" element={<Bankothers />} />

@@ -129,7 +129,7 @@ function TeamManagement() {
                         ></span>
                       </span>
                     </div>
-                    <label htmlFor="Team Members">Team Members</label>
+                
                   </div>
                 </div>
                 <div className="mt-4">

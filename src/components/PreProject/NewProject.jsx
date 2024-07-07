@@ -5,6 +5,8 @@ import Cost from "./Forms/Cost";
 import DocumentHistory from "./Forms/DocumentHistory";
 import { useForm } from "react-hook-form";
 import { useNewProject } from "../../hooks/preProject/useNewProject";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 function NewProject() {
   const navigate = useNavigate();
@@ -188,12 +190,23 @@ function NewProject() {
                         {...register("upload_document")}
                       />
 
-                      <button className="btn btn-outline-primary waves-effect">
-                        Accept
-                      </button>
-                      <button className="btn btn-outline-primary waves-effect">
-                        Reject
-                      </button>
+                    </div>
+                  </div>
+                  <div className="col-md-2 col-sm-6 col-12">
+                    <div style={{margin:'30px 0 0 30px'}}>
+                    <button className="btn btn-outline-danger waves-effect">
+                    <i class="bi bi-x-lg" style={{fontSize:"15px"}}></i> <span style={{marginLeft:'5PX'}}>CANCEL</span> 
+                  </button>
+                    </div>
+                  </div>
+                  <div className="col-md-2 col-sm-6 col-12">
+                    <div style={{marginTop:'30px'}}>
+                    <button
+                    type="submit"
+                    className="btn btn-success waves-effect waves-light"
+                  >
+                    <i class="bi bi-check2" style={{fontSize:"15px"}}></i> <span style={{marginLeft:'5PX'}}>UPDATE</span>
+                  </button>
                     </div>
                   </div>
                 </div>
