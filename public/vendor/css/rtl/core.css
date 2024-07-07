@@ -20750,6 +20750,8 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  scrollbar-width: none;
+ 
 }
 
 .menu-inner-shadow {

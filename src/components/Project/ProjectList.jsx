@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const ProjectList = () => {
   return (
     <>
@@ -18,7 +18,8 @@ const ProjectList = () => {
                     </span>
                   </div>
                   <h6 className="ms-1 mb-0">
-                    <a href="project_details.php">Jyotiiiiii</a>
+                  <Link to={"/project/projectdetails"}>Jyotiiiiii</Link>
+                    
                   </h6>
                 </div>
                 <p className="mb-0 text-heading">jyoti home</p>

@@ -1,8 +1,10 @@
 import React from "react";
-
+import { useForm } from "react-hook-form";
+import { apiFetchAminityMaster } from "../../services/Project/apiAmenityMaster";
 const AmenityMaster = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const {register,handleSubmit}=useForm();
+  const onSubmit = (data) => {
+    apiFetchAminityMaster(data);
   };
   return (
     <>
@@ -19,7 +21,7 @@ const AmenityMaster = () => {
                 <form
                   id="formValidationExamples"
                   className="row g-3"
-                  onSubmit={handleSubmit}
+                  onSubmit={handleSubmit(onSubmit)}
                 >
                   <div className="col-md-4">
                     <div className="form-floating form-floating-outline">
@@ -29,6 +31,8 @@ const AmenityMaster = () => {
                         id="amenityName"
                         name="amenityName"
                         placeholder="jyoti Ranjan Pradhan"
+                        required
+                        {... register("name")}
                       />
                       <label htmlFor="amenityName">jyoti Ranjan Pradhan</label>
                     </div>
