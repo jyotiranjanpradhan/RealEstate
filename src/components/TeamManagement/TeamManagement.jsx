@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useAddTeam } from "../../hooks/teamManagement/useAddTeam";
+import { useGetTeam } from "../../hooks/teamManagement/useGetTeam";
 
 function TeamManagement() {
   const { isPending, mutate } = useAddTeam();
+  const { isLoading, team } = useGetTeam();
 
+  console.log(team);
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {

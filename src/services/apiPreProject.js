@@ -22,7 +22,7 @@ export async function createNewPreProject(data) {
       uploadDocument,
       ...rest
     } = data;
-    console.log(rest);
+
     const approvals = {
       approvalBody,
       applyDate,
@@ -51,7 +51,7 @@ export async function createNewPreProject(data) {
     formData.append("approvals", JSON.stringify(approvals));
     formData.append("expenses", JSON.stringify(expenses));
     formData.append("document_history", JSON.stringify(document_history));
-    console.log("aman");
+
     const res = await axios({
       method: "POST",
       url: "http://20.244.48.88:8000/api/pre_project_new_handler/",

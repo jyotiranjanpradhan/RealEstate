@@ -98,17 +98,7 @@ function CompanyInfo() {
                         >
                           Company ID
                         </td>
-                        <td
-                          className="sorting"
-                          tabindex="0"
-                          aria-controls="companyinfo_table"
-                          rowspan="1"
-                          colspan="1"
-                          aria-label="Company Type: activate to sort column ascending"
-                          style={{ width: "215.2px" }}
-                        >
-                          Company Type
-                        </td>
+
                         <td
                           className="sorting"
                           tabindex="0"
@@ -138,7 +128,7 @@ function CompanyInfo() {
                         <td className="sorting_1">1</td>
                         <td>Angan bashera</td>
                         <td>1256</td>
-                        <td>Head Office</td>
+
                         <td>IN1578</td>
                         <td>
                           <a
@@ -165,7 +155,7 @@ function CompanyInfo() {
                         <td className="sorting_1">2</td>
                         <td>Angan bashera</td>
                         <td>659</td>
-                        <td>Corporate Office</td>
+
                         <td>IN1578</td>
                         <td>
                           <a
@@ -192,7 +182,7 @@ function CompanyInfo() {
                         <td className="sorting_1">3</td>
                         <td>Angan bashera</td>
                         <td>659</td>
-                        <td>Corporate Office</td>
+
                         <td>IN1578</td>
                         <td>
                           <a
@@ -219,7 +209,7 @@ function CompanyInfo() {
                         <td className="sorting_1">4</td>
                         <td>Angan bashera</td>
                         <td>659</td>
-                        <td>Head Office</td>
+
                         <td>IN1578</td>
                         <td>
                           <a
@@ -246,7 +236,7 @@ function CompanyInfo() {
                         <td className="sorting_1">5</td>
                         <td>Angan bashera</td>
                         <td>659</td>
-                        <td>Corporate Office</td>
+
                         <td>IN1578</td>
                         <td>
                           <a
