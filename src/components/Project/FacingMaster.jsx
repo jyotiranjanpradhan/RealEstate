@@ -1,10 +1,10 @@
 import React from 'react'
-
+import { useForm } from 'react-hook-form';
+import { apiFetchFacingMaster } from '../../services/Project/apiFacingMaster';
 const FacingMaster = () => {
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Handle form submission logic here
+const {register,handleSubmit}=useForm();
+    const onSubmit = (data) => {
+      apiFetchFacingMaster(data);
       };
       
   return (
@@ -17,7 +17,7 @@ const FacingMaster = () => {
           <div className="card">
             <h5 className="card-header"></h5>
             <div className="card-body pt-1">
-              <form id="formValidationExamples" className="row g-3" onSubmit={handleSubmit}>
+              <form id="formValidationExamples" className="row g-3" onSubmit={handleSubmit(onSubmit)}>
                 <div className="col-md-4">
                   <div className="form-floating form-floating-outline">
                     <input
@@ -25,7 +25,9 @@ const FacingMaster = () => {
                       className="form-control"
                       id="facingName"
                       name="facingName"
-                      placeholder="Facing Name" />
+                      placeholder="Facing Name"
+                      required
+                      {...register("name")} />
                     <label htmlFor="facingName">Facing Name</label>
                   </div>
                 </div>

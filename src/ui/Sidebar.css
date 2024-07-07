@@ -1,0 +1,47 @@
+/* Ensure body and html take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Prevent page scrolling */
+  }
+  
+  /* Sidebar container styles */
+  .sidebar-container {
+    position: fixed; /* Keep the sidebar fixed */
+    top: 0;
+    bottom: 0;
+    width: 250px; /* Adjust the width as needed */
+    overflow-y: auto; /* Allow vertical scrolling */
+    background-color: #f8f9fa; /* Background color */
+    transition: margin-left 0.3s ease;
+   
+  }
+
+  .sidebar-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  /* Hide scrollbar for Firefox */
+  .sidebar-container {
+    scrollbar-width: none !important;
+  }
+ 
+  /* Main content container styles */
+  .main-content {
+    margin-left: 200px;
+    padding: 20px;
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+  
+  @media (max-width: 1199px) {
+    .sidebar-container {
+      transform: translateX(-250px); /* Hide the sidebar */
+    }
+    .main-content {
+      margin-left: 0; /* Remove margin */
+    }
+  }
+  
+  

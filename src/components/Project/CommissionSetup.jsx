@@ -1,12 +1,13 @@
 import React from 'react'
-
+import { useForm } from 'react-hook-form';
+import { apiFetchCommissionSetup } from '../../services/Project/apiCommissionSetup';
 const CommissionSetup = () => {
-    
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Handle form submission logic here
+    const {register,handleSubmit,watch}= useForm();
+    const onSubmit = (data) => {
+       console.log(data);
+       apiFetchCommissionSetup(data);
       };
-
+     
   return (
     <>
 <div className="container-xxl flex-grow-1 container-p-y">
@@ -17,16 +18,16 @@ const CommissionSetup = () => {
           <div className="card">
             <h5 className="card-header"></h5>
             <div className="card-body pt-1">
-              <form id="formValidationExamples" className="row g-3" onSubmit={handleSubmit}>
+              <form id="formValidationExamples" className="row g-3" onSubmit={handleSubmit(onSubmit)}>
                 <div className="col-md-4">
                   <div className="form-floating form-floating-outline">
-                    <select id="productType" className="select2 form-select">
-                      <option value="">jyoti</option>
-                      <option value="">jyoti</option>
-                      <option value="">jyoti</option>
-                      <option value="">jyoti</option>
-                      <option value="">jyoti</option>
-                      <option value="">jyoti</option>
+                    <select id="productType" className="select2 form-select" required {...register("product_type")}>
+                      <option value="1">jyoti</option>
+                      <option value="2">jyoti</option>
+                      <option value="3">jyoti</option>
+                      <option value="4">jyoti</option>
+                      <option value="5">jyoti</option>
+                      <option value="6">jyoti</option>
                     </select>
                     <label htmlFor="productType">Product Type</label>
                   </div>
@@ -34,11 +35,14 @@ const CommissionSetup = () => {
                 <div className="col-md-4">
                   <div className="form-floating form-floating-outline">
                     <input
-                      type="text"
+                      type="number"
                       className="form-control"
                       id="commission"
                       name="commission"
-                      placeholder="Commission" />
+                      placeholder="Commission" 
+                        required
+                        {...register("commission")}
+                      />
                     <label htmlFor="commission">Commission</label>
                   </div>
                 </div>
