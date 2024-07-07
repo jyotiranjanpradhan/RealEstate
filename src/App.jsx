@@ -7,7 +7,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "@mdi/font/css/materialdesignicons.min.css";
 import "./css/rtl/core.css";
 import "./css/rtl/theme-default.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Dashboard from "./components/Dashboard/dashboard";
 import RolesAndRights from "./components/Rolesandright/RolesAndRights";
 import DepartmentName from "./components/Department/department_name";
@@ -15,9 +15,8 @@ import Designation from "./components/Department/designation";
 import Level from "./components/Department/label";
 import Grade from "./components/Department/grade";
 import Organisation_str from "./components/Department/organisation_str";
-
+import Sidebar from "./ui/Sidebar";
 import AppLayout from "./ui/AppLayout";
-
 import SystemAdmin from "./components/system admin/SystemAdmin";
 import CreateCompanyForm from "./components/system admin/Forms/CreateCompanyForm";
 import BankInfoForm from "./components/system admin/Forms/BankInfoForm";
@@ -29,34 +28,9 @@ import BankInfo from "./components/system admin/BankInfo";
 import BranchInfo from "./components/system admin/BranchInfo";
 import CompanyInfo from "./components/system admin/CompanyInfo";
 
-import ApprovalBody from "./components/Project/ApprovalBody";
-import ProjectType from "./components/Project/ProjectType";
-import RaiseCostType from "./components/Project/RaiseCostType";
-import ProductType from "./components/Project/ProductType";
-import AmenityMaster from "./components/Project/AmenityMaster";
-import CommissionSetup from "./components/Project/CommissionSetup";
-import NearbyMaster from "./components/Project/NearbyMaster";
-import PaymentScheduleProject from "./components/Project/PaymentScheduleProject";
-import Tax from "./components/Project/Tax";
-import FacingMaster from "./components/Project/FacingMaster";
-import ProjectList from "./components/Project/ProjectList";
-import ProjectDetails from "./components/Project/ProjectDetails";
-import ProjectHouseList from "./components/Project/ProjectHouseList";
-import AddProduct from "./components/Project/AddProduct";
-import AddPayment from "./components/Project/AddPayment";
-import AddAmenity from "./components/Project/AddAmenity";
-
-
-
-import Document from "./components/EmployeeManagement/Document";
-import Kyc from "./components/EmployeeManagement/Kyc";
-import Salary from "./components/EmployeeManagement/Salary";
-import Companyprofile from "./components/EmployeeManagement/Companyprofile";
-import Bankothers from "./components/EmployeeManagement/Bankothers";
-
+import CreateCompanyForm from "./components/system admin/Forms/CreateCompanyForm";
 import PreProject from "./components/PreProject/PreProject";
 import NewProject from "./components/PreProject/NewProject";
-
 import DeadTable from "./components/enquiryBucket/DeadTable";
 import EnquiryTable from "./components/enquiryBucket/EnquiryTable";
 import BuyerPersona from "./components/enquiryBucket/BuyerPersona";
