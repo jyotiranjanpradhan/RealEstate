@@ -28,7 +28,24 @@ import BankInfo from "./components/system admin/BankInfo";
 import BranchInfo from "./components/system admin/BranchInfo";
 import CompanyInfo from "./components/system admin/CompanyInfo";
 
-import CreateCompanyForm from "./components/system admin/Forms/CreateCompanyForm";
+import ApprovalBody from "./components/Project/ApprovalBody";
+import ProjectType from "./components/Project/ProjectType";
+import RaiseCostType from "./components/Project/RaiseCostType";
+import ProductType from "./components/Project/ProductType";
+import AmenityMaster from "./components/Project/AmenityMaster";
+import CommissionSetup from "./components/Project/CommissionSetup";
+import NearbyMaster from "./components/Project/NearbyMaster";
+import PaymentScheduleProject from "./components/Project/PaymentScheduleProject";
+import Tax from "./components/Project/Tax";
+import FacingMaster from "./components/Project/FacingMaster";
+import ProjectList from "./components/Project/ProjectList";
+
+import Document from "./components/EmployeeManagement/Document";
+import Kyc from "./components/EmployeeManagement/Kyc";
+import Salary from "./components/EmployeeManagement/Salary";
+import Companyprofile from "./components/EmployeeManagement/Companyprofile";
+import Bankothers from "./components/EmployeeManagement/Bankothers";
+
 import PreProject from "./components/PreProject/PreProject";
 import NewProject from "./components/PreProject/NewProject";
 import DeadTable from "./components/enquiryBucket/DeadTable";
@@ -92,8 +109,6 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-          <Route path="/" element={<AddAmenity />} />
-          
             <Route
               path="/businessManagement/territory"
               element={<Territory />}
@@ -238,7 +253,7 @@ const App = () => {
             <Route
               path="/project/commisionSetup"
               element={<CommissionSetup />}
-            />€
+            />
             <Route path="/project/tax" element={<Tax />} />
             <Route path="/project/" element={<ProjectList />} />
             <Route path="/project/projectdetails" element={<ProjectDetails />} />
