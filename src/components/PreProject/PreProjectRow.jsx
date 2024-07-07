@@ -1,19 +1,13 @@
 import axios from "axios";
+import { useShiftProject } from "../../hooks/preProject/useShftProject";
 
 function PreProjectRow({ project }) {
+  const { isPending, shiftProject } = useShiftProject();
+
   console.log(project);
 
   async function confirmProject(id) {
-    try {
-      console.log(id);
-      const res = await axios({
-        method: "POST",
-        url: `http://20.244.48.88:8000/api/confirm_project_handler/${id}/`,
-      });
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
+    shiftProject(id);
   }
 
   return (

@@ -76,3 +76,16 @@ export async function getPreProject() {
     console.log(error);
   }
 }
+
+export async function shiftProject(id) {
+  try {
+    console.log(id);
+    const res = await axios({
+      method: "POST",
+      url: `http://20.244.48.88:8000/api/confirm_project_handler/${id}/`,
+    });
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}
