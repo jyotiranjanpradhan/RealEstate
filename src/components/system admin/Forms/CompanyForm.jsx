@@ -16,36 +16,37 @@ function CompanyForm() {
 
   return (
     <>
-      <div class="card-header d-flex justify-content-between align-items-center py-2">
+      <div className="card-header d-flex justify-content-between align-items-center py-2">
         <h5>
-          <span class="text-muted fw-light">System Admin /</span> Company Info
+          <span className="text-muted fw-light">System Admin /</span> Company
+          Info
         </h5>
-        <div class="mb-2 text-end">
+        <div className="mb-2 text-end">
           <Link
-            class="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
+            className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             data-bs-original-title="Back to list"
           >
-            <span class="mdi mdi-keyboard-backspace"></span>
+            <span className="mdi mdi-keyboard-backspace"></span>
           </Link>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 mb-4">
-          <div class="bs-stepper wizard-vertical vertical wizard-vertical-icons-example wizard-vertical-icons mt-2">
-            <div class="bs-stepper-content">
+      <div className="row">
+        <div className="col-12 mb-4">
+          <div className="bs-stepper wizard-vertical vertical wizard-vertical-icons-example wizard-vertical-icons mt-2">
+            <div className="bs-stepper-content">
               <form onSubmit={handleSubmit(onSubmit, onError)}>
                 {/* <!-- Account Details --> */}
-                <div id="account-details-1" class="content dstepper-block">
-                  <div class="content-header mb-3">
-                    <h6 class="mb-0">Details</h6>
+                <div id="account-details-1" className="content dstepper-block">
+                  <div className="content-header mb-3">
+                    <h6 className="mb-0">Details</h6>
                   </div>
-                  <div class="row g-4">
-                    <div class="col-md-12">
-                      <div class="form-floating form-floating-outline">
+                  <div className="row g-4">
+                    <div className="col-md-12">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="companyName"
                           name="Company Name"
@@ -58,10 +59,10 @@ function CompanyForm() {
                         <label for="Company Name">Company Name</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="companyId"
                           {...register("companyId", {
@@ -75,10 +76,10 @@ function CompanyForm() {
                         <label for="Company ID">Alias</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="companyID"
                           {...register("companyID")}
@@ -89,71 +90,10 @@ function CompanyForm() {
                         <label for="Company ID">Company ID</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline form-floating-select2">
-                        <div class="position-relative">
-                          <select
-                            id=""
-                            class="select2 form-select select2-hidden-accessible"
-                            data-select2-id="1"
-                            tabindex="-1"
-                            aria-hidden="true"
-                          >
-                            <option value="Company Type" data-select2-id="3">
-                              Select
-                            </option>
-                            <option value="Head Office">Head Office</option>
-                            <option value="Corporate Office">
-                              Corporate Office
-                            </option>
-                          </select>
-                          <span
-                            class="select2 select2-container select2-container--default"
-                            dir="ltr"
-                            data-select2-id="2"
-                            style={{ width: "354.4px" }}
-                          >
-                            <span class="selection">
-                              <span
-                                class="select2-selection select2-selection--single"
-                                role="combobox"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                tabindex="0"
-                                aria-disabled="false"
-                                aria-labelledby="select2--container"
-                              >
-                                <span
-                                  class="select2-selection__rendered"
-                                  id="select2--container"
-                                  role="textbox"
-                                  aria-readonly="true"
-                                  title="Select"
-                                >
-                                  Select
-                                </span>
-                                <span
-                                  class="select2-selection__arrow"
-                                  role="presentation"
-                                >
-                                  <b role="presentation"></b>
-                                </span>
-                              </span>
-                            </span>
-                            <span
-                              class="dropdown-wrapper"
-                              aria-hidden="true"
-                            ></span>
-                          </span>
-                        </div>
-                        <label for="Company Type<">Company Type</label>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="companySize"
                           {...register("companySize")}
@@ -162,10 +102,10 @@ function CompanyForm() {
                         <label for="Company Size">Company Size</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="incorporationNo"
                           name="Incorporation No"
@@ -175,10 +115,10 @@ function CompanyForm() {
                         <label for="Incorporation No">Incorporation No</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           name="Incorporation Agency"
                           id="IncorporationAgency"
@@ -190,10 +130,10 @@ function CompanyForm() {
                         </label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="date"
                           {...register("incorporationDate")}
                           id="incorporationDate"
@@ -203,12 +143,12 @@ function CompanyForm() {
                         </label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
                           type="file"
                           {...register("incorporationCertificate")}
-                          class="form-control"
+                          className="form-control"
                           id="incorporationCertificate"
                         />
                         <label for="basic-default-upload-file">
@@ -216,10 +156,10 @@ function CompanyForm() {
                         </label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           {...register("TAXCertificate")}
                           name="TAX Certificate Details"
@@ -231,10 +171,10 @@ function CompanyForm() {
                         </label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           name="PAN Details"
                           id="PANDetails"
@@ -244,12 +184,12 @@ function CompanyForm() {
                         <label for="PAN Details">PAN Details</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline form-floating-select2">
-                        <div class="position-relative">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline form-floating-select2">
+                        <div className="position-relative">
                           <select
                             id=""
-                            class="select2 form-select select2-hidden-accessible"
+                            className="select2 form-select select2-hidden-accessible"
                             data-select2-id="4"
                             tabindex="-1"
                             aria-hidden="true"
@@ -272,14 +212,14 @@ function CompanyForm() {
                             <option value="Japan">Japan</option>
                           </select>
                           <span
-                            class="select2 select2-container select2-container--default"
+                            className="select2 select2-container select2-container--default"
                             dir="ltr"
                             data-select2-id="5"
                             style={{ width: "354.4px" }}
                           >
-                            <span class="selection">
+                            <span className="selection">
                               <span
-                                class="select2-selection select2-selection--single"
+                                className="select2-selection select2-selection--single"
                                 role="combobox"
                                 aria-haspopup="true"
                                 aria-expanded="false"
@@ -288,17 +228,17 @@ function CompanyForm() {
                                 aria-labelledby="select2--container"
                               >
                                 <span
-                                  class="select2-selection__rendered"
+                                  className="select2-selection__rendered"
                                   id="select2--container"
                                   role="textbox"
                                   aria-readonly="true"
                                 >
-                                  <span class="select2-selection__placeholder">
+                                  <span className="select2-selection__placeholder">
                                     Select value
                                   </span>
                                 </span>
                                 <span
-                                  class="select2-selection__arrow"
+                                  className="select2-selection__arrow"
                                   role="presentation"
                                 >
                                   <b role="presentation"></b>
@@ -306,7 +246,7 @@ function CompanyForm() {
                               </span>
                             </span>
                             <span
-                              class="dropdown-wrapper"
+                              className="dropdown-wrapper"
                               aria-hidden="true"
                             ></span>
                           </span>
@@ -314,10 +254,10 @@ function CompanyForm() {
                         <label for="country">Country</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           {...register("state")}
                           id="state"
@@ -327,10 +267,10 @@ function CompanyForm() {
                         <label for="state">State</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           {...register("city")}
                           id="city"
@@ -340,10 +280,10 @@ function CompanyForm() {
                         <label for="City">City</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           {...register("PIN")}
                           id="PIN"
@@ -353,11 +293,11 @@ function CompanyForm() {
                         <label for="PIN">PIN</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <textarea
                           name="address"
-                          class="form-control"
+                          className="form-control"
                           id="address"
                           {...register("address")}
                           rows="2"
@@ -367,11 +307,11 @@ function CompanyForm() {
                         <label for="address">Address</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <textarea
                           name="address"
-                          class="form-control"
+                          className="form-control"
                           id="officeAddress"
                           {...register("officeAddress")}
                           rows="2"
@@ -383,10 +323,10 @@ function CompanyForm() {
                         </label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="email"
                           {...register("email")}
@@ -396,10 +336,10 @@ function CompanyForm() {
                         <label for="Email ID">Email ID</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="phoneNo"
                           {...register("phoneNo")}
@@ -409,10 +349,10 @@ function CompanyForm() {
                         <label for="Phone No">Phone No</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="whatsappNo"
                           name="WhatsApp No"
@@ -425,173 +365,175 @@ function CompanyForm() {
                   </div>
                 </div>
                 {/* <!-- Brand Info --> */}
-                <div id="personal-info-1" class="content dstepper-block">
-                  <div class="content-header mb-3">
-                    <h6 class="mb-0">Brand Info</h6>
+                <div id="personal-info-1" className="content dstepper-block">
+                  <div className="content-header mb-3">
+                    <h6 className="mb-0">Brand Info</h6>
                   </div>
-                  <div class="row g-4">
-                    <div class="col-sm-6">
-                      <div class="card-body">
-                        <div class="d-flex align-items-start align-items-sm-center gap-4">
+                  <div className="row g-4">
+                    <div className="col-sm-6">
+                      <div className="card-body">
+                        <div className="d-flex align-items-start align-items-sm-center gap-4">
                           <img
                             src="./../../../suryalogo.png"
                             alt="user-avatar"
-                            class="d-block w-px-120 h-px-120 rounded"
+                            className="d-block w-px-120 h-px-120 rounded"
                             id="uploadedAvatar"
                           />
-                          <div class="button-wrapper">
+                          <div className="button-wrapper">
                             <label
                               for="upload"
-                              class="btn btn-primary me-2 mb-3 waves-effect waves-light"
+                              className="btn btn-primary me-2 mb-3 waves-effect waves-light"
                               tabindex="0"
                             >
-                              <span class="d-none d-sm-block">Upload Logo</span>
-                              <i class="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
+                              <span className="d-none d-sm-block">
+                                Upload Logo
+                              </span>
+                              <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                               <input
                                 type="file"
                                 id="upload"
                                 {...register("upload")}
-                                class="account-file-input"
+                                className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
                               />
                             </label>
                             <button
                               type="button"
-                              class="btn btn-outline-danger account-image-reset mb-3 waves-effect"
+                              className="btn btn-outline-danger account-image-reset mb-3 waves-effect"
                             >
-                              <i class="mdi mdi-reload d-block d-sm-none"></i>
-                              <span class="d-none d-sm-block">Reset</span>
+                              <i className="mdi mdi-reload d-block d-sm-none"></i>
+                              <span className="d-none d-sm-block">Reset</span>
                             </button>
 
-                            <div class="small">
+                            <div className="small">
                               Allowed JPG, GIF or PNG. Max size of 800K
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="card-body">
-                        <div class="d-flex align-items-start align-items-sm-center gap-4">
+                    <div className="col-sm-6">
+                      <div className="card-body">
+                        <div className="d-flex align-items-start align-items-sm-center gap-4">
                           <img
                             src="./../../fac.png"
                             alt="user-avatar"
-                            class="d-block w-px-120 h-px-120 rounded"
+                            className="d-block w-px-120 h-px-120 rounded"
                             id="uploadedAvatar"
                           />
-                          <div class="button-wrapper">
+                          <div className="button-wrapper">
                             <label
                               for="upload"
-                              class="btn btn-primary me-2 mb-3 waves-effect waves-light"
+                              className="btn btn-primary me-2 mb-3 waves-effect waves-light"
                               tabindex="0"
                             >
-                              <span class="d-none d-sm-block">Favicon</span>
-                              <i class="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
+                              <span className="d-none d-sm-block">Favicon</span>
+                              <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                               <input
                                 type="file"
                                 id="fileUpload"
                                 {...register("fileUpload")}
-                                class="account-file-input"
+                                className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
                               />
                             </label>
                             <button
                               type="button"
-                              class="btn btn-outline-danger account-image-reset mb-3 waves-effect"
+                              className="btn btn-outline-danger account-image-reset mb-3 waves-effect"
                             >
-                              <i class="mdi mdi-reload d-block d-sm-none"></i>
-                              <span class="d-none d-sm-block">Reset</span>
+                              <i className="mdi mdi-reload d-block d-sm-none"></i>
+                              <span className="d-none d-sm-block">Reset</span>
                             </button>
 
-                            <div class="small">
+                            <div className="small">
                               Allowed JPG, GIF or PNG. Max size of 800K
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="card-body">
-                        <div class="d-flex align-items-start align-items-sm-center gap-4">
+                    <div className="col-sm-6">
+                      <div className="card-body">
+                        <div className="d-flex align-items-start align-items-sm-center gap-4">
                           <img
                             src="./../../suryalogo.png"
                             alt="user-avatar"
-                            class="d-block w-px-120 h-px-120 rounded"
+                            className="d-block w-px-120 h-px-120 rounded"
                             id="uploadedAvatar"
                           />
-                          <div class="button-wrapper">
+                          <div className="button-wrapper">
                             <label
                               for="upload"
-                              class="btn btn-primary me-2 mb-3 waves-effect waves-light"
+                              className="btn btn-primary me-2 mb-3 waves-effect waves-light"
                               tabindex="0"
                             >
-                              <span class="d-none d-sm-block">
+                              <span className="d-none d-sm-block">
                                 Header (Letterhead)
                               </span>
-                              <i class="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
+                              <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                               <input
                                 type="file"
                                 id="fileUpload2"
                                 {...register("fileUpload2")}
-                                class="account-file-input"
+                                className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
                               />
                             </label>
                             <button
                               type="button"
-                              class="btn btn-outline-danger account-image-reset mb-3 waves-effect"
+                              className="btn btn-outline-danger account-image-reset mb-3 waves-effect"
                             >
-                              <i class="mdi mdi-reload d-block d-sm-none"></i>
-                              <span class="d-none d-sm-block">Reset</span>
+                              <i className="mdi mdi-reload d-block d-sm-none"></i>
+                              <span className="d-none d-sm-block">Reset</span>
                             </button>
 
-                            <div class="small">
+                            <div className="small">
                               Allowed JPG, GIF or PNG. Max size of 800K
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="card-body">
-                        <div class="d-flex align-items-start align-items-sm-center gap-4">
+                    <div className="col-sm-6">
+                      <div className="card-body">
+                        <div className="d-flex align-items-start align-items-sm-center gap-4">
                           <img
                             src="./../fac.png"
                             alt="user-avatar"
-                            class="d-block w-px-120 h-px-120 rounded"
+                            className="d-block w-px-120 h-px-120 rounded"
                             id="uploadedAvatar"
                           />
-                          <div class="button-wrapper">
+                          <div className="button-wrapper">
                             <label
                               for="upload"
-                              class="btn btn-primary me-2 mb-3 waves-effect waves-light"
+                              className="btn btn-primary me-2 mb-3 waves-effect waves-light"
                               tabindex="0"
                             >
-                              <span class="d-none d-sm-block">
+                              <span className="d-none d-sm-block">
                                 Footer (Letterhead)
                               </span>
-                              <i class="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
+                              <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                               <input
                                 type="file"
                                 id="file"
                                 {...register("file")}
-                                class="account-file-input"
+                                className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
                               />
                             </label>
                             <button
                               type="button"
-                              class="btn btn-outline-danger account-image-reset mb-3 waves-effect"
+                              className="btn btn-outline-danger account-image-reset mb-3 waves-effect"
                             >
-                              <i class="mdi mdi-reload d-block d-sm-none"></i>
-                              <span class="d-none d-sm-block">Reset</span>
+                              <i className="mdi mdi-reload d-block d-sm-none"></i>
+                              <span className="d-none d-sm-block">Reset</span>
                             </button>
 
-                            <div class="small">
+                            <div className="small">
                               Allowed JPG, GIF or PNG. Max size of 800K
                             </div>
                           </div>
@@ -601,16 +543,16 @@ function CompanyForm() {
                   </div>
                 </div>
                 {/* <!-- Business Details --> */}
-                <div id="social-links-1" class="content dstepper-block">
-                  <div class="content-header mb-3">
-                    <h6 class="mb-0">Business Details</h6>
+                <div id="social-links-1" className="content dstepper-block">
+                  <div className="content-header mb-3">
+                    <h6 className="mb-0">Business Details</h6>
                   </div>
-                  <div class="row g-4">
-                    <div class="col-sm-12">
-                      <div class="form-floating form-floating-outline">
+                  <div className="row g-4">
+                    <div className="col-sm-12">
+                      <div className="form-floating form-floating-outline">
                         <textarea
                           name="address"
-                          class="form-control"
+                          className="form-control"
                           id="add"
                           {...register("add")}
                           rows="2"
@@ -623,15 +565,15 @@ function CompanyForm() {
                   </div>
                 </div>
                 {/* <!-- Contact Info --> */}
-                <div id="social-contactinfo" class="content dstepper-block">
-                  <div class="content-header mb-3">
-                    <h6 class="mb-0">Contact Info</h6>
+                <div id="social-contactinfo" className="content dstepper-block">
+                  <div className="content-header mb-3">
+                    <h6 className="mb-0">Contact Info</h6>
                   </div>
-                  <div class="row g-4">
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                  <div className="row g-4">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="namE"
                           register={"namE"}
@@ -642,10 +584,10 @@ function CompanyForm() {
                         <label for="Name">Name</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="designation"
                           {...register("designation")}
@@ -655,10 +597,10 @@ function CompanyForm() {
                         <label for="Designation">Designation</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           name="Role"
                           id="role"
@@ -668,10 +610,10 @@ function CompanyForm() {
                         <label for="Role">Role</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="emailId"
                           name="Email ID"
@@ -681,10 +623,10 @@ function CompanyForm() {
                         <label for="Email ID">Email ID</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="PHONE"
                           name="Phone No"
@@ -694,10 +636,10 @@ function CompanyForm() {
                         <label for="Phone No">Phone No</label>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating form-floating-outline">
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="text"
                           id="WHATSAPP"
                           {...register("WHATSAPP")}
@@ -712,19 +654,19 @@ function CompanyForm() {
                 {/* <!-- Social Details --> */}
                 <div
                   id="social-socialdetails"
-                  class="content dstepper-block active"
+                  className="content dstepper-block active"
                 >
-                  <div class="content-header mb-3">
-                    <h6 class="mb-0">Social Details</h6>
+                  <div className="content-header mb-3">
+                    <h6 className="mb-0">Social Details</h6>
                   </div>
-                  {/* <form class="form-repeater"> */}
+                  {/* <form className="form-repeater"> */}
                   <div data-repeater-list="group-a">
                     <div data-repeater-item="">
-                      <div class="row g-4">
-                        <div class="col-md-6">
-                          <div class="form-floating form-floating-outline">
+                      <div className="row g-4">
+                        <div className="col-md-6">
+                          <div className="form-floating form-floating-outline">
                             <input
-                              class="form-control"
+                              className="form-control"
                               type="text"
                               id="NAME"
                               {...register("NAME")}
@@ -735,10 +677,10 @@ function CompanyForm() {
                             <label for="Name">Name</label>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-floating form-floating-outline">
+                        <div className="col-md-6">
+                          <div className="form-floating form-floating-outline">
                             <input
-                              class="form-control"
+                              className="form-control"
                               type="text"
                               id="URL"
                               name="group-a[0][URL]"
@@ -748,56 +690,58 @@ function CompanyForm() {
                             <label for="URL">URL</label>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="card-body">
-                            <div class="d-flex align-items-start align-items-sm-center gap-4">
+                        <div className="col-md-6">
+                          <div className="card-body">
+                            <div className="d-flex align-items-start align-items-sm-center gap-4">
                               <img
                                 src="./../../fac.png"
                                 alt="user-avatar"
-                                class="d-block w-px-120 h-px-120 rounded"
+                                className="d-block w-px-120 h-px-120 rounded"
                                 id="uploadedAvatar"
                               />
-                              <div class="button-wrapper">
+                              <div className="button-wrapper">
                                 <label
                                   for="upload"
-                                  class="btn btn-primary me-2 mb-3 waves-effect waves-light"
+                                  className="btn btn-primary me-2 mb-3 waves-effect waves-light"
                                   tabindex="0"
                                 >
-                                  <span class="d-none d-sm-block">
+                                  <span className="d-none d-sm-block">
                                     Social Icons
                                   </span>
-                                  <i class="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
+                                  <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                                   <input
                                     type="file"
                                     id="UPLOAD"
                                     {...register("UPLOAD")}
-                                    class="account-file-input"
+                                    className="account-file-input"
                                     hidden=""
                                     accept="image/png, image/jpeg"
                                   />
                                 </label>
                                 <button
                                   type="button"
-                                  class="btn btn-outline-danger account-image-reset mb-3 waves-effect"
+                                  className="btn btn-outline-danger account-image-reset mb-3 waves-effect"
                                 >
-                                  <i class="mdi mdi-reload d-block d-sm-none"></i>
-                                  <span class="d-none d-sm-block">Reset</span>
+                                  <i className="mdi mdi-reload d-block d-sm-none"></i>
+                                  <span className="d-none d-sm-block">
+                                    Reset
+                                  </span>
                                 </button>
 
-                                <div class="small">
+                                <div className="small">
                                   Allowed JPG, GIF or PNG. Max size of 800K
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4 col-12 d-flex align-items-center mb-0">
+                        <div className="col-md-4 col-12 d-flex align-items-center mb-0">
                           <button
-                            class="btn btn-outline-danger waves-effect"
+                            className="btn btn-outline-danger waves-effect"
                             data-repeater-delete=""
                           >
-                            <i class="mdi mdi-close me-1"></i>
-                            <span class="align-middle">Delete</span>
+                            <i className="mdi mdi-close me-1"></i>
+                            <span className="align-middle">Delete</span>
                           </button>
                         </div>
                       </div>
@@ -806,18 +750,21 @@ function CompanyForm() {
                   </div>
                 </div>
 
-                <div id="social-otherdetails" class="content dstepper-block">
-                  <div class="content-header mb-3">
-                    <h6 class="mb-0">Other Details</h6>
+                <div
+                  id="social-otherdetails"
+                  className="content dstepper-block"
+                >
+                  <div className="content-header mb-3">
+                    <h6 className="mb-0">Other Details</h6>
                   </div>
-                  {/* <form class="form-repeater"> */}
+                  {/* <form className="form-repeater"> */}
                   <div data-repeater-list="group-a">
                     <div data-repeater-item="">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-floating form-floating-outline">
+                      <div className="row">
+                        <div className="col-md-6">
+                          <div className="form-floating form-floating-outline">
                             <input
-                              class="form-control"
+                              className="form-control"
                               type="text"
                               id="NaMe"
                               {...register("NaMe")}
@@ -828,10 +775,10 @@ function CompanyForm() {
                             <label for="Name">Name</label>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="form-floating form-floating-outline mb-4">
+                        <div className="col-md-6">
+                          <div className="form-floating form-floating-outline mb-4">
                             <textarea
-                              class="form-control h-px-50"
+                              className="form-control h-px-50"
                               id="control"
                               placeholder="Comments here..."
                               {...register("control")}
@@ -841,13 +788,13 @@ function CompanyForm() {
                             </label>
                           </div>
                         </div>
-                        <div class="col-md-4 col-12 d-flex align-items-center mb-0">
+                        <div className="col-md-4 col-12 d-flex align-items-center mb-0">
                           <button
-                            class="btn btn-outline-danger waves-effect"
+                            className="btn btn-outline-danger waves-effect"
                             data-repeater-delete=""
                           >
-                            <i class="mdi mdi-close me-1"></i>
-                            <span class="align-middle">Delete</span>
+                            <i className="mdi mdi-close me-1"></i>
+                            <span className="align-middle">Delete</span>
                           </button>
                         </div>
                       </div>
@@ -855,10 +802,10 @@ function CompanyForm() {
                     </div>
                   </div>
 
-                  <div class="col-12 d-flex justify-content-between">
+                  <div className="col-12 d-flex justify-content-between">
                     <button
                       type="submit"
-                      class="btn btn-primary btn-submit waves-effect waves-light"
+                      className="btn btn-primary btn-submit waves-effect waves-light"
                     >
                       Submit
                     </button>

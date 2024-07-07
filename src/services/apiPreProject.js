@@ -81,10 +81,27 @@ export async function shiftProject(id) {
   try {
     console.log(id);
     const res = await axios({
-      method: "POST",
-      url: `http://20.244.48.88:8000/api/confirm_project_handler/${id}/`,
+      method: "DELETE",
+      url: `http://20.244.48.88:8000/api/pre_project_new_handler/`,
+      data: {
+        id,
+      },
     });
     console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getConfirmPreProject() {
+  try {
+    const res = await axios({
+      method: "GET",
+      url: "http://20.244.48.88:8000/api/confirm_project_handler/",
+    });
+    console.log(res);
+    console.log(res.data);
+    return res.data.data;
   } catch (error) {
     console.log(error);
   }

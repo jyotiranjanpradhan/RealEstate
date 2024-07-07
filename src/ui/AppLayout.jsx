@@ -11,10 +11,10 @@ function AppLayout() {
         <div className="layout-page">
           <Navbar />
           <div className="content-wrapper">
-          <div className="main-content">
-          <Outlet />
-          </div>
-         
+            <div className="main-content">
+              <Outlet />
+            </div>
+
             <Footer />
           </div>
         </div>
