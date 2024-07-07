@@ -15,7 +15,6 @@ function SystemAdmin() {
         <div>System Admin</div>
       </div>
       <ul className="menu-sub">
-        <SubItems value="Company Type" to={"systemAdmin/companyType"} />
         <SubItems value="Company Info" to={"systemAdmin/companyInfo"} />
         <SubItems value="Branch Type" to={"systemAdmin/branchType"} />
         <SubItems value="Branch Info" to={"systemAdmin/branchInfo"} />

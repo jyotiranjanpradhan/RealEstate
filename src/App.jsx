@@ -19,7 +19,6 @@ import Organisation_str from "./components/Department/organisation_str";
 import AppLayout from "./ui/AppLayout";
 
 import SystemAdmin from "./components/system admin/SystemAdmin";
-import CompanyType from "./components/system admin/CompanyType";
 import CreateCompanyForm from "./components/system admin/Forms/CreateCompanyForm";
 import BankInfoForm from "./components/system admin/Forms/BankInfoForm";
 import Board from "./components/system admin/Forms/Board";
@@ -134,7 +133,6 @@ const App = () => {
             <Route path="/rolesRight/moduleForm" element={<Module />} />
 
             <Route element={<SystemAdmin />}>
-              <Route path="systemAdmin/companyType" element={<CompanyType />} />
               <Route path="systemAdmin/companyInfo" element={<CompanyInfo />} />
               <Route
                 path="systemAdmin/companyInfoForm"

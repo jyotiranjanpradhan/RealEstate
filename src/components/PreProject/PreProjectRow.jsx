@@ -1,5 +1,20 @@
+import axios from "axios";
+
 function PreProjectRow({ project }) {
   console.log(project);
+
+  async function confirmProject(id) {
+    try {
+      console.log(id);
+      const res = await axios({
+        method: "POST",
+        url: `http://20.244.48.88:8000/api/confirm_project_handler/${id}/`,
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <tr>
@@ -16,7 +31,7 @@ function PreProjectRow({ project }) {
       <td>No Advaisor</td>
       <td>Nayapalli</td>
       <td>Intitiated</td>
-      <button>Confirm</button>
+
       <td>Project is Fainalized </td>
       <td>
         <button
@@ -30,7 +45,14 @@ function PreProjectRow({ project }) {
       </td>
       <td>Status</td>
       <td>
-        <a
+        <button
+          onClick={() => confirmProject(project.id)}
+          className="btn btn-primary waves-effect waves-light"
+        >
+          Confirm
+        </button>
+
+        {/* <a
           href=""
           className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
           data-bs-toggle="tooltip"
@@ -38,7 +60,7 @@ function PreProjectRow({ project }) {
           data-bs-original-title="Edit"
         >
           <i className="mdi mdi-pencil-outline"></i>
-        </a>
+        </a> */}
         <a
           href=""
           className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
