@@ -25,7 +25,7 @@ function NewProject() {
         </h5>
         <div className="mb-2 text-end">
           <Link
-            to={navigate("/preProject/preProjectTable")}
+            // to={navigate("/preProject/preProjectTable")}
             className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"

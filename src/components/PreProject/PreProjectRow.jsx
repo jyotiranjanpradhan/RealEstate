@@ -1,5 +1,6 @@
 function PreProjectRow({ project }) {
   console.log(project);
+
   return (
     <tr>
       <td>{project.id}</td>
@@ -15,7 +16,7 @@ function PreProjectRow({ project }) {
       <td>No Advaisor</td>
       <td>Nayapalli</td>
       <td>Intitiated</td>
-
+      <button>Confirm</button>
       <td>Project is Fainalized </td>
       <td>
         <button
