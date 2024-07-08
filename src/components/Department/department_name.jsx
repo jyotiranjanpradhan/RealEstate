@@ -4,7 +4,7 @@ const DepartmentName = () => {
   const [departmentNames, setDepartmentNames] = useState([]);
   const [departmentName, setDepartmentName] = useState("");
   const [status, setStatus] = useState(true);
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  const API_BASE_URL = process.env.REACT_APP_URL_BASE;
 
   const handleSubmit = async (event) => {
     event.preventDefault();

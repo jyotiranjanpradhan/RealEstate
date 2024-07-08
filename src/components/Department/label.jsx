@@ -7,7 +7,7 @@ const Level = () => {
   const [designation_id, setdesignation_id] = useState("");
   const [status, setStatus] = useState("Yes");
   const [description, setDescription] = useState("");
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  const API_BASE_URL = process.env.REACT_APP_URL_BASE;
 
   useEffect(() => {
     const fetchAllLevels = async () => {
