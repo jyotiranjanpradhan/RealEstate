@@ -116,7 +116,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route path="/" element={<AddAmenity />} />
+            <Route path="/" element={<Dashboard />} />
             <Route
               path="/businessManagement/territory"
               element={<Territory />}
