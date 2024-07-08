@@ -81,9 +81,8 @@ function Approval({ register }) {
                     id="applyDate"
                     {...register("applyDate")}
                     className="form-control"
-                    type="text"
+                    type="date"
                     placeholder="Apply Date"
-                    autocomplete="off"
                   />
                 </div>
               </div>

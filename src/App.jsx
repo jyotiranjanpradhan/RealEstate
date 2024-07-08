@@ -46,8 +46,6 @@ import AddProduct from "./components/Project/AddProduct";
 import AddPayment from "./components/Project/AddPayment";
 import AddAmenity from "./components/Project/AddAmenity";
 
-
-
 import Document from "./components/EmployeeManagement/Document";
 import Kyc from "./components/EmployeeManagement/Kyc";
 import Salary from "./components/EmployeeManagement/Salary";
@@ -101,7 +99,7 @@ import Village from "./components/BusinessManagement/Location/Village";
 import AreaGram from "./components/BusinessManagement/Location/AreaGram";
 import Pin from "./components/BusinessManagement/Location/Pin";
 import CompanyForm from "./components/system admin/Forms/CompanyForm";
-
+import ConfirmProject from "./components/PreProject/ConfirmProject";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -118,8 +116,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-          <Route path="/" element={<AddAmenity />} />
-          
+            <Route path="/" element={<AddAmenity />} />
             <Route
               path="/businessManagement/territory"
               element={<Territory />}
@@ -132,16 +129,11 @@ const App = () => {
             <Route path="/businessManagement/country" element={<Country />} />
             <Route path="/businessManagement/state" element={<State />} />
             <Route path="/businessManagement/city" element={<City />} />
-
             <Route path="/businessManagement/village" element={<Village />} />
             <Route path="/businessManagement/areaGram" element={<AreaGram />} />
             <Route path="/businessManagement/pin" element={<Pin />} />
-
-            
-
             <Route path="/rolesRight" element={<RolesAndRights />} />
             <Route path="/rolesRight/moduleForm" element={<Module />} />
-
             <Route element={<SystemAdmin />}>
               <Route path="systemAdmin/companyInfo" element={<CompanyInfo />} />
               <Route
@@ -153,14 +145,12 @@ const App = () => {
               <Route path="systemAdmin/bankInfo" element={<BankInfo />} />
               <Route path="systemAdmin/branchInfo" element={<BranchInfo />} />
             </Route>
-
             <Route path="systemAdmin/bankInfoForm" element={<BankInfoForm />} />
             <Route
               path="systemAdmin/branchInfoForm"
               element={<BranchInfoForm />}
             />
             <Route path="systemAdmin/boardForm" element={<Board />} />
-
             <Route
               path="department/departmentName"
               element={<DepartmentName />}
@@ -172,10 +162,12 @@ const App = () => {
               path="department/organisationStr"
               element={<Organisation_str />}
             />
-
             <Route path="preProject/preProjectTable" element={<PreProject />} />
             <Route path="preProject/newProject" element={<NewProject />} />
-
+            <Route
+              path="preProject/confirmProject"
+              element={<ConfirmProject />}
+            ></Route>
             <Route path="enquiryBucket/deadTable" element={<DeadTable />} />
             <Route
               path="enquiryBucket/enquiryTable"
@@ -189,7 +181,6 @@ const App = () => {
               path="enquiryBucket/customerForm"
               element={<CustomerForm />}
             />
-
             <Route
               path="enquiryBucket/activityStatus"
               element={<ActivityStatus />}
@@ -217,7 +208,6 @@ const App = () => {
               path="enquiryBucket/AddCustomer"
               element={<AddCustomerForm />}
             /> */}
-
             <Route path="sales/paymentRecipt" element={<PaymentReciept />} />
             <Route path="sales/paymentSchedule" element={<PaymentSchedule />} />
             <Route path="sales/salesAgreement" element={<SalesAgreement />} />
@@ -233,23 +223,19 @@ const App = () => {
               path="/sales/addPaymentSchedule"
               element={<AddPaymentSchedule />}
             />
-
             <Route path="/customer" element={<Customer />} />
             <Route path="/customer/addCustomer" element={<AddCustomerForm />} />
             <Route path="/teamManagement" element={<TeamManagement />} />
-
             <Route path="/followUp" element={<FollowUp />} />
             <Route
               path="/followUp/preSalesEnquiry"
               element={<PreSalesEnquiry />}
             />
             <Route path="/followUp/Quotation" element={<Quotation />} />
-
             <Route
               path="/incentive/goalAndTarget"
               element={<GoalAndTarget />}
             />
-
             <Route path="/project/approvalBody" element={<ApprovalBody />} />
             <Route path="/project/projectType" element={<ProjectType />} />
             <Route
@@ -264,15 +250,21 @@ const App = () => {
             <Route
               path="/project/commisionSetup"
               element={<CommissionSetup />}
-            />€
+            />
+            €
             <Route path="/project/tax" element={<Tax />} />
             <Route path="/project/" element={<ProjectList />} />
-            <Route path="/project/projectdetails" element={<ProjectDetails />} />
+            <Route
+              path="/project/projectdetails"
+              element={<ProjectDetails />}
+            />
             <Route path="/project/addproduct" element={<AddProduct />} />
             <Route path="/project/addpayment" element={<AddPayment />} />
             <Route path="/project/addAmenity" element={<AddAmenity />} />
-            <Route path="/project/projecthouselist" element={<ProjectHouseList />} />
-
+            <Route
+              path="/project/projecthouselist"
+              element={<ProjectHouseList />}
+            />
             <Route path="/employee/document" element={<Document />} />
             <Route path="/employee/bank" element={<Bankothers />} />
             <Route

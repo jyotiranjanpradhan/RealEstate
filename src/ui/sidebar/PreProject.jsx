@@ -2,7 +2,7 @@ import { useState } from "react";
 import SubItems from "../sideBarItems/SubItems";
 const array = [
   { value: "New Project Development", to: "preProject/preProjectTable" },
-  { value: "Confirmed Project", to: "" },
+  { value: "Confirmed Project", to: "preProject/confirmProject" },
 ];
 function PreProject() {
   const [show, setShow] = useState(false);
