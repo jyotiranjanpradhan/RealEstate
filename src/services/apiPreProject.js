@@ -54,7 +54,7 @@ export async function createNewPreProject(data) {
 
     const res = await axios({
       method: "POST",
-      url: "http://20.244.48.88:8000/api/pre_project_new_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/pre_project_new_handler/`,
       data: formData,
     });
     return res.data;
@@ -67,7 +67,7 @@ export async function getPreProject() {
   try {
     const res = await axios({
       method: "GET",
-      url: "http://20.244.48.88:8000/api/pre_project_new_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/pre_project_new_handler/`,
     });
     console.log(res);
     console.log(res.data);
@@ -82,7 +82,7 @@ export async function shiftProject(id) {
     console.log(id);
     const res = await axios({
       method: "DELETE",
-      url: `http://20.244.48.88:8000/api/pre_project_new_handler/`,
+      url: `${process.env.REACT_APP_URL_BASE}/api/pre_project_new_handler/`,
       data: {
         id,
       },
@@ -97,7 +97,7 @@ export async function getConfirmPreProject() {
   try {
     const res = await axios({
       method: "GET",
-      url: "http://20.244.48.88:8000/api/confirm_project_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/confirm_project_handler/`,
     });
     console.log(res);
     console.log(res.data);

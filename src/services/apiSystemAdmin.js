@@ -4,7 +4,7 @@ export async function createBoard(data) {
   try {
     const res = await axios({
       method: "POST",
-      url: "http://20.244.48.88:8000/api/system_board_of_directors_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_board_of_directors_handler/`,
       data: data,
     });
     console.log(res);
@@ -17,7 +17,7 @@ export async function getBoard() {
   try {
     const res = await axios({
       method: "GET",
-      url: "http://20.244.48.88:8000/api/system_board_of_directors_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_board_of_directors_handler/`,
     });
     console.log(res);
     return res.data;
@@ -30,7 +30,7 @@ export async function createBankInfo(data) {
   try {
     const res = await axios({
       method: "POST",
-      url: "http://20.244.48.88:8000/api/system_bank_details_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_bank_details_handler/`,
       data: data,
     });
     console.log(res);
@@ -43,7 +43,7 @@ export async function getBank() {
   try {
     const res = await axios({
       method: "GET",
-      url: "http://20.244.48.88:8000/api/system_bank_details_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_bank_details_handler/`,
     });
     console.log(res.data);
     return res.data.data;
@@ -56,7 +56,7 @@ export async function createBranchInfo(data) {
   try {
     const res = await axios({
       method: "POST",
-      url: "http://20.244.48.88:8000/api/system_branch_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_branch_handler/`,
       data: data,
     });
     console.log(res);
@@ -69,7 +69,7 @@ export async function createCompanyType(data) {
   try {
     const res = await axios({
       method: "POST",
-      url: "http://20.244.48.88:8000/api/system_company_type_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_company_type_handler/`,
       data: data,
     });
     console.log(res);
