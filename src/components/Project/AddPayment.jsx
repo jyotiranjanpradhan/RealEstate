@@ -1,6 +1,13 @@
 import React from 'react'
-
+import { useForm } from 'react-hook-form';
+import { apiFetchAddAmenity } from '../../services/Project/addPayment';
 const AddPayment = () => {
+  const {register,handleSubmit}=useForm();
+
+  function onSubmit(data){
+    apiFetchAddAmenity(data);
+  }
+
   return (
     <>
        <div className="container-xxl flex-grow-1 container-p-y">
@@ -27,17 +34,20 @@ const AddPayment = () => {
         <div className="card-body">
           <div className="row">
             <div className="col-lg-8 mx-auto">
-              <form action="">
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row g-4">
                   <div className="col-md-6">
                     <div className="form-floating form-floating-outline">
-                      <input type="text" className="form-control" placeholder="Title" />
+                      <input type="text" className="form-control" placeholder="Title" required
+                      {...register("title")}
+                       />
                       <label>Title</label>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-floating form-floating-outline">
-                      <input type="text" className="form-control" placeholder="Value" />
+                      <input type="number" className="form-control" placeholder="Value" required
+                      {...register("value")}/>
                       <label>Value</label>
                     </div>
                   </div>
@@ -49,6 +59,8 @@ const AddPayment = () => {
                         rows="2"
                         placeholder="Description"
                         style={{ height: '65px' }}
+                        required
+                      {...register("description")}
                       ></textarea>
                       <label>Description</label>
                     </div>
