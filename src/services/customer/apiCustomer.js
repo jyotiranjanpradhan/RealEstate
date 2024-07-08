@@ -4,7 +4,7 @@ export async function addCustomer(data) {
     console.log(data);
     const res = await axios({
       method: "POST",
-      url: "http://20.244.48.88:8000/api/customer_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/customer_handler/`,
       data: data,
     });
     console.log(res);
@@ -18,7 +18,7 @@ export async function getCustomer() {
   try {
     const res = await axios({
       method: "GET",
-      url: "http://20.244.48.88:8000/api/customer_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/customer_handler/`,
     });
     // console.log(res.data.data);
     return res.data.data;
