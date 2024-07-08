@@ -8,7 +8,7 @@ function BranchType() {
     console.log(data);
     const res = await axios({
       method: "POST",
-      url: "http://20.244.48.88:8000/api/system_branch_type_handler/",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_branch_type_handler/`,
       data: data,
     });
     console.log(res);
