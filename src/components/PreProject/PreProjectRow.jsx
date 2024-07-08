@@ -39,13 +39,6 @@ function PreProjectRow({ project }) {
       </td>
       <td>Status</td>
       <td>
-        <button
-          onClick={() => confirmProject(project.id)}
-          className="btn btn-primary waves-effect waves-light"
-        >
-          Confirm
-        </button>
-
         {/* <a
           href=""
           className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
@@ -74,6 +67,7 @@ function PreProjectRow({ project }) {
           <i class="bi bi-x-lg" style={{ fontSize: "12px", color: "red" }}></i>
         </a>
         <button
+          onClick={() => confirmProject(project.id)}
           class="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
