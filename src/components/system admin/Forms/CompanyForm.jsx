@@ -1,76 +1,126 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useAddCompanyInfo } from "../../../hooks/systemAdmin/useAddCompanyInfo";
-
+import { createCompanyInfo ,test} from "../../../services/apiSystemAdmin";
+import { useRef } from "react";
 function CompanyForm() {
-  const navigate = useNavigate();
-  const { isPending, mutate } = useAddCompanyInfo();
 
+
+  
   const { register, handleSubmit } = useForm();
+
+  const brand_logo=useRef(null);
+const favicon=useRef(null);
+const letter_header=useRef(null);
+const letter_footer=useRef(null);
 
   function onSubmit(data) {
     const {
-      brand_logo,
-      favicon,
-      letter_header,
-      letter_footer,
+      name,company_size,incorporationNo,incorporation_agency,date,PAN,country,state,city,address,registered_office_details,email,mobileno, companyId,pincode,
       business_address,
       contact_name,
       designation,
       role,
       contact_email,
-      contact_mobile,
+      PHONE,
       other_details_name,
       details,
       social_details_name,
       URL,
       icon,
-      ...rest
+      
     } = data;
+  
+    const newdata = {
+      company_detail:{
+        "name":name,
+        "alias":name,
+        "company_size":company_size,
+        "incorporation_no":incorporationNo,
+        "incorporation_agency":incorporation_agency,
+        "date":date,
+        "PAN":PAN,
+        "country":country,
+        "state":state,
+        "city":city,
+        "pincode":pincode,
+        "address":address,
+        "registered_office_details":registered_office_details,
+        "email":email,
+        "companyid":companyId,
+        "mobileno":mobileno,
+      },
+      brand_detail: {
+        "brand_logo":brand_logo.current ?.files[0],
+        "favicon":favicon.current ?.files[0],
+        "letter_header":letter_header.current ?.files[0],
+        "letter_footer":letter_footer.current ?.files[0],
+        "company_id":companyId
+      },
+      business_detail: {
+        "address": business_address,
+        "company_id":companyId
+      },
+      contact_detail: {
+        "name": contact_name,
+        "designation":designation,
+        "role":role,
+        "email": contact_email,
+        "mobileno": PHONE,
+        "company_id":companyId
+      },
+      other_detail: {
+        details: {
+          other_details_name,
+          details,
+        },
+        "company_id":companyId
+      },
+      social_detail: {
+        details: {
+          social_details_name,
+          URL,
+          icon,
+        },
+        "company_id":companyId
+      },
+    };
 
-    const brand_detail = {
-      brand_logo,
-      favicon,
-      letter_header,
-      letter_footer,
-      business_address,
-    };
-    const business_detail = {
-      business_address,
-    };
-    const contact_detail = {
-      name: contact_name,
-      designation,
-      role,
-      email: contact_email,
-      mobileno: contact_mobile,
-    };
-    const other_detail = {
-      details: { other_details_name, details },
-    };
-    const social_detail = {
-      details: { social_details_name, URL, icon },
-    };
-    const company_detail = { ...rest };
-
+ 
     const formData = new FormData();
-    formData.append("company_detail", JSON.stringify(company_detail));
-    formData.append("brand_detail", JSON.stringify(brand_detail));
-    formData.append("business_detail", JSON.stringify(business_detail));
-    formData.append("contact_detail", JSON.stringify(contact_detail));
-    formData.append("social_detail", JSON.stringify(social_detail));
-    formData.append("other_detail", JSON.stringify(other_detail));
-    const formDataObj = {};
-    formData.forEach((value, key) => {
-      formDataObj[key] = value;
-    });
-    console.log(formDataObj);
-    console.log(data);
-    mutate(formData);
-  }
 
-  function onError(errors) {
-    console.log(errors);
+    for (const key in newdata.company_detail) {
+      formData.append(`company_detail[${key}]`, newdata.company_detail[key]);
+    }
+    
+    for (const key in newdata.brand_detail) {
+      formData.append(`brand_detail[${key}]`, newdata.brand_detail[key]);
+    }
+    
+    for (const key in newdata.business_detail) {
+      formData.append(`business_detail[${key}]`, newdata.business_detail[key]);
+    }
+    
+    for (const key in newdata.contact_detail) {
+      formData.append(`contact_detail[${key}]`, newdata.contact_detail[key]);
+    }
+    
+    for (const key in newdata.other_detail.details) {
+      formData.append(`other_detail[details][${key}]`, newdata.other_detail.details[key]);
+    }
+    formData.append('other_detail[company_id]', newdata.other_detail.company_id);
+    
+    for (const key in newdata.social_detail.details) {
+      formData.append(`social_detail[details][${key}]`, newdata.social_detail.details[key]);
+    }
+    formData.append('social_detail[company_id]', newdata.social_detail.company_id);
+    
+
+
+
+
+    createCompanyInfo(newdata); 
+
+  
   }
 
   return (
@@ -95,7 +145,7 @@ function CompanyForm() {
         <div className="col-12 mb-4">
           <div className="bs-stepper wizard-vertical vertical wizard-vertical-icons-example wizard-vertical-icons mt-2">
             <div className="bs-stepper-content">
-              <form onSubmit={handleSubmit(onSubmit, onError)}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 {/* <!-- Account Details --> */}
                 <div id="account-details-1" className="content dstepper-block">
                   <div className="content-header mb-3">
@@ -561,7 +611,8 @@ function CompanyForm() {
                           className="form-control"
                           type="text"
                           id="contact_name"
-                          register={"contact_name"}
+                        
+                          {...register("contact_name")}
                           placeholder="Name"
                         />
                         <label for="Name">Name</label>

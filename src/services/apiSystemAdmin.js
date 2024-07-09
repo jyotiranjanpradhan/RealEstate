@@ -112,15 +112,22 @@ export async function createCompanyType(data) {
   }
 }
 
-export async function createCompanyInfo(data) {
+export const createCompanyInfo= async (data)=>{
+ 
   try {
-    const res = await axios({
-      method: "POST",
-      url: `${process.env.REACT_APP_URL_BASE}/api/system_company_details_handler/`,
-      data: data,
-    });
-    console.log(res);
+    const response =await axios.post(`${process.env.REACT_APP_URL_BASE}/api/system_company_details_handler/`,data) ;
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
-}
+  }
+
+  export const test= async (data)=>{
+ 
+    try {
+      const response =await axios.post(`http://192.168.1.31:8000/api/create_brand_detail/`,data) ;
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+    }
