@@ -53,11 +53,45 @@ export async function getBank() {
 }
 
 export async function createBranchInfo(data) {
+  console.log(data);
   try {
+    const {
+      letter_header,
+      letter_footer,
+      contact_name,
+      contact_designation,
+      contact_role,
+      contact_email,
+      contact_phone,
+      ...details
+    } = data;
+    const branch_brand = {
+      letter_header,
+      letter_footer,
+    };
+    const branch_contact = {
+      name: contact_name,
+      designation: contact_designation,
+      role: contact_role,
+      email: contact_email,
+      phone: contact_phone,
+    };
+    const branch_details = details;
+
+    const formData = new FormData();
+
+    formData.append("branch_details", JSON.stringify(branch_details));
+    formData.append("branch_brand", JSON.stringify(branch_brand));
+    formData.append("branch_contact", JSON.stringify(branch_contact));
+    const formDataObj = {};
+    formData.forEach((value, key) => {
+      formDataObj[key] = value;
+    });
+    console.log(formDataObj);
     const res = await axios({
       method: "POST",
       url: `${process.env.REACT_APP_URL_BASE}/api/system_branch_handler/`,
-      data: data,
+      data: formData,
     });
     console.log(res);
   } catch (error) {

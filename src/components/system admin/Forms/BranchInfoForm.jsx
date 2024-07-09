@@ -6,37 +6,8 @@ function BranchInfoForm() {
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
-    const {
-      letter_header,
-      letter_footer,
-      contact_name,
-      contact_designation,
-      contact_role,
-      contact_email,
-      contact_phone,
-      ...details
-    } = data;
-    const branch_brand = {
-      letter_header,
-      letter_footer,
-    };
-    const branch_contact = {
-      name: contact_name,
-      designation: contact_designation,
-      role: contact_role,
-      email: contact_email,
-      phone: contact_phone,
-    };
-    const branch_details = details;
-
-    const formData = new FormData();
-    formData.append("branch_details", JSON.stringify(branch_details));
-    formData.append("branch_brand", JSON.stringify(branch_brand));
-    formData.append("branch_contact", JSON.stringify(branch_contact));
-    formData.get("branch_details");
-    formData.get("branch_brand");
-    formData.get("branch_contact");
-    mutate(formData);
+    console.log(data);
+    mutate(data);
   }
   return (
     <div className="container-xxl flex-grow-1 container-p-y">
@@ -443,23 +414,6 @@ function BranchInfoForm() {
                       <label for="WhatsApp No">WhatsApp No</label>
                     </div>
                   </div> */}
-                    <div className="col-12 d-flex justify-content-between">
-                      <button
-                        className="btn btn-outline-secondary btn-prev waves-effect"
-                        disabled=""
-                      >
-                        <i className="mdi mdi-arrow-left me-sm-1 me-0"></i>
-                        <span className="align-middle d-sm-inline-block d-none">
-                          Previous
-                        </span>
-                      </button>
-                      <button className="btn btn-primary btn-next waves-effect waves-light">
-                        <span className="align-middle d-sm-inline-block d-none me-sm-1">
-                          Next
-                        </span>
-                        <i className="mdi mdi-arrow-right"></i>
-                      </button>
-                    </div>
                   </div>
                 </div>
 
@@ -549,20 +503,6 @@ function BranchInfoForm() {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-12 d-flex justify-content-between">
-                      <button className="btn btn-outline-secondary btn-prev waves-effect">
-                        <i className="mdi mdi-arrow-left me-sm-1 me-0"></i>
-                        <span className="align-middle d-sm-inline-block d-none">
-                          Previous
-                        </span>
-                      </button>
-                      <button className="btn btn-primary btn-next waves-effect waves-light">
-                        <span className="align-middle d-sm-inline-block d-none me-sm-1">
-                          Next
-                        </span>
-                        <i className="mdi mdi-arrow-right"></i>
-                      </button>
                     </div>
                   </div>
                 </div>

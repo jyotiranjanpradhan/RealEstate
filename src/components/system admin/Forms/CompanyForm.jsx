@@ -1,13 +1,72 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { useAddCompanyInfo } from "../../../hooks/systemAdmin/useAddCompanyInfo";
 
 function CompanyForm() {
   const navigate = useNavigate();
+  const { isPending, mutate } = useAddCompanyInfo();
 
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
+    const {
+      brand_logo,
+      favicon,
+      letter_header,
+      letter_footer,
+      business_address,
+      contact_name,
+      designation,
+      role,
+      contact_email,
+      contact_mobile,
+      other_details_name,
+      details,
+      social_details_name,
+      URL,
+      icon,
+      ...rest
+    } = data;
+
+    const brand_detail = {
+      brand_logo,
+      favicon,
+      letter_header,
+      letter_footer,
+      business_address,
+    };
+    const business_detail = {
+      business_address,
+    };
+    const contact_detail = {
+      name: contact_name,
+      designation,
+      role,
+      email: contact_email,
+      mobileno: contact_mobile,
+    };
+    const other_detail = {
+      details: { other_details_name, details },
+    };
+    const social_detail = {
+      details: { social_details_name, URL, icon },
+    };
+    const company_detail = { ...rest };
+
+    const formData = new FormData();
+    formData.append("company_detail", JSON.stringify(company_detail));
+    formData.append("brand_detail", JSON.stringify(brand_detail));
+    formData.append("business_detail", JSON.stringify(business_detail));
+    formData.append("contact_detail", JSON.stringify(contact_detail));
+    formData.append("social_detail", JSON.stringify(social_detail));
+    formData.append("other_detail", JSON.stringify(other_detail));
+    const formDataObj = {};
+    formData.forEach((value, key) => {
+      formDataObj[key] = value;
+    });
+    console.log(formDataObj);
     console.log(data);
+    mutate(formData);
   }
 
   function onError(errors) {
@@ -48,37 +107,23 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="text"
-                          id="companyName"
+                          id="name"
                           placeholder="Company Name"
-                          {...register("companyName", {
+                          {...register("name", {
                             required: "This field is required",
                           })}
                         />
                         <label for="Company Name">Company Name</label>
                       </div>
                     </div>
+
                     <div className="col-md-4">
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
                           type="number"
                           id="companyId"
-                          {...register("companyId", {
-                            required: "This field is required",
-                          })}
-                          placeholder="Alias"
-                          autofocus=""
-                        />
-                        <label for="Company ID">Alias</label>
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="form-floating form-floating-outline">
-                        <input
-                          className="form-control"
-                          type="text"
-                          id="companyID"
-                          {...register("companyID")}
+                          {...register("companyId")}
                           placeholder="Company ID"
                         />
                         <label for="Company ID">Company ID</label>
@@ -89,8 +134,8 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="text"
-                          id="companySize"
-                          {...register("companySize")}
+                          id="company_size"
+                          {...register("company_size")}
                           placeholder="Company Size"
                         />
                         <label for="Company Size">Company Size</label>
@@ -101,8 +146,8 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="text"
-                          id="incorporationNo"
-                          placeholder="Incorporation No"
+                          id="incorporation_no"
+                          placeholder="Incorporation_no"
                           {...register("incorporationNo")}
                         />
                         <label for="Incorporation No">Incorporation No</label>
@@ -113,8 +158,8 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="text"
-                          id="IncorporationAgency"
-                          {...register("incorporationAgency")}
+                          id="Incorporation_agency"
+                          {...register("incorporation_agency")}
                           placeholder="Incorporation Agency"
                         />
                         <label for="Incorporation Agency">
@@ -127,7 +172,7 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="date"
-                          {...register("incorporationDate")}
+                          {...register("date")}
                           id="incorporationDate"
                         />
                         <label for="Incorporation Date">
@@ -135,40 +180,14 @@ function CompanyForm() {
                         </label>
                       </div>
                     </div>
-                    <div className="col-md-4">
-                      <div className="form-floating form-floating-outline">
-                        <input
-                          type="file"
-                          {...register("incorporationCertificate")}
-                          className="form-control"
-                          id="incorporationCertificate"
-                        />
-                        <label for="basic-default-upload-file">
-                          Incorporation Certificate
-                        </label>
-                      </div>
-                    </div>
+
                     <div className="col-md-4">
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
                           type="text"
-                          {...register("TAXCertificate")}
-                          id="TAXCertificate"
-                          placeholder="TAX Certificate Details"
-                        />
-                        <label for="TAX Certificate Details">
-                          TAX Certificate Details
-                        </label>
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="form-floating form-floating-outline">
-                        <input
-                          className="form-control"
-                          type="text"
-                          id="PANDetails"
-                          {...register("PANDetails")}
+                          id="PAN"
+                          {...register("PAN")}
                           placeholder="PAN Details"
                         />
                         <label for="PAN Details">PAN Details</label>
@@ -178,10 +197,11 @@ function CompanyForm() {
                       <div className="form-floating form-floating-outline form-floating-select2">
                         <div className="position-relative">
                           <select
-                            id=""
+                            id="country"
+                            {...register("country")}
                             className="select2 form-select select2-hidden-accessible"
                             data-select2-id="4"
-                            tabindex="-1"
+                            tabIndex="-1"
                             aria-hidden="true"
                           >
                             <option value="" data-select2-id="6">
@@ -222,11 +242,7 @@ function CompanyForm() {
                                   id="select2--container"
                                   role="textbox"
                                   aria-readonly="true"
-                                >
-                                  <span className="select2-selection__placeholder">
-                                    Select value
-                                  </span>
-                                </span>
+                                ></span>
                                 <span
                                   className="select2-selection__arrow"
                                   role="presentation"
@@ -273,8 +289,8 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="number"
-                          {...register("PIN")}
-                          id="PIN"
+                          {...register("pincode")}
+                          id="pincode"
                           placeholder="PIN"
                         />
                         <label for="PIN">PIN</label>
@@ -297,8 +313,8 @@ function CompanyForm() {
                       <div className="form-floating form-floating-outline">
                         <textarea
                           className="form-control"
-                          id="officeAddress"
-                          {...register("officeAddress")}
+                          id="registered_office_details"
+                          {...register("registered_office_details")}
                           rows="2"
                           placeholder="Registered Office Address"
                           style={{ height: "49px" }}
@@ -312,7 +328,7 @@ function CompanyForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
+                          type="email"
                           id="email"
                           {...register("email")}
                           placeholder="Email ID"
@@ -324,24 +340,12 @@ function CompanyForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
-                          id="phoneNo"
-                          {...register("phoneNo")}
+                          type="number"
+                          id="mobileno"
+                          {...register("mobileno")}
                           placeholder="Phone No"
                         />
                         <label for="Phone No">Phone No</label>
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="form-floating form-floating-outline">
-                        <input
-                          className="form-control"
-                          type="text"
-                          id="whatsappNo"
-                          placeholder="WhatsApp No"
-                          {...register("whatsappNo")}
-                        />
-                        <label for="WhatsApp No">WhatsApp No</label>
                       </div>
                     </div>
                   </div>
@@ -373,8 +377,8 @@ function CompanyForm() {
                               <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                               <input
                                 type="file"
-                                id="upload"
-                                {...register("upload")}
+                                id="brand_logo"
+                                {...register("brand_logo")}
                                 className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
@@ -414,8 +418,8 @@ function CompanyForm() {
                               <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                               <input
                                 type="file"
-                                id="fileUpload"
-                                {...register("fileUpload")}
+                                id="favicon"
+                                {...register("favicon")}
                                 className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
@@ -457,8 +461,8 @@ function CompanyForm() {
                               <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                               <input
                                 type="file"
-                                id="fileUpload2"
-                                {...register("fileUpload2")}
+                                id="letter_header"
+                                {...register("letter_header")}
                                 className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
@@ -500,8 +504,8 @@ function CompanyForm() {
                               <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                               <input
                                 type="file"
-                                id="file"
-                                {...register("file")}
+                                id="letter_footer"
+                                {...register("letter_footer")}
                                 className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
@@ -534,8 +538,8 @@ function CompanyForm() {
                       <div className="form-floating form-floating-outline">
                         <textarea
                           className="form-control"
-                          id="add"
-                          {...register("add")}
+                          id="business_address"
+                          {...register("business_address")}
                           rows="2"
                           placeholder="1456, Mall Road"
                           style={{ height: "100px" }}
@@ -556,8 +560,8 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="text"
-                          id="namE"
-                          register={"namE"}
+                          id="contact_name"
+                          register={"contact_name"}
                           placeholder="Name"
                         />
                         <label for="Name">Name</label>
@@ -591,10 +595,10 @@ function CompanyForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
-                          id="emailId"
+                          type="email"
+                          id="contact_email"
                           placeholder="Email ID"
-                          {...register("emailId")}
+                          {...register("contact_email")}
                         />
                         <label for="Email ID">Email ID</label>
                       </div>
@@ -603,24 +607,12 @@ function CompanyForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
-                          id="PHONE"
-                          placeholder="Phone No"
+                          type="number"
+                          id="contact_no"
+                          placeholder="contact_no"
                           {...register("PHONE")}
                         />
                         <label for="Phone No">Phone No</label>
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="form-floating form-floating-outline">
-                        <input
-                          className="form-control"
-                          type="text"
-                          id="WHATSAPP"
-                          {...register("WHATSAPP")}
-                          placeholder="WhatsApp No"
-                        />
-                        <label for="WhatsApp No">WhatsApp No</label>
                       </div>
                     </div>
                   </div>
@@ -642,8 +634,8 @@ function CompanyForm() {
                             <input
                               className="form-control"
                               type="text"
-                              id="NAME"
-                              {...register("NAME")}
+                              id="social_details_name"
+                              {...register("social_details_name")}
                               placeholder="Name"
                             />
                             <label for="Name">Name</label>
@@ -682,8 +674,8 @@ function CompanyForm() {
                                   <i className="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
                                   <input
                                     type="file"
-                                    id="UPLOAD"
-                                    {...register("UPLOAD")}
+                                    id="icon"
+                                    {...register("icon")}
                                     className="account-file-input"
                                     hidden=""
                                     accept="image/png, image/jpeg"
@@ -737,8 +729,8 @@ function CompanyForm() {
                             <input
                               className="form-control"
                               type="text"
-                              id="NaMe"
-                              {...register("NaMe")}
+                              id="other_details_name"
+                              {...register("other_details_name")}
                               placeholder="Name"
                             />
                             <label for="Name">Name</label>
@@ -748,9 +740,9 @@ function CompanyForm() {
                           <div className="form-floating form-floating-outline mb-4">
                             <textarea
                               className="form-control h-px-50"
-                              id="control"
+                              id="details"
                               placeholder="Comments here..."
-                              {...register("control")}
+                              {...register("details")}
                             ></textarea>
                             <label for="exampleFormControlTextarea1">
                               Example textarea
