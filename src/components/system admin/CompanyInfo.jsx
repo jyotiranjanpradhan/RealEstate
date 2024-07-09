@@ -1,5 +1,4 @@
 import Title from "./subItem/Title";
-
 function CompanyInfo() {
   return (
     <>

@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,7 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "@mdi/font/css/materialdesignicons.min.css";
 import "./css/rtl/core.css";
 import "./css/rtl/theme-default.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Dashboard from "./components/Dashboard/dashboard";
 import RolesAndRights from "./components/Rolesandright/RolesAndRights";
 import DepartmentName from "./components/Department/department_name";
@@ -19,7 +20,7 @@ import Organisation_str from "./components/Department/organisation_str";
 import AppLayout from "./ui/AppLayout";
 
 import SystemAdmin from "./components/system admin/SystemAdmin";
-import CreateCompanyForm from "./components/system admin/Forms/CreateCompanyForm";
+import CompanyForm from "./components/system admin/Forms/CompanyForm";
 import BankInfoForm from "./components/system admin/Forms/BankInfoForm";
 import Board from "./components/system admin/Forms/Board";
 import BranchInfoForm from "./components/system admin/Forms/BranchInfoForm";
@@ -54,6 +55,7 @@ import Bankothers from "./components/EmployeeManagement/Bankothers";
 
 import PreProject from "./components/PreProject/PreProject";
 import NewProject from "./components/PreProject/NewProject";
+import ConfirmProject from "./components/PreProject/ConfirmProject";
 
 import DeadTable from "./components/enquiryBucket/DeadTable";
 import EnquiryTable from "./components/enquiryBucket/EnquiryTable";
@@ -98,8 +100,6 @@ import City from "./components/BusinessManagement/Location/City";
 import Village from "./components/BusinessManagement/Location/Village";
 import AreaGram from "./components/BusinessManagement/Location/AreaGram";
 import Pin from "./components/BusinessManagement/Location/Pin";
-import CompanyForm from "./components/system admin/Forms/CompanyForm";
-import ConfirmProject from "./components/PreProject/ConfirmProject";
 
 const queryClient = new QueryClient({
   defaultOptions: {

@@ -77,3 +77,16 @@ export async function createCompanyType(data) {
     console.log(error);
   }
 }
+
+export async function createCompanyInfo(data) {
+  try {
+    const res = await axios({
+      method: "POST",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_company_details_handler/`,
+      data: data,
+    });
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}

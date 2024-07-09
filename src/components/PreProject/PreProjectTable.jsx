@@ -39,7 +39,9 @@ function PreProjectTable() {
               ))}
             </tbody>
           </table>
-          {project?.length === 0 && <h2>No project create one!!!</h2>}
+          {project?.length === 0 && (
+            <h2 className="small">No project create one!!!</h2>
+          )}
         </div>
       </div>
     </div>

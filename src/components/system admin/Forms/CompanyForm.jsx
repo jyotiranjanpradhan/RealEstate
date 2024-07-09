@@ -49,9 +49,7 @@ function CompanyForm() {
                           className="form-control"
                           type="text"
                           id="companyName"
-                          name="Company Name"
                           placeholder="Company Name"
-                          autofocus=""
                           {...register("companyName", {
                             required: "This field is required",
                           })}
@@ -63,13 +61,11 @@ function CompanyForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
+                          type="number"
                           id="companyId"
                           {...register("companyId", {
                             required: "This field is required",
                           })}
-                          name="Company ID"
-                          value="Alias"
                           placeholder="Alias"
                           autofocus=""
                         />
@@ -83,9 +79,7 @@ function CompanyForm() {
                           type="text"
                           id="companyID"
                           {...register("companyID")}
-                          name="Company ID"
                           placeholder="Company ID"
-                          autofocus=""
                         />
                         <label for="Company ID">Company ID</label>
                       </div>
@@ -108,7 +102,6 @@ function CompanyForm() {
                           className="form-control"
                           type="text"
                           id="incorporationNo"
-                          name="Incorporation No"
                           placeholder="Incorporation No"
                           {...register("incorporationNo")}
                         />
@@ -120,7 +113,6 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="text"
-                          name="Incorporation Agency"
                           id="IncorporationAgency"
                           {...register("incorporationAgency")}
                           placeholder="Incorporation Agency"
@@ -162,7 +154,6 @@ function CompanyForm() {
                           className="form-control"
                           type="text"
                           {...register("TAXCertificate")}
-                          name="TAX Certificate Details"
                           id="TAXCertificate"
                           placeholder="TAX Certificate Details"
                         />
@@ -176,7 +167,6 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="text"
-                          name="PAN Details"
                           id="PANDetails"
                           {...register("PANDetails")}
                           placeholder="PAN Details"
@@ -261,7 +251,6 @@ function CompanyForm() {
                           type="text"
                           {...register("state")}
                           id="state"
-                          name="state"
                           placeholder="State"
                         />
                         <label for="state">State</label>
@@ -274,7 +263,6 @@ function CompanyForm() {
                           type="text"
                           {...register("city")}
                           id="city"
-                          name="city"
                           placeholder="City"
                         />
                         <label for="City">City</label>
@@ -284,10 +272,9 @@ function CompanyForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
+                          type="number"
                           {...register("PIN")}
                           id="PIN"
-                          name="PIN"
                           placeholder="PIN"
                         />
                         <label for="PIN">PIN</label>
@@ -296,7 +283,6 @@ function CompanyForm() {
                     <div className="col-md-4">
                       <div className="form-floating form-floating-outline">
                         <textarea
-                          name="address"
                           className="form-control"
                           id="address"
                           {...register("address")}
@@ -310,7 +296,6 @@ function CompanyForm() {
                     <div className="col-md-4">
                       <div className="form-floating form-floating-outline">
                         <textarea
-                          name="address"
                           className="form-control"
                           id="officeAddress"
                           {...register("officeAddress")}
@@ -330,7 +315,6 @@ function CompanyForm() {
                           type="text"
                           id="email"
                           {...register("email")}
-                          name="Email ID"
                           placeholder="Email ID"
                         />
                         <label for="Email ID">Email ID</label>
@@ -343,7 +327,6 @@ function CompanyForm() {
                           type="text"
                           id="phoneNo"
                           {...register("phoneNo")}
-                          name="Phone No"
                           placeholder="Phone No"
                         />
                         <label for="Phone No">Phone No</label>
@@ -355,7 +338,6 @@ function CompanyForm() {
                           className="form-control"
                           type="text"
                           id="whatsappNo"
-                          name="WhatsApp No"
                           placeholder="WhatsApp No"
                           {...register("whatsappNo")}
                         />
@@ -551,7 +533,6 @@ function CompanyForm() {
                     <div className="col-sm-12">
                       <div className="form-floating form-floating-outline">
                         <textarea
-                          name="address"
                           className="form-control"
                           id="add"
                           {...register("add")}
@@ -577,8 +558,6 @@ function CompanyForm() {
                           type="text"
                           id="namE"
                           register={"namE"}
-                          name="Name"
-                          value="Alias"
                           placeholder="Name"
                         />
                         <label for="Name">Name</label>
@@ -591,7 +570,6 @@ function CompanyForm() {
                           type="text"
                           id="designation"
                           {...register("designation")}
-                          name="Designation"
                           placeholder="Designation"
                         />
                         <label for="Designation">Designation</label>
@@ -602,7 +580,6 @@ function CompanyForm() {
                         <input
                           className="form-control"
                           type="text"
-                          name="Role"
                           id="role"
                           {...register("role")}
                           placeholder="Role"
@@ -616,7 +593,6 @@ function CompanyForm() {
                           className="form-control"
                           type="text"
                           id="emailId"
-                          name="Email ID"
                           placeholder="Email ID"
                           {...register("emailId")}
                         />
@@ -629,7 +605,6 @@ function CompanyForm() {
                           className="form-control"
                           type="text"
                           id="PHONE"
-                          name="Phone No"
                           placeholder="Phone No"
                           {...register("PHONE")}
                         />
@@ -643,7 +618,6 @@ function CompanyForm() {
                           type="text"
                           id="WHATSAPP"
                           {...register("WHATSAPP")}
-                          name="WhatsApp No"
                           placeholder="WhatsApp No"
                         />
                         <label for="WhatsApp No">WhatsApp No</label>
@@ -670,8 +644,6 @@ function CompanyForm() {
                               type="text"
                               id="NAME"
                               {...register("NAME")}
-                              name="group-a[0][Name]"
-                              value="Alias"
                               placeholder="Name"
                             />
                             <label for="Name">Name</label>
@@ -683,7 +655,6 @@ function CompanyForm() {
                               className="form-control"
                               type="text"
                               id="URL"
-                              name="group-a[0][URL]"
                               placeholder="URL"
                               {...register("URL")}
                             />
@@ -768,8 +739,6 @@ function CompanyForm() {
                               type="text"
                               id="NaMe"
                               {...register("NaMe")}
-                              name="group-a[0][Name]"
-                              value="Alias"
                               placeholder="Name"
                             />
                             <label for="Name">Name</label>
