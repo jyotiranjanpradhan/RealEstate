@@ -9,7 +9,8 @@ export async function createBoard(data) {
     });
     console.log(res);
   } catch (error) {
-    console.log(error);
+    const errorMessage = Object.keys(error.response.data).join(",");
+    throw new Error(`Please provide ${errorMessage}`);
   }
 }
 
@@ -26,6 +27,19 @@ export async function getBoard() {
   }
 }
 
+export async function getBranch() {
+  try {
+    const res = await axios({
+      method: "GET",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_branch_handler/`,
+    });
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function createBankInfo(data) {
   try {
     const res = await axios({
@@ -35,7 +49,8 @@ export async function createBankInfo(data) {
     });
     console.log(res);
   } catch (error) {
-    console.log(error);
+    const errorMessage = Object.keys(error.response.data).join(",");
+    throw new Error(`Please provide ${errorMessage}`);
   }
 }
 
@@ -95,7 +110,8 @@ export async function createBranchInfo(data) {
     });
     console.log(res);
   } catch (error) {
-    console.log(error);
+    const errorMessage = Object.keys(error.response.data).join(",");
+    throw new Error(`Please provide ${errorMessage}`);
   }
 }
 
@@ -108,7 +124,8 @@ export async function createCompanyType(data) {
     });
     console.log(res);
   } catch (error) {
-    console.log(error);
+    const errorMessage = Object.keys(error.response.data).join(",");
+    throw new Error(`Please provide ${errorMessage}`);
   }
 }
 
@@ -121,6 +138,7 @@ export async function createCompanyInfo(data) {
     });
     console.log(res);
   } catch (error) {
-    console.log(error);
+    const errorMessage = Object.keys(error.response.data).join(",");
+    throw new Error(`Please provide ${errorMessage}`);
   }
 }

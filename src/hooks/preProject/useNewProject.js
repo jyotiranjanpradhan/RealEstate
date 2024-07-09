@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createNewPreProject } from "../../services/apiPreProject";
+import toast from "react-hot-toast";
 
 export function useNewProject() {
   const queryClient = useQueryClient();
@@ -10,9 +11,10 @@ export function useNewProject() {
       queryClient.invalidateQueries({
         queryKey: ["project"],
       });
+      toast.success("Project created successfully");
     },
     onError: (errors) => {
-      console.log(errors);
+      toast.error(errors.message);
     },
   });
   return { isPending, newProject };

@@ -59,7 +59,8 @@ export async function createNewPreProject(data) {
     });
     return res.data;
   } catch (error) {
-    console.log(error);
+    const errorMessage = Object.keys(error.response.data).join(",");
+    throw new Error(`Please provide ${errorMessage}`);
   }
 }
 
