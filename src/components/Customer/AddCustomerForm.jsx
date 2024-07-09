@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 function AddCustomerForm() {
   const { isPending, addCustomer } = useAddCustomer();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   // console.log(isPending, addCustomer);
   async function onSubmit(data) {
-    addCustomer(data);
+    addCustomer(data, { onSuccess: () => reset() });
     console.log(data);
   }
 

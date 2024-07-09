@@ -11,7 +11,7 @@ function BankInfoForm() {
   function addComponent() {
     setComponentCount(componentCount + 1);
   }
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   function onSubmit(data) {
     const formData = new FormData();
@@ -20,7 +20,7 @@ function BankInfoForm() {
       if (key === "bank_logo") formData.append(`${key}`, value[0]);
       else formData.append(`${key}`, value);
     }
-    mutate(formData);
+    mutate(formData, { onSuccess: () => reset() });
   }
   return (
     <div className="container-xxl flex-grow-1 container-p-y">

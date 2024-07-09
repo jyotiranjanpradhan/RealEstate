@@ -4,7 +4,7 @@ import { useAddCompanyInfo } from "../../../hooks/systemAdmin/useAddCompanyInfo"
 
 function CompanyForm() {
   const navigate = useNavigate();
-  const { isPending, mutate } = useAddCompanyInfo();
+  const { isPending, mutate, reset } = useAddCompanyInfo();
 
   const { register, handleSubmit } = useForm();
 
@@ -66,7 +66,7 @@ function CompanyForm() {
     });
     console.log(formDataObj);
     console.log(data);
-    mutate(formData);
+    mutate(formData, { onSuccess: () => reset() });
   }
 
   function onError(errors) {

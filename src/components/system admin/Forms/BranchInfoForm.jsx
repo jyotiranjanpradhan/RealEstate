@@ -2,12 +2,12 @@ import { useForm } from "react-hook-form";
 import { useAddBranchInfo } from "./../../../hooks/systemAdmin/useAddBranchInfo";
 import { Link } from "react-router-dom";
 function BranchInfoForm() {
-  const { isPending, mutate } = useAddBranchInfo();
+  const { isPending, mutate, reset } = useAddBranchInfo();
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
     console.log(data);
-    mutate(data);
+    mutate(data, { onSuccess: () => reset() });
   }
   return (
     <div className="container-xxl flex-grow-1 container-p-y">
