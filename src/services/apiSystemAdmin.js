@@ -26,6 +26,19 @@ export async function getBoard() {
   }
 }
 
+export async function getBranch() {
+  try {
+    const res = await axios({
+      method: "GET",
+      url: `${process.env.REACT_APP_URL_BASE}/api/system_branch_handler/`,
+    });
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function createBankInfo(data) {
   try {
     const res = await axios({
@@ -115,19 +128,14 @@ export async function createCompanyType(data) {
 export const createCompanyInfo= async (data)=>{
  
   try {
-    const response =await axios.post(`${process.env.REACT_APP_URL_BASE}/api/system_company_details_handler/`,data) ;
+    const response =await axios.post(`${process.env.REACT_APP_URL_BASE}/api/system_company_details_handler/`,data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }) ;
     console.log(response);
   } catch (error) {
     console.log(error);
   }
   }
 
-  export const test= async (data)=>{
- 
-    try {
-      const response =await axios.post(`http://192.168.1.31:8000/api/create_brand_detail/`,data) ;
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-    }

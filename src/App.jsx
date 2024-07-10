@@ -100,6 +100,7 @@ import City from "./components/BusinessManagement/Location/City";
 import Village from "./components/BusinessManagement/Location/Village";
 import AreaGram from "./components/BusinessManagement/Location/AreaGram";
 import Pin from "./components/BusinessManagement/Location/Pin";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -275,6 +276,7 @@ const App = () => {
             <Route path="/employee/KYC" element={<Kyc />} />
           </Route>
         </Routes>
+        <Toaster position="top-center" />
       </BrowserRouter>
     </QueryClientProvider>
   );

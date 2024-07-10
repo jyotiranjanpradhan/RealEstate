@@ -8,26 +8,13 @@ function Board() {
   const { isPending, mutate } = useAddBoard();
   const [componentCount, setComponentCount] = useState(1);
 
-  // const [forms, setForms] = useState([{ id: 0, data: {} }]);
-  const { register, handleSubmit } = useForm();
-
-  // function deleteComponent(index) {
-  //   console.log(index);
-  //   setForms([
-  //     ...forms,
-  //     forms.filter((el, i) => {
-  //       console.log("id", el.id);
-  //       return i !== index;
-  //     }),
-  //   ]);
-  // }
+  const { register, handleSubmit, reset } = useForm();
 
   function addComponent() {
-    // setForms([...forms, { id: forms.length, data: {} }])
     setComponentCount(componentCount + 1);
   }
   function onSubmit(data) {
-    mutate(data);
+    mutate(data, { onSuccess: () => reset() });
     console.log(data);
   }
   return (

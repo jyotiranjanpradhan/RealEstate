@@ -1,17 +1,25 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 function BranchType() {
   const { register, handleSubmit } = useForm();
 
   async function onSubmit(data) {
-    console.log(data);
-    const res = await axios({
-      method: "POST",
-      url: `${process.env.REACT_APP_URL_BASE}/api/system_branch_type_handler/`,
-      data: data,
-    });
-    console.log(res);
+    try {
+      console.log(data);
+      const res = await axios({
+        method: "POST",
+        url: `${process.env.REACT_APP_URL_BASE}/api/system_branch_type_handler/`,
+        data: data,
+      });
+      console.log(res);
+      toast.success("branch created successfully");
+    } catch (error) {
+      const errorMessage = Object.keys(error.response.data).join(",");
+      console.log(errorMessage);
+      toast.error(`Please provide ${errorMessage}`);
+    }
   }
   return (
     <>

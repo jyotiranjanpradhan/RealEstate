@@ -7,10 +7,10 @@ export async function addCustomer(data) {
       url: `${process.env.REACT_APP_URL_BASE}/api/customer_handler/`,
       data: data,
     });
-    console.log(res);
     return res.data;
   } catch (error) {
-    console.log(error);
+    const errorMessage = Object.keys(error.response.data).join(",");
+    throw new Error(`Please provide ${errorMessage}`);
   }
 }
 

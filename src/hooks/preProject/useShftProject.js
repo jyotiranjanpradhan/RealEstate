@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { shiftProject as shiftProjectAPI } from "../../services/apiPreProject";
+import toast from "react-hot-toast";
 
 export function useShiftProject() {
   const queryClient = useQueryClient();
@@ -10,6 +11,7 @@ export function useShiftProject() {
       queryClient.invalidateQueries({
         queryKey: ["project"],
       });
+      toast.success("Project confirmed successfully");
     },
     onError: (errors) => {
       console.log(errors);

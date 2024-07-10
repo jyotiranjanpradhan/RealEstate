@@ -7,10 +7,10 @@ function TeamManagement() {
   const { isLoading, team } = useGetTeam();
 
   console.log(team);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   function onSubmit(data) {
-    mutate(data);
+    mutate(data, { onSuccess: () => reset() });
     console.log(data);
   }
   return (
@@ -129,7 +129,6 @@ function TeamManagement() {
                         ></span>
                       </span>
                     </div>
-                
                   </div>
                 </div>
                 <div className="mt-4">

@@ -9,7 +9,8 @@ export async function createTeam(data) {
     });
     console.log(res);
   } catch (error) {
-    console.log(error);
+    const errorMessage = Object.keys(error.response.data).join(",");
+    throw new Error(`Please provide ${errorMessage}`);
   }
 }
 

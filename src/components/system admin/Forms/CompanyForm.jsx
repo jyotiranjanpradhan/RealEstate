@@ -115,7 +115,11 @@ const letter_footer=useRef(null);
     formData.append('social_detail[company_id]', newdata.social_detail.company_id);
     
 
-
+    const logFormData = (formData) => {
+      for (const pair of formData.entries()) {
+        console.log(`${pair[0]}: ${pair[1]}`);
+      }
+    };
 
 
     createCompanyInfo(newdata); 
