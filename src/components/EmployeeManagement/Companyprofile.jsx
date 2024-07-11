@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
 import Select from "react-select";
 import { apiFeetchCompanyProfile } from "../../services/EmpManagement/apiCompanyProfile";
+import { useGetDropDowns } from "../../hooks/useGetDropDowns";
 const CompanyProfile = () => {
+  const { dropDowns } = useGetDropDowns("department_designation_handler");
   const employeeName = useRef(null);
   const employeeId = useRef(null);
   const photo = useRef(null);
@@ -38,8 +40,6 @@ const CompanyProfile = () => {
   const personalProfileReligion = useRef(null);
   const presentbloodgroup = useRef(null);
   const presentMedicalissue = useRef(null);
-
-
 
   const countries = [
     "Australia",
@@ -83,7 +83,7 @@ const CompanyProfile = () => {
       adhar: "",
     },
   ]);
-  
+
   const handleAddMember = () => {
     setFamilyMembers([
       ...familyMembers,
@@ -102,13 +102,13 @@ const CompanyProfile = () => {
       },
     ]);
   };
-  
+
   const handleRemoveMember = (index) => {
     const newFamilyMembers = [...familyMembers];
     newFamilyMembers.splice(index, 1);
     setFamilyMembers(newFamilyMembers);
   };
-  
+
   const handleChangeMember = (index, event) => {
     const { name, value } = event.target;
     const newFamilyMembers = [...familyMembers];
@@ -272,9 +272,9 @@ const CompanyProfile = () => {
 
     const permissionsString = permissionsArray.join(", ");
 
-    const commaSeparatedSkills =
-    selectedSkills.map(skill => skill.value).join(', ');
-   
+    const commaSeparatedSkills = selectedSkills
+      .map((skill) => skill.value)
+      .join(", ");
 
     const data = {
       company_profile: {
@@ -335,7 +335,7 @@ const CompanyProfile = () => {
         employee_id: employeeId.current?.value,
       },
       skill_level: {
-        details: commaSeparatedSkills ,
+        details: commaSeparatedSkills,
         employee_id: employeeId.current?.value,
       },
     };
@@ -1043,8 +1043,6 @@ const CompanyProfile = () => {
                                         name="adhar"
                                         placeholder="Adhar No"
                                         value={member.adhar}
-                                    
-                                      
                                         onChange={(e) =>
                                           handleChangeMember(index, e)
                                         }
