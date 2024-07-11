@@ -6,7 +6,16 @@ const CompanyProfile = () => {
   const { dropDowns: designations } = useGetDropDowns(
     "department_designation_handler"
   );
-  console.log(designations);
+  const { dropDowns: departmentName } = useGetDropDowns(
+    "department_name_handler"
+  );
+  const { dropDowns: branchType } = useGetDropDowns(
+    "system_branch_type_handler"
+  );
+  const { dropDowns: grades } = useGetDropDowns("department_grade_handler");
+  const { dropDowns: levels } = useGetDropDowns("department_label_handler");
+
+  console.log(grades, levels);
   const employeeName = useRef(null);
   const employeeId = useRef(null);
   const photo = useRef(null);
@@ -414,27 +423,27 @@ const CompanyProfile = () => {
                       {[
                         {
                           label: "Branch",
-                          options: ["Branch1", "Branch2"],
+                          options: branchType,
                           ref: branch,
                         },
                         {
                           label: "Department",
-                          options: ["Department1", "Department2"],
+                          options: departmentName,
                           ref: department,
                         },
                         {
                           label: "Designation",
-                          options: [],
+                          options: designations,
                           ref: designation,
                         },
                         {
                           label: "Level",
-                          options: ["Level1", "Level2"],
+                          options: levels,
                           ref: level,
                         },
                         {
                           label: "Grade",
-                          options: ["Grade1", "Grade2"],
+                          options: grades,
                           ref: grade,
                         },
                       ].map((selectField, index) => (
@@ -446,37 +455,28 @@ const CompanyProfile = () => {
                               ref={selectField.ref}
                             >
                               <option value="">{selectField.label}</option>
-                              {selectField.options.map((option) => (
-                                <option value={option} key={option}>
-                                  {option}
+                              {selectField.options?.map((el, index) => (
+                                <option value={el.id} key={index}>
+                                  {selectField.label === "Designation" &&
+                                    el.designation}
+                                  {selectField.label === "Branch" &&
+                                    el.type_name}
+                                  {selectField.label === "Department" &&
+                                    el.name}
+                                  {selectField.label === "Level" &&
+                                    el.label_description}
+                                  {selectField.label === "Grade" &&
+                                    el.grade_description}
                                 </option>
                               ))}
                             </select>
                             <label htmlFor={selectField.label.replace(" ", "")}>
                               {selectField.label}
                             </label>
-
-                            {/* {designations.map((selectField, index) => (
-                        <div className="col-md-4" key={index}>
-                          <div className="form-floating form-floating-outline">
-                            <select
-                              id={selectField.label.replace(" ", "")}
-                              className="select2 form-select"
-                              ref={selectField.ref}
-                            >
-                              <option value="">{selectField.label}</option>
-                              {selectField.options.map((option) => (
-                                <option value={option} key={option}>
-                                  {option}
-                                </option>
-                              ))}
-                            </select>
-                            <label htmlFor={selectField.label.replace(" ", "")}>
-                              {selectField.label}
-                            </label> */}
                           </div>
                         </div>
                       ))}
+
                       <div className="col-md-12">
                         <div className="table-responsive border rounded">
                           <table className="table">
