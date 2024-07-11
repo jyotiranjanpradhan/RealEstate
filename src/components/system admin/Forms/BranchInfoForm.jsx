@@ -403,7 +403,7 @@ function BranchInfoForm() {
                                 id="letter_header"
                                 {...register("letter_header")}
                                 className="account-file-input"
-                                hidden
+                                hidden=""
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
@@ -445,7 +445,7 @@ function BranchInfoForm() {
                                 id="letter_footer"
                                 {...register("letter_footer")}
                                 className="account-file-input"
-                                hidden
+                                hidden=""
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
