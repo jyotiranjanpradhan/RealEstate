@@ -15,7 +15,6 @@ const CompanyProfile = () => {
   const { dropDowns: grades } = useGetDropDowns("department_grade_handler");
   const { dropDowns: levels } = useGetDropDowns("department_label_handler");
 
-  console.log(grades, levels);
   const employeeName = useRef(null);
   const employeeId = useRef(null);
   const photo = useRef(null);

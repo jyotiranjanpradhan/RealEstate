@@ -150,20 +150,20 @@ function BranchInfoForm() {
                         </label>
                       </div>
                     </div>
-                    {/* <div className="col-md-3">
-                    <div className="form-floating form-floating-outline">
-                      <input
-                        type="file"
-                        className="form-control"
-                        id="incorporation_details"
-                        {...register("incorporation_details")}
-                        required=""
-                      />
-                      <label for="basic-default-upload-file">
-                        Incorporation Certificate
-                      </label>
+                    <div className="col-md-3">
+                      <div className="form-floating form-floating-outline">
+                        <input
+                          type="file"
+                          className="form-control"
+                          id="incorporation_certificate"
+                          {...register("incorporation_certificate")}
+                          required=""
+                        />
+                        <label for="basic-default-upload-file">
+                          Incorporation Certificate
+                        </label>
+                      </div>
                     </div>
-                  </div> */}
 
                     <div className="col-md-4">
                       <div className="form-floating form-floating-outline">
