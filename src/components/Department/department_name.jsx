@@ -16,7 +16,7 @@ const DepartmentName = () => {
       status,
     };
     try {
-      const response = await fetch(`${API_BASE_URL}/department_name_handler/`, {
+      const response = await fetch(`${API_BASE_URL}/api/department_name_handler/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +27,7 @@ const DepartmentName = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submitted successfully:", result);
-        fetch(`${API_BASE_URL}/department_name_handler/`)
+        fetch(`${API_BASE_URL}/api/department_name_handler/`)
           .then((response) => response.json())
           .then((data) => {
             setDepartmentNames(data);
@@ -46,7 +46,7 @@ const DepartmentName = () => {
     const fetchAllDepartmentNames = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/department_name_handler/`
+          `${API_BASE_URL}/api/department_name_handler/`
         );
 
         if (response.ok) {
@@ -62,6 +62,7 @@ const DepartmentName = () => {
     };
     fetchAllDepartmentNames();
   }, []);
+  console.log(departmentNames);
   return (
     <>
       <div className="container-xxl flex-grow-1 container-p-y">
@@ -102,7 +103,7 @@ const DepartmentName = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {departmentNames?.map((item, index) => (
+                  { departmentNames.data?.map((item, index) => (
                     <tr key={item.departmentid}>
                       <td>{index + 1}</td>
                       <td>{item.name}</td>

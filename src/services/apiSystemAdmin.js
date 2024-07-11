@@ -9,8 +9,7 @@ export async function createBoard(data) {
     });
     console.log(res);
   } catch (error) {
-    const errorMessage = Object.keys(error.response.data).join(",");
-    throw new Error(`Please provide ${errorMessage}`);
+    console.log(error);
   }
 }
 
@@ -49,8 +48,7 @@ export async function createBankInfo(data) {
     });
     console.log(res);
   } catch (error) {
-    const errorMessage = Object.keys(error.response.data).join(",");
-    throw new Error(`Please provide ${errorMessage}`);
+    console.log(error);
   }
 }
 
@@ -110,8 +108,7 @@ export async function createBranchInfo(data) {
     });
     console.log(res);
   } catch (error) {
-    const errorMessage = Object.keys(error.response.data).join(",");
-    throw new Error(`Please provide ${errorMessage}`);
+    console.log(error);
   }
 }
 
@@ -124,21 +121,21 @@ export async function createCompanyType(data) {
     });
     console.log(res);
   } catch (error) {
-    const errorMessage = Object.keys(error.response.data).join(",");
-    throw new Error(`Please provide ${errorMessage}`);
+    console.log(error);
   }
 }
 
-export async function createCompanyInfo(data) {
+export const createCompanyInfo= async (data)=>{
+ 
   try {
-    const res = await axios({
-      method: "POST",
-      url: `${process.env.REACT_APP_URL_BASE}/api/system_company_details_handler/`,
-      data: data,
-    });
-    console.log(res);
+    const response =await axios.post(`${process.env.REACT_APP_URL_BASE}/api/system_company_details_handler/`,data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }) ;
+    console.log(response);
   } catch (error) {
-    const errorMessage = Object.keys(error.response.data).join(",");
-    throw new Error(`Please provide ${errorMessage}`);
+    console.log(error);
   }
-}
+  }
+

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useAddEmBank } from "../../hooks/employeeManagement/useAddEmBank";
 const Bankothers = () => {
   const { register, handleSubmit } = useForm();
-  const { isPending, mutate } = useAddEmBank();
+  const { isPending, mutate, reset } = useAddEmBank();
   function onSubmit(data) {
     const formData = new FormData();
 
@@ -12,7 +12,7 @@ const Bankothers = () => {
       if (key === "proof_image") formData.append(key, value[0]);
       else formData.append(key, value);
     }
-    mutate(formData);
+    mutate(formData, { onSuccess: () => reset() });
     console.log(data);
   }
   return (

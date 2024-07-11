@@ -426,7 +426,7 @@ function BranchInfoForm() {
                       <div className="card-body">
                         <div className="d-flex align-items-start align-items-sm-center gap-4">
                           <img
-                            src="assets/img/avatars/suryalogo.png"
+                            src="./../../../suryalogo.png"
                             alt="user-avatar"
                             className="d-block w-px-120 h-px-120 rounded"
                             id="uploadedAvatar"
@@ -446,6 +446,7 @@ function BranchInfoForm() {
                                 id="letter_header"
                                 {...register("letter_header")}
                                 className="account-file-input"
+                                hidden
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
@@ -467,7 +468,7 @@ function BranchInfoForm() {
                       <div className="card-body">
                         <div className="d-flex align-items-start align-items-sm-center gap-4">
                           <img
-                            src="assets/img/icons/brands/fac.png"
+                            src="./../../fac.png"
                             alt="user-avatar"
                             className="d-block w-px-120 h-px-120 rounded"
                             id="uploadedAvatar"
@@ -487,6 +488,7 @@ function BranchInfoForm() {
                                 id="letter_footer"
                                 {...register("letter_footer")}
                                 className="account-file-input"
+                                hidden
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
