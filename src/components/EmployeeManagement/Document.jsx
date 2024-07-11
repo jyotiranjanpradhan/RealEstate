@@ -24,22 +24,23 @@ const Document = () => {
     );
     setDocuments(updatedDocuments);
   };
+  console.log(documents);
 
   const handleSubmit = async (event, documents) => {
-    // try {
-    //   console.log(documents);
-    //   event.preventDefault();
-    //   const res = await axios({
-    //     method: "POST",
-    //     url: `${process.env.REACT_APP_URL_BASE}/api/employee_document_handler/`,
-    //     data: documents,
-    //   });
-    //   console.log(res);
-    // } catch (error) {
-    //   console.log(error);
-    //   const errorMessage = Object.keys(error.response).join(",");
-    //   throw new Error(`Please provide ${errorMessage}`);
-    // }
+    try {
+      console.log(documents);
+      event.preventDefault();
+      const res = await axios({
+        method: "POST",
+        url: `${process.env.REACT_APP_URL_BASE}/api/employee_document_handler/`,
+        data: documents,
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+      const errorMessage = Object.keys(error.response).join(",");
+      // throw new Error(`Please provide ${errorMessage}`);
+    }
   };
   return (
     <div className="container-xxl flex-grow-1 container-p-y">
@@ -51,7 +52,10 @@ const Document = () => {
         <div className="col-12">
           <div className="card">
             <div className="card-body">
-              <form className="form-repeater" onSubmit={handleSubmit}>
+              <form
+                className="form-repeater"
+                onSubmit={(e) => handleSubmit(e, documents)}
+              >
                 {documents.map((document, index) => (
                   <div key={index} data-repeater-item>
                     <div className="row mt-2 gy-4">
@@ -75,16 +79,11 @@ const Document = () => {
                           <input
                             className="form-control"
                             type="text"
-                            value={document.document_name}
+                            value={document.name}
                             onChange={(e) =>
-                              handleChange(
-                                index,
-                                "document_name",
-                                e.target.value
-                              )
+                              handleChange(index, "name", e.target.value)
                             }
                             placeholder="Document Name"
-                            autoFocus
                           />
                           <label htmlFor={`document-name-${index}`}>
                             Document Name
@@ -111,7 +110,7 @@ const Document = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             className="form-control"
-                            type="text"
+                            type="date"
                             value={document.validity}
                             onChange={(e) =>
                               handleChange(index, "validity", e.target.value)

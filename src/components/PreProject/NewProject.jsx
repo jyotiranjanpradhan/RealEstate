@@ -133,7 +133,7 @@ function NewProject() {
                         id="project_area"
                         {...register("project_area")}
                         className="form-control"
-                        type="text"
+                        type="number"
                         placeholder="Project Area"
                         autocomplete="off"
                       />
@@ -144,14 +144,14 @@ function NewProject() {
                       <label for="defaultInput" className="form-label">
                         Project Description
                       </label>
-                      <input
+                      <textarea
                         id="project_description"
                         {...register("project_description")}
                         className="form-control"
                         type="text"
-                        placeholder="Project Area"
+                        placeholder="Project Description"
                         autocomplete="off"
-                      />
+                      ></textarea>
                     </div>
                   </div>
 

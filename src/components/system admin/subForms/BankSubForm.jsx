@@ -89,6 +89,7 @@ function BankSubForm({ register }) {
           </div>
           <div className="col-md-4 col-12 d-flex align-items-center mb-0">
             <button
+              type="button"
               className="btn btn-outline-danger waves-effect"
               data-repeater-delete=""
             >

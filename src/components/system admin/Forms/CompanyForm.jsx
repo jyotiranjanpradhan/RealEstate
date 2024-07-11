@@ -712,7 +712,7 @@ function CompanyForm() {
                             <label for="Name">Name</label>
                           </div>
                         </div>
-                        <div className="col-md-6">
+                        {/* <div className="col-md-6">
                           <div className="form-floating form-floating-outline">
                             <input
                               className="form-control"
@@ -723,7 +723,7 @@ function CompanyForm() {
                             />
                             <label for="URL">URL</label>
                           </div>
-                        </div>
+                        </div> */}
                         <div className="col-md-6">
                           <div className="card-body">
                             <div className="d-flex align-items-start align-items-sm-center gap-4">

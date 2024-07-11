@@ -603,6 +603,7 @@ function BranchInfoForm() {
                   </div>
                   <div className="col-12 d-flex justify-content-between">
                     <button
+                      type="button"
                       className="btn btn-primary waves-effect waves-light"
                       data-repeater-create=""
                     >
