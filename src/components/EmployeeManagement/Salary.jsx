@@ -1,44 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useAddEmSalary } from "../../hooks/employeeManagement/useAddEmSalary";
+import { useGetDropDowns } from "../../hooks/useGetDropDowns";
 
 const Salary = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({
-    joiningSalaryInHand: "",
-    joiningSalaryCTC: "",
-    joiningLetter: null,
-    joiningDate: "",
-    department: "",
-    designation: "",
-    level: "",
-    grade: "",
-    branch: "",
-    incrementDate: "",
-    increasedSalaryInHand: "",
-    increasedSalaryCTC: "",
-    promotionDate: "",
-    transferDate: "",
-  });
+  const { isPending, mutate } = useAddEmSalary();
+  const { register, handleSubmit } = useForm();
+  const { dropDowns: designations } = useGetDropDowns(
+    "department_designation_handler"
+  );
+  const { dropDowns: departmentName } = useGetDropDowns(
+    "department_name_handler"
+  );
+  const { dropDowns: branchType } = useGetDropDowns(
+    "system_branch_type_handler"
+  );
+  const { dropDowns: grades } = useGetDropDowns("department_grade_handler");
+  const { dropDowns: levels } = useGetDropDowns("department_label_handler");
 
-  const steps = [
-    { title: "Joining", contentId: "account-details-1" },
-    { title: "Increment", contentId: "personal-info-1" },
-    { title: "Promotion", contentId: "social-links" },
-    { title: "Transfer", contentId: "social-links-1" },
-  ];
+  function onSubmit(data) {
+    const formData = new FormData();
 
-  const handleInputChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: files ? files[0] : value,
-    });
-  };
+    for (let [key, value] of Object.entries(data)) {
+      if (key === "joining_letter") formData.append(key, value[0]);
+      else formData.append(key, value);
+    }
+    mutate(formData);
+    console.log(data);
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form Data:", formData);
-  };
   return (
     <>
       <div className="container-xxl flex-grow-1 container-p-y">
@@ -50,7 +40,7 @@ const Salary = () => {
           <div className="col-12 mb-4">
             <div className="bs-stepper wizard-vertical wizard-numbered vertical mt-2">
               <div className="bs-stepper-content">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div id="account-details-1" className="content">
                     <div className="content-header mb-3">
                       <h6 className="mb-0">Joining</h6>
@@ -60,11 +50,10 @@ const Salary = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             type="text"
-                            name="joiningSalaryInHand"
+                            id="joining_salary"
+                            {...register("joining_salary")}
                             className="form-control"
                             placeholder="Joining Salary In Hand"
-                            value={formData.joiningSalaryInHand}
-                            onChange={handleInputChange}
                           />
                           <label htmlFor="joiningSalaryInHand">
                             Joining Salary In Hand
@@ -75,11 +64,10 @@ const Salary = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             type="text"
-                            name="joiningSalaryCTC"
+                            id="ctc"
+                            {...register("ctc")}
                             className="form-control"
                             placeholder="Joining Salary CTC"
-                            value={formData.joiningSalaryCTC}
-                            onChange={handleInputChange}
                           />
                           <label htmlFor="joiningSalaryCTC">
                             Joining Salary CTC
@@ -90,9 +78,9 @@ const Salary = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             type="file"
-                            name="joiningLetter"
+                            id="joining_letter"
+                            {...register("joining_letter")}
                             className="form-control"
-                            onChange={handleInputChange}
                             required
                           />
                           <label htmlFor="joiningLetter">Joining Letter</label>
@@ -102,76 +90,94 @@ const Salary = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             type="date"
-                            name="joiningDate"
+                            id="joining_date"
+                            {...register("joining_date")}
                             className="form-control"
-                            value={formData.joiningDate}
-                            onChange={handleInputChange}
                           />
                           <label htmlFor="joiningDate">Joining Date</label>
                         </div>
                       </div>
                       <div className="col-sm-6">
                         <div className="form-floating form-floating-outline">
-                          <input
-                            type="text"
-                            name="department"
-                            className="form-control"
-                            placeholder="Department"
-                            value={formData.department}
-                            onChange={handleInputChange}
-                          />
+                          <select
+                            id="department"
+                            {...register("department")}
+                            className="select2 form-select form-select-lg"
+                            data-allow-clear="true"
+                          >
+                            <option>department</option>
+                            {departmentName?.map((el) => (
+                              <option value={el.departmentid}>{el.name}</option>
+                            ))}
+                          </select>
                           <label htmlFor="department">Department</label>
                         </div>
                       </div>
                       <div className="col-sm-6">
                         <div className="form-floating form-floating-outline">
-                          <input
-                            type="text"
-                            name="designation"
-                            className="form-control"
-                            placeholder="Designation"
-                            value={formData.designation}
-                            onChange={handleInputChange}
-                          />
+                          <select
+                            id="designation"
+                            {...register("designation")}
+                            className="select2 form-select form-select-lg"
+                            data-allow-clear="true"
+                          >
+                            <option>designation</option>
+                            {designations?.map((el) => (
+                              <option value={el.id}>{el.designation}</option>
+                            ))}
+                          </select>
                           <label htmlFor="designation">Designation</label>
                         </div>
                       </div>
                       <div className="col-sm-6">
                         <div className="form-floating form-floating-outline">
-                          <input
-                            type="text"
-                            name="level"
-                            className="form-control"
-                            placeholder="Level"
-                            value={formData.level}
-                            onChange={handleInputChange}
-                          />
+                          <select
+                            id="level"
+                            {...register("level")}
+                            className="select2 form-select form-select-lg"
+                            data-allow-clear="true"
+                          >
+                            <option>level</option>
+                            {levels?.map((el) => (
+                              <option value={el.id}>
+                                {el.label_description}
+                              </option>
+                            ))}
+                          </select>
                           <label htmlFor="level">Level</label>
                         </div>
                       </div>
                       <div className="col-sm-6">
                         <div className="form-floating form-floating-outline">
-                          <input
-                            type="text"
-                            name="grade"
-                            className="form-control"
-                            placeholder="Grade"
-                            value={formData.grade}
-                            onChange={handleInputChange}
-                          />
+                          <select
+                            id="grade"
+                            {...register("grade")}
+                            className="select2 form-select form-select-lg"
+                            data-allow-clear="true"
+                          >
+                            <option>grade</option>
+                            {grades?.map((el) => (
+                              <option value={el.id}>
+                                {el.grade_description}
+                              </option>
+                            ))}
+                          </select>
                           <label htmlFor="grade">Grade</label>
                         </div>
                       </div>
                       <div className="col-sm-6">
                         <div className="form-floating form-floating-outline">
-                          <input
-                            type="text"
-                            name="branch"
-                            className="form-control"
-                            placeholder="Branch"
-                            value={formData.branch}
-                            onChange={handleInputChange}
-                          />
+                          <select
+                            id="branch"
+                            {...register("branch")}
+                            className="select2 form-select form-select-lg"
+                            data-allow-clear="true"
+                          >
+                            <option>branch type</option>
+                            {branchType?.map((el) => (
+                              <option value={el.id}>{el.type_name}</option>
+                            ))}
+                          </select>
                           <label htmlFor="branch">Branch</label>
                         </div>
                       </div>
@@ -187,10 +193,9 @@ const Salary = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             type="date"
-                            name="incrementDate"
+                            id="increment_date"
+                            {...register("increment_date")}
                             className="form-control"
-                            value={formData.incrementDate}
-                            onChange={handleInputChange}
                           />
                           <label htmlFor="incrementDate">Increment Date</label>
                         </div>
@@ -199,11 +204,10 @@ const Salary = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             type="text"
-                            name="increasedSalaryInHand"
+                            id="increased_salary"
+                            {...register("increment_salary")}
                             className="form-control"
                             placeholder="Increased Salary In Hand"
-                            value={formData.increasedSalaryInHand}
-                            onChange={handleInputChange}
                           />
                           <label htmlFor="increasedSalaryInHand">
                             Increased Salary In Hand
@@ -214,11 +218,10 @@ const Salary = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             type="text"
-                            name="increasedSalaryCTC"
+                            id="increased_ctc"
+                            {...register("increment_ctc")}
                             className="form-control"
                             placeholder="Increased Salary CTC"
-                            value={formData.increasedSalaryCTC}
-                            onChange={handleInputChange}
                           />
                           <label htmlFor="increasedSalaryCTC">
                             Increased Salary CTC
@@ -237,10 +240,9 @@ const Salary = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             type="date"
-                            name="promotionDate"
+                            id="promotion_date"
+                            {...register("promotion_date")}
                             className="form-control"
-                            value={formData.promotionDate}
-                            onChange={handleInputChange}
                           />
                           <label htmlFor="promotionDate">Promotion Date</label>
                         </div>
@@ -257,10 +259,9 @@ const Salary = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             type="date"
-                            name="transferDate"
+                            id="transfer_date"
+                            {...register("transfer_date")}
                             className="form-control"
-                            value={formData.transferDate}
-                            onChange={handleInputChange}
                           />
                           <label htmlFor="transferDate">Transfer Date</label>
                         </div>
