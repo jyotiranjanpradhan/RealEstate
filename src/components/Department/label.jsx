@@ -13,11 +13,11 @@ const Level = () => {
     const fetchAllLevels = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/department_label_handler/`
+          `${API_BASE_URL}/api/department_label_handler/`
         );
         if (response.ok) {
           const result = await response.json();
-          setLavel(result);
+          setLavel(result.data);
           console.log(result);
         } else {
           console.error(response.statusText);
@@ -29,12 +29,12 @@ const Level = () => {
     const fetchAlldesignationsNames = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/department_designation_handler/`
+          `${API_BASE_URL}/api/department_designation_handler/`
         );
 
         if (response.ok) {
           const result = await response.json();
-          setDesignations(result);
+          setDesignations(result.data);
           console.log(result);
         } else {
           console.error(response.statusText);
@@ -59,7 +59,7 @@ const Level = () => {
     };
     try {
       const response = await fetch(
-        `${API_BASE_URL}/department_label_handler/`,
+        `${API_BASE_URL}/api/department_label_handler/`,
         {
           method: "POST",
           headers: {
@@ -72,7 +72,7 @@ const Level = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submitted successfully:", result);
-        fetch(`${API_BASE_URL}/department_label_handler/`)
+        fetch(`${API_BASE_URL}/api/department_label_handler/`)
           .then((response) => response.json())
           .then((data) => {
             setLavel(data);

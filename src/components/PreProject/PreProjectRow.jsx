@@ -16,17 +16,16 @@ function PreProjectRow({ project }) {
       <td>PR2024358</td>
       <td>Intitiated</td>
       <td>2024-03-16</td>
-      <td>Angan bashera</td>
-      <td>DUPLEX</td>
+      <td>{project.project_name}</td>
+      <td>{project.project_type}</td>
       <td>No Vendor</td>
       <td>Final</td>
       <td>52,468</td>
-      <td>2500</td>
-      <td>No Advaisor</td>
-      <td>Nayapalli</td>
-      <td>Intitiated</td>
-
-      <td>Project is Fainalized </td>
+      <td>{project.project_area}</td>
+      <td>No Advisor</td>
+      <td>{project.project_location}</td>
+      <td>Initiated</td>
+      <td>Project is Finalized </td>
       <td>
         <button
           type="button"

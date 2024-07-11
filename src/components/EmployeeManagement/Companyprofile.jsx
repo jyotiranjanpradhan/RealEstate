@@ -3,7 +3,10 @@ import Select from "react-select";
 import { apiFeetchCompanyProfile } from "../../services/EmpManagement/apiCompanyProfile";
 import { useGetDropDowns } from "../../hooks/useGetDropDowns";
 const CompanyProfile = () => {
-  const { dropDowns } = useGetDropDowns("department_designation_handler");
+  const { dropDowns: designations } = useGetDropDowns(
+    "department_designation_handler"
+  );
+  console.log(designations);
   const employeeName = useRef(null);
   const employeeId = useRef(null);
   const photo = useRef(null);
@@ -421,7 +424,7 @@ const CompanyProfile = () => {
                         },
                         {
                           label: "Designation",
-                          options: ["Designation1", "Designation2"],
+                          options: [],
                           ref: designation,
                         },
                         {
@@ -452,6 +455,25 @@ const CompanyProfile = () => {
                             <label htmlFor={selectField.label.replace(" ", "")}>
                               {selectField.label}
                             </label>
+
+                            {/* {designations.map((selectField, index) => (
+                        <div className="col-md-4" key={index}>
+                          <div className="form-floating form-floating-outline">
+                            <select
+                              id={selectField.label.replace(" ", "")}
+                              className="select2 form-select"
+                              ref={selectField.ref}
+                            >
+                              <option value="">{selectField.label}</option>
+                              {selectField.options.map((option) => (
+                                <option value={option} key={option}>
+                                  {option}
+                                </option>
+                              ))}
+                            </select>
+                            <label htmlFor={selectField.label.replace(" ", "")}>
+                              {selectField.label}
+                            </label> */}
                           </div>
                         </div>
                       ))}
