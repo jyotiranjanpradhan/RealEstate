@@ -7,6 +7,9 @@ function TeamManagement() {
   const { isPending, mutate } = useAddTeam();
   const { isLoading, team } = useGetTeam();
   const { dropDowns } = useGetDropDowns("department_name_handler");
+  const { dropDowns: dropDownTeam } = useGetDropDowns(
+    "employee_management_handler"
+  );
   console.log(dropDowns);
   const { register, handleSubmit, reset } = useForm();
 
@@ -82,11 +85,11 @@ function TeamManagement() {
                       >
                         <optgroup label="Team Members">
                           <option value="TM">Team Members</option>
-                          <option value="Alice">Team Members2</option>
-                          <option value="TM">Team Members3</option>
-                          <option value="TM">Team Members4</option>
-                          <option value="TM">Team Members5</option>
-                          <option value="TM">Team Members6</option>
+                          {dropDownTeam?.map((el) => (
+                            <option value={el.company_profile.empid}>
+                              {el.company_profile.name}
+                            </option>
+                          ))}
                         </optgroup>
                       </select>
                       <span
