@@ -454,7 +454,7 @@ function CompanyForm() {
                                 id="brand_logo"
                                 {...register("brand_logo")}
                                 className="account-file-input"
-                                hidden
+                                hidden=""
                                 accept="image/png, image/jpeg"
                               />
                             </label>
@@ -495,7 +495,7 @@ function CompanyForm() {
                                 id="favicon"
                                 {...register("favicon")}
                                 className="account-file-input"
-                                hidden
+                                hidden=""
                                 accept="image/png, image/jpeg"
                               />
                             </label>
@@ -538,7 +538,7 @@ function CompanyForm() {
                                 id="letter_header"
                                 {...register("letter_header")}
                                 className="account-file-input"
-                                hidden
+                                hidden=""
                                 accept="image/png, image/jpeg"
                               />
                             </label>
@@ -581,7 +581,7 @@ function CompanyForm() {
                                 id="letter_footer"
                                 {...register("letter_footer")}
                                 className="account-file-input"
-                                hidden
+                                hidden=""
                                 accept="image/png, image/jpeg"
                               />
                             </label>
@@ -744,7 +744,7 @@ function CompanyForm() {
                                     id="icon"
                                     {...register("icon")}
                                     className="account-file-input"
-                                    hidden
+                                    hidden=""
                                     accept="image/png, image/jpeg"
                                   />
                                 </label>
