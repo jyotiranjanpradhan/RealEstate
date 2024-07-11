@@ -1,4 +1,8 @@
+import { useGetDropDowns } from "../../../hooks/useGetDropDowns";
+
 function BoardSubForm({ register, deleteComponent }) {
+  const { dropDowns } = useGetDropDowns("department_designation_handler");
+  console.log(dropDowns);
   return (
     <div data-repeater-list="group-a">
       <div data-repeater-item="">
@@ -18,14 +22,17 @@ function BoardSubForm({ register, deleteComponent }) {
           </div>
           <div className="col-md-6">
             <div className="form-floating form-floating-outline">
-              <input
-                className="form-control"
-                type="text"
+              <select
                 id="designation"
                 {...register("designation")}
-                placeholder="Designation"
-                autofocus=""
-              />
+                className="select2 form-select form-select-lg"
+                data-allow-clear="true"
+              >
+                <option>designation</option>
+                {dropDowns?.map((el) => (
+                  <option value={el.id}>{el.designation}</option>
+                ))}
+              </select>
               <label for="Designation">Designation</label>
             </div>
           </div>

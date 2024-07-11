@@ -5,6 +5,7 @@ const Designation = () => {
   const [allDepartment, setallDepartment] = useState([]);
   const [departmentNameId, setdepartmentNameId] = useState("");
   const [designationName, setDesignationName] = useState("");
+  console.log(allDepartment);
   const [roles, setRoles] = useState({
     read: false,
     write: false,
@@ -16,12 +17,12 @@ const Designation = () => {
     const fetchAllDepartmentNames = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/department_name_handler/`
+          `${API_BASE_URL}/api/department_name_handler/`
         );
 
         if (response.ok) {
           const result = await response.json();
-          setallDepartment(result);
+          setallDepartment(result.data);
           console.log(result);
         } else {
           console.error(response.statusText);
@@ -33,12 +34,12 @@ const Designation = () => {
     const fetchAlldesignationsNames = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/department_designation_handler/`
+          `${API_BASE_URL}/api/department_designation_handler/`
         );
 
         if (response.ok) {
           const result = await response.json();
-          setDesignations(result);
+          setDesignations(result.data);
           console.log(result);
         } else {
           console.error(response.statusText);
@@ -70,7 +71,7 @@ const Designation = () => {
     }
     try {
       const response = await fetch(
-        `${API_BASE_URL}/department_designation_handler/`,
+        `${API_BASE_URL}/api/department_designation_handler/`,
         {
           method: "POST",
           headers: {
@@ -83,7 +84,7 @@ const Designation = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submitted successfully:", result);
-        fetch(`${API_BASE_URL}/department_designation_handler/`)
+        fetch(`${API_BASE_URL}/api/department_designation_handler/`)
           .then((response) => response.json())
           .then((data) => {
             // console.log(data)
@@ -204,6 +205,7 @@ const Designation = () => {
                         onChange={(e) => setdepartmentNameId(e.target.value)}
                       >
                         <option value="">Select Menu</option>
+
                         {allDepartment?.map((item, index) => (
                           <option
                             key={item.departmentid}
@@ -289,21 +291,6 @@ const Designation = () => {
                     </div>
                   </div>
                 </div>
-                {/*  <div class="row g-2">
-                                  <div class="col">
-                                      <label for="defaultInput" class="form-label">Status</label>
-                                      <div class="col">
-                                          <div class="form-check form-check-inline">
-                                            <input name="yes" class="form-check-input" type="radio" value="" id="" checked="">
-                                            <label class="form-check-label" for="collapsible-payment-cc">Active</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input name="no" class="form-check-input" type="radio" value="" id="">
-                                            <label class="form-check-label" for="collapsible-payment-cash">InActive</label>
-                                          </div>
-                                      </div>
-                                  </div>
-                                </div> */}
               </div>
               <div className="modal-footer">
                 <button

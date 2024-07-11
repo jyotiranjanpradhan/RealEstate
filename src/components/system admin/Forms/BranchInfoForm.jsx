@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useAddBranchInfo } from "./../../../hooks/systemAdmin/useAddBranchInfo";
 import { Link } from "react-router-dom";
+import { useGetDropDowns } from "../../../hooks/useGetDropDowns";
 function BranchInfoForm() {
   const { isPending, mutate, reset } = useAddBranchInfo();
+  const { dropDowns } = useGetDropDowns("system_branch_type_handler");
+  console.log(dropDowns);
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
@@ -79,64 +82,18 @@ function BranchInfoForm() {
                     </div>
                     <div className="col-md-3">
                       <div className="form-floating form-floating-outline form-floating-select2">
-                        <div className="position-relative">
-                          <div className="position-relative">
-                            <select
-                              id="branch_type"
-                              {...register("branch_type")}
-                              className="select2 form-select select2-hidden-accessible"
-                              tabindex="-1"
-                              aria-hidden="true"
-                              data-select2-id="9"
-                            >
-                              <option value="Branch Type" data-select2-id="11">
-                                Select
-                              </option>
-                              <option value={1}>1</option>
-                              <option value="Corporate Office">
-                                Corporate Office
-                              </option>
-                            </select>
-                            <span
-                              className="select2 select2-container select2-container--default"
-                              dir="ltr"
-                              data-select2-id="10"
-                              style={{ width: "259.8px" }}
-                            >
-                              <span className="selection">
-                                <span
-                                  className="select2-selection select2-selection--single"
-                                  role="combobox"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                  tabindex="0"
-                                  aria-disabled="false"
-                                  aria-labelledby="select2--container"
-                                >
-                                  <span
-                                    className="select2-selection__rendered"
-                                    id="select2--container"
-                                    role="textbox"
-                                    aria-readonly="true"
-                                    title="Select"
-                                  >
-                                    Select
-                                  </span>
-                                  <span
-                                    className="select2-selection__arrow"
-                                    role="presentation"
-                                  >
-                                    <b role="presentation"></b>
-                                  </span>
-                                </span>
-                              </span>
-                              <span
-                                className="dropdown-wrapper"
-                                aria-hidden="true"
-                              ></span>
-                            </span>
-                          </div>
-                        </div>
+                        <select
+                          id="branch_type"
+                          {...register("branch_type")}
+                          className="select2 form-select form-select-lg"
+                          data-allow-clear="true"
+                        >
+                          <option>branch type</option>
+                          {dropDowns?.map((el) => (
+                            <option value={el.id}>{el.type_name}</option>
+                          ))}
+                        </select>
+
                         <label for="Branch Type<">Branch Type</label>
                       </div>
                     </div>

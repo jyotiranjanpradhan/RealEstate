@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { createCompanyInfo, test } from "../../../services/apiSystemAdmin";
 import { useRef } from "react";
+import { useGetDropDowns } from "../../../hooks/useGetDropDowns";
 function CompanyForm() {
   const { register, handleSubmit } = useForm();
+  const { dropDowns } = useGetDropDowns("department_designation_handler");
 
   const brand_logo = useRef(null);
   const favicon = useRef(null);
@@ -640,13 +642,17 @@ function CompanyForm() {
                     </div>
                     <div className="col-md-4">
                       <div className="form-floating form-floating-outline">
-                        <input
-                          className="form-control"
-                          type="text"
+                        <select
                           id="designation"
                           {...register("designation")}
-                          placeholder="Designation"
-                        />
+                          className="select2 form-select form-select-lg"
+                          data-allow-clear="true"
+                        >
+                          <option>designation</option>
+                          {dropDowns?.map((el) => (
+                            <option value={el.id}>{el.designation}</option>
+                          ))}
+                        </select>
                         <label for="Designation">Designation</label>
                       </div>
                     </div>
@@ -712,18 +718,7 @@ function CompanyForm() {
                             <label for="Name">Name</label>
                           </div>
                         </div>
-                        {/* <div className="col-md-6">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              className="form-control"
-                              type="text"
-                              id="URL"
-                              placeholder="URL"
-                              {...register("URL")}
-                            />
-                            <label for="URL">URL</label>
-                          </div>
-                        </div> */}
+                        \
                         <div className="col-md-6">
                           <div className="card-body">
                             <div className="d-flex align-items-start align-items-sm-center gap-4">
