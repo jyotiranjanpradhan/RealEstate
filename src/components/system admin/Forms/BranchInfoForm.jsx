@@ -89,8 +89,8 @@ function BranchInfoForm() {
                               aria-hidden="true"
                               data-select2-id="9"
                             >
-                              <option value="Branch Type" data-select2-id="11">
-                                Select
+                              <option disabled selected data-select2-id="11">
+                              Branch Type
                               </option>
                               <option value={1}>1</option>
                               <option value="Corporate Office">
@@ -120,7 +120,7 @@ function BranchInfoForm() {
                                     aria-readonly="true"
                                     title="Select"
                                   >
-                                    Select
+                                   
                                   </span>
                                   <span
                                     className="select2-selection__arrow"
@@ -137,7 +137,7 @@ function BranchInfoForm() {
                             </span>
                           </div>
                         </div>
-                        <label for="Branch Type<">Branch Type</label>
+                        
                       </div>
                     </div>
 
@@ -248,8 +248,8 @@ function BranchInfoForm() {
                               aria-hidden="true"
                               data-select2-id="26"
                             >
-                              <option value="" data-select2-id="28">
-                                Select
+                              <option disabled selected data-select2-id="28">
+                              Country
                               </option>
                               <option value="Australia">Australia</option>
                               <option value="Bangladesh">Bangladesh</option>
@@ -288,7 +288,7 @@ function BranchInfoForm() {
                                     aria-readonly="true"
                                     title="Select"
                                   >
-                                    Select
+                                   
                                   </span>
                                   <span
                                     className="select2-selection__arrow"
@@ -305,7 +305,7 @@ function BranchInfoForm() {
                             </span>
                           </div>
                         </div>
-                        <label for="country">Country</label>
+                  
                       </div>
                     </div>
                     <div className="col-md-4">
@@ -449,13 +449,7 @@ function BranchInfoForm() {
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
-                            <button
-                              type="button"
-                              className="btn btn-outline-danger account-image-reset mb-3 waves-effect"
-                            >
-                              <i className="mdi mdi-reload d-block d-sm-none"></i>
-                              <span className="d-none d-sm-block">Reset</span>
-                            </button>
+                            
                             <div className="small">
                               Allowed JPG, GIF or PNG. Max size of 800K
                             </div>
@@ -490,13 +484,7 @@ function BranchInfoForm() {
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
-                            <button
-                              type="button"
-                              className="btn btn-outline-danger account-image-reset mb-3 waves-effect"
-                            >
-                              <i className="mdi mdi-reload d-block d-sm-none"></i>
-                              <span className="d-none d-sm-block">Reset</span>
-                            </button>
+                            
                             <div className="small">
                               Allowed JPG, GIF or PNG. Max size of 800K
                             </div>

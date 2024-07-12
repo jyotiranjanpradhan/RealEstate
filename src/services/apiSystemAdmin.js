@@ -129,9 +129,9 @@ export const createCompanyInfo= async (data)=>{
  
   try {
     const response =await axios.post(`${process.env.REACT_APP_URL_BASE}/api/system_company_details_handler/`,data, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+      headers: {
+        'Content-Type': 'application/json',
+    },
       }) ;
     console.log(response);
   } catch (error) {
@@ -139,3 +139,16 @@ export const createCompanyInfo= async (data)=>{
   }
   }
 
+  export const test= async (data)=>{
+ 
+    try {
+      const response =await axios.post(`http://192.168.1.31:8000/api/system_company_details_handler/`,data, {
+       headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+        }) ;
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+    }

@@ -4,14 +4,13 @@ import { createCompanyInfo ,test} from "../../../services/apiSystemAdmin";
 import { useRef } from "react";
 function CompanyForm() {
 
-
-  
   const { register, handleSubmit } = useForm();
 
   const brand_logo=useRef(null);
 const favicon=useRef(null);
 const letter_header=useRef(null);
 const letter_footer=useRef(null);
+const social_icon=useRef(null);
 
   function onSubmit(data) {
     const {
@@ -29,7 +28,34 @@ const letter_footer=useRef(null);
       icon,
       
     } = data;
-  
+
+    const brandDetail = {
+      company_id: companyId,
+    };
+    
+    const social_detail = {
+      "name": social_details_name,
+      company_id: companyId,
+    };
+    
+
+    if (brand_logo?.current?.files?.[0] !== undefined) {
+      brandDetail.brand_logo = brand_logo.current.files[0];
+    }
+    if (favicon?.current?.files?.[0] !== undefined) {
+      brandDetail.favicon = favicon.current.files[0];
+    }
+    if (letter_header?.current?.files?.[0] !== undefined) {
+      brandDetail.letter_header = letter_header.current.files[0];
+    }
+    if (letter_footer?.current?.files?.[0] !== undefined) {
+      brandDetail.letter_footer = letter_footer.current.files[0];
+    }
+    if (social_icon?.current?.files?.[0] !== undefined) {
+      social_detail.icon = social_icon.current.files[0];
+    }
+
+
     const newdata = {
       company_detail:{
         "name":name,
@@ -48,14 +74,10 @@ const letter_footer=useRef(null);
         "email":email,
         "companyid":companyId,
         "mobileno":mobileno,
+         "certificate":brand_logo.current ?.files[0],
+       "TAX_certificate":"abc"
       },
-      brand_detail: {
-        "brand_logo":brand_logo.current ?.files[0],
-        "favicon":favicon.current ?.files[0],
-        "letter_header":letter_header.current ?.files[0],
-        "letter_footer":letter_footer.current ?.files[0],
-        "company_id":companyId
-      },
+      brand_detail:brandDetail,
       business_detail: {
         "address": business_address,
         "company_id":companyId
@@ -69,61 +91,73 @@ const letter_footer=useRef(null);
         "company_id":companyId
       },
       other_detail: {
-        details: {
-          other_details_name,
-          details,
-        },
-        "company_id":companyId
+      
+          "name":other_details_name,
+          "desc":details,
+          "company_id":companyId
       },
-      social_detail: {
-        details: {
-          social_details_name,
-          URL,
-          icon,
-        },
-        "company_id":companyId
-      },
+      social_detail:social_detail ,
     };
 
  
     const formData = new FormData();
 
-    for (const key in newdata.company_detail) {
-      formData.append(`company_detail[${key}]`, newdata.company_detail[key]);
-    }
     
-    for (const key in newdata.brand_detail) {
-      formData.append(`brand_detail[${key}]`, newdata.brand_detail[key]);
+  
+
+    const company_details={
+      company_detail:{
+        "name":name,
+        "alias":name,
+        "company_size":company_size,
+        "incorporation_no":incorporationNo,
+        "incorporation_agency":incorporation_agency,
+        "date":date,
+        "PAN":PAN,
+        "country":country,
+        "state":state,
+        "city":city,
+        "pincode":pincode,
+        "address":address,
+        "registered_office_details":registered_office_details,
+        "email":email,
+        "companyid":companyId,
+        "mobileno":mobileno,
+        "certificate":brand_logo.current ?.files[0],
+       "TAX_certificate":"abc"
+      },
+      brand_detail:brandDetail
+      };
+     
+   
+
+   const appendFormData = (data, parentKey = '', formData = new FormData()) => {
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        const value = data[key];
+        const formKey = parentKey ? `${parentKey}.${key}` : key;
+  
+        if (value && typeof value === 'object' && !(value instanceof File)) {
+          appendFormData(value, formKey, formData);
+        } else {
+          formData.append(formKey, value instanceof File ? value : [value]);
+        }
+      }
     }
-    
-    for (const key in newdata.business_detail) {
-      formData.append(`business_detail[${key}]`, newdata.business_detail[key]);
-    }
-    
-    for (const key in newdata.contact_detail) {
-      formData.append(`contact_detail[${key}]`, newdata.contact_detail[key]);
-    }
-    
-    for (const key in newdata.other_detail.details) {
-      formData.append(`other_detail[details][${key}]`, newdata.other_detail.details[key]);
-    }
-    formData.append('other_detail[company_id]', newdata.other_detail.company_id);
-    
-    for (const key in newdata.social_detail.details) {
-      formData.append(`social_detail[details][${key}]`, newdata.social_detail.details[key]);
-    }
-    formData.append('social_detail[company_id]', newdata.social_detail.company_id);
-    
+    return formData;
+  };
+  const formDatas = appendFormData(newdata);
 
     const logFormData = (formData) => {
       for (const pair of formData.entries()) {
         console.log(`${pair[0]}: ${pair[1]}`);
       }
     };
+    logFormData(formDatas)
 
-
-    createCompanyInfo(newdata); 
-
+   
+    createCompanyInfo(formDatas); 
+    //test(formDatas);
   
   }
 
@@ -187,7 +221,7 @@ const letter_footer=useRef(null);
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
+                          type="number"
                           id="company_size"
                           {...register("company_size")}
                           placeholder="Company Size"
@@ -432,7 +466,7 @@ const letter_footer=useRef(null);
                               <input
                                 type="file"
                                 id="brand_logo"
-                                {...register("brand_logo")}
+                                ref={brand_logo}
                                 className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
@@ -473,7 +507,7 @@ const letter_footer=useRef(null);
                               <input
                                 type="file"
                                 id="favicon"
-                                {...register("favicon")}
+                                ref={favicon}
                                 className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
@@ -516,7 +550,7 @@ const letter_footer=useRef(null);
                               <input
                                 type="file"
                                 id="letter_header"
-                                {...register("letter_header")}
+                               ref={letter_header}
                                 className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
@@ -559,7 +593,7 @@ const letter_footer=useRef(null);
                               <input
                                 type="file"
                                 id="letter_footer"
-                                {...register("letter_footer")}
+                                ref={letter_footer}
                                 className="account-file-input"
                                 hidden=""
                                 accept="image/png, image/jpeg"
@@ -730,7 +764,7 @@ const letter_footer=useRef(null);
                                   <input
                                     type="file"
                                     id="icon"
-                                    {...register("icon")}
+                                    ref={social_icon}
                                     className="account-file-input"
                                     hidden=""
                                     accept="image/png, image/jpeg"
