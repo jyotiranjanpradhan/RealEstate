@@ -1,24 +1,26 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { json } from "react-router-dom";
+import axios from "axios";
 const Level = () => {
   const [lavel, setLavel] = useState([]);
   const [designations, setDesignations] = useState([]);
   const [designation_id, setdesignation_id] = useState("");
-  const [status, setStatus] = useState("Yes");
+  const [status, setStatus] = useState("true");
   const [description, setDescription] = useState("");
   const API_BASE_URL = process.env.REACT_APP_URL_BASE;
 
   useEffect(() => {
     const fetchAllLevels = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `${API_BASE_URL}/api/department_label_handler/`
         );
-        if (response.ok) {
-          const result = await response.json();
-          setLavel(result.data);
-          console.log(result);
+        console.log(response);
+        if (response.data) {
+          
+          setLavel(response.data);
+          console.log(response);
         } else {
           console.error(response.statusText);
         }
@@ -49,29 +51,17 @@ const Level = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!designation_id || !description) {
-      return;
-    }
+    
     const formData = {
-      designation_id,
-      label_description: description,
-      status,
+      "designation":designation_id,
+      "label_description": description,
+      "status":status,
     };
     try {
-      const response = await fetch(
-        `${API_BASE_URL}/api/department_label_handler/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Form submitted successfully:", result);
+      const response = await axios.post(
+        `${API_BASE_URL}/api/department_label_handler/`,formData );
+     console.log(response);
+      if (response) {
         fetch(`${API_BASE_URL}/api/department_label_handler/`)
           .then((response) => response.json())
           .then((data) => {
@@ -83,7 +73,7 @@ const Level = () => {
     } catch (error) {
       console.error("Form submission error:", error);
     } finally {
-      setStatus("Yes");
+      setStatus("true");
       setDescription("");
       setdesignation_id("");
     }
@@ -134,7 +124,7 @@ const Level = () => {
                       <tr key={item.id}>
                         <td>{index + 1}</td>
                         <td>{item.label_description}</td>
-                        <td>{item.status ? "yes" : "No"}</td>
+                        <td>{item.status }</td>
                         <td>
                           <a
                             href=""
@@ -238,8 +228,8 @@ const Level = () => {
                             name="status"
                             className="form-check-input"
                             type="radio"
-                            value="Yes"
-                            checked={status === "Yes"}
+                            value="true"
+                            checked={status === "true"}
                             id="collapsible-payment-cc"
                             onChange={(e) => setStatus(e.target.value)}
                           />
@@ -255,9 +245,9 @@ const Level = () => {
                             name="status"
                             className="form-check-input"
                             type="radio"
-                            value="No"
+                            value="false"
                             id="collapsible-payment-cash"
-                            checked={status === "No"}
+                            checked={status === "false"}
                             onChange={(e) => setStatus(e.target.value)}
                           />
                           <label

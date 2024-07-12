@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 const DepartmentName = () => {
@@ -16,24 +17,14 @@ const DepartmentName = () => {
       status,
     };
     try {
-      const response = await fetch(`${API_BASE_URL}/api/department_name_handler/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await axios.post(`${API_BASE_URL}/api/department_name_handler/`,formData);
 
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Form submitted successfully:", result);
+      if (response.data) {
         fetch(`${API_BASE_URL}/api/department_name_handler/`)
           .then((response) => response.json())
           .then((data) => {
             setDepartmentNames(data);
           });
-      } else {
-        console.error("Form submission error:", response.statusText);
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -104,7 +95,7 @@ const DepartmentName = () => {
                 </thead>
                 <tbody>
                   { departmentNames.data?.map((item, index) => (
-                    <tr key={item.departmentid}>
+                    <tr key={index}>
                       <td>{index + 1}</td>
                       <td>{item.name}</td>
                       <td>{item.status ? "Yes" : "No"}</td>

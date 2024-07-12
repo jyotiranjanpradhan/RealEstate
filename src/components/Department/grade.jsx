@@ -1,24 +1,23 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
 const Grade = () => {
   const [grades, setGrades] = useState([]);
   const [levels, setLevels] = useState([]);
   const [level, setLevel] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("Yes");
+  const [status, setStatus] = useState("true");
   const API_BASE_URL = process.env.REACT_APP_URL_BASE;
   useEffect(() => {
     const fetchAllGrades = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `${API_BASE_URL}/api/department_grade_handler/`
         );
-
-        if (response.ok) {
-          const result = await response.json();
-          setGrades(result.data);
-        } else {
-          console.error(response.statusText);
+console.log(response.data);
+        if (response.data) {
+          
+          setGrades(response.data);
         }
       } catch (error) {
         console.error(error);
@@ -26,21 +25,20 @@ const Grade = () => {
     };
     const fetchAllLevels = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `${API_BASE_URL}/api/department_label_handler/`
         );
-        if (response.ok) {
-          const result = await response.json();
-          setLevels(result);
-        } else {
-          console.error(response.statusText);
+        if (response.data) {
+         
+          setLevels(response.data);
         }
       } catch (error) {
         console.error(error);
       }
     };
-    fetchAllLevels();
     fetchAllGrades();
+    fetchAllLevels();
+   
   }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,9 +46,9 @@ const Grade = () => {
       return;
     }
     const formData = {
-      label_id: level,
-      grade_description: description,
-      status,
+      "label": level,
+      "grade_description": description,
+      "status":status,
     };
     try {
       const response = await fetch(
@@ -121,9 +119,9 @@ const Grade = () => {
                     {grades?.map((item, index) => (
                       <tr key={index}>
                         <td>{index + 1}</td>
-                        <td>{item.label_id}</td>
+                        <td>{item.label}</td>
                         <td>{item.grade_description}</td>
-                        <td>{item.status ? "Yes" : "No"}</td>
+                        <td>{item.status }</td>
                         <td>
                           <a
                             href=""
@@ -213,8 +211,8 @@ const Grade = () => {
                             name="status"
                             className="form-check-input"
                             type="radio"
-                            value="Yes"
-                            checked={status === "Yes"}
+                            value="true"
+                            checked={status === "true"}
                             onChange={(e) => setStatus(e.target.value)}
                           />
                           <label
@@ -229,8 +227,8 @@ const Grade = () => {
                             name="status"
                             className="form-check-input"
                             type="radio"
-                            value="No"
-                            checked={status === "No"}
+                            value="false"
+                            checked={status === "false"}
                             onChange={(e) => setStatus(e.target.value)}
                           />
                           <label

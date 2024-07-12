@@ -69,6 +69,7 @@ export async function createBranchInfo(data) {
   console.log(data);
   try {
     const {
+      branch_id,
       letter_header,
       letter_footer,
       contact_name,
@@ -81,6 +82,7 @@ export async function createBranchInfo(data) {
     const branch_brand = {
       letter_header,
       letter_footer,
+      "brand_branch_id":branch_id
     };
     const branch_contact = {
       name: contact_name,
@@ -88,6 +90,7 @@ export async function createBranchInfo(data) {
       role: contact_role,
       email: contact_email,
       phone: contact_phone,
+      "contact_branch_id":branch_id
     };
     const branch_details = details;
 
