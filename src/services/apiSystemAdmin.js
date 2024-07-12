@@ -130,7 +130,7 @@ export const createCompanyInfo= async (data)=>{
   try {
     const response =await axios.post(`${process.env.REACT_APP_URL_BASE}/api/system_company_details_handler/`,data, {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type':'multipart/form-data',
     },
       }) ;
     console.log(response);
