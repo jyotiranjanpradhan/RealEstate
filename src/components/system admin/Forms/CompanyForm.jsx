@@ -52,10 +52,32 @@ const social_icon=useRef(null);
       "name": social_details_name,
       company_id: companyId,
     };
+    const company_detail={
+      "name":name,
+        "alias":name,
+        "company_size":company_size,
+        "incorporation_no":incorporationNo,
+        "incorporation_agency":incorporation_agency,
+        "date":date,
+        "PAN":PAN,
+        "country":country,
+        "state":state,
+        "city":city,
+        "pincode":pincode,
+        "address":address,
+        "registered_office_details":registered_office_details,
+        "email":email,
+        "companyid":companyId,
+        "mobileno":mobileno,
+       "TAX_certificate":"abc"
+    }
     
 
     if (brand_logo?.current?.files?.[0] !== undefined) {
       brandDetail.brand_logo = brand_logo.current.files[0];
+    }
+    if (brand_logo?.current?.files?.[0] !== undefined) {
+      company_detail.certificate = brand_logo.current.files[0];
     }
     if (favicon?.current?.files?.[0] !== undefined) {
       brandDetail.favicon = favicon.current.files[0];
@@ -72,26 +94,7 @@ const social_icon=useRef(null);
 
 
     const newdata = {
-      company_detail:{
-        "name":name,
-        "alias":name,
-        "company_size":company_size,
-        "incorporation_no":incorporationNo,
-        "incorporation_agency":incorporation_agency,
-        "date":date,
-        "PAN":PAN,
-        "country":country,
-        "state":state,
-        "city":city,
-        "pincode":pincode,
-        "address":address,
-        "registered_office_details":registered_office_details,
-        "email":email,
-        "companyid":companyId,
-        "mobileno":mobileno,
-         "certificate":brand_logo.current ?.files[0],
-       "TAX_certificate":"abc"
-      },
+      company_detail:company_detail,
       brand_detail:brandDetail,
       business_detail: {
         address: business_address,
