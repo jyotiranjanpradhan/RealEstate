@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useAddBranchInfo } from "./../../../hooks/systemAdmin/useAddBranchInfo";
 import { Link } from "react-router-dom";
+import { useGetDropDowns } from "../../../hooks/useGetDropDowns";
 function BranchInfoForm() {
   const { isPending, mutate, reset } = useAddBranchInfo();
+  const { dropDowns } = useGetDropDowns("system_branch_type_handler");
+  console.log(dropDowns);
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
@@ -18,7 +21,7 @@ function BranchInfoForm() {
         </h5>
         <div className="mb-2 text-end">
           <Link
-            to=""
+            to="/systemAdmin/branchInfo"
             className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
@@ -138,6 +141,19 @@ function BranchInfoForm() {
                           </div>
                         </div>
                         
+                        <select
+                          id="branch_type"
+                          {...register("branch_type")}
+                          className="select2 form-select form-select-lg"
+                          data-allow-clear="true"
+                        >
+                          <option>branch type</option>
+                          {dropDowns?.map((el) => (
+                            <option value={el.id}>{el.type_name}</option>
+                          ))}
+                        </select>
+
+                        <label for="Branch Type<">Branch Type</label>
                       </div>
                     </div>
 
@@ -193,20 +209,20 @@ function BranchInfoForm() {
                         </label>
                       </div>
                     </div>
-                    {/* <div className="col-md-3">
-                    <div className="form-floating form-floating-outline">
-                      <input
-                        type="file"
-                        className="form-control"
-                        id="incorporation_details"
-                        {...register("incorporation_details")}
-                        required=""
-                      />
-                      <label for="basic-default-upload-file">
-                        Incorporation Certificate
-                      </label>
+                    <div className="col-md-3">
+                      <div className="form-floating form-floating-outline">
+                        <input
+                          type="file"
+                          className="form-control"
+                          id="incorporation_certificate"
+                          {...register("incorporation_certificate")}
+                          required=""
+                        />
+                        <label for="basic-default-upload-file">
+                          Incorporation Certificate
+                        </label>
+                      </div>
                     </div>
-                  </div> */}
 
                     <div className="col-md-4">
                       <div className="form-floating form-floating-outline">
@@ -426,7 +442,7 @@ function BranchInfoForm() {
                       <div className="card-body">
                         <div className="d-flex align-items-start align-items-sm-center gap-4">
                           <img
-                            src="assets/img/avatars/suryalogo.png"
+                            src="./../../../suryalogo.png"
                             alt="user-avatar"
                             className="d-block w-px-120 h-px-120 rounded"
                             id="uploadedAvatar"
@@ -446,6 +462,7 @@ function BranchInfoForm() {
                                 id="letter_header"
                                 {...register("letter_header")}
                                 className="account-file-input"
+                                hidden=""
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
@@ -461,7 +478,7 @@ function BranchInfoForm() {
                       <div className="card-body">
                         <div className="d-flex align-items-start align-items-sm-center gap-4">
                           <img
-                            src="assets/img/icons/brands/fac.png"
+                            src="./../../fac.png"
                             alt="user-avatar"
                             className="d-block w-px-120 h-px-120 rounded"
                             id="uploadedAvatar"
@@ -481,6 +498,7 @@ function BranchInfoForm() {
                                 id="letter_footer"
                                 {...register("letter_footer")}
                                 className="account-file-input"
+                                hidden=""
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
@@ -589,6 +607,7 @@ function BranchInfoForm() {
                   </div>
                   <div className="col-12 d-flex justify-content-between">
                     <button
+                      type="button"
                       className="btn btn-primary waves-effect waves-light"
                       data-repeater-create=""
                     >

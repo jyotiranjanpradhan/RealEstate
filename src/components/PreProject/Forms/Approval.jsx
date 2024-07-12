@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Buttons from "./../Buttons";
+import { useGetDropDowns } from "../../../hooks/useGetDropDowns";
 
 function Approval({ register }) {
   const [show, setShow] = useState(true);
+  const { dropDowns } = useGetDropDowns("employee_management_handler");
+
   return (
     <>
       <h6 className="mt-3 mb-4 text-primary">Approvals</h6>
@@ -96,9 +99,12 @@ function Approval({ register }) {
                     {...register("employee")}
                     className="form-select"
                   >
-                    <option value="Employeet">Employeet</option>
-                    <option value="Demo">Demo</option>
-                    <option value="Demo">Demo</option>
+                    <option value="Employeet">Employee</option>
+                    {dropDowns?.map((el) => (
+                      <option value={el.company_profile.empid}>
+                        {el.company_profile.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>

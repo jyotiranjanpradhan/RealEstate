@@ -1,12 +1,16 @@
 import { useForm } from "react-hook-form";
 import { useAddTeam } from "../../hooks/teamManagement/useAddTeam";
 import { useGetTeam } from "../../hooks/teamManagement/useGetTeam";
+import { useGetDropDowns } from "../../hooks/useGetDropDowns";
 
 function TeamManagement() {
   const { isPending, mutate } = useAddTeam();
   const { isLoading, team } = useGetTeam();
-
-  console.log(team);
+  const { dropDowns } = useGetDropDowns("department_name_handler");
+  const { dropDowns: dropDownTeam } = useGetDropDowns(
+    "employee_management_handler"
+  );
+  console.log(dropDowns);
   const { register, handleSubmit, reset } = useForm();
 
   function onSubmit(data) {
@@ -34,11 +38,10 @@ function TeamManagement() {
                       className="select2 form-select form-select-lg"
                       data-allow-clear="true"
                     >
-                      <option value="Engineering">Engineering</option>
-                      <option value="Department2">Department2</option>
-                      <option value="Department3">Department3</option>
-                      <option value="Department4">Department4</option>
-                      <option value="Department5">Department5</option>
+                      <option>department</option>
+                      {dropDowns?.map((el) => (
+                        <option value={el.departmentid}>{el.name}</option>
+                      ))}
                     </select>
                     <label htmlFor="Department">Department</label>
                   </div>
@@ -82,11 +85,11 @@ function TeamManagement() {
                       >
                         <optgroup label="Team Members">
                           <option value="TM">Team Members</option>
-                          <option value="Alice">Team Members2</option>
-                          <option value="TM">Team Members3</option>
-                          <option value="TM">Team Members4</option>
-                          <option value="TM">Team Members5</option>
-                          <option value="TM">Team Members6</option>
+                          {dropDownTeam?.map((el) => (
+                            <option value={el.company_profile.empid}>
+                              {el.company_profile.name}
+                            </option>
+                          ))}
                         </optgroup>
                       </select>
                       <span

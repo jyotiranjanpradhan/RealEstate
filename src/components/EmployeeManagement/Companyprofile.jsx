@@ -1,7 +1,20 @@
 import React, { useState, useRef } from "react";
 import Select from "react-select";
 import { apiFeetchCompanyProfile } from "../../services/EmpManagement/apiCompanyProfile";
+import { useGetDropDowns } from "../../hooks/useGetDropDowns";
 const CompanyProfile = () => {
+  const { dropDowns: designations } = useGetDropDowns(
+    "department_designation_handler"
+  );
+  const { dropDowns: departmentName } = useGetDropDowns(
+    "department_name_handler"
+  );
+  const { dropDowns: branchType } = useGetDropDowns(
+    "system_branch_type_handler"
+  );
+  const { dropDowns: grades } = useGetDropDowns("department_grade_handler");
+  const { dropDowns: levels } = useGetDropDowns("department_label_handler");
+
   const employeeName = useRef(null);
   const employeeId = useRef(null);
   const photo = useRef(null);
@@ -38,8 +51,6 @@ const CompanyProfile = () => {
   const personalProfileReligion = useRef(null);
   const presentbloodgroup = useRef(null);
   const presentMedicalissue = useRef(null);
-
-
 
   const countries = [
     "Australia",
@@ -83,7 +94,7 @@ const CompanyProfile = () => {
       adhar: "",
     },
   ]);
-  
+
   const handleAddMember = () => {
     setFamilyMembers([
       ...familyMembers,
@@ -102,13 +113,13 @@ const CompanyProfile = () => {
       },
     ]);
   };
-  
+
   const handleRemoveMember = (index) => {
     const newFamilyMembers = [...familyMembers];
     newFamilyMembers.splice(index, 1);
     setFamilyMembers(newFamilyMembers);
   };
-  
+
   const handleChangeMember = (index, event) => {
     const { name, value } = event.target;
     const newFamilyMembers = [...familyMembers];
@@ -272,9 +283,9 @@ const CompanyProfile = () => {
 
     const permissionsString = permissionsArray.join(", ");
 
-    const commaSeparatedSkills =
-    selectedSkills.map(skill => skill.value).join(', ');
-   
+    const commaSeparatedSkills = selectedSkills
+      .map((skill) => skill.value)
+      .join(", ");
 
     const data = {
       company_profile: {
@@ -335,7 +346,7 @@ const CompanyProfile = () => {
         employee_id: employeeId.current?.value,
       },
       skill_level: {
-        details: commaSeparatedSkills ,
+        details: commaSeparatedSkills,
         employee_id: employeeId.current?.value,
       },
     };
@@ -411,27 +422,27 @@ const CompanyProfile = () => {
                       {[
                         {
                           label: "Branch",
-                          options: ["Branch1", "Branch2"],
+                          options: branchType,
                           ref: branch,
                         },
                         {
                           label: "Department",
-                          options: ["Department1", "Department2"],
+                          options: departmentName,
                           ref: department,
                         },
                         {
                           label: "Designation",
-                          options: ["Designation1", "Designation2"],
+                          options: designations,
                           ref: designation,
                         },
                         {
                           label: "Level",
-                          options: ["Level1", "Level2"],
+                          options: levels,
                           ref: level,
                         },
                         {
                           label: "Grade",
-                          options: ["Grade1", "Grade2"],
+                          options: grades,
                           ref: grade,
                         },
                       ].map((selectField, index) => (
@@ -443,9 +454,18 @@ const CompanyProfile = () => {
                               ref={selectField.ref}
                             >
                               <option value="">{selectField.label}</option>
-                              {selectField.options.map((option) => (
-                                <option value={option} key={option}>
-                                  {option}
+                              {selectField.options?.map((el, index) => (
+                                <option value={el.id} key={index}>
+                                  {selectField.label === "Designation" &&
+                                    el.designation}
+                                  {selectField.label === "Branch" &&
+                                    el.type_name}
+                                  {selectField.label === "Department" &&
+                                    el.name}
+                                  {selectField.label === "Level" &&
+                                    el.label_description}
+                                  {selectField.label === "Grade" &&
+                                    el.grade_description}
                                 </option>
                               ))}
                             </select>
@@ -455,6 +475,7 @@ const CompanyProfile = () => {
                           </div>
                         </div>
                       ))}
+
                       <div className="col-md-12">
                         <div className="table-responsive border rounded">
                           <table className="table">
@@ -1043,8 +1064,6 @@ const CompanyProfile = () => {
                                         name="adhar"
                                         placeholder="Adhar No"
                                         value={member.adhar}
-                                    
-                                      
                                         onChange={(e) =>
                                           handleChangeMember(index, e)
                                         }

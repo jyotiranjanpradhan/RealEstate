@@ -11,13 +11,12 @@ const Grade = () => {
     const fetchAllGrades = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/department_grade_handler/`
+          `${API_BASE_URL}/api/department_grade_handler/`
         );
 
         if (response.ok) {
           const result = await response.json();
-          setGrades(result);
-          console.log(result);
+          setGrades(result.data);
         } else {
           console.error(response.statusText);
         }
@@ -28,12 +27,11 @@ const Grade = () => {
     const fetchAllLevels = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/department_label_handler/`
+          `${API_BASE_URL}/api/department_label_handler/`
         );
         if (response.ok) {
           const result = await response.json();
           setLevels(result);
-          console.log(result);
         } else {
           console.error(response.statusText);
         }
@@ -56,7 +54,7 @@ const Grade = () => {
     };
     try {
       const response = await fetch(
-        `${API_BASE_URL}/department_grade_handler/`,
+        `${API_BASE_URL}/api/department_grade_handler/`,
         {
           method: "POST",
           headers: {
@@ -69,7 +67,7 @@ const Grade = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submitted successfully:", result);
-        fetch(`${API_BASE_URL}/department_grade_handler/`)
+        fetch(`${API_BASE_URL}/api/department_grade_handler/`)
           .then((response) => response.json())
           .then((data) => {
             setGrades(data);
@@ -106,9 +104,6 @@ const Grade = () => {
           <div className="card">
             <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
               <h5 className="mb-0">Grade :</h5>
-              {/*  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
-                    <span><i class="mdi mdi-plus me-0 me-sm-1"></i></span> Department
-                  </button> */}
             </div>
             <div className="text-nowrap p-3">
               <div className="table-responsive">

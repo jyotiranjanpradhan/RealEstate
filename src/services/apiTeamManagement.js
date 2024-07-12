@@ -20,7 +20,7 @@ export async function getTeam() {
       method: "GET",
       url: `${process.env.REACT_APP_URL_BASE}/api/team_management_handler/`,
     });
-    console.log(res.data);
+
     return res.data;
   } catch (error) {
     console.log(error);

@@ -70,8 +70,8 @@ function NewProject() {
                         className="form-select"
                       >
                         <option>Ownership Type</option>
-                        <option value="OWN"> OWN</option>
-                        <option value="Demo">Demo</option>
+                        <option value="OWN"> Owned</option>
+                        <option value="REN">Rented</option>
                       </select>
                     </div>
                   </div>
@@ -86,8 +86,9 @@ function NewProject() {
                         className="form-select"
                       >
                         <option>Project Segment</option>
-                        <option value="RES">RES</option>
-                        <option value="Demo">Demo</option>
+                        <option value="RES">Residential</option>
+                        <option value="COM">Commerical</option>
+                        <option value="IND">Industrial</option>
                       </select>
                     </div>
                   </div>
@@ -117,8 +118,9 @@ function NewProject() {
                         className="form-select"
                       >
                         <option>Project Type</option>
-                        <option value="NEW">NEW</option>
-                        <option value="Duplex">Duplex</option>
+                        <option value="NEW">New Construction</option>
+                        <option value="REN">Renovation</option>
+                        <option value="EXT">Extension</option>
                       </select>
                     </div>
                   </div>
@@ -133,7 +135,7 @@ function NewProject() {
                         id="project_area"
                         {...register("project_area")}
                         className="form-control"
-                        type="text"
+                        type="number"
                         placeholder="Project Area"
                         autocomplete="off"
                       />
@@ -144,14 +146,14 @@ function NewProject() {
                       <label for="defaultInput" className="form-label">
                         Project Description
                       </label>
-                      <input
+                      <textarea
                         id="project_description"
                         {...register("project_description")}
                         className="form-control"
                         type="text"
-                        placeholder="Project Area"
+                        placeholder="Project Description"
                         autocomplete="off"
-                      />
+                      ></textarea>
                     </div>
                   </div>
 
@@ -194,7 +196,7 @@ function NewProject() {
                     <div style={{ margin: "30px 0 0 30px" }}>
                       <button className="btn btn-outline-danger waves-effect">
                         <i class="bi bi-x-lg" style={{ fontSize: "15px" }}></i>{" "}
-                        <span style={{ marginLeft: "5PX" }}>CANCEL</span>
+                        <span style={{ marginLeft: "5PX" }}>REJECT</span>
                       </button>
                     </div>
                   </div>
@@ -208,7 +210,7 @@ function NewProject() {
                           class="bi bi-check2"
                           style={{ fontSize: "15px" }}
                         ></i>{" "}
-                        <span style={{ marginLeft: "5PX" }}>UPDATE</span>
+                        <span style={{ marginLeft: "5PX" }}>CONFIRM</span>
                       </button>
                     </div>
                   </div>

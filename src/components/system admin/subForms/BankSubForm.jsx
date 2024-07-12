@@ -1,3 +1,12 @@
+const bankAccountType = [
+  "Savings",
+  "Current",
+  "Fixed Deposit",
+  "Recurring Deposit",
+  "NRO",
+  "NRE",
+  "FCNR",
+];
 function BankSubForm({ register }) {
   return (
     <div data-repeater-list="group-a">
@@ -77,18 +86,25 @@ function BankSubForm({ register }) {
           </div>
           <div className="col-md-4">
             <div className="form-floating form-floating-outline">
-              <input
-                className="form-control"
-                type="text"
+              <select
                 id="account_type"
                 {...register("account_type")}
-                placeholder="Account Type"
-              />
+                className="select2 form-select form-select-lg"
+                data-allow-clear="true"
+              >
+                <option>account type</option>
+                {bankAccountType.map((el, index) => (
+                  <option key={index} value={el}>
+                    {el}
+                  </option>
+                ))}
+              </select>
               <label for="Account No">Account Type</label>
             </div>
           </div>
           <div className="col-md-4 col-12 d-flex align-items-center mb-0">
             <button
+              type="button"
               className="btn btn-outline-danger waves-effect"
               data-repeater-delete=""
             >

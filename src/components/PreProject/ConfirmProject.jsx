@@ -46,7 +46,9 @@ function ConfirmProject() {
                   <ConfirmProjectRow confirmProject={preProject} key={index} />
                 ))}
               </tbody>
-              {project?.length === 0 && <h2>No project create one!!!</h2>}
+              {project?.length === 0 && (
+                <h5 className="text-muted">No project create one!!!</h5>
+              )}
             </table>
           </div>
         </div>

@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { createCompanyInfo ,test} from "../../../services/apiSystemAdmin";
+import { createCompanyInfo, test } from "../../../services/apiSystemAdmin";
 import { useRef } from "react";
+import { useGetDropDowns } from "../../../hooks/useGetDropDowns";
 function CompanyForm() {
 
   const { register, handleSubmit } = useForm();
+  const { dropDowns } = useGetDropDowns("department_designation_handler");
 
   const brand_logo=useRef(null);
 const favicon=useRef(null);
@@ -14,7 +16,21 @@ const social_icon=useRef(null);
 
   function onSubmit(data) {
     const {
-      name,company_size,incorporationNo,incorporation_agency,date,PAN,country,state,city,address,registered_office_details,email,mobileno, companyId,pincode,
+      name,
+      company_size,
+      incorporationNo,
+      incorporation_agency,
+      date,
+      PAN,
+      country,
+      state,
+      city,
+      address,
+      registered_office_details,
+      email,
+      mobileno,
+      companyId,
+      pincode,
       business_address,
       contact_name,
       designation,
@@ -26,7 +42,6 @@ const social_icon=useRef(null);
       social_details_name,
       URL,
       icon,
-      
     } = data;
 
     const brandDetail = {
@@ -79,16 +94,16 @@ const social_icon=useRef(null);
       },
       brand_detail:brandDetail,
       business_detail: {
-        "address": business_address,
-        "company_id":companyId
+        address: business_address,
+        company_id: companyId,
       },
       contact_detail: {
-        "name": contact_name,
-        "designation":designation,
-        "role":role,
-        "email": contact_email,
-        "mobileno": PHONE,
-        "company_id":companyId
+        name: contact_name,
+        designation: designation,
+        role: role,
+        email: contact_email,
+        mobileno: PHONE,
+        company_id: companyId,
       },
       other_detail: {
       
@@ -99,7 +114,6 @@ const social_icon=useRef(null);
       social_detail:social_detail ,
     };
 
- 
     const formData = new FormData();
 
     
@@ -170,6 +184,7 @@ const social_icon=useRef(null);
         </h5>
         <div className="mb-2 text-end">
           <Link
+            to="/systemAdmin/companyInfo"
             className="ms-2 btn  btn-primary btn-sm waves-effect waves-light"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
@@ -649,7 +664,6 @@ const social_icon=useRef(null);
                           className="form-control"
                           type="text"
                           id="contact_name"
-                        
                           {...register("contact_name")}
                           placeholder="Name"
                         />
@@ -658,13 +672,17 @@ const social_icon=useRef(null);
                     </div>
                     <div className="col-md-4">
                       <div className="form-floating form-floating-outline">
-                        <input
-                          className="form-control"
-                          type="text"
+                        <select
                           id="designation"
                           {...register("designation")}
-                          placeholder="Designation"
-                        />
+                          className="select2 form-select form-select-lg"
+                          data-allow-clear="true"
+                        >
+                          <option>designation</option>
+                          {dropDowns?.map((el) => (
+                            <option value={el.id}>{el.designation}</option>
+                          ))}
+                        </select>
                         <label for="Designation">Designation</label>
                       </div>
                     </div>
@@ -730,18 +748,7 @@ const social_icon=useRef(null);
                             <label for="Name">Name</label>
                           </div>
                         </div>
-                        <div className="col-md-6">
-                          <div className="form-floating form-floating-outline">
-                            <input
-                              className="form-control"
-                              type="text"
-                              id="URL"
-                              placeholder="URL"
-                              {...register("URL")}
-                            />
-                            <label for="URL">URL</label>
-                          </div>
-                        </div>
+                        \
                         <div className="col-md-6">
                           <div className="card-body">
                             <div className="d-flex align-items-start align-items-sm-center gap-4">
