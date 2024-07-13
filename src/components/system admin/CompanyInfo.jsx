@@ -1,5 +1,7 @@
+import { useGetBranch } from "../../hooks/systemAdmin/useGetCompanyDetails";
 import Title from "./subItem/Title";
 function CompanyInfo() {
+  const {data}=useGetBranch();
   return (
     <>
       <Title value="Company" to="/systemAdmin/companyInfoForm" />
@@ -71,9 +73,9 @@ function CompanyInfo() {
                           colspan="1"
                           aria-sort="ascending"
                           aria-label="SL No: activate to sort column descending"
-                          style={{ width: "99.2" }}
+                          style={{ width: "25.0px" }}
                         >
-                          SL No
+                          SL No.
                         </td>
                         <td
                           className="sorting"
@@ -82,7 +84,7 @@ function CompanyInfo() {
                           rowspan="1"
                           colspan="1"
                           aria-label="Company Name: activate to sort column ascending"
-                          style={{ width: "216.2px" }}
+                          style={{ width: "100.2px" }}
                         >
                           Company Name
                         </td>
@@ -93,7 +95,7 @@ function CompanyInfo() {
                           rowspan="1"
                           colspan="1"
                           aria-label="Company ID: activate to sort column ascending"
-                          style={{ width: "172.2px" }}
+                          style={{ width: "100.2px" }}
                         >
                           Company ID
                         </td>
@@ -105,7 +107,7 @@ function CompanyInfo() {
                           rowspan="1"
                           colspan="1"
                           aria-label="Incorporation No: activate to sort column ascending"
-                          style={{ width: "225.2px" }}
+                          style={{ width: "100.2px" }}
                         >
                           Incorporation No
                         </td>
@@ -116,20 +118,22 @@ function CompanyInfo() {
                           rowspan="1"
                           colspan="1"
                           aria-label="Action: activate to sort column ascending"
-                          style={{ width: "146px" }}
+                          style={{ width: "100px" }}
                         >
                           Action
                         </td>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="odd">
-                        <td className="sorting_1">1</td>
-                        <td>Angan bashera</td>
-                        <td>1256</td>
-
-                        <td>IN1578</td>
-                        <td>
+                      {
+                        data?.data?.length>0 && data?.data?.map((company,index)=>{
+                          return (
+                            <tr key={index}>
+                              <td className="sorting_1">{index+1}</td>
+                              <td>{company.name}</td>
+                              <td>{company.companyid}</td>
+                              <td>{company.incorporation_no}</td>
+                              <td>
                           <a
                             href="companyinfo_view.php"
                             className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
@@ -149,115 +153,10 @@ function CompanyInfo() {
                             <i className="mdi mdi-pencil-outline"></i>
                           </a>
                         </td>
-                      </tr>
-                      <tr className="even">
-                        <td className="sorting_1">2</td>
-                        <td>Angan bashera</td>
-                        <td>659</td>
-
-                        <td>IN1578</td>
-                        <td>
-                          <a
-                            href="companyinfo_view.php"
-                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="View"
-                          >
-                            <i className="mdi mdi-eye"></i>
-                          </a>
-                          <a
-                            href=""
-                            className="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="Edit"
-                          >
-                            <i className="mdi mdi-pencil-outline"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr className="odd">
-                        <td className="sorting_1">3</td>
-                        <td>Angan bashera</td>
-                        <td>659</td>
-
-                        <td>IN1578</td>
-                        <td>
-                          <a
-                            href="companyinfo_view.php"
-                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="View"
-                          >
-                            <i className="mdi mdi-eye"></i>
-                          </a>
-                          <a
-                            href=""
-                            className="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="Edit"
-                          >
-                            <i className="mdi mdi-pencil-outline"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr className="even">
-                        <td className="sorting_1">4</td>
-                        <td>Angan bashera</td>
-                        <td>659</td>
-
-                        <td>IN1578</td>
-                        <td>
-                          <a
-                            href="companyinfo_view.php"
-                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="View"
-                          >
-                            <i className="mdi mdi-eye"></i>
-                          </a>
-                          <a
-                            href=""
-                            className="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="Edit"
-                          >
-                            <i className="mdi mdi-pencil-outline"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr className="odd">
-                        <td className="sorting_1">5</td>
-                        <td>Angan bashera</td>
-                        <td>659</td>
-
-                        <td>IN1578</td>
-                        <td>
-                          <a
-                            href="companyinfo_view.php"
-                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="View"
-                          >
-                            <i className="mdi mdi-eye"></i>
-                          </a>
-                          <a
-                            href=""
-                            className="btn btn-text-dark btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="Edit"
-                          >
-                            <i className="mdi mdi-pencil-outline"></i>
-                          </a>
-                        </td>
-                      </tr>
+                            </tr>
+                        )})
+                      }
+                      
                     </tbody>
                   </table>
                 </div>

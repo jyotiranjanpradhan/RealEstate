@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export async function createBoard(data) {
   try {
@@ -136,8 +137,12 @@ export const createCompanyInfo= async (data)=>{
         'Content-Type':'multipart/form-data',
     },
       }) ;
+      if (response.status===201){
+        toast.success("Company created successful");
+      }
     console.log(response);
   } catch (error) {
+    toast.error("Invalid data format");
     console.log(error);
   }
   }

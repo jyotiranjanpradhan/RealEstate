@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 export const apiFetchBranchInfo=async (data)=>{
    
     try {
@@ -8,8 +9,12 @@ export const apiFetchBranchInfo=async (data)=>{
             'Content-Type': 'multipart/form-data',
           },
         }) ;
+        if (response.status===201){
+        toast.success("Branch created successful");
+        }
       console.log(response);
     } catch (error) {
       console.log(error);
+      toast.error("Invalid input data");
     }
     }

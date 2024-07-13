@@ -293,6 +293,7 @@ const social_icon=useRef(null);
                           className="form-control"
                           type="text"
                           id="PAN"
+                          maxLength="10"
                           {...register("PAN")}
                           placeholder="PAN Details"
                         />
@@ -397,6 +398,7 @@ const social_icon=useRef(null);
                           type="number"
                           {...register("pincode")}
                           id="pincode"
+                          maxLength="6"
                           placeholder="PIN"
                         />
                         <label for="PIN">PIN</label>
@@ -448,6 +450,7 @@ const social_icon=useRef(null);
                           className="form-control"
                           type="number"
                           id="mobileno"
+                          maxLength="15"
                           {...register("mobileno")}
                           placeholder="Phone No"
                         />
@@ -719,6 +722,7 @@ const social_icon=useRef(null);
                           className="form-control"
                           type="number"
                           id="contact_no"
+                          maxLength="15"
                           placeholder="contact_no"
                           {...register("PHONE")}
                         />

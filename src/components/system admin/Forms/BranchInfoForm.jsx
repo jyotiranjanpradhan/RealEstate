@@ -5,10 +5,10 @@ import { useGetDropDowns } from "../../../hooks/useGetDropDowns";
 import { apiFetchBranchInfo } from "../../../services/SystemAdmin/apiBranchInfo";
 import axios from "axios";
 function BranchInfoForm() {
-  const { isPending, mutate, reset } = useAddBranchInfo();
+  const { isPending, mutate } = useAddBranchInfo();
   const { dropDowns } = useGetDropDowns("system_branch_type_handler");
   console.log(dropDowns);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
 
   async function onSubmit(data) {
     console.log(data);
@@ -34,7 +34,7 @@ function BranchInfoForm() {
     console.log(...formData.entries());
 
     apiFetchBranchInfo(formData);
-
+    reset();
     console.log(data);
   }
 
@@ -256,6 +256,7 @@ function BranchInfoForm() {
                           type="text"
                           name="PAN Details"
                           id="PAN"
+                          maxLength="10"
                           {...register("PAN")}
                           placeholder="PAN Details"
                         />
@@ -363,6 +364,7 @@ function BranchInfoForm() {
                           className="form-control"
                           type="text"
                           id="PIN"
+                          maxLength="6"
                           {...register("PIN")}
                           name="PIN"
                           placeholder="PIN"
@@ -418,6 +420,7 @@ function BranchInfoForm() {
                           className="form-control"
                           type="number"
                           id="phone"
+                          maxLength="15"
                           {...register("branch_phone")}
                           placeholder="Phone No"
                         />
@@ -431,6 +434,7 @@ function BranchInfoForm() {
                           className="form-control"
                           type="number"
                           id=""
+                          maxLength="15"
                           name="WhatsApp No"
                           placeholder="WhatsApp No"
                           {...register("branch_whatsapp")}
@@ -583,6 +587,7 @@ function BranchInfoForm() {
                               className="form-control"
                               type="text"
                               id="contact_phone"
+                              maxLength="15"
                               {...register("contact_phone")}
                               placeholder="Phone No"
                             />
@@ -594,6 +599,7 @@ function BranchInfoForm() {
                             <input
                               className="form-control"
                               type="text"
+                              maxLength="15"
                               {...register("contact_whatsapp")}
                               placeholder="WhatsApp No"
                             />
