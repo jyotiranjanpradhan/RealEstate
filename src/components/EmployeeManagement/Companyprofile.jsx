@@ -298,7 +298,7 @@ const CompanyProfile = () => {
         date_of_joining: dateofJoining.current?.value,
         date_of_leaving: dateofLeaving.current?.value,
         branch: branch.current?.value,
-        department: "1",
+        department: department.current?.value,
         designation: designation.current?.value,
         level: level.current?.value,
         grade: grade.current?.value,
@@ -353,6 +353,7 @@ const CompanyProfile = () => {
 
     apiFeetchCompanyProfile({ data });
   };
+  console.log(departmentName);
 
   return (
     <>

@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { json } from "react-router-dom";
+import axios from "axios";
 const Designation = () => {
   const [designations, setDesignations] = useState([]);
   const [allDepartment, setallDepartment] = useState([]);
@@ -12,6 +14,16 @@ const Designation = () => {
     edit: false,
     delete: false,
   });
+  // const getTrueRoles = () => {
+  //   return Object.keys(roles).filter(key => roles[key]);
+  // };
+
+  const getTrueRolesString = () => {
+    return Object.keys(roles)
+      .filter(key => roles[key])
+      .join(', ');
+  };
+
   const API_BASE_URL = process.env.REACT_APP_URL_BASE;
   useEffect(() => {
     const fetchAllDepartmentNames = async () => {
@@ -36,7 +48,6 @@ const Designation = () => {
         const response = await fetch(
           `${API_BASE_URL}/api/department_designation_handler/`
         );
-
         if (response.ok) {
           const result = await response.json();
           setDesignations(result.data);
@@ -51,6 +62,7 @@ const Designation = () => {
     fetchAllDepartmentNames();
     fetchAlldesignationsNames();
   }, []);
+
   const handleRoleChange = (event) => {
     const { id, checked } = event.target;
     setRoles((prevRoles) => ({
@@ -60,39 +72,36 @@ const Designation = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = {
-      dept_name_id: departmentNameId,
-      designation: designationName,
-      roles_rights: roles,
-    };
-    if (!formData.dept_name_id || !formData.designation) {
-      return;
-    }
-    try {
-      const response = await fetch(
-        `${API_BASE_URL}/api/department_designation_handler/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+    const trueRoles = getTrueRolesString();
+   
 
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Form submitted successfully:", result);
-        fetch(`${API_BASE_URL}/api/department_designation_handler/`)
-          .then((response) => response.json())
-          .then((data) => {
-            // console.log(data)
-            setDesignations(data);
-          });
-      } else {
-        console.error("Form submission error:", response.statusText);
-      }
+    event.preventDefault();
+    const dataform = {
+      dept_name: departmentNameId,
+      designation: designationName,
+      roles_rights: trueRoles,
+    };
+    console.log(dataform);
+
+    try {
+      const response = await axios.post(
+        `${API_BASE_URL}/api/department_designation_handler/`,dataform );
+console.log(response);
+     
+if (response.data) {
+ console.log("Form submitted successfully:");
+ 
+  fetch(`${API_BASE_URL}/api/department_designation_handler/`)
+    .then((response) => response.json())
+    .then((data) => {
+      
+      setDesignations(data.data);
+   
+    });
+
+} else {
+  console.error("Form submission errors:", response);
+}
     } catch (error) {
       console.error("Form submission error:", error);
     }
@@ -141,8 +150,8 @@ const Designation = () => {
                 </tr>
               </thead>
               <tbody>
-                {designations?.map((item, index) => (
-                  <tr key={item.departmentid}>
+                {designations.length && designations?.map((item, index) => (
+                  <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{item.designation}</td>
                     {/* <td>SALES</td> */}
@@ -208,8 +217,8 @@ const Designation = () => {
 
                         {allDepartment?.map((item, index) => (
                           <option
-                            key={item.departmentid}
-                            value={item.departmentid}
+                            key={item.id}
+                            value={item.id}
                           >
                             {item.name}
                           </option>

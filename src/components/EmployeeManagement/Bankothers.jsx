@@ -73,14 +73,24 @@ const Bankothers = () => {
                       </div>
                       <div className="col-sm-6">
                         <div className="form-floating form-floating-outline">
-                          <input
-                            type="text"
-                            id="account_type"
-                            {...register("account_type")}
-                            className="form-control"
+                          <select
+                          id="account_type"
+                       className="select2 form-select"
                             placeholder="Account Type"
                             aria-label=""
-                          />
+                            {...register("account_type")}
+                          >
+                          <option selected disabled >Select AccoutType</option>
+                            <option value={"Savings"}>Savings</option>
+                            <option value={"Current"}>Current</option>
+                            <option value={"Fixed Deposit"}>Fixed Deposit</option>
+                            <option value={"Recurring Deposit"}>Recurring Deposit</option>
+                            <option value={"NRO"}>NRO</option>
+                            <option value={"NRE"}>NRE</option>
+                            <option value={"FCNR"}>FCNR</option>
+
+                          </select>
+                         
                           <label htmlFor="email-vertical">Account Type</label>
                         </div>
                       </div>

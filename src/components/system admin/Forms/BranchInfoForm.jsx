@@ -2,16 +2,42 @@ import { useForm } from "react-hook-form";
 import { useAddBranchInfo } from "./../../../hooks/systemAdmin/useAddBranchInfo";
 import { Link } from "react-router-dom";
 import { useGetDropDowns } from "../../../hooks/useGetDropDowns";
+import { apiFetchBranchInfo } from "../../../services/SystemAdmin/apiBranchInfo";
+import axios from "axios";
 function BranchInfoForm() {
   const { isPending, mutate, reset } = useAddBranchInfo();
   const { dropDowns } = useGetDropDowns("system_branch_type_handler");
   console.log(dropDowns);
   const { register, handleSubmit } = useForm();
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
     console.log(data);
-    mutate(data, { onSuccess: () => reset() });
+
+    let formData = new FormData();
+
+    for (let key in data) {
+      if (data.hasOwnProperty(key)) {
+        if (data[key] instanceof FileList) {
+          for (let i = 0; i < data[key].length; i++) {
+            formData.append(key, data[key][i]);
+          }
+        } else {
+          formData.append(key, data[key]);
+        }
+      }
+    }
+
+    // Append new properties to the FormData object
+    formData.append("brand_branch_id", data.branch_id);
+    formData.append("contact_branch_id", data.branch_id);
+
+    console.log(...formData.entries());
+
+    apiFetchBranchInfo(formData);
+
+    console.log(data);
   }
+
   return (
     <div className="container-xxl flex-grow-1 container-p-y">
       <div className="card-header d-flex justify-content-between align-items-center py-2">
@@ -50,7 +76,7 @@ function BranchInfoForm() {
                           className="form-control"
                           type="text"
                           id="name"
-                          {...register("name")}
+                          {...register("branch_name")}
                           placeholder="Company Name"
                         />
                         <label for="Branch Name">Branch Name</label>
@@ -72,7 +98,7 @@ function BranchInfoForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
+                          type="number"
                           id="branch_id"
                           {...register("branch_id")}
                           placeholder="Company ID"
@@ -92,13 +118,13 @@ function BranchInfoForm() {
                               aria-hidden="true"
                               data-select2-id="9"
                             >
-                              <option disabled selected data-select2-id="11">
-                              Branch Type
+                              <option selected disabled>
+                                {" "}
+                                Branch Type
                               </option>
-                              <option value={1}>1</option>
-                              <option value="Corporate Office">
-                                Corporate Office
-                              </option>
+                              {dropDowns?.map((el) => (
+                                <option value={el.id}>{el.type_name}</option>
+                              ))}
                             </select>
                             <span
                               className="select2 select2-container select2-container--default"
@@ -122,9 +148,7 @@ function BranchInfoForm() {
                                     role="textbox"
                                     aria-readonly="true"
                                     title="Select"
-                                  >
-                                   
-                                  </span>
+                                  ></span>
                                   <span
                                     className="select2-selection__arrow"
                                     role="presentation"
@@ -140,20 +164,6 @@ function BranchInfoForm() {
                             </span>
                           </div>
                         </div>
-                        
-                        <select
-                          id="branch_type"
-                          {...register("branch_type")}
-                          className="select2 form-select form-select-lg"
-                          data-allow-clear="true"
-                        >
-                          <option>branch type</option>
-                          {dropDowns?.map((el) => (
-                            <option value={el.id}>{el.type_name}</option>
-                          ))}
-                        </select>
-
-                        <label for="Branch Type<">Branch Type</label>
                       </div>
                     </div>
 
@@ -161,7 +171,7 @@ function BranchInfoForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
+                          type="number"
                           id="size"
                           {...register("size")}
                           placeholder="Company Size"
@@ -173,7 +183,7 @@ function BranchInfoForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
+                          type="number"
                           id="incorporation_no"
                           {...register("incorporation_no")}
                           placeholder="Incorporation No"
@@ -185,7 +195,7 @@ function BranchInfoForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
+                          type="number"
                           name="Incorporation Agency"
                           id="Incorporation_age"
                           {...register("incorporation_age")}
@@ -265,7 +275,7 @@ function BranchInfoForm() {
                               data-select2-id="26"
                             >
                               <option disabled selected data-select2-id="28">
-                              Country
+                                Country
                               </option>
                               <option value="Australia">Australia</option>
                               <option value="Bangladesh">Bangladesh</option>
@@ -303,9 +313,7 @@ function BranchInfoForm() {
                                     role="textbox"
                                     aria-readonly="true"
                                     title="Select"
-                                  >
-                                   
-                                  </span>
+                                  ></span>
                                   <span
                                     className="select2-selection__arrow"
                                     role="presentation"
@@ -321,7 +329,6 @@ function BranchInfoForm() {
                             </span>
                           </div>
                         </div>
-                  
                       </div>
                     </div>
                     <div className="col-md-4">
@@ -399,7 +406,7 @@ function BranchInfoForm() {
                           className="form-control"
                           type="text"
                           id="email"
-                          {...register("email")}
+                          {...register("branch_email")}
                           placeholder="Email ID"
                         />
                         <label for="Email ID">Email ID</label>
@@ -409,27 +416,28 @@ function BranchInfoForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="text"
+                          type="number"
                           id="phone"
-                          {...register("phone")}
+                          {...register("branch_phone")}
                           placeholder="Phone No"
                         />
                         <label for="Phone No">Phone No</label>
                       </div>
                     </div>
-                    {/* <div className="col-md-4">
-                    <div className="form-floating form-floating-outline">
-                      <input
-                        className="form-control"
-                        type="text"
-                        id=""
-                        name="WhatsApp No"
-                        placeholder="WhatsApp No"
-                        autofocus=""
-                      />
-                      <label for="WhatsApp No">WhatsApp No</label>
+
+                    <div className="col-md-4">
+                      <div className="form-floating form-floating-outline">
+                        <input
+                          className="form-control"
+                          type="number"
+                          id=""
+                          name="WhatsApp No"
+                          placeholder="WhatsApp No"
+                          {...register("branch_whatsapp")}
+                        />
+                        <label for="WhatsApp No">WhatsApp No</label>
+                      </div>
                     </div>
-                  </div> */}
                   </div>
                 </div>
 
@@ -466,7 +474,7 @@ function BranchInfoForm() {
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
-                            
+
                             <div className="small">
                               Allowed JPG, GIF or PNG. Max size of 800K
                             </div>
@@ -502,7 +510,7 @@ function BranchInfoForm() {
                                 // accept="image/png, image/jpeg"
                               />
                             </label>
-                            
+
                             <div className="small">
                               Allowed JPG, GIF or PNG. Max size of 800K
                             </div>
@@ -539,7 +547,7 @@ function BranchInfoForm() {
                               className="form-control"
                               type="text"
                               id="contact_designation"
-                              {...register("contact_designation")}
+                              {...register("designation")}
                               placeholder="Designation"
                             />
                             <label for="Designation">Designation</label>
@@ -551,7 +559,7 @@ function BranchInfoForm() {
                               className="form-control"
                               type="text"
                               id="contact_role"
-                              {...register("contact_role")}
+                              {...register("role")}
                               placeholder="Role"
                             />
                             <label for="Role">Role</label>
@@ -581,39 +589,23 @@ function BranchInfoForm() {
                             <label for="Phone No">Phone No</label>
                           </div>
                         </div>
-                        {/* <div className="col-md-4">
+                        <div className="col-md-4">
                           <div className="form-floating form-floating-outline">
                             <input
                               className="form-control"
                               type="text"
-                              id=""
+                              {...register("contact_whatsapp")}
                               placeholder="WhatsApp No"
                             />
-                            <label for="WhatsApp No">WhatsApp No</label>
+                             <label for="Whatsapp No">WhatsApp No</label>
                           </div>
-                        </div> */}
-                        <div className="col-md-4 col-12 d-flex align-items-center mb-0">
-                          <button
-                            className="btn btn-outline-danger waves-effect"
-                            data-repeater-delete=""
-                          >
-                            <i className="mdi mdi-close me-1"></i>
-                            <span className="align-middle">Delete</span>
-                          </button>
                         </div>
+                        <div className="col-md-4 col-12 d-flex align-items-center mb-0"></div>
                       </div>
                       <hr />
                     </div>
                   </div>
                   <div className="col-12 d-flex justify-content-between">
-                    <button
-                      type="button"
-                      className="btn btn-primary waves-effect waves-light"
-                      data-repeater-create=""
-                    >
-                      <i className="mdi mdi-plus me-1"></i>
-                      <span className="align-middle">Add</span>
-                    </button>
                     <button
                       type="submit"
                       className="btn btn-primary btn-submit waves-effect waves-light"

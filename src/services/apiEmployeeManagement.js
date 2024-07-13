@@ -8,6 +8,7 @@ export async function createEmployeeBank(data) {
       data: data,
     });
     console.log(res);
+    console.log(process.env.REACT_APP_URL_BASE);
   } catch (error) {
     console.log(error);
     const errorMessage = Object.keys(error.response.data).join(",");

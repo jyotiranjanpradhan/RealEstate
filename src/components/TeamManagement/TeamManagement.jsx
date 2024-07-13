@@ -40,7 +40,7 @@ function TeamManagement() {
                     >
                       <option>department</option>
                       {dropDowns?.map((el) => (
-                        <option value={el.departmentid}>{el.name}</option>
+                        <option value={el.id}>{el.name}</option>
                       ))}
                     </select>
                     <label htmlFor="Department">Department</label>
