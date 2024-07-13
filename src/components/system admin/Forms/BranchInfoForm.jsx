@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useAddBranchInfo } from "./../../../hooks/systemAdmin/useAddBranchInfo";
 import { Link } from "react-router-dom";
 import { useGetDropDowns } from "../../../hooks/useGetDropDowns";
+import { apiFetchBranchInfo } from "../../../services/SystemAdmin/apiBranchInfo";
 import axios from "axios";
 function BranchInfoForm() {
   const { isPending, mutate, reset } = useAddBranchInfo();
@@ -11,21 +12,19 @@ function BranchInfoForm() {
 
   async function onSubmit(data) {
     console.log(data);
-    
+
     let formData = new FormData();
-    
-   
+
     for (let key in data) {
-        if (data.hasOwnProperty(key)) {
-        
-            if (data[key] instanceof FileList) {
-                for (let i = 0; i < data[key].length; i++) {
-                    formData.append(key, data[key][i]);
-                }
-            } else {
-                formData.append(key, data[key]);
-            }
+      if (data.hasOwnProperty(key)) {
+        if (data[key] instanceof FileList) {
+          for (let i = 0; i < data[key].length; i++) {
+            formData.append(key, data[key][i]);
+          }
+        } else {
+          formData.append(key, data[key]);
         }
+      }
     }
 
     // Append new properties to the FormData object
@@ -34,18 +33,10 @@ function BranchInfoForm() {
 
     console.log(...formData.entries());
 
-    try {
-        const response = await axios.post(`${process.env.REACT_APP_URL_BASE}/api/system_branch_handler/`, formData);
-        console.log(response);
-    } catch (error) {
-        console.log(error);
-    }
+    apiFetchBranchInfo(formData);
 
-    // Uncomment the line below if you need to call the mutate function
-    // mutate(data, { onSuccess: () => reset() });
-    
     console.log(data);
-}
+  }
 
   return (
     <div className="container-xxl flex-grow-1 container-p-y">
@@ -606,7 +597,7 @@ function BranchInfoForm() {
                               {...register("contact_whatsapp")}
                               placeholder="WhatsApp No"
                             />
-                            
+                             <label for="Whatsapp No">WhatsApp No</label>
                           </div>
                         </div>
                         <div className="col-md-4 col-12 d-flex align-items-center mb-0"></div>
