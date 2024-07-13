@@ -28,7 +28,7 @@ function BranchInfo() {
                 </tr>
               </thead>
               <tbody>
-                {branch ?.branch_details.map((branch, index) => (
+                {branch ?.branch_details?.map((branch, index) => (
                   <tr>
                   <td >{index+1}</td>
                   <td>{branch.branch_name}</td>

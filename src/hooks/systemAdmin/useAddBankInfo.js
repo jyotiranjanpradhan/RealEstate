@@ -5,9 +5,9 @@ import toast from "react-hot-toast";
 export function useAddBankInfo() {
   const { isPending, mutate } = useMutation({
     mutationFn: createBankInfo,
-    onSuccess: (data) => {
-      toast.success("Bank created successfully");
-    },
+    // onSuccess: (data) => {
+    //   toast.success("Bank created successfully");
+    // },
     onError: (error) => {
       toast.error(error.message);
     },

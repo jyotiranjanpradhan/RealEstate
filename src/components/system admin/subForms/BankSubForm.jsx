@@ -42,6 +42,7 @@ function BankSubForm({ register }) {
                 className="form-control"
                 type="text"
                 id="IFSC"
+                maxLength="10"
                 {...register("IFSC")}
                 placeholder="IFSC Code"
               />
@@ -64,8 +65,9 @@ function BankSubForm({ register }) {
             <div className="form-floating form-floating-outline">
               <input
                 className="form-control"
-                type="text"
+                type="number"
                 id="account_no"
+                maxLength="10"
                 {...register("account_no")}
                 placeholder="Account No"
               />

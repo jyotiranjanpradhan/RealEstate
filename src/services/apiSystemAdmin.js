@@ -47,9 +47,13 @@ export async function createBankInfo(data) {
       url: `${process.env.REACT_APP_URL_BASE}/api/system_bank_details_handler/`,
       data: data,
     });
+    if (res.status==201){
+      toast.success("Bank created successfully");
+    }
     console.log(res);
   } catch (error) {
     console.log(error);
+    toast.error("Invalid data input");
   }
 }
 
