@@ -13,3 +13,12 @@ export const apiFetchTax = async (data) => {
     
   }
 };
+
+export const apiGetTax = async () => {
+  const response = await axios.get(
+    `${process.env.REACT_APP_URL_BASE}/api/project_taxes_handler/`);
+ 
+  if (response ){
+    return response.data;
+  }
+};

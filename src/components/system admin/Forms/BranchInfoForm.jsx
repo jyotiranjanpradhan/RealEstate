@@ -195,7 +195,7 @@ function BranchInfoForm() {
                       <div className="form-floating form-floating-outline">
                         <input
                           className="form-control"
-                          type="number"
+                          type="TEST"
                           name="Incorporation Agency"
                           id="Incorporation_age"
                           {...register("incorporation_age")}
