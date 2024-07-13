@@ -3,15 +3,15 @@ import { Modal, Button, Table, Form, Col,Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { apiFetchTax } from '../../services/Project/apiTax';
 const Tax = () => {
-const {register,handleSubmit}=useForm();
+const {register,handleSubmit,reset}=useForm();
 
     const [showModal, setShowModal] = useState(false);
 
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
 const onSubmit=(data)=>{
-  console.log(data);
   apiFetchTax(data);
+  reset();
   handleCloseModal()
 }
   return (

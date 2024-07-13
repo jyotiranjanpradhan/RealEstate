@@ -1,10 +1,19 @@
+import { Link } from "react-router-dom";
+import { useShiftProject } from "../../hooks/preProject/useShftProject";
+
 function ConfirmProjectRow({ confirmProject }) {
+  const {deleteconfirmProject } = useShiftProject();
+  console.log(confirmProject);
+  async function deleteConfirmProject(id) {
+    deleteconfirmProject(id);
+    console.log(id);
+  }
   return (
     <tr>
       <td>{confirmProject.id}</td>
       <td>PR2024358</td>
       <td>Intitiated</td>
-      <td>2024-03-16</td>
+      <td>{confirmProject.approvals?.applyDate}</td>
       <td>{confirmProject.project_name}</td>
       <td>{confirmProject.project_type}</td>
       <td>No Vendor</td>
@@ -14,7 +23,9 @@ function ConfirmProjectRow({ confirmProject }) {
       <td>No Advisor</td>
       <td>{confirmProject.project_location}</td>
       <td>Initiated</td>
-      <td>Project is Finalized </td>
+      <td>
+        <Link to={`${process.env.REACT_APP_URL_BASE}/${confirmProject.upload_document}`}>{confirmProject.upload_document}</Link>
+      </td>
       <td>
         <button
           type="button"
@@ -42,6 +53,7 @@ function ConfirmProjectRow({ confirmProject }) {
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           data-bs-original-title="Delete"
+          onClick={() => deleteConfirmProject(confirmProject.id)}
         >
           <i className="mdi mdi-trash-can"></i>
         </a>

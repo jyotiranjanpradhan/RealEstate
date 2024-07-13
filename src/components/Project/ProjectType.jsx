@@ -2,10 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { apiFeetchProjectType } from "../../services/Project/apiProjectType";
 const ProjectType = () => {
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, watch,reset } = useForm();
 
   const onsubmit = (data) => {
     apiFeetchProjectType({data});
+    reset();
    
   };
   return (

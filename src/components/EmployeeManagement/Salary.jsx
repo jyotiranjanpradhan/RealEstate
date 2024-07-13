@@ -107,7 +107,7 @@ const Salary = () => {
                           >
                             <option>department</option>
                             {departmentName?.map((el) => (
-                              <option value={el.departmentid}>{el.name}</option>
+                              <option value={el.id}>{el.name}</option>
                             ))}
                           </select>
                           <label htmlFor="department">Department</label>

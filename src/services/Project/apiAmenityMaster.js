@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const apiFetchAminityMaster = async (data) => {
   console.log(data);
@@ -8,4 +9,8 @@ export const apiFetchAminityMaster = async (data) => {
     data
   );
   console.log(response);
+  if (response.status===201){
+    toast.success("Amenity master created successfully")
+    
+  }
 };

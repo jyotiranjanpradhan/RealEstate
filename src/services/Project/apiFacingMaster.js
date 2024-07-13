@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const apiFetchFacingMaster = async (data) => {
   console.log(data);
@@ -8,4 +9,8 @@ export const apiFetchFacingMaster = async (data) => {
     data
   );
   console.log(response);
+  if (response.status===201){
+    toast.success("Facing master created successfully")
+    
+  }
 };

@@ -2,10 +2,11 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { apiFetchFacingMaster } from '../../services/Project/apiFacingMaster';
 const FacingMaster = () => {
-const {register,handleSubmit}=useForm();
+const {register,handleSubmit,reset}=useForm();
     const onSubmit = (data) => {
       apiFetchFacingMaster(data);
-      };
+      reset();
+    };
       
   return (
     <>

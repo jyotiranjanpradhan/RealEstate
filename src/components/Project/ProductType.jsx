@@ -2,10 +2,11 @@ import React from 'react'
 import { apiFetchProductType } from '../../services/Project/apiProductType';
 import { useForm } from 'react-hook-form';
 const ProductType = () => {
-const {register,handleSubmit}=useForm();
+const {register,handleSubmit,reset}=useForm();
   const onSubmit = (data) => {
 console.log(data);
 apiFetchProductType(data);
+reset();
   };
 
   return (

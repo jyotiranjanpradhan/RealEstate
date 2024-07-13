@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const Document = () => {
   const [documents, setDocuments] = useState([
     { file: null, name: "", document_no: "", validity: "", issued_by: "" },
   ]);
+  const [errors, setErrors] = useState({});
 
   const handleAdd = () => {
     setDocuments([
@@ -24,22 +26,41 @@ const Document = () => {
     );
     setDocuments(updatedDocuments);
   };
-  console.log(documents);
 
-  const handleSubmit = async (event, documents) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    documents.forEach((doc, index) => {
+      formData.append(`files`, doc.file);
+      formData.append(`name`, doc.name);
+      formData.append(`document_no`, doc.document_no);
+      formData.append(`validity`, doc.validity);
+      formData.append(`issued_by`, doc.issued_by);
+    });
+
     try {
-      console.log(documents);
-      event.preventDefault();
       const res = await axios({
         method: "POST",
         url: `${process.env.REACT_APP_URL_BASE}/api/employee_document_handler/`,
-        data: documents,
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+
       });
+      if (res.status===201){
+        toast.success("Document submitted successfully");
+        setDocuments([
+          { file: null, name: "", document_no: "", validity: "", issued_by: "" },
+        ]);
+      }
       console.log(res);
     } catch (error) {
       console.log(error);
-      const errorMessage = Object.keys(error.response).join(",");
-      // throw new Error(`Please provide ${errorMessage}`);
+      if (error.response && error.response.data) {
+        setErrors(error.response.data);
+      }
     }
   };
   return (
@@ -94,7 +115,7 @@ const Document = () => {
                         <div className="form-floating form-floating-outline">
                           <input
                             className="form-control"
-                            type="text"
+                            type="number"
                             value={document.document_no}
                             onChange={(e) =>
                               handleChange(index, "document_no", e.target.value)

@@ -10,7 +10,7 @@ const array = [
   { value: "Nearby Master", to: "/project/nearbyMaster" },
   { value: "Facing Master", to: "/project/facingMaster" },
   { value: "Commision Setup", to: "/project/commisionSetup" },
-  { value: "Ownership Type", to: "" },
+  { value: "Ownership Type", to: "#" },
   { value: "Approval Body", to: "/project/approvalBody" },
   { value: "Tax", to: "/project/tax" },
   { value: "Project", to: "/project/" },

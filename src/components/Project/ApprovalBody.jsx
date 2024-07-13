@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Modal, Button, Table, Form, Col, Row } from 'react-bootstrap';
-import { apiFetchApporvalBody } from '../../services/Project/apiApporvalBody';
+import { apiPostApporvalBody, apiFetchApporvalBody} from '../../services/Project/apiApporvalBody';
 const ApprovalBody = () => {
   const { register, handleSubmit, reset } = useForm();
   const [showModal, setShowModal] = useState(false);
+  const [approvalBodyList, setApprovalBodyList] = useState([]);
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => {
@@ -13,10 +14,18 @@ const ApprovalBody = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
-    apiFetchApporvalBody(data);
+    apiPostApporvalBody(data);
     handleCloseModal(); 
   };
+  const fetchApprovalBodyList = async ()=> {
+    const data = await apiFetchApporvalBody();
+    setApprovalBodyList(data);
+  }
+
+  useEffect(()=>{
+   fetchApprovalBodyList();
+    
+  },[])
 
   return (
     <>
@@ -47,6 +56,20 @@ const ApprovalBody = () => {
                   </tr>
                 </thead>
                 <tbody>
+                    {
+                      approvalBodyList.map((item, index) => (
+                        <tr key={index}>
+                          <td>{index + 1}</td>
+                          <td>{item.name}</td>
+                          <td>{item.status? "Yes" : "No"}</td>
+                          <td>
+                            <Button variant="text-primary btn-sm small py-1 px-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                              <i className="mdi mdi-pencil-outline"></i>
+                            </Button>
+                          </td>
+                        </tr>
+                      ))
+                    }
                   <tr>
                     <td>1</td>
                     <td>jyoti Ranjan Pradhan</td>
@@ -57,36 +80,8 @@ const ApprovalBody = () => {
                       </Button>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>jyoti Ranjan Pradhan</td>
-                    <td>No</td>
-                    <td>
-                      <Button variant="text-primary btn-sm small py-1 px-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                        <i className="mdi mdi-pencil-outline"></i>
-                      </Button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>jyoti Ranjan Pradhan</td>
-                    <td>No</td>
-                    <td>
-                      <Button variant="text-primary btn-sm small py-1 px-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                        <i className="mdi mdi-pencil-outline"></i>
-                      </Button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>jyoti Ranjan Pradhan</td>
-                    <td>No</td>
-                    <td>
-                      <Button variant="text-primary btn-sm small py-1 px-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                        <i className="mdi mdi-pencil-outline"></i>
-                      </Button>
-                    </td>
-                  </tr>
+                  
+                
                 </tbody>
               </Table>
             </div>

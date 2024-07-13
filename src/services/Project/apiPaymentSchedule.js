@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import toast from "react-hot-toast";
 
 export const apiFetchPaymentSchudule = async (data) => {
   console.log(data.data);
@@ -8,4 +9,8 @@ export const apiFetchPaymentSchudule = async (data) => {
     data.data
   );
   console.log(response);
+  if (response.status===201){
+    toast.success("Payment schedule created successfully")
+    
+  }
 };

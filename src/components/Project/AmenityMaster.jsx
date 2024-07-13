@@ -2,9 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { apiFetchAminityMaster } from "../../services/Project/apiAmenityMaster";
 const AmenityMaster = () => {
-  const {register,handleSubmit}=useForm();
+  const {register,handleSubmit,reset}=useForm();
   const onSubmit = (data) => {
     apiFetchAminityMaster(data);
+    reset();
   };
   return (
     <>
@@ -30,11 +31,11 @@ const AmenityMaster = () => {
                         className="form-control"
                         id="amenityName"
                         name="amenityName"
-                        placeholder="jyoti Ranjan Pradhan"
+                        placeholder="Amenity master"
                         required
                         {... register("name")}
                       />
-                      <label htmlFor="amenityName">jyoti Ranjan Pradhan</label>
+                      <label htmlFor="amenityName">Amenity master</label>
                     </div>
                   </div>
                   <div className="mt-4">

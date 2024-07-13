@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { apiFetchCommissionSetup } from '../../services/Project/apiCommissionSetup';
+import { apiFetchCommissionSetup,apiFetchProductType} from '../../services/Project/apiCommissionSetup';
+import { useQuery } from '@tanstack/react-query';
 const CommissionSetup = () => {
-    const {register,handleSubmit,watch}= useForm();
+  const [productTypes, setProductTypes] = useState([]);
+    const {register,handleSubmit,reset}= useForm();
     const onSubmit = (data) => {
        console.log(data);
        apiFetchCommissionSetup(data);
+       reset();
       };
-     
+     const FetchProductType = async()=> {
+       const data = await apiFetchProductType();
+       setProductTypes(data?.data);
+     }
+    
+      // Additional debugging to see state updates
+      useEffect(() => {
+        console.log('Product types state updated:', productTypes);
+        FetchProductType();
+      }, []);
   return (
     <>
 <div className="container-xxl flex-grow-1 container-p-y">
@@ -22,12 +34,13 @@ const CommissionSetup = () => {
                 <div className="col-md-4">
                   <div className="form-floating form-floating-outline">
                     <select id="productType" className="select2 form-select" required {...register("product_type")}>
-                      <option value="1">jyoti</option>
-                      <option value="2">jyoti</option>
-                      <option value="3">jyoti</option>
-                      <option value="4">jyoti</option>
-                      <option value="5">jyoti</option>
-                      <option value="6">jyoti</option>
+                      <option value="1" selected disabled>Select Product type</option>
+                      {productTypes.length > 0 && productTypes.map((productType,index) => {
+                        console.log(productType);
+                        return <option key={index} value={productType?.id}>{productType?.name}</option> 
+                         }) 
+                         
+                      }
                     </select>
                     <label htmlFor="productType">Product Type</label>
                   </div>

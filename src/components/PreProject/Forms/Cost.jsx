@@ -32,7 +32,7 @@ function Cost({ register }) {
                     id="cost"
                     {...register("cost")}
                     className="form-control"
-                    type="text"
+                    type="number"
                     placeholder="Cost"
                     autocomplete="off"
                   />

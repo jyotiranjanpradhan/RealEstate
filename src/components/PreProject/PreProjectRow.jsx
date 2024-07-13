@@ -2,12 +2,16 @@ import axios from "axios";
 import { useShiftProject } from "../../hooks/preProject/useShftProject";
 
 function PreProjectRow({ project }) {
-  const { isPending, shiftProject } = useShiftProject();
+  const { isPending, shiftProject,deleteProject } = useShiftProject();
 
   console.log(project);
 
   async function confirmProject(id) {
     shiftProject(id);
+  }
+  async function deletePreProject(e,id) {
+    e.preventDefault();
+    deleteProject(id);
   }
 
   return (
@@ -53,6 +57,7 @@ function PreProjectRow({ project }) {
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           data-bs-original-title="Delete"
+          onClick={(e) => deletePreProject(e,project.id)}
         >
           <i className="mdi mdi-trash-can"></i>
         </a>

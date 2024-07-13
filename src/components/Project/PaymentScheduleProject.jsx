@@ -2,10 +2,11 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { apiFetchPaymentSchudule } from '../../services/Project/apiPaymentSchedule';
 const PaymentScheduleProject = () => {
-const {register,handleSubmit}=useForm();
+const {register,handleSubmit,reset}=useForm();
     const onSubmit = (data) => {
       console.log(data);
       apiFetchPaymentSchudule({data})
+      reset();
       };
     
 

@@ -1,11 +1,12 @@
 import React from 'react'
-import { apiFetchProductType } from '../../services/Project/apiProductType';
 import { useForm } from 'react-hook-form';
+import { apiFetchRaiseCostType } from '../../services/Project/apiRaiseCostType';
 const RaiseCostType = () => {
-const {register,handleSubmit}=useForm();
+const {register,handleSubmit,reset}=useForm();
     const onSubmit = (data) => {
        console.log(data);
-       apiFetchProductType(data);
+       apiFetchRaiseCostType(data);
+       reset();
       };
       
   return (

@@ -145,7 +145,7 @@ function Approval({ register }) {
                     id="validity"
                     {...register("validity")}
                     className="form-control"
-                    type="text"
+                    type="number"
                     placeholder="Validity No"
                     autocomplete="off"
                   />

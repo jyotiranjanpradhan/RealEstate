@@ -79,14 +79,47 @@ export async function getPreProject() {
 }
 
 export async function shiftProject(id) {
+  console.log(id);
   try {
     console.log(id);
     const res = await axios({
-      method: "DELETE",
-      url: `${process.env.REACT_APP_URL_BASE}/api/pre_project_new_handler/`,
-      data: {
-        id,
-      },
+      method: "POST",
+      url: `${process.env.REACT_APP_URL_BASE}/api/confirm_project_handler/${id}/`,
+      // data: {
+      //   id,
+      // },
+    });
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}
+export async function deleteProjectAPI(id) {
+  console.log(id);
+  try {
+    console.log(id);
+    const res = await axios({
+      method: "POST",
+      url: `${process.env.REACT_APP_URL_BASE}/api/delete_pre_project_handler/${id}/`,
+      // data: {
+      //   id,
+      // },
+    });
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}
+export async function deleteConfirmProjectAPI(id) {
+  console.log(id);
+  try {
+    console.log(id);
+    const res = await axios({
+      method: "POST",
+      url: `${process.env.REACT_APP_URL_BASE}/api/delete_confirm_project_handler/${id}/`,
+      // data: {
+      //   id,
+      // },
     });
     console.log(res);
   } catch (error) {

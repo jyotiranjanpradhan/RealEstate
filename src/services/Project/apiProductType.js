@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import toast from "react-hot-toast";
 
 export const apiFetchProductType = async (data) => {
   console.log(data);
@@ -8,4 +9,8 @@ export const apiFetchProductType = async (data) => {
     data
   );
   console.log(response);
+  if (response.status===201){
+    toast.success("Product type created successfully")
+    
+  }
 };
