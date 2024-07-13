@@ -3,8 +3,9 @@ import BranchRow from "./subItem/BranchRow";
 import Title from "./subItem/Title";
 
 function BranchInfo() {
+  const slno=1
   const { isPending, branch } = useGetBranch();
-  console.log(branch);
+  console.log(branch ?.branch_details);
   return (
     <>
       <Title value="Branch Info" to="/systemAdmin/branchInfoForm" />
@@ -27,9 +28,17 @@ function BranchInfo() {
                 </tr>
               </thead>
               <tbody>
-                {/* {branch?.map((branch, index) => (
-                  <BranchRow branch={branch} key={index} />
-                ))} */}
+                {branch ?.branch_details.map((branch, index) => (
+                  <tr>
+                  <td >{index+1}</td>
+                  <td>{branch.branch_name}</td>
+                  <td>{branch.branch_id}</td>
+                  <td>{branch.branch_type}</td>
+                  <td>{branch.incorporation_no}</td>
+                  <td>{branch.incorporation_age}</td>
+                  <td>Action</td>
+                </tr>
+                ))}
               </tbody>
             </table>
           </div>

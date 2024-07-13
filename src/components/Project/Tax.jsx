@@ -1,8 +1,21 @@
-import React , {useState} from 'react'
+import React , {useState,useEffect} from 'react'
 import { Modal, Button, Table, Form, Col,Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { apiFetchTax } from '../../services/Project/apiTax';
+import { apiFetchTax,apiGetTax } from '../../services/Project/apiTax';
 const Tax = () => {
+  const [taxData,setTaxData]=useState([]);
+
+  const fetchTaxData = async () => {
+      try {
+        const data = await apiGetTax();
+        setTaxData(data);
+      } catch (error) {
+        console.error("Error fetching tax data:", error);
+      }
+    };
+
+    fetchTaxData();
+
 const {register,handleSubmit,reset}=useForm();
 
     const [showModal, setShowModal] = useState(false);
@@ -13,7 +26,9 @@ const onSubmit=(data)=>{
   apiFetchTax(data);
   reset();
   handleCloseModal()
+  fetchTaxData()
 }
+console.log(taxData);
   return (
    <>
 <div className="container-xxl flex-grow-1 container-p-y">
@@ -40,6 +55,8 @@ const onSubmit=(data)=>{
           <div className="table-responsive">
             <Table bordered id="all_request_table">
               <thead className="table-secondary">
+
+
                 <tr>
                   <th>SL No</th>
                   <th>Tax Name</th>
@@ -49,11 +66,15 @@ const onSubmit=(data)=>{
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>01</td>
-                  <td>GST</td>
-                  <td>56</td>
-                  <td>No</td>
+              
+
+              {
+                taxData?.map((data,index)=>(
+                <tr key={index}>
+                  <td>{data.id}</td>
+                  <td>{data.name}</td>
+                  <td>{data.amount}</td>
+                  <td>{data.status ? 'True' : 'False'}</td>
                   <td>
                     <a
                       href=""
@@ -75,58 +96,7 @@ const onSubmit=(data)=>{
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>02</td>
-                  <td>GST</td>
-                  <td>56</td>
-                  <td>No</td>
-                  <td>
-                    <a
-                      href=""
-                      className="btn btn-text-primary btn-sm small py-1 px-2"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Edit"
-                    >
-                      <i className="mdi mdi-pencil-outline"></i>
-                    </a>
-                    <a
-                      href=""
-                      className="btn btn-text-danger btn-sm small py-1 px-2"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Delete"
-                    >
-                      <i className="mdi mdi-trash-can"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>03</td>
-                  <td>GST</td>
-                  <td>56</td>
-                  <td>No</td>
-                  <td>
-                    <a
-                      href=""
-                      className="btn btn-text-primary btn-sm small py-1 px-2"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Edit"
-                    >
-                      <i className="mdi mdi-pencil-outline"></i>
-                    </a>
-                    <a
-                      href=""
-                      className="btn btn-text-danger btn-sm small py-1 px-2"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Delete"
-                    >
-                      <i className="mdi mdi-trash-can"></i>
-                    </a>
-                  </td>
-                </tr>
+              ))}
               </tbody>
             </Table>
           </div>
