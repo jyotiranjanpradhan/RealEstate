@@ -5,7 +5,7 @@ import { adminView, useGetAdminData } from "../../hooks/Dashboard/useAdminView";
 const Dashboard = () => {
   
   //user Profile 
-const[userProfileName,setUserProfileName]=useState("Abcd")
+const[userProfileName,setUserProfileName]=useState("Admin")
 const[userProfileDepartment,setUserProfileDepartment]=useState("IT")
 const[userProfileContact,setUserProfileContact]=useState("7978969958")
 const[userProfileEmail,setUserProfileEmail]=useState("xyz@gmail.com")
