@@ -1,7 +1,12 @@
 import React from "react";
 import apartmentimg from "../assets/Project/Apartment.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useProjectDetails, useProjectPaymentScheduleDetails } from "../../hooks/Project/useProjectDetails";
 const ProjectDetails = () => {
+  const {id} = useParams();
+  const { isLoading, project, error, } = useProjectDetails(id);
+  const { payment_schedule, error: paymentError, isLoading: paymentLoading } = useProjectPaymentScheduleDetails(id);
+  console.log(payment_schedule);
   return (
     <>
       <div className="container-xxl flex-grow-1 container-p-y">
@@ -33,11 +38,42 @@ const ProjectDetails = () => {
                     </p>
                   </div>
                   <div>
-                    <h6 className="mb-2">
+                  <h6 className="mb-2">
                       <span className="fw-normal me-1 text-secondary">
-                        Project Details :
+                        Project Id : {project?.id}
                       </span>
                     </h6>
+                    <h6 className="mb-2">
+                      <span className="fw-normal me-1 text-secondary">
+                        Project Name : {project?.project_name}
+                      </span>
+                    </h6>
+                    <h6 className="mb-2">
+                      <span className="fw-normal me-1 text-secondary">
+                        Project Location : {project?.project_location}
+                      </span>
+                    </h6>
+                    <h6>
+                      <span className="fw-normal me-1 text-secondary">
+                        Ownership Type : {project?.ownership_type}
+                      </span>
+                      </h6>
+                      <h6>
+                      <span className="fw-normal me-1 text-secondary">
+                        Project Area : {project?.project_area}Sq.ft.
+                      </span>
+                      </h6>
+                     <h6>
+                     <span className="fw-normal me-1 text-secondary">
+                        Project Type : {project?.project_type}
+                      </span>
+                     </h6>
+                      <h6>
+                      <span className="fw-normal me-1 text-secondary">
+                        Descriptions : {project?.project_description}
+                      </span>
+                      </h6>
+                      
                   </div>
                 </div>
                 <div className="col-sm-7 d-flex justify-content-end align-items-end">
@@ -68,7 +104,7 @@ const ProjectDetails = () => {
                         </tr>
                         <tr>
                           <td>Total Land Area</td>
-                          <td>2500</td>
+                          <td>{project?.project_area}</td>
                         </tr>
                         <tr>
                           <td>Total Build Area</td>
@@ -155,7 +191,7 @@ const ProjectDetails = () => {
                 <h5 className="mb-0">Payment Schedule</h5>
                 <div>
                   <Link
-                    to={"/project/addpayment"}
+                    to={`/project/addpayment/${project?.id}`}
                     className="btn btn-primary btn-sm text-capitalize waves-effect waves-light"
                   >
                     <span className="mdi mdi-plus"></span> Add
@@ -174,21 +210,24 @@ const ProjectDetails = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>3rd Installment</td>
-                        <td>100000</td>
-                        <td>
-                          <a
-                            href="#"
-                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="Edit"
-                          >
-                            <i className="mdi mdi-pencil-outline"></i>
-                          </a>
-                          <a
+                      {
+                        payment_schedule?.length>0 && payment_schedule?.map((payment,index)=> {
+                          return (
+                            <tr key={index}>
+                              <td>{index+1}</td>
+                              <td>{payment.title}</td>
+                              <td>{payment.value}</td>
+                              <td>
+                                <a
+                                  href="#"
+                                  className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                                  data-bs-toggle="tooltip"
+                                  data-bs-placement="top"
+                                  data-bs-original-title="Edit"
+                                >
+                                  <i className="mdi mdi-pencil-outline"></i>
+                                </a>
+                                <a
                             href="#"
                             className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
@@ -198,7 +237,10 @@ const ProjectDetails = () => {
                             <span className="mdi mdi-trash-can-outline"></span>
                           </a>
                         </td>
-                      </tr>
+                      </tr>)
+                        })
+                      }
+                      
                     </tbody>
                   </table>
                 </div>

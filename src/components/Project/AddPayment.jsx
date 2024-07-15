@@ -1,13 +1,24 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { apiFetchAddAmenity } from '../../services/Project/addPayment';
+import { apiFetchAddPayments } from '../../services/Project/addPayment';
+import { useParams } from 'react-router-dom';
+
+
 const AddPayment = () => {
-  const {register,handleSubmit}=useForm();
+  const {register,handleSubmit,reset}=useForm();
+const {id}=useParams();
+function onSubmit(data) {
+  const formData = new FormData();
 
-  function onSubmit(data){
-    apiFetchAddAmenity(data);
-  }
+  formData.append("title", data.title);
+  formData.append("value", data.value);
+  formData.append("description", data.description);
+  formData.append("confirm_project_id", id);
 
+  apiFetchAddPayments(formData);
+  reset();
+}
+console.log(id);
   return (
     <>
        <div className="container-xxl flex-grow-1 container-p-y">
@@ -65,6 +76,7 @@ const AddPayment = () => {
                       <label>Description</label>
                     </div>
                   </div>
+                 
                 </div>
                 <button className="btn btn-primary ms-auto waves-effect waves-light mt-2">Submit</button>
               </form>

@@ -256,11 +256,11 @@ const App = () => {
             <Route path="/project/tax" element={<Tax />} />
             <Route path="/project/" element={<ProjectList />} />
             <Route
-              path="/project/projectdetails"
+              path="/project/projectdetails/:id"
               element={<ProjectDetails />}
             />
             <Route path="/project/addproduct" element={<AddProduct />} />
-            <Route path="/project/addpayment" element={<AddPayment />} />
+            <Route path="/project/addpayment/:id" element={<AddPayment />} />
             <Route path="/project/addAmenity" element={<AddAmenity />} />
             <Route
               path="/project/projecthouselist"

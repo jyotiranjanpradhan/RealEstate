@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { adminView, useGetAdminData } from "../../hooks/Dashboard/useAdminView";
 
 const Dashboard = () => {
   
@@ -93,6 +94,16 @@ const[XBOXSeriesXConversion,setXBOXSeriesXConversion]=useState("-21")
 const[NintendoSwitchRevenue,setNintendoSwitchRevenue]=useState("10.4")
 const[NintendoSwitchConversion,setNintendoSwitchConversion]=useState("+38")
 // const[]=useState()
+const {adminData}=useGetAdminData();
+// console.log(adminData[0]);
+useEffect(() => {
+  if (adminData && adminData.length >= 0) {
+    setUserProfileDesignation(adminData[2]);
+    setUserProfileDepartment(adminData[3]);
+    setUserProfileContact(adminData[1]);
+    setUserProfileEmail(adminData[5]);
+  }
+}, [adminData]);
   return (
     <>
       <div className="container-xxl flex-grow-1 container-p-y">
