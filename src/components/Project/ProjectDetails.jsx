@@ -7,6 +7,7 @@ const ProjectDetails = () => {
   const { isLoading, project, error, } = useProjectDetails(id);
   const { payment_schedule, error: paymentError, isLoading: paymentLoading } = useProjectPaymentScheduleDetails(id);
   console.log(payment_schedule);
+  
   return (
     <>
       <div className="container-xxl flex-grow-1 container-p-y">
@@ -253,7 +254,7 @@ const ProjectDetails = () => {
                 <h5 className="mb-0">Amenity Master</h5>
                 <div>
                   <Link
-                  to={"/project/addAmenity"}
+                  to={`/project/addAmenity/${id}`}
                    
                     className="btn btn-primary btn-sm text-capitalize waves-effect waves-light"
                   >

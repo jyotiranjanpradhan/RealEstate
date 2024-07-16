@@ -19,3 +19,13 @@ export function useProjectPaymentScheduleDetails(id) {
   
     return { payment_schedule, error, isLoading };
   }
+
+  // export function useProjectAmentityget() {
+  //   const { data: payment_schedule, error, isLoading } = useQuery({
+  //     queryKey: ["confirm_project_id", id], // Pass the id here
+  //     queryFn: apiFetchPaymentSchedule,
+  //     enabled: !!id, // Ensure the query runs only if id is not null
+  //   });
+  
+  //   return { payment_schedule, error, isLoading };
+  // }

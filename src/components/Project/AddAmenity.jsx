@@ -3,12 +3,16 @@ import {
   apiFetchAddAmenity,
   apiFetchGetAmenity,
 } from "../../services/Project/apiAddAmenity";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddAmenity = () => {
   const [amenityTitles, setAmenityTitles] = useState([]);
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
   const imageRef = useRef(null);
+  const navigate = useNavigate();
+  const {id}= useParams();
+  console.log(id);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -21,14 +25,22 @@ const AddAmenity = () => {
     formData.append("title", title);
     formData.append("description", description);
     formData.append("image", file);
-    console.log("Form Data:");
+    formData.append("confirm_project_id", id);
+
     try {
       const response = await apiFetchAddAmenity(formData);
+      navigate(-1);
+      if (response.status === 201) {
+        // Reset input fields
+        titleRef.current.value = "";
+        descriptionRef.current.value = "";
+        imageRef.current.value = "";
+        // Optionally, you can update the state or perform other actions here
+      }
     } catch (error) {
       console.error("Error uploading data:", error);
     }
   };
-
   useEffect(() => {
     const fetchAmenities = async () => {
       try {

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const apiFetchAddAmenity=async (data)=>{
 console.log(data);
@@ -10,8 +11,12 @@ try {
       },
     }) ;
   console.log(response);
+  if(response.status===201){
+    toast.success("Amenity added successfully")
+  }
 } catch (error) {
   console.log(error);
+  toast.error("Failed to add amenity")
 }
 }
 

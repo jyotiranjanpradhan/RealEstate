@@ -155,7 +155,7 @@ if (response.data) {
                     <td>{index + 1}</td>
                     <td>{item.designation}</td>
                     {/* <td>SALES</td> */}
-                    <td>{item.dept_name_id}</td>
+                    <td>{item.dept_name}</td>
                     <td>{item.roles_rights}</td>
                     {/* <td>SALES</td> */}
                     {/* <td>SALES</td> */}

@@ -261,7 +261,7 @@ const App = () => {
             />
             <Route path="/project/addproduct" element={<AddProduct />} />
             <Route path="/project/addpayment/:id" element={<AddPayment />} />
-            <Route path="/project/addAmenity" element={<AddAmenity />} />
+            <Route path="/project/addAmenity/:id" element={<AddAmenity />} />
             <Route
               path="/project/projecthouselist"
               element={<ProjectHouseList />}
