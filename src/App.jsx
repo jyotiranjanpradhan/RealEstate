@@ -46,6 +46,8 @@ import ProjectHouseList from "./components/Project/ProjectHouseList";
 import AddProduct from "./components/Project/AddProduct";
 import AddPayment from "./components/Project/AddPayment";
 import AddAmenity from "./components/Project/AddAmenity";
+import AddCommission from "./components/Project/AddCommission";
+import AddTaxOthers from "./components/Project/AddTaxOthers";
 
 import Document from "./components/EmployeeManagement/Document";
 import Kyc from "./components/EmployeeManagement/Kyc";
@@ -262,6 +264,8 @@ const App = () => {
             <Route path="/project/addproduct" element={<AddProduct />} />
             <Route path="/project/addpayment/:id" element={<AddPayment />} />
             <Route path="/project/addAmenity/:id" element={<AddAmenity />} />
+            <Route path="/project/addCommission/:id" element={<AddCommission />} />
+            <Route path="/project/addTaxOthers/:id" element={<AddTaxOthers />} />
             <Route
               path="/project/projecthouselist"
               element={<ProjectHouseList />}

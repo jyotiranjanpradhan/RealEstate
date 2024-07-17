@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import apartmentimg from "../assets/Project/Apartment.png";
 import { Link, useParams } from "react-router-dom";
-import { useProjectDetails, useProjectPaymentScheduleDetails } from "../../hooks/Project/useProjectDetails";
+import { useProjectCommissionDetails, useProjectDetails, useProjectPaymentScheduleDetails, useProjectTaxDetails } from "../../hooks/Project/useProjectDetails";
+import { apiFetchCommissionDetails } from "../../services/Project/apiProjectDetails";
+import { apiFetchTax } from "../../services/Project/apiAddTax";
+
 const ProjectDetails = () => {
   const {id} = useParams();
   const { isLoading, project, error, } = useProjectDetails(id);
   const { payment_schedule, error: paymentError, isLoading: paymentLoading } = useProjectPaymentScheduleDetails(id);
-  console.log(payment_schedule);
-  
+  const [commissionDetails,setCommissionDetails] = useState([])
+  const [taxDetails,setTaxDetails] = useState([])
+
+  const fetchTaxDetails = async ()=>{
+    const response = await apiFetchTax(id);
+    console.log(response)
+    setTaxDetails(response.data)
+  };
+
+  useEffect(()=>{
+    const fetchCommissionDetails = async ()=>{
+      const response = await apiFetchCommissionDetails(id);
+      console.log(response)
+      setCommissionDetails(response)
+    };
+    fetchCommissionDetails()
+    fetchTaxDetails()
+  },[])
   return (
     <>
       <div className="container-xxl flex-grow-1 container-p-y">
@@ -74,7 +93,7 @@ const ProjectDetails = () => {
                         Descriptions : {project?.project_description}
                       </span>
                       </h6>
-                      
+
                   </div>
                 </div>
                 <div className="col-sm-7 d-flex justify-content-end align-items-end">
@@ -241,7 +260,7 @@ const ProjectDetails = () => {
                       </tr>)
                         })
                       }
-                      
+
                     </tbody>
                   </table>
                 </div>
@@ -255,7 +274,7 @@ const ProjectDetails = () => {
                 <div>
                   <Link
                   to={`/project/addAmenity/${id}`}
-                   
+
                     className="btn btn-primary btn-sm text-capitalize waves-effect waves-light"
                   >
                     <span className="mdi mdi-plus"></span> Add
@@ -290,30 +309,43 @@ const ProjectDetails = () => {
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Commission</h5>
+                <Link
+                  to={`/project/addCommission/${id}`}
+
+                    className="btn btn-primary btn-sm text-capitalize waves-effect waves-light"
+                  >
+                    <span className="mdi mdi-plus"></span> Add
+                  </Link>
               </div>
               <div className="text-nowrap p-3">
                 <div className="table-responsive text-nowrap">
                   <table className="table table-bordered">
                     <thead className="table-secondary">
                       <tr>
-                        <th>#</th>
+                        <th>Sl.No.</th>
                         <th>Commission</th>
                         <th>Amount</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Apartment</td>
-                        <td>10,000</td>
-                      </tr>
+                      {
+                         commissionDetails?.map((commission,index)=>{
+                          return (
+                            <tr key={index}>
+                              <td>{index+1}</td>
+                              <td>{commission?.commission}</td>
+                              <td>{commission?.amount}</td>
+                            </tr>
+                          )
+                        })
+                      }
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-sm-6 col-12 mb-4">
+          {/* <div className="col-md-6 col-sm-6 col-12 mb-4">
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Unit Type Master</h5>
@@ -349,20 +381,19 @@ const ProjectDetails = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="col-md-6 col-sm-6 col-12 mb-4">
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Tax & Other Charges</h5>
-                <div>
-                  <a
-                    href="#"
+                <Link
+                  to={`/project/addTaxOthers/${id}`}
+
                     className="btn btn-primary btn-sm text-capitalize waves-effect waves-light"
                   >
                     <span className="mdi mdi-plus"></span> Add
-                  </a>
-                </div>
+                  </Link>
               </div>
               <div className="text-nowrap p-3">
                 <div className="table-responsive text-nowrap">
@@ -375,11 +406,22 @@ const ProjectDetails = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      {
+                        taxDetails.map((tax,index)=>{
+                          return (
+                            <tr key={index}>
+                              <td>{index+1}</td>
+                              <td>{tax?.name}</td>
+                              <td>{tax?.tax_amount}</td>
+                            </tr>
+                          )
+                        })
+                      }
+                      {/* <tr>
                         <td>1</td>
                         <td>-</td>
                         <td>-</td>
-                      </tr>
+                      </tr> */}
                     </tbody>
                   </table>
                 </div>
@@ -589,7 +631,7 @@ const ProjectDetails = () => {
                   <h5 className="mb-2">Project: Angan bashera</h5>
                 </div>
                 <div className="mb-0">
-                
+
                   <a href="/project/projecthouselist" className="btn btn-info btn-sm">
 
                     View
@@ -603,7 +645,7 @@ const ProjectDetails = () => {
                   alt="Appartment"
                 />
               </div>
-             
+
             </div>
           </div>
         </div>

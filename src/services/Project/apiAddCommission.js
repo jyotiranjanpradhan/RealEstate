@@ -9,8 +9,8 @@ const formDataToJSON = (formData) => {
     });
     return jsonObject;
   };
-  
-  export const apiFetchAddPayments = async (data) => {
+
+export const apiAddCommission = async (data) => {
     console.log(data);
   
     // Convert FormData to JSON
@@ -18,7 +18,7 @@ const formDataToJSON = (formData) => {
   
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_URL_BASE}/api/project_add_payments_handler/`,
+        `${process.env.REACT_APP_URL_BASE}/api/project_add_commission_handler/`,
         jsonData,
         {
           headers: {
@@ -28,14 +28,12 @@ const formDataToJSON = (formData) => {
       );
       console.log(response);
       if(response.status==201){
-        toast.success("Payment added successfully")
+        toast.success("Commission added successfully")
         
       }else{
-        toast.error("Failed to add payment")
+        toast.error("Failed to add commission!");
       }
     } catch (error) {
       console.error('Error posting data:', error);
     }
   };
-
-  
