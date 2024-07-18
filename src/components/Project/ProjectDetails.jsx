@@ -247,7 +247,7 @@ const fetchProductPaidAmenity = async ()=> {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-sm-6 col-12 mb-4">
+          <div className="col-md-6 col-sm-6 col-12 mb-4" style={{height:"200px", overflow:"auto"}}>
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Payment Schedule</h5>
@@ -309,7 +309,7 @@ const fetchProductPaidAmenity = async ()=> {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-sm-6 col-12 mb-4">
+          <div className="col-md-6 col-sm-6 col-12 mb-4" style={{height:"200px", overflow:"auto"}}>
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Amenity Master</h5>
@@ -360,7 +360,7 @@ const fetchProductPaidAmenity = async ()=> {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-sm-6 col-12 mb-4">
+          <div className="col-md-6 col-sm-6 col-12 mb-4" style={{height:"200px", overflow:"auto"}}>
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Commission</h5>
@@ -438,7 +438,7 @@ const fetchProductPaidAmenity = async ()=> {
             </div>
           </div> */}
 
-          <div className="col-md-6 col-sm-6 col-12 mb-4">
+          <div className="col-md-6 col-sm-6 col-12 mb-4" style={{height:"200px", overflow:"auto"}}>
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Tax & Other Charges</h5>
@@ -478,7 +478,7 @@ const fetchProductPaidAmenity = async ()=> {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-sm-6 col-12 mb-4">
+          <div className="col-md-6 col-sm-6 col-12 mb-4" style={{height:"200px", overflow:"auto"}}>
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Paid Amenities</h5>
@@ -543,7 +543,7 @@ const fetchProductPaidAmenity = async ()=> {
               </div>
             </div>
           </div>
-          <div className="col-md-12 col-sm-12 col-12 mb-4">
+          <div className="col-md-12 col-sm-12 col-12 mb-4" style={{height:"200px", overflow:"auto"}}>
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Price</h5>
@@ -633,7 +633,7 @@ const fetchProductPaidAmenity = async ()=> {
               </div>
             </div>
           </div>
-          <div className="col-md-12 col-sm-12 col-12 mb-4">
+          <div className="col-md-12 col-sm-12 col-12 mb-4" style={{height:"200px", overflow:"auto"}}>
             <div className="card">
               <div className="card-header d-flex justify-content-between align-items-center bg-label-primary py-2">
                 <h5 className="mb-0">Inventory Details</h5>
