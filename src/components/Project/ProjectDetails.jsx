@@ -1,31 +1,63 @@
 import React, { useEffect, useState } from "react";
 import apartmentimg from "../assets/Project/Apartment.png";
 import { Link, useParams } from "react-router-dom";
-import { useProjectCommissionDetails, useProjectDetails, useProjectPaymentScheduleDetails, useProjectTaxDetails } from "../../hooks/Project/useProjectDetails";
-import { apiFetchCommissionDetails } from "../../services/Project/apiProjectDetails";
+import { useProjectDetails, useProjectPaymentScheduleDetails, useProjectProductDetails } from "../../hooks/Project/useProjectDetails";
+import { apiFetchCommissionDetails, apiFetchProductDetails } from "../../services/Project/apiProjectDetails";
 import { apiFetchTax } from "../../services/Project/apiAddTax";
+import { apiFetchAddAmenityDetails, apiFetchAddPaidAmenityDetails } from "../../services/Project/apiAddAmenity";
 
 const ProjectDetails = () => {
   const {id} = useParams();
   const { isLoading, project, error, } = useProjectDetails(id);
   const { payment_schedule, error: paymentError, isLoading: paymentLoading } = useProjectPaymentScheduleDetails(id);
+  const [projectProductDetails, setProjectProductDetails] = useState([])
+  const [addPaidAmenityDetails, setAddPaidAmenityDetails] = useState([])
   const [commissionDetails,setCommissionDetails] = useState([])
   const [taxDetails,setTaxDetails] = useState([])
+  const [addAmenityDetails,setAddAmenityDetails] = useState([])
 
+// Fetching the project product details
+  const fetchProjectProductDetails = async ()=>{
+    const response = await apiFetchProductDetails(id);
+    setProjectProductDetails(response)
+  };
+// Fetching Product TAX details
   const fetchTaxDetails = async ()=>{
     const response = await apiFetchTax(id);
-    console.log(response)
     setTaxDetails(response.data)
   };
+
+  // Fetching product add amenities
+  const fetchProductAddAmenty = async ()=> {
+    try {
+      const data = await apiFetchAddAmenityDetails(id);
+      setAddAmenityDetails(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+// Fetching paid amenities details
+const fetchProductPaidAmenity = async ()=> {
+  try {
+    const data = await apiFetchAddPaidAmenityDetails(id);
+    setAddPaidAmenityDetails(data);
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
   useEffect(()=>{
     const fetchCommissionDetails = async ()=>{
       const response = await apiFetchCommissionDetails(id);
-      console.log(response)
       setCommissionDetails(response)
     };
     fetchCommissionDetails()
     fetchTaxDetails()
+    fetchProjectProductDetails()
+    fetchProductAddAmenty()
+    fetchProductPaidAmenity()
   },[])
   return (
     <>
@@ -153,42 +185,50 @@ const ProjectDetails = () => {
                 <h5 className="mb-0">Product</h5>
                 <div>
                   <Link
-                    to={"/project/addproduct"}
+                    to={`/project/addproduct/${id}`}
                     className="btn btn-primary btn-sm text-capitalize waves-effect waves-light"
                   >
                     <span className="mdi mdi-plus"></span> Add
                   </Link>
                 </div>
               </div>
-              <div className="text-nowrap p-3">
+              <div className="text-nowrap p-3" style={{height:"200px", overflow:"auto"}}>
                 <div className="table-responsive text-nowrap">
                   <table className="table table-bordered">
                     <thead className="table-secondary">
                       <tr>
                         <th>#</th>
-                        <th>Category</th>
-                        <th>Qty</th>
+                        <th>Name</th>
+                        <th>Location</th>
                         <th>Area</th>
+                        <th>Qty</th>
+                        <th>Cost</th>
+                        <th>Desc</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>APARTMENT</td>
-                        <td>6</td>
-                        <td>1500</td>
-                        <td>
-                          <a
-                            href="#"
-                            className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-original-title="Edit"
-                          >
-                            <i className="mdi mdi-pencil-outline"></i>
-                          </a>
-                          <a
+                      {
+                        projectProductDetails?.map((product, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{product.name}</td>
+                            <td>{product.location}</td>
+                            <td>{product.area}</td>
+                            <td>{product.nos}</td>
+                            <td>{product.cost}</td>
+                            <td>{product.description}</td>
+                            <td>
+                              <a
+                                href="#"
+                                className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                data-bs-original-title="Edit"
+                              >
+                                <i className="mdi mdi-pencil-outline"></i>
+                              </a>
+                              <a
                             href="#"
                             className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
                             data-bs-toggle="tooltip"
@@ -198,7 +238,9 @@ const ProjectDetails = () => {
                             <span className="mdi mdi-trash-can-outline"></span>
                           </a>
                         </td>
-                      </tr>
+                      </tr>))
+                      }
+                     
                     </tbody>
                   </table>
                 </div>
@@ -293,6 +335,19 @@ const ProjectDetails = () => {
                       </tr>
                     </thead>
                     <tbody>
+                      {
+                        addPaidAmenityDetails?.length > 0 && addPaidAmenityDetails?.map((addamenity,index)=> {
+                          return (
+                            <tr key={index}>
+                              <td>{index+1}</td>
+                              <td>{addamenity?.description}</td>
+                              <td><Link to={`${process.env.REACT_APP_URL_BASE}/${addamenity?.image}`}>{addamenity?.image}</Link></td>
+                              <td>-</td>
+                            </tr>
+                            )
+                              
+                        })
+                      }
                       <tr>
                         <td>1</td>
                         <td>-</td>
@@ -417,11 +472,6 @@ const ProjectDetails = () => {
                           )
                         })
                       }
-                      {/* <tr>
-                        <td>1</td>
-                        <td>-</td>
-                        <td>-</td>
-                      </tr> */}
                     </tbody>
                   </table>
                 </div>
@@ -454,13 +504,39 @@ const ProjectDetails = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                      </tr>
+                      {
+                        addPaidAmenityDetails.map((paidAmenity,index)=>{
+                          return (
+                            <tr key={index}>
+                              <td>{index+1}</td>
+                              <td>{paidAmenity?.title}</td>
+                              <td><Link to={`${process.env.REACT_APP_URL_BASE}/${paidAmenity?.image}`}>{paidAmenity?.image}</Link></td>
+                              <td>{paidAmenity?.cost}</td>
+                              <td>
+                                  <a
+                                    href="#"
+                                    className="btn btn-text-primary btn-sm small py-1 px-2 waves-effect waves-light"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    data-bs-original-title="Edit"
+                                  >
+                                    <i className="mdi mdi-pencil-outline"></i>
+                                  </a>
+                                  <a
+                                    href="#"
+                                    className="btn btn-text-danger btn-sm small py-1 px-2 waves-effect waves-light"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    data-bs-original-title="Delete"
+                                  >
+                                    <span className="mdi mdi-trash-can-outline"></span>
+                                  </a>
+                                </td>
+                            </tr>
+                          )
+                        })
+                      }
+                      
                     </tbody>
                   </table>
                 </div>

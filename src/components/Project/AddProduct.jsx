@@ -1,12 +1,24 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useForm } from 'react-hook-form';
 import ReactQuill from 'react-quill'; // Import ReactQuill
 import 'react-quill/dist/quill.snow.css';
 import { htmlToText } from 'html-to-text';
 import { apiFetchAddProduct } from '../../services/Project/apiAddProduct';
+import { useProductSegmentDetails } from '../../hooks/Project/useProjectDetails';
+import axios from 'axios';
+import { apiFetchProductType } from '../../services/Project/apiCommissionSetup';
+import { apiFetchGetAmenity } from '../../services/Project/apiAddAmenity';
+import { useParams } from 'react-router-dom';
+
+
 const AddProduct = () => {
   const [description, setDescription] = useState('');
-  const {register,handleSubmit}=useForm();
+  const {id}=useParams();
+  const [productType, setProductType] = useState([]);
+  const [productAmenity, setProductAmenity] = useState([]);
+  const {register,handleSubmit,reset}=useForm();
+  const { product_segment } = useProductSegmentDetails();
+  console.log(product_segment);
   const modules = {
     toolbar: {
       container: '#snow-toolbar',
@@ -15,24 +27,59 @@ const AddProduct = () => {
     },
   }; 
   const descriptiontext=htmlToText(description)
- const onSubmit=(data)=>{
-  data.description=descriptiontext;
-  const formData = new FormData();
-    
-  // Append other form data
-  Object.keys(data).forEach(key => {
-    if (key !== 'layout_image') {
-      formData.append(key, data[key]);
-    }
-  });
+  const onSubmit = (data) => {
+    const descriptionText = htmlToText(description);
+    const formData = new FormData();
 
-  // Append file input
-  if (data.layout_image && data.layout_image[0]) {
-    formData.append('layout_image', data.layout_image[0]);
+    // Append other form data
+    Object.keys(data).forEach(key => {
+      if (key !== 'layout_image') {
+        formData.append(key, data[key]);
+      }
+    });
+
+    // Append description text
+    formData.append('description', descriptionText);
+
+    // Append file input
+    if (data.layout_image && data.layout_image[0]) {
+      formData.append('layout_image', data.layout_image[0]);
+    }
+    if (id){
+      formData.append('confirm_project_id', id);
+    }
+
+    apiFetchAddProduct(formData);
+    console.log(data);
+    reset();
+  };
+  const fetchProductType = async ()=> {
+  try {
+    const data = await apiFetchProductType();
+    console.log(data);
+    setProductType(data?.data);
+  } catch (error) {
+    console.log(error);
   }
-  apiFetchAddProduct(data);
-  console.log(data);
  }
+
+ // Fetching Amenities
+ const fetchAmenity = async()=>{
+  try {
+    const data = await apiFetchGetAmenity()
+    setProductAmenity(data);
+  } catch (error) {
+    console.log(error);
+  }
+ }
+ useEffect(() => {
+  fetchProductType();
+  fetchAmenity();
+  }, []);
+
+  
+
+
   return (
     <>
          <div className="container-xxl flex-grow-1 container-p-y">
@@ -77,18 +124,24 @@ const AddProduct = () => {
                       <label>Product Location</label>
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    <div className="form-floating form-floating-outline">
-                      <input type="text" className="form-control" placeholder="Product Segment" required
-                        {...register("segment")}/>
-                      <label>Product Segment</label>
+                  <div className="col-md-6 col-sm-6 col-12">
+                    <div className="form-floating-outline">
+                      <select id="" className="select2 form-select" {...register("segment")}>
+                        <option disabled selected value="">Project Segment</option>
+                        {
+                          product_segment?.map((segment,index)=><option value={segment?.id}>{segment?.name}</option>)
+                        }
+                      </select>
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    <div className="form-floating form-floating-outline">
-                      <input type="text" className="form-control" placeholder="Product Type" required
-                        {...register("type")}/>
-                      <label>Product Type</label>
+                  <div className="col-md-6 col-sm-6 col-12">
+                    <div className="form-floating-outline">
+                      <select id="" className="select2 form-select" {...register("type")}>
+                        <option disabled selected value="">Product type</option>
+                        {
+                          productType?.map((type,index)=><option value={type?.id}>{type?.name}</option>)
+                        }
+                      </select>
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -100,14 +153,14 @@ const AddProduct = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="form-floating form-floating-outline">
-                      <input type="text" className="form-control" placeholder="Product No.s" required
+                      <input type="number" className="form-control" placeholder="Product No.s" required
                         {...register("nos")} />
                       <label>Product No.s</label>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-floating form-floating-outline">
-                      <input type="text" className="form-control" placeholder="Product Area" required
+                      <input type="number" className="form-control" placeholder="Product Area" required
                         {...register("area")} />
                       <label>Product Area</label>
                     </div>
@@ -126,11 +179,14 @@ const AddProduct = () => {
                       <label>Cost</label>
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    <div className="form-floating form-floating-outline">
-                      <input type="text" className="form-control" placeholder="Product Amenity" required
-                        {...register("amenity")} />
-                      <label>Product Amenity</label>
+                  <div className="col-md-6 col-sm-6 col-12">
+                    <div className="form-floating-outline">
+                      <select id="" className="select2 form-select" {...register("amenity")}>
+                        <option disabled selected value="">Product Amenity</option>
+                        {
+                          productAmenity?.map((type,index)=><option value={type?.id}>{type?.name}</option>)
+                        }
+                      </select>
                     </div>
                   </div>
                   <div className="col-12">

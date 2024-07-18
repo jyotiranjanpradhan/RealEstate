@@ -29,4 +29,34 @@ export const apiFetchGetAmenity=async (data)=>{
   } catch (error) {
     console.log(error);
   }
+}
+
+export const apiFetchAddAmenityDetails = async (id) => {
+  // const [_, id] = queryKey; // Destructure to get the id from queryKey
+  try {
+    const response = await axios.get(
+      `${process.env.REACT_APP_URL_BASE}/api/project_add_amenities_handler?confirm_project_id=${id}`
+    );
+    console.log(response);
+    return response.data; // Return the data from the response
+  } catch (error) {
+    console.error("Failed to fetch product details:", error);
+    toast.error("Failed to fetch product details");
+    throw error; // Throw error to handle it in react-query
   }
+};
+
+export const apiFetchAddPaidAmenityDetails = async (id) => {
+  // const [_, id] = queryKey; // Destructure to get the id from queryKey
+  try {
+    const response = await axios.get(
+      `${process.env.REACT_APP_URL_BASE}/api/project_add_paid_amenity_handler?confirm_project_id=${id}`
+    );
+    console.log(response);
+    return response.data; // Return the data from the response
+  } catch (error) {
+    console.error("Failed to fetch product details:", error);
+    toast.error("Failed to fetch product details");
+    throw error; // Throw error to handle it in react-query
+  }
+};

@@ -261,7 +261,7 @@ const App = () => {
               path="/project/projectdetails/:id"
               element={<ProjectDetails />}
             />
-            <Route path="/project/addproduct" element={<AddProduct />} />
+            <Route path="/project/addproduct/:id" element={<AddProduct />} />
             <Route path="/project/addpayment/:id" element={<AddPayment />} />
             <Route path="/project/addAmenity/:id" element={<AddAmenity />} />
             <Route path="/project/addCommission/:id" element={<AddCommission />} />
