@@ -103,6 +103,7 @@ import Village from "./components/BusinessManagement/Location/Village";
 import AreaGram from "./components/BusinessManagement/Location/AreaGram";
 import Pin from "./components/BusinessManagement/Location/Pin";
 import { Toaster } from "react-hot-toast";
+import CompanyInfoDetails from "./components/system admin/CompanyInfoDetails";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -139,6 +140,7 @@ const App = () => {
             <Route path="/rolesRight/moduleForm" element={<Module />} />
             <Route element={<SystemAdmin />}>
               <Route path="systemAdmin/companyInfo" element={<CompanyInfo />} />
+              <Route path="systemAdmin/companyInfoDetails" element={<CompanyInfoDetails />} />
               <Route
                 path="systemAdmin/companyInfoForm"
                 element={<CompanyForm />}
