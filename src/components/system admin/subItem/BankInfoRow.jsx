@@ -8,8 +8,9 @@ function BankInfoRow({ bank }) {
       <td>{bank.account_name}</td>
       <td>{bank.account_no}</td>
       <td>
-        <img src="assets/img/icons/brands/sbi.png" alt="Avatar" />
+        <img src={`${process.env.REACT_APP_URL_BASE}/${bank.bank_logo}`} alt="Avatar" style={{height:60,width:70}}/>
       </td>
+
       <td>
         <a
           href=""

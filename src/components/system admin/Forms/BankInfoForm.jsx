@@ -6,29 +6,26 @@ import { Link } from "react-router-dom";
 
 function BankInfoForm() {
   const { isPending, mutate } = useAddBankInfo();
-  const [componentCount, setComponentCount] = useState(1);
+  const [components, setComponents] = useState([{ id: Date.now() }]);
 
   function addComponent() {
-    setComponentCount(componentCount + 1);
+    setComponents([...components, { id: Date.now() }]);
   }
   const { register, handleSubmit, reset } = useForm();
+
+  function removeComponent(id) {
+    setComponents(components.filter(component => component.id !== id));
+  }
 
   function onSubmit(data) {
     const formData = new FormData();
 
     for (const [key, value] of Object.entries(data)) {
-      if (key === "bank_logo") {
-        if (value && value.length > 0) {
-          formData.append(`${key}`, value[0]); // Only append if `bank_logo` is provided
-        }
-      } else {
-        formData.append(`${key}`, value);
-      }
+      if (key === "bank_logo") formData.append(`${key}`, value[0]);
+      else formData.append(`${key}`, value);
     }
-
     mutate(formData, { onSuccess: () => reset() });
-}
-
+  }
   return (
     <div className="container-xxl flex-grow-1 container-p-y">
       <div className="card-header d-flex justify-content-between align-items-center py-2">
@@ -54,10 +51,13 @@ function BankInfoForm() {
             <h5 className="card-header">Bank Info</h5>
             <div className="card-body">
               <form className="form-repeater" onSubmit={handleSubmit(onSubmit)}>
-                {componentCount &&
-                  Array.from({ length: componentCount }, (_, index) => (
-                    <BankSubForm key={index} register={register} />
-                  ))}
+                {components.map(({ id }) => (
+                  <BankSubForm
+                    key={id}
+                    register={register}
+                    onDelete={() => removeComponent(id)}
+                  />
+                ))}
                 <div className="col-12 d-flex justify-content-between">
                   <button
                     onClick={addComponent}

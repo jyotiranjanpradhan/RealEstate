@@ -7,7 +7,7 @@ const bankAccountType = [
   "NRE",
   "FCNR",
 ];
-function BankSubForm({ register }) {
+function BankSubForm({ register, onDelete }) {
   return (
     <div data-repeater-list="group-a">
       <div data-repeater-item="">
@@ -42,7 +42,7 @@ function BankSubForm({ register }) {
                 className="form-control"
                 type="text"
                 id="IFSC"
-                maxLength="10"
+                maxLength="11"
                 {...register("IFSC")}
                 placeholder="IFSC Code"
               />
@@ -81,7 +81,7 @@ function BankSubForm({ register }) {
                 className="form-control"
                 id="bank_logo"
                 {...register("bank_logo")}
-                //required=""
+                required
               />
               <label for="basic-default-upload-file">Bank Logo</label>
             </div>
@@ -107,8 +107,9 @@ function BankSubForm({ register }) {
           <div className="col-md-4 col-12 d-flex align-items-center mb-0">
             <button
               type="button"
-              className="btn btn-outline-danger waves-effect"
+              className="mb-4P7 btn btn-outline-danger waves-effect"
               data-repeater-delete=""
+              onClick={onDelete}
             >
               <i className="mdi mdi-close me-1"></i>
               <span className="align-middle">Delete</span>
