@@ -49,7 +49,7 @@ const Salary = () => {
                       <div className="col-sm-6">
                         <div className="form-floating form-floating-outline">
                           <input
-                            type="text"
+                            type="number"
                             id="joining_salary"
                             {...register("joining_salary")}
                             className="form-control"
@@ -63,7 +63,7 @@ const Salary = () => {
                       <div className="col-sm-6">
                         <div className="form-floating form-floating-outline">
                           <input
-                            type="text"
+                            type="number"
                             id="ctc"
                             {...register("ctc")}
                             className="form-control"

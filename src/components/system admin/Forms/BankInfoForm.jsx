@@ -17,11 +17,18 @@ function BankInfoForm() {
     const formData = new FormData();
 
     for (const [key, value] of Object.entries(data)) {
-      if (key === "bank_logo") formData.append(`${key}`, value[0]);
-      else formData.append(`${key}`, value);
+      if (key === "bank_logo") {
+        if (value && value.length > 0) {
+          formData.append(`${key}`, value[0]); // Only append if `bank_logo` is provided
+        }
+      } else {
+        formData.append(`${key}`, value);
+      }
     }
+
     mutate(formData, { onSuccess: () => reset() });
-  }
+}
+
   return (
     <div className="container-xxl flex-grow-1 container-p-y">
       <div className="card-header d-flex justify-content-between align-items-center py-2">

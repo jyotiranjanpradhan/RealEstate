@@ -64,6 +64,7 @@ function AddCustomerForm() {
                     type="text"
                     placeholder="Phone No"
                     id="phone"
+                    maxLength={15}
                     disabled={isPending}
                     {...register("phone")}
                   />
@@ -147,7 +148,7 @@ function AddCustomerForm() {
                     disabled={isPending}
                     {...register("present_pincode")}
                     className="form-control"
-                    type="text"
+                    type="number"
                     placeholder="Pincode"
                   />
                 </div>
@@ -219,7 +220,7 @@ function AddCustomerForm() {
                     disabled={isPending}
                     {...register("permanent_pincode")}
                     className="form-control"
-                    type="text"
+                    type="number"
                     placeholder="Pincode"
                   />
                 </div>
@@ -233,7 +234,7 @@ function AddCustomerForm() {
                     disabled={isPending}
                     {...register("age")}
                     className="form-control"
-                    type="text"
+                    type="number"
                     placeholder="Age"
                   />
                 </div>

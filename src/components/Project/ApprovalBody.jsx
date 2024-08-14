@@ -16,6 +16,7 @@ const ApprovalBody = () => {
   const onSubmit = (data) => {
     apiPostApporvalBody(data);
     handleCloseModal(); 
+    fetchApprovalBodyList();
   };
   const fetchApprovalBodyList = async ()=> {
     const data = await apiFetchApporvalBody();

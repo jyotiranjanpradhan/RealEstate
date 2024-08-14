@@ -2,10 +2,14 @@ import React , {useState,useEffect} from 'react'
 import { Modal, Button, Table, Form, Col,Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { apiFetchTax,apiGetTax } from '../../services/Project/apiTax';
+
+
 const Tax = () => {
+  const [update,setUpdate]=useState(true);
   const [taxData,setTaxData]=useState([]);
 
-  const fetchTaxData = async () => {
+  useEffect(()=>{
+    const fetchTaxData = async () => {
       try {
         const data = await apiGetTax();
         setTaxData(data);
@@ -13,8 +17,12 @@ const Tax = () => {
         console.error("Error fetching tax data:", error);
       }
     };
-
     fetchTaxData();
+  
+  }   ,[update])
+
+
+ 
 
 const {register,handleSubmit,reset}=useForm();
 
@@ -26,7 +34,7 @@ const onSubmit=(data)=>{
   apiFetchTax(data);
   reset();
   handleCloseModal()
-  fetchTaxData()
+  setUpdate(!update);
 }
 console.log(taxData);
   return (

@@ -81,7 +81,7 @@ function BankSubForm({ register }) {
                 className="form-control"
                 id="bank_logo"
                 {...register("bank_logo")}
-                required=""
+                //required=""
               />
               <label for="basic-default-upload-file">Bank Logo</label>
             </div>

@@ -62,7 +62,7 @@ function BoardSubForm({ register, deleteComponent }) {
             <div className="form-floating form-floating-outline">
               <input
                 className="form-control"
-                type="text"
+                type="number"
                 id="share"
                 {...register("share")}
                 placeholder="%"
